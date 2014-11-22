@@ -1,0 +1,24 @@
+<?php
+
+
+/*
+ * Get city
+ */
+function realty_get_city() {
+  
+}
+
+/**
+* Form builder for tour search form.
+*/
+function realty_search_form($form, $form_state) {
+
+  $form['city'] = array(
+    '#type'	=> 'select',
+    '#options' => '$city',
+    '#attributes' => array(
+      'class' => array('typeahead form-control tt-hint'),
+    ),
+  );
+  return $form;
+}

@@ -1,0 +1,14 @@
+name = Realty theme
+package = Realty
+core = 7.x
+
+stylesheets[all][] = css/bootstrap.css
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = css/bootstrap.css.map
+stylesheets[all][] = css/bootstrap-theme.css
+stylesheets[all][] = css/font-awesome.css
+stylesheets[all][] = css/bootstrap-theme.css.map
+stylesheets[all][] = css/bootstrap-theme.min.css
+stylesheets[all][] = css/realty_theme.css
+
+scripts[] = js/bootstrap.min.js
