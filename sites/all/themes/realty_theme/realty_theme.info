@@ -2,13 +2,19 @@ name = Realty theme
 package = Realty
 core = 7.x
 
-stylesheets[all][] = css/bootstrap.css
+stylesheets[all][] = css/font-awesome.min.css
 stylesheets[all][] = css/bootstrap.min.css
-stylesheets[all][] = css/bootstrap.css.map
-stylesheets[all][] = css/bootstrap-theme.css
-stylesheets[all][] = css/font-awesome.css
-stylesheets[all][] = css/bootstrap-theme.css.map
-stylesheets[all][] = css/bootstrap-theme.min.css
-stylesheets[all][] = css/realty_theme.css
+stylesheets[all][] = css/bootstrap-responsive.min.css
+stylesheets[all][] = css/bootstrap-override.css
+stylesheets[all][] = css/bootstrap-select.min.css
+stylesheets[print][] = css/fullcalendar.print.css
+stylesheets[all][] = css/fullcalendar.min.css
+stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/flag.css
+stylesheets[all][] = css/exc_theme.css
 
 scripts[] = js/bootstrap.min.js
+scripts[] = js/bootstrap-select.min.js
+scripts[] = js/moment.min.js
+scripts[] = js/fullcalendar.min.js
+scripts[] = js/exc_theme.js

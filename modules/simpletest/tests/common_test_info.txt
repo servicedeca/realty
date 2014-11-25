@@ -1,4 +1,4 @@
-﻿﻿; Test parsing with a simple string.
+; Test parsing with a simple string.
 simple_string = A simple string
 
 ; Test that constants can be used as values.

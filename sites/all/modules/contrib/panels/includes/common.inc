@@ -1,15 +1,3 @@
-  if (preg_match_all('
-    @^(?:\xEF\xBB\xBF)?             # Check for UTF-8 byte order mark and remove it
-    \s*                             # Start at the beginning of a line, ignoring leading whitespace
-  if (preg_match_all('
-    @^(?:\xEF\xBB\xBF)?             # Check for UTF-8 byte order mark and remove it
-    \s*                             # Start at the beginning of a line, ignoring leading whitespace
-  if (preg_match_all('
-    @^(?:\xEF\xBB\xBF)?             # Check for UTF-8 byte order mark and remove it
-    \s*                             # Start at the beginning of a line, ignoring leading whitespace
-  if (preg_match_all('
-    @^(?:\xEF\xBB\xBF)?             # Check for UTF-8 byte order mark and remove it
-    \s*                             # Start at the beginning of a line, ignoring leading whitespace
 <?php
 
 
