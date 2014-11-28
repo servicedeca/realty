@@ -1,0 +1,142 @@
+<?php
+
+/**
+* Process variables for page.tpl.php.
+*/
+function realty_theme_preprocess_page(&$vars) {
+  global $user;
+
+  // Get site logo.
+  $logo = theme('image', array(
+    'path' => theme_get_setting('logo_path'),
+    'alt' => t(variable_get('site_name')),
+    'title' => t(variable_get('site_name')),
+  ));
+  $vars['logo'] = l($logo, '', array('query' => $_GET,
+    'html' => TRUE,
+    'attributes' => array('class' => 'logo',)
+  ));
+
+  // Get user links.
+  if (user_is_logged_in()) {
+    $vars['login_profile'] = l(t('User profile'), "user/$user->uid");
+    $vars['logout_register'] = l(t('Logout'), 'user/logout');
+  }
+  else {
+    $vars['login_profile'] =  l(t('Login'), 'user/login');
+    $vars['logout_register'] = l(t('Register'), 'user/register');
+  }
+}
+
+/**
+ * Preprocess variables for node.
+ */
+function realty_preprocess_node(&$vars, $hook) {
+  $node = $vars['node'];
+  $view_mode = $vars['view_mode'];
+
+  $vars['theme_hook_suggestions'][] = 'node__' . $view_mode;
+  $vars['theme_hook_suggestions'][] = 'node__' . $node->type . '_' . str_replace('-', '_', $view_mode);
+
+  $preprocesses[] = 'realty_preprocess_node__' . $view_mode;
+  $preprocesses[] = 'realty_preprocess_node__' . $node->type;
+  $preprocesses[] = 'realty_preprocess_node__' . $node->type . '_' . str_replace('-', '_', $view_mode);
+
+  foreach ($preprocesses as $preprocess) {
+    if (function_exists($preprocess)) {
+      $preprocess($vars, $hook);
+    }
+  }
+}
+
+/**
+ * Process variables for views-exposed-form.tpl.php.
+ */
+function realty_preprocess_views_exposed_form(&$vars) {
+  if (isset($vars['theme_hook_suggestion'])) {
+    $function = 'realty_preprocess_' . $vars['theme_hook_suggestion'];
+    if (function_exists($function)) {
+      $function($vars);
+    }
+  }
+}
+
+/**
+ * Process variables for views-view.tpl.php.
+ */
+function realty_preprocess_views_view(&$vars) {
+  if (isset($vars['theme_hook_suggestion'])) {
+    $function = 'realty_preprocess_' . $vars['theme_hook_suggestion'];
+    if (function_exists($function)) {
+      $function($vars);
+    }
+  }
+}
+
+/**
+ * Process variables for views-view-unformatted.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted(&$vars) {
+  if (isset($vars['theme_hook_suggestion'])) {
+    $function = 'realty_preprocess_' . $vars['theme_hook_suggestion'];
+    if (function_exists($function)) {
+      $function($vars);
+    }
+  }
+}
+
+/**
+ * Process variables for views-view-fields.tpl.php.
+ */
+function realty_preprocess_views_view_fields(&$vars) {
+  if (isset($vars['theme_hook_suggestion'])) {
+    $function = 'realty_preprocess_' . $vars['theme_hook_suggestion'];
+    if (function_exists($function)) {
+      $function($vars);
+    }
+  }
+}
+
+/**
+ * Process variables for views-view-grid.tpl.php.
+ */
+function realty_preprocess_views_view_grid(&$vars) {
+  if (isset($vars['theme_hook_suggestion'])) {
+    $function = 'realty_preprocess_' . $vars['theme_hook_suggestion'];
+    if (function_exists($function)) {
+      $function($vars);
+    }
+  }
+}
+
+/**
+ * Process variables for views-view-table.tpl.php.
+ */
+function realty_preprocess_views_view_table(&$vars) {
+  if (isset($vars['theme_hook_suggestion'])) {
+    $function = 'realty_preprocess_' . $vars['theme_hook_suggestion'];
+    if (function_exists($function)) {
+      $function($vars);
+    }
+  }
+}
+
+/*
+ * Process variables for views-view-unformatted--term-view--complexes.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__term_view__complexes(&$vars) {
+  foreach($vars['view']->result as $key => $value){
+    $image = theme('image', array(
+        'path' => $value->field_field_main_photo[0]['raw']['uri'],
+        'width' => '300px',
+        'height' => '300px',
+      )
+    );
+    $vars['complex'][] = array(
+      'name' => $value->taxonomy_term_data_name,
+      'developer' => $value->field_field_developer[0]['rendered'],
+      'photo' => l($image, 'taxonomy/term/'.$value->tid, array('html' => TRUE,)),
+      'area' =>$value->field_field_complex_area[0]['rendered'] ,
+    );
+  }
+}
