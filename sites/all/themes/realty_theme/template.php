@@ -125,18 +125,36 @@ function realty_preprocess_views_view_table(&$vars) {
  * Process variables for views-view-unformatted--term-view--complexes.tpl.php.
  */
 function realty_preprocess_views_view_unformatted__term_view__complexes(&$vars) {
-  foreach($vars['view']->result as $key => $value){
+  foreach($vars['view']->result as $value){
     $image = theme('image', array(
         'path' => $value->field_field_main_photo[0]['raw']['uri'],
-        'width' => '300px',
-        'height' => '300px',
+        'width' => '100px',
+        'height' => '100px',
       )
     );
     $vars['complex'][] = array(
-      'name' => $value->taxonomy_term_data_name,
+      'name' =>  l($value->taxonomy_term_data_name, 'taxonomy/term/'.$value->tid, array('html' => TRUE,)),
       'developer' => $value->field_field_developer[0]['rendered'],
       'photo' => l($image, 'taxonomy/term/'.$value->tid, array('html' => TRUE,)),
-      'area' =>$value->field_field_complex_area[0]['rendered'] ,
+      'area' => $value->field_field_complex_area[0]['rendered'],
+      'deadline' => $value->field_field_deadline[0]['raw']['value'],
+    );
+  }
+}
+
+/*
+ * Process variables for views-view-unformatted--term-view--complexes.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__term_view__developers(&$vars) {
+  foreach($vars['view']->result as $value){
+    $logo = theme('image', array(
+        'path' => $value->field_field_developer_logo[0]['raw']['uri'],
+        'width' => '100px',
+        'height' => '100px',
+      )
+    );
+    $vars['developers'][] = array(
+      'logo' => l($logo, 'taxonomy/term/'.$value->tid, array('html' => TRUE,)),
     );
   }
 }
