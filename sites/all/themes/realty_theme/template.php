@@ -158,3 +158,17 @@ function realty_preprocess_views_view_unformatted__term_view__developers(&$vars)
     );
   }
 }
+
+/*
+ * Process variables for views-view-table--apartments--developer-apartment.tpl.php.
+ */
+function realty_preprocess_views_view_table__apartments__developer_apartment(&$vars){
+  $a = 1;
+}
+
+/*
+ * Process variables for views-view-unformatted--term-view--complex.tpl.php
+ */
+function realty_preprocess_views_view_unformatted__term_view__complex(){
+  $a = 1;
+}
