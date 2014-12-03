@@ -3,6 +3,22 @@
  * @file
  */
 
+function realty_get_term($name){
+  $vid = taxonomy_vocabulary_machine_name_load($name);
+  return $terms = taxonomy_get_tree($vid, 0, NULL, TRUE);
+}
+
+/*
+ * Creating a search form.
+ */
+function realty_search_form(){
+  $city_list =
+  $form['city'] =  array(
+    '#type'=>'select',
+    '#options'=>'',
+  );
+}
+
 /**
  * Implements hook_ctools_plugin_directory().
  */
