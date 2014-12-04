@@ -7,10 +7,10 @@
 /**
  * Implements hook_ctools_content_types().
  */
-function realty_complex_slider_ctools_content_types() {
+function realty_apartment_complex_ctools_content_types() {
   return array(
     'single' => TRUE,
-    'title' => t('Complex slider'),
+    'title' => t('Apartment_complex'),
     'all contexts' => TRUE,
     'category' => t('Realty'),
   );
@@ -19,9 +19,9 @@ function realty_complex_slider_ctools_content_types() {
 /**
  * Implements hook_content_type_render().
  */
-function realty_complex_slider_content_type_render($subtype, $conf, $panel_args, $context) {
+function realty_apartment_complex_content_type_render($subtype, $conf, $panel_args, $context) {
   $block = new stdClass();
-  $block->content = views_embed_view('term_view', 'complexes');
+  $block->content = views_embed_view('apartments', 'apartment_complex');
 
   return $block;
 }

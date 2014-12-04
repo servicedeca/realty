@@ -12,7 +12,7 @@ function realty_get_term($name){
  * Creating a search form.
  */
 function realty_search_form(){
-  $city_list =
+  //$city_list =
   $form['city'] =  array(
     '#type'=>'select',
     '#options'=>'',
