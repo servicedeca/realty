@@ -180,3 +180,10 @@ function realty_preprocess_views_view_unformatted__term_view__complex(&$vars){
 function realty_preprocess_views_view_table__apartments__apartment_complex(&$vars){
   $a = 1;
 }
+
+/*
+ * Process variables for views-view-unformatted--apartments--apartment.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__apartments__apartment(){
+  $a = 1;
+}
