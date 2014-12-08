@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Installs smart_ip_smart_ip_ipgeobase_sourcebase_source.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function smart_ip_ipgeobase_source_schema() {
+  $schema['smart_ip_ipgeobase_source_blocks'] = array(
+    'description' => 'Блоки IP адресов',
+    'fields' => array(
+      'rid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'ИД региона',
+      ),
+      'begin' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Начальный адрес блока',
+      ),
+      'end' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Конечный адрес блока',
+      ),
+      'country' => array(
+        'type' => 'char',
+        'length' => 2,
+        'description' => 'Код страны',
+      ),
+    ),
+    'indexes' => array(
+      'rid' => array('rid'),
+      'begin' => array('begin'),
+      'end' => array('end'),
+    ),
+  );
+  $schema['smart_ip_ipgeobase_source_regions'] = array(
+    'description' => 'Регионы для определения IP',
+    'fields' => array(
+      'rid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'ИД региона',
+      ),
+      'city' => array(
+        'type' => 'char',
+        'not null' => TRUE,
+        'length' => 100,
+        'description' => 'Город',
+      ),
+      'subject' => array(
+        'type' => 'char',
+        'not null' => TRUE,
+        'length' => 100,
+        'description' => 'Субъект',
+      ),
+      'fo' => array(
+        'type' => 'char',
+        'not null' => TRUE,
+        'length' => 100,
+        'description' => 'Округ',
+      ),
+      'latitude' => array(
+        'type' => 'float',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Широта',
+      ),
+      'longitude' => array(
+        'type' => 'float',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => 'Долгота',
+      ),
+    ),
+    'indexes' => array(
+      'rid' => array('rid'),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function smart_ip_ipgeobase_source_uninstall() {
+  variable_del('smart_ip_ipgeobase_source_data_source');
+}

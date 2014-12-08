@@ -637,3 +637,7 @@ footer#main-footer h4 {
   margin: 0;
   margin-bottom: 15px;
 }
+
+.modal-content{
+  background: #ffffff;
+}

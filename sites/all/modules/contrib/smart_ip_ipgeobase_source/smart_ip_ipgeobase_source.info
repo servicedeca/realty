@@ -1,0 +1,6 @@
+name = Smart ip ipgeobase.ru source
+description = "Local database source from ipgeobase.ru service"
+core = 7.x
+package = Location
+dependencies[] = smart_ip
+; configure = admin/config/people/smart_ip/sources

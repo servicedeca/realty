@@ -5,6 +5,9 @@
         <div class="row">
           <div class="col-md-8">
             <?php print render($logo); ?>
+            <a class="city-but" href="#mymodal" data-toggle="modal">
+              <?php print $city ?>
+            </a>
           </div>
           <div class="col-md-3">
             <div class="top-user-area clearfix">
@@ -87,4 +90,11 @@
       </div>
     </div>
   </footer>
+</div>
+<div class="modal" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-content">
+    <?php foreach($cities as $city):?>
+      <?php print $city; ?>
+    <?php endforeach ?>
+  </div>
 </div>
