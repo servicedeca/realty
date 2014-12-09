@@ -12,6 +12,18 @@ function realty_init(){
   }
 }
 
+/*
+ * implement hook_menu.
+ */
+function realty_menu(){
+  $item['get_developer_complex'] = array(
+    'title' => 'complex',
+    'page callback' => 'realty_get_developer_complex',
+    'access callback' => TRUE,
+  );
+  return $item;
+}
+
 /**
  * @param $name
  * @return array
@@ -22,6 +34,19 @@ function realty_get_list_city(){
   return $terms = taxonomy_get_tree($vid->vid, 0, NULL, TRUE);
 }
 
+/*
+ *Page callback to /get_developer_complex.
+ */
+function realty_get_developer_complex(){
+  $complexs = realty_get_complex_current_city($_POST['developer'], $_POST['developer']);
+  foreach($complexs as $key => $complex ){
+    print "<option value=". $key .">". $complex ."</option>";
+  }
+}
+
+/**
+ * Get areas the current city
+ */
 function realty_get_areas_current_city(){
 
   $city = menu_get_object('taxonomy_term', 2);
@@ -38,13 +63,60 @@ function realty_get_areas_current_city(){
 }
 
 /**
+ * Get developers the current city
+ */
+function realty_get_developer_current_city(){
+  $city_id = menu_get_object('taxonomy_term', 2);
+  $view = views_get_view('term_view');
+  $view->set_display('developers');
+  $view->pre_execute(array());
+  $view->display_handler->preview();
+  $view->post_execute();
+  $developer_option[$city_id->tid] = 'Any';
+  foreach($view->result as $value) {
+    $developer_option[$value->tid] = $value->_field_data['tid']['entity']->name;
+  }
+  return $developer_option;
+}
+
+/**
+ * Get complex the current city
+ */
+function realty_get_complex_current_city($tid = 0, $city = 0){
+
+  $view = views_get_view('complex');
+  if($tid != 0 && $city == 0) {
+    $view->set_display('complex_developer');
+    $view->display_handler->options['arguments']['tid']['default_argument_options']['argument'] = $tid;
+  }
+  else {
+    $view->set_display('complexs');
+    if($city != 0) {
+      $view->display_handler->options['arguments']['tid']['default_argument_options']['term_page'] = $city;
+    }
+  }
+  $view->pre_execute(array());
+  $view->display_handler->preview();
+  $view->post_execute();
+  foreach($view->result as $value) {
+    $complex_option[$value->nid] = $value->node_title;
+  }
+  return $complex_option;
+}
+
+/**
  * Form builder for search form.
  */
 function realty_search_form($form, $form_state){
   $area_option = realty_get_areas_current_city();
-  $node = new stdClass();
-  $node->type = 'apartament';
-  node_object_prepare($node);
+  $developer_option = realty_get_developer_current_city();
+  $complex_option = realty_get_complex_current_city();
+  $room_option = array(
+    '1'=>'1 комната',
+    '2'=>'2 комнаты',
+    '3'=>'3 комнаты',
+    '4'=>'4 комнаты',
+  );
 
   $form['area'] = array(
     '#type'=>'select',
@@ -61,10 +133,88 @@ function realty_search_form($form, $form_state){
     ),
   );
 
+  $form['room'] = array(
+    '#type'=>'select',
+    '#title'=>'Number of room',
+    '#options'=> $room_option,
+  );
+
+  $form['sq_from'] = array(
+    '#type'=>'textfield',
+    '#title'=>'Sq from',
+    '#attributes'=>array(
+      'size' => 4,
+      'maxlength' => 5,
+    ),
+  );
+
+  $form['sq_to'] = array(
+    '#type'=>'textfield',
+    '#title'=>'Sq to',
+    '#attributes'=>array(
+      'size' => 4,
+      'maxlength' => 5,
+    ),
+  );
+
+  $form['price_from'] = array(
+    '#type'=>'textfield',
+    '#title'=>'Price from',
+    '#attributes'=>array(
+      'size' => 4,
+      'maxlength' => 5,
+    ),
+  );
+
+  $form['price_to'] = array(
+    '#type'=>'textfield',
+    '#title'=>'Price to',
+    '#attributes'=>array(
+      'size' => 4,
+      'maxlength' => 5,
+    ),
+  );
+
+  $form['parking'] = array(
+    '#type'=>'checkbox',
+    '#title'=>'Parking',
+  );
+
+  $form['coast_from'] = array(
+    '#type'=>'textfield',
+    '#title'=>'Coast from',
+    '#attributes'=>array(
+      'size' => 7,
+      'maxlength' => 10,
+    ),
+  );
+
+  $form['coast_to'] = array(
+    '#type'=>'textfield',
+    '#title'=>'Coast to',
+    '#attributes'=>array(
+      'size' => 7,
+      'maxlength' => 10,
+    ),
+  );
+
+  $form['developer'] = array(
+    '#type'=>'select',
+    '#title'=>'Developer',
+    '#options'=> $developer_option,
+  );
+
+  $form['complex'] = array(
+    '#type'=>'select',
+    '#title'=>'Complex',
+    '#options'=> $complex_option,
+  );
+
   $form['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Reserve'),
   );
+
   $form['#theme'][] = 'search_form';
   return $form;
 }

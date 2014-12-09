@@ -32,4 +32,33 @@ Drupal.behaviors.toursRangeSlider = {
   })
 };
 
+  Drupal.behaviors.realtySelectcomplex = {
+    attach: $(function () {
+      if( $('select[name="complex"]') == null) {
+        complex_select();
+      }
+      $("#edit-developer").change(function () {
+        complex_select();
+      });
+      function complex_select(){
+        var complexSelect = $('select[name="complex"]');
+        var developerSelect = $('select[name="developer"]');
+        $.ajax({
+          url: '/get_developer_complex',
+          type: 'POST',
+          data: {
+            developer: developerSelect.val()
+          },
+          success: function(response) {
+            complexSelect.html('');
+            complexSelect.append(response);
+          },
+          error: function(response) {
+            alert('false');
+          }
+        });
+      }
+    })
+  };
+
 }(jQuery));
