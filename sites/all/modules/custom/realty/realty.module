@@ -45,7 +45,7 @@ function realty_search_form($form, $form_state){
   $node = new stdClass();
   $node->type = 'apartament';
   node_object_prepare($node);
-
+  $a = 1;
   $form['area'] = array(
     '#type'=>'select',
     '#title'=>'Area',
