@@ -1,1 +1,1 @@
-<?php print render($search_form) ?>
+<?php print render($search_form);?>

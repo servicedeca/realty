@@ -31,27 +31,65 @@ Drupal.behaviors.toursRangeSlider = {
     });
   })
 };
+ Drupal.behaviors.realtyMultyselect = {
+   attach: $(function() {
+     $('#area').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
+     $('#masonry').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
+     $('#room').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
+     $('#developer').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
+     $('#complex').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
+   })
+  };
+
 
   Drupal.behaviors.realtySelectcomplex = {
     attach: $(function () {
-      if( $('select[name="complex"]') == null) {
-        complex_select();
-      }
-      $("#edit-developer").change(function () {
-        complex_select();
+      //if( $('select[name="complex"]') == ) {
+      //  complex_select();
+      //}
+      $("#developer").change(function () {
+        complex_select($(this).val());
       });
-      function complex_select(){
+      function complex_select(devid){
+        var city = $('input[name="city"]');
         var complexSelect = $('select[name="complex"]');
         var developerSelect = $('select[name="developer"]');
+        console.log(developerSelect);
         $.ajax({
           url: '/get_developer_complex',
           type: 'POST',
           data: {
-            developer: developerSelect.val()
+            developer: devid,
+            city: city.val()
           },
           success: function(response) {
+            var object = jQuery.parseJSON(response);
             complexSelect.html('');
+            complexSelect.html(object.option);
+
             complexSelect.append(response);
+            $('.form-item-complex .ms-parent ul').html('');
+            $('.form-item-complex .ms-parent ul').html(object.li);
           },
           error: function(response) {
             alert('false');

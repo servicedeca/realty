@@ -27,7 +27,6 @@ function realty_theme_preprocess_page(&$vars) {
     $vars['logout_register'] = l(t('Register'), 'user/register');
   }
   $term = menu_get_object('taxonomy_term',2);
-
   $vars['city'] = $term->name;
   foreach(realty_get_list_city() as $city) {
     $vars['cities'][] = l($city->name, 'taxonomy/term/'.$city->tid);
@@ -173,23 +172,39 @@ function realty_preprocess_views_view_table__apartments__developer_apartment(&$v
   $a = 1;
 }
 
-/*
+/**
  * Process variables for views-view-unformatted--term-view--complex.tpl.php
  */
 function realty_preprocess_views_view_unformatted__term_view__complex(&$vars){
   $a = 1;
 }
 
-/*
+/**
  * Process variables for views-view-table--apartments--apartment-complex.tpl.php.
  */
 function realty_preprocess_views_view_table__apartments__apartment_complex(&$vars){
   $a = 1;
 }
 
-/*
+/**
  * Process variables for views-view-unformatted--apartments--apartment.tpl.php.
  */
-function realty_preprocess_views_view_unformatted__apartments__apartment(){
+function realty_preprocess_views_view_unformatted__apartments__apartment(&$vars){
   $a = 1;
+}
+
+/**
+ * Process variables for views-view--apartments--result-search.tpl.php.
+ */
+function realty_preprocess_views_view_table__apartments__result_search(&$vars){
+  $a = 1;
+}
+
+/**
+ * Process variables for search-form.tpl.php
+ */
+function realty_preprocess_search_form(&$vars){
+  $a = 1;
+  $vars['area'] = $vars['form']['area'];
+  $vars['submit'] = $vars['form']['submit'];
 }

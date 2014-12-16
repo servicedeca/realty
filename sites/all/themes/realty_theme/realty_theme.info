@@ -11,8 +11,10 @@ stylesheets[all][] = css/bootstrap-theme.css.map
 stylesheets[all][] = css/bootstrap-theme.min.css
 stylesheets[all][] = css/owl.carousel.css
 stylesheets[all][] = css/owl.theme.css
+stylesheets[all][] = css/multiple-select.css
 stylesheets[all][] = css/realty_theme.css
 
 scripts[] = js/bootstrap.min.js
 scripts[] = js/owl.carousel.js
+scripts[] = js/jquery.multiple.select.js
 scripts[] = js/realty_theme.js
