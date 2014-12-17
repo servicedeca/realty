@@ -58,6 +58,11 @@ Drupal.behaviors.toursRangeSlider = {
      }).multipleSelect({
        width: '200px'
      });
+     $('#quarter').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
    })
   };
 

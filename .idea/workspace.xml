@@ -2,18 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/iamges/multiple-select.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/jquery.multiple.select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/multiple-select.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/search-form.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_result/search_result.inc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/node/views-view-table--apartments--result-search.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/vladimir.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_form/realty-search-form.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_form/realty-search-form.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_left/sidebar_left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_right/sidebar_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_left/sidebar-left.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_right/sidebar-right.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_left/sidebar_left.inc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_right/sidebar_right.inc" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/contrib/smart_ip_ipgeobase_source/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/contrib/smart_ip_ipgeobase_source/base/.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/contrib/smart_ip_ipgeobase_source/base/ipgeo_blocks.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/contrib/smart_ip_ipgeobase_source/base/ipgeo_regions.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/contrib/smart_ip_ipgeobase_source/smart_ip_ipgeobase_source.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/contrib/smart_ip_ipgeobase_source/smart_ip_ipgeobase_source.install" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/contrib/smart_ip_ipgeobase_source/smart_ip_ipgeobase_source.module" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/realty_theme.info" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/realty_theme.info" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_result/search_result.inc" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_result/search_result.inc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="realty.iws" />
@@ -37,23 +41,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="realty.module" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="realty.module" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="322" column="8" selection-start="8231" selection-end="8231" vertical-scroll-proportion="0.63414633" vertical-offset="4488" max-vertical-offset="5160">
+            <state line="308" column="63" selection-start="8015" selection-end="8015" vertical-scroll-proportion="-15.5" vertical-offset="4218" max-vertical-offset="5265">
               <folding>
-                <marker date="1418646386966" expanded="true" signature="1068:1134" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1068:1147" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1068:1165" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1080:1134" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1334:1480" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1334:1421" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1334:1413" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1334:1386" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1334:1377" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1334:1393" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1334:1424" placeholder="..." />
-                <marker date="1418646386966" expanded="true" signature="1334:1445" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1105:1171" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1105:1184" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1105:1202" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1117:1171" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1371:1517" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1371:1458" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1371:1450" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1371:1423" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1371:1414" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1371:1430" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1371:1461" placeholder="..." />
+                <marker date="1418817342814" expanded="true" signature="1371:1482" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -71,10 +75,37 @@
       <file leaf-file-name="search_result.inc" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_result/search_result.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="3410" selection-end="3410" vertical-scroll-proportion="-8.625" vertical-offset="1143" max-vertical-offset="1635">
+            <state line="106" column="0" selection-start="4141" selection-end="4141" vertical-scroll-proportion="-66.25" vertical-offset="0" max-vertical-offset="1860">
               <folding>
                 <element signature="e#6#58#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar_left.inc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_left/sidebar_left.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="315">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar-left.tpl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_left/sidebar-left.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="6" selection-start="143" selection-end="143" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="435">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar-right.tpl.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_right/sidebar-right.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="492">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,7 +140,7 @@
       <file leaf-file-name="realty_theme.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="6" selection-start="2787" selection-end="2787" vertical-scroll-proportion="-17.703703" vertical-offset="992" max-vertical-offset="1605">
+            <state line="60" column="16" selection-start="1667" selection-end="1667" vertical-scroll-proportion="-14.777778" vertical-offset="501" max-vertical-offset="1680">
               <folding />
             </state>
           </provider>
@@ -136,8 +167,8 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_form/realty-search-form.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_result/search_result.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_result/search_result.inc" />
       </list>
     </option>
   </component>
@@ -452,53 +483,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="content_types" />
+              <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="search_result" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="realty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="realty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sites" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="custom" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="realty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content_types" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="search_form" />
+              <option name="myItemId" value="sidebar_right" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -536,7 +525,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="content_types" />
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -555,6 +578,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins" />
       <recent name="$PROJECT_DIR$/sites/all/themes/realty_theme/iamges" />
       <recent name="$PROJECT_DIR$/sites/all/themes/realty_theme/js" />
       <recent name="$PROJECT_DIR$/sites/all/themes/realty_theme/css" />
@@ -587,7 +611,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="43" y="-4" width="1877" height="1084" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -595,7 +619,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25504088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25504088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39829606" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -644,7 +668,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="171" />
+      <option name="time" value="176" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -652,18 +676,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="130" column="0" selection-start="3284" selection-end="3357" vertical-scroll-proportion="0.0" vertical-offset="1950" max-vertical-offset="4140">
           <folding>
-            <marker date="1418646386966" expanded="true" signature="1068:1134" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1068:1147" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1068:1165" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1080:1134" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1480" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1421" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1413" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1386" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1377" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1393" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1424" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1445" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1105:1171" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1105:1184" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1105:1202" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1117:1171" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1517" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1458" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1450" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1423" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1414" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1430" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1461" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1482" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -709,18 +733,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="23" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3570">
           <folding>
-            <marker date="1418646386966" expanded="true" signature="1068:1134" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1068:1147" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1068:1165" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1080:1134" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1480" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1421" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1413" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1386" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1377" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1393" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1424" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1445" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1105:1171" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1105:1184" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1105:1202" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1117:1171" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1517" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1458" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1450" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1423" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1414" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1430" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1461" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1482" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -809,13 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="6" selection-start="2787" selection-end="2787" vertical-scroll-proportion="-17.703703" vertical-offset="992" max-vertical-offset="1605">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="195" column="3" selection-start="5562" selection-end="5562" vertical-scroll-proportion="-30.041666" vertical-offset="2204" max-vertical-offset="3225">
@@ -844,32 +861,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="16" selection-start="1667" selection-end="1667" vertical-scroll-proportion="-14.777778" vertical-offset="501" max-vertical-offset="1680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="308" column="63" selection-start="8015" selection-end="8015" vertical-scroll-proportion="-15.5" vertical-offset="4218" max-vertical-offset="5265">
+          <folding>
+            <marker date="1418817342814" expanded="true" signature="1105:1171" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1105:1184" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1105:1202" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1117:1171" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1517" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1458" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1450" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1423" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1414" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1430" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1461" placeholder="..." />
+            <marker date="1418817342814" expanded="true" signature="1371:1482" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/share/php/drush/drush.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="156" selection-end="156" vertical-scroll-proportion="0.1565762" vertical-offset="0" max-vertical-offset="2625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_result/search_result.inc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="3410" selection-end="3410" vertical-scroll-proportion="-8.625" vertical-offset="1143" max-vertical-offset="1635">
+        <state line="106" column="0" selection-start="4141" selection-end="4141" vertical-scroll-proportion="-66.25" vertical-offset="0" max-vertical-offset="1860">
           <folding>
             <element signature="e#6#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_left/sidebar_left.inc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="322" column="8" selection-start="8231" selection-end="8231" vertical-scroll-proportion="0.63414633" vertical-offset="4488" max-vertical-offset="5160">
-          <folding>
-            <marker date="1418646386966" expanded="true" signature="1068:1134" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1068:1147" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1068:1165" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1080:1134" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1480" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1421" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1413" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1386" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1377" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1393" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1424" placeholder="..." />
-            <marker date="1418646386966" expanded="true" signature="1334:1445" placeholder="..." />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_left/sidebar-left.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="6" selection-start="143" selection-end="143" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/layouts/sidebar_right/sidebar-right.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="516">
+          <folding />
         </state>
       </provider>
     </entry>

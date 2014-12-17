@@ -7,8 +7,10 @@
  * implement hook_init.
  */
 function realty_init(){
-  if(current_path() == '<front>'){
-    drupal_goto('taxonomy/term/1');
+  if(current_path() == '<front>') {
+    if (!drupal_is_cli()) {
+      drupal_goto('taxonomy/term/1');
+    }
   }
 }
 
@@ -151,7 +153,6 @@ function realty_search_form($form, $form_state){
     '4'=>'4 комнаты',
   );
   $quarter_option = array(
-    '0' => t('any'),
     '1' => '1 квартал',
     '2' => '2 квартал',
     '3' =>'3 квартал',
@@ -303,7 +304,13 @@ function realty_search_form($form, $form_state){
   $form['quarter'] = array(
     '#type'=>'select',
     '#title'=>'Quarter',
+    '#name'=>'quarter[]',
     '#options'=> $quarter_option,
+    '#default_value' =>isset($_GET['quarter']) ? $_GET['quarter'] : 0,
+    '#attributes' => array(
+      'id' => 'quarter',
+      'multiple' => 'multiple',
+    ),
   );
 
   $form['year'] = array(

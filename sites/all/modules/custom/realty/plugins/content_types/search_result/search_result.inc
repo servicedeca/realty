@@ -95,6 +95,21 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
   else {
     $view->display_handler->options['filters']['field_complex_developer_tid'];
   }
+  if(isset($_GET['selectAllquarter']) || !isset($_GET['quarter'])) {
+    unset($view->display_handler->options['filters']['field_quarter_value']['value']);
+  }
+  else {
+    unset($view->display_handler->options['filters']['field_quarter_value']['value']);
+    foreach($_GET['quarter'] as $value) {
+      $view->display_handler->options['filters']['field_quarter_value']['value'][$value] = $value;
+    }
+  }
+  if(empty($_GET['year']) && empty($_GET['year'])) {
+    unset($view->display_handler->options['filters']['field_year_value']);
+  }
+  else {
+    $view->display_handler->options['filters']['field_year_value']['value']['value'] = $_GET['year'];
+  }
   $view->pre_execute(array());
   $block->content = $view->display_handler->preview();
   $view->post_execute();
