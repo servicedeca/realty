@@ -31,11 +31,27 @@ function realty_menu(){
  */
 
 function realty_theme() {
+  $base = array(
+    'file' => 'theme.inc',
+    'path' => drupal_get_path('module', 'realty') . '/theme',
+  );
 
   $items['search_form'] = array(
     'template' => 'search-form',
     'render element' => 'form',
   );
+
+  $items['realty_user_menu'] = array(
+    'template' => 'realty-user-menu',
+    'variables' => array(
+      'account' => NULL,
+    ),
+  );
+
+  $items['realty_profile_form'] = $base + array(
+      'template' => 'realty-profile-form',
+      'render element' => 'form',
+    );
 
   return $items;
 }
@@ -345,4 +361,11 @@ function realty_ctools_plugin_directory($owner, $plugin_type) {
   if ($owner == 'ctools' && $plugin_type == 'content_types') {
     return "plugins/content_types";
   }
+}
+
+/**
+ * Draw user menu.
+ */
+function realty_user_menu($account) {
+  return theme('realty_user_menu', array('account' => $account));
 }

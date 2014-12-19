@@ -204,7 +204,21 @@ function realty_preprocess_views_view_table__apartments__result_search(&$vars){
  * Process variables for search-form.tpl.php
  */
 function realty_preprocess_search_form(&$vars){
-  $a = 1;
   $vars['area'] = $vars['form']['area'];
   $vars['submit'] = $vars['form']['submit'];
+}
+
+/**
+ * Process variables for realty-user-menu.tpl.php.
+ */
+function realty_theme_preprocess_realty_user_menu(&$vars) {
+  $account = $vars['account'];
+  $uid = $account->uid;
+
+  $vars['menu'] = array(
+    'profile' => l(t('Profile'), "user/$uid"),
+    'payment_info' => l(t('Payment information'), "user/$uid/payment"),
+    'comparison' => l(t('Comparison'), ""),
+    'apartment' => l(t('Apartment'), ""),
+  );
 }

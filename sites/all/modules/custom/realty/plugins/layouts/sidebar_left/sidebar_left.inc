@@ -8,7 +8,7 @@
 
 // Plugin definition
 $plugin = array(
-  'category' => t('Excur'),
+  'category' => t('Realty'),
   'title' => t('Top, center, left sidebar'),
   'icon' => 'sidebar_left.png',
   'theme' => 'sidebar-left',

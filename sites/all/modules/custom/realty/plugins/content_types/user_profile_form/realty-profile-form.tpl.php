@@ -1,0 +1,1 @@
+<?php print render($profile_form)?>
