@@ -24,7 +24,8 @@ function realty_user_profile_form_content_type_render($subtype, $conf, $panel_ar
   $account = reset($context)->data;
 
   $block = new stdClass();
-  $block->content = theme('realty_profile_form');
+  module_load_include('pages.inc', 'user');
+  $block->content = drupal_get_form('user_profile_form', $account);
 
   return $block;
 }
@@ -40,13 +41,4 @@ function realty_user_profile_form_content_type_theme(&$theme, $plugin) {
       'account' => NULL,
     ),
   );
-}
-
-/**
- * Process variables for realty-search-form.tpl.php.
- */
-function template_preprocess_realty_profile_form(&$vars) {
-  $user = $vars['user'];
-  module_load_include('pages.inc', 'user');
-  $vars['profile_form'] = drupal_get_form('user_profile_form', $user);
 }

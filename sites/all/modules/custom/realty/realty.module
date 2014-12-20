@@ -49,11 +49,23 @@ function realty_theme() {
   );
 
   $items['realty_profile_form'] = $base + array(
+    'template' => 'realty-profile-form',
+    'render element' => 'form',
+  );
+
+  return $items;
+}
+
+function realty_theme_alter(&$items) {
+  $base = array(
+    'file' => 'theme.inc',
+    'path' => drupal_get_path('module', 'realty') . '/theme',
+  );
+
+  $items['user_profile_form'] = $base + array(
       'template' => 'realty-profile-form',
       'render element' => 'form',
     );
-
-  return $items;
 }
 
 /**
@@ -64,6 +76,10 @@ function realty_theme() {
 function realty_get_list_city(){
   $vid = taxonomy_vocabulary_machine_name_load('cities');
   return $terms = taxonomy_get_tree($vid->vid, 0, NULL, TRUE);
+}
+
+function realty_form_user_profile_form_alter(&$form, &$form_id) {
+//  $form['#theme'][0] = 'realty_profile_form';
 }
 
 /*
@@ -85,13 +101,13 @@ function realty_get_developer_complex(){
                         ".$complex."</label></li>";
   }
   print json_encode($select);
+  drupal_exit();
 }
 
 /**
  * Get areas the current city
  */
 function realty_get_areas_current_city(){
-
   $city = menu_get_object('taxonomy_term', 2);
   $city != null ? $city_tid = $city->tid : $city_tid = $_GET['city'];
   $view = views_get_view('search');
@@ -100,9 +116,11 @@ function realty_get_areas_current_city(){
   $view->pre_execute(array());
   $view->display_handler->preview();
   $view->post_execute();
+
   foreach($view->result as $value) {
     $area_option[$value->tid] = $value->taxonomy_term_data_name;
   }
+
   return $area_option;
 }
 
