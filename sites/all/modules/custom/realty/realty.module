@@ -18,9 +18,16 @@ function realty_init(){
  * implement hook_menu.
  */
 function realty_menu(){
+
   $item['get_developer_complex'] = array(
     'title' => 'complex',
     'page callback' => 'realty_get_developer_complex',
+    'access callback' => TRUE,
+  );
+
+  $item['get_id_apartment'] = array(
+    'title' => 'complex',
+    'page callback' => 'realty_get_id_apartment',
     'access callback' => TRUE,
   );
   return $item;
@@ -48,38 +55,45 @@ function realty_theme() {
     ),
   );
 
-  $items['realty_profile_form'] = $base + array(
-    'template' => 'realty-profile-form',
+  $items['realty_user_profile_form'] = $base + array(
+    'template' => 'realty-user-profile-form',
     'render element' => 'form',
   );
 
   return $items;
 }
 
-function realty_theme_alter(&$items) {
-  $base = array(
-    'file' => 'theme.inc',
-    'path' => drupal_get_path('module', 'realty') . '/theme',
-  );
-
-  $items['user_profile_form'] = $base + array(
-      'template' => 'realty-profile-form',
-      'render element' => 'form',
-    );
-}
-
-/**
- * @param $name
- * @return array
- */
-
 function realty_get_list_city(){
   $vid = taxonomy_vocabulary_machine_name_load('cities');
   return $terms = taxonomy_get_tree($vid->vid, 0, NULL, TRUE);
 }
 
+/**
+ * Implement hook form_alter.
+ */
 function realty_form_user_profile_form_alter(&$form, &$form_id) {
-//  $form['#theme'][0] = 'realty_profile_form';
+  global $user;
+
+  if($user->uid != 1) {
+    $form['#theme'][0] = 'realty_user_profile_form';
+  }
+}
+
+/**
+ * Page callback to /get_id_apartment.
+ */
+function realty_get_id_apartment(){
+  global $user;
+
+  $account = user_load($user->uid);
+  $node = node_load($_POST['nid']);
+  foreach($account->field_received_id['und'] as $val) {
+    if($val['target_id'] == $node->nid ) {
+      break;
+    }
+  }
+  user_save($account);
+  return 0;
 }
 
 /*

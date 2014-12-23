@@ -5,8 +5,12 @@
  */
 
 /**
- * Preprocess for excur-profile-form.tpl.php.
+ * Preprocess for realty-user-profile-form.tpl.php.
  */
-function realty_preprocess_realty_profile_form(&$vars) {
+function realty_preprocess_realty_user_profile_form(&$vars) {
   $a = 1;
+  unset($vars['form']['timezone']);
+  unset($vars['form']['metatags']);
+  unset($vars['form']['locale']);
+
 }
