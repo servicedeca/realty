@@ -14,3 +14,10 @@ function realty_preprocess_realty_user_profile_form(&$vars) {
   unset($vars['form']['locale']);
 
 }
+
+/**
+ * Preprocess for realty-id-apartment-pdf.tpl.php.
+ */
+function realty_preprocess_realty_id_apartment_pdf(&$vars) {
+  $a = 1;
+}

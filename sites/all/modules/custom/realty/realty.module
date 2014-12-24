@@ -30,6 +30,7 @@ function realty_menu(){
     'page callback' => 'realty_get_id_apartment',
     'access callback' => TRUE,
   );
+
   return $item;
 }
 
@@ -38,6 +39,7 @@ function realty_menu(){
  */
 
 function realty_theme() {
+
   $base = array(
     'file' => 'theme.inc',
     'path' => drupal_get_path('module', 'realty') . '/theme',
@@ -60,9 +62,20 @@ function realty_theme() {
     'render element' => 'form',
   );
 
+  $items['id_apartment_pdf'] = array(
+    'file' => 'theme.inc',
+    'path' => drupal_get_path('module', 'realty') . '/theme',
+    'variables' => array(
+    ),
+    'template' => 'realty-id-apartment-pdf',
+  );
+
   return $items;
 }
 
+/**
+ * List all cities.
+ */
 function realty_get_list_city(){
   $vid = taxonomy_vocabulary_machine_name_load('cities');
   return $terms = taxonomy_get_tree($vid->vid, 0, NULL, TRUE);
@@ -87,33 +100,47 @@ function realty_get_id_apartment(){
 
   $account = user_load($user->uid);
   $node = node_load($_POST['nid']);
+  $flag = 0;
   foreach($account->field_received_id['und'] as $val) {
     if($val['target_id'] == $node->nid ) {
+      $flag = 1;
       break;
     }
   }
-  user_save($account);
-  return 0;
+  if($flag != 1) {
+    array_push($account->field_received_id['und'], array('target_id'=>$node->nid));
+    user_save($account);
+  }
+  realty_generation_pdf_apartment($node);
+  drupal_exit();
 }
 
 /*
  *Page callback to /get_developer_complex.
  */
-function realty_get_developer_complex(){
+function realty_get_developer_complex() {
+
   foreach($_POST['developer'] as $value) {
     $developer_id[] = $value;
   }
   $complexs = realty_get_complex_current_city($developer_id, $_POST['city']);
+
   $select['li'][] = "<li class='ms-select-all'>
-    <label>
-      <input type='checkbox' name='selectAllcomplex'>[Выбрать все]</label>
+      <label>
+          <input type='checkbox' name='selectAllcomplex'>[Выбрать все]
+      </label>
     </li>";
+
   foreach($complexs as $key => $complex ) {
     $select['option'][] = "<option value=". $key .">". $complex ."</option>";
     $select['li'][] = "<li class='selected'>
-                       <label><input type='checkbox' name='selectItemdeveloper' value=".$key.">
-                        ".$complex."</label></li>";
+        <label>
+          <input type='checkbox' name='selectItemdeveloper' value=".$key.">
+          ".$complex."
+        </label>
+      </li>";
   }
+
   print json_encode($select);
   drupal_exit();
 }
@@ -121,7 +148,8 @@ function realty_get_developer_complex(){
 /**
  * Get areas the current city
  */
-function realty_get_areas_current_city(){
+function realty_get_areas_current_city() {
+
   $city = menu_get_object('taxonomy_term', 2);
   $city != null ? $city_tid = $city->tid : $city_tid = $_GET['city'];
   $view = views_get_view('search');
@@ -134,6 +162,8 @@ function realty_get_areas_current_city(){
   foreach($view->result as $value) {
     $area_option[$value->tid] = $value->taxonomy_term_data_name;
   }
+
+  isset($area_option) ?  : $area_option = null;
 
   return $area_option;
 }
@@ -153,6 +183,9 @@ function realty_get_developer_current_city(){
   foreach($view->result as $value) {
     $developer_option[$value->tid] = $value->_field_data['tid']['entity']->name;
   }
+
+  isset($developer_option) ?  : $developer_option = null;
+
   return $developer_option;
 }
 
@@ -183,32 +216,72 @@ function realty_get_complex_current_city($developers = null, $city_tid = null){
   foreach($view->result as $value) {
     $complex_option[$value->nid] = $value->node_title;
   }
+
+  isset($complex_option) ?  : $complex_option = null;
+
   return $complex_option;
+}
+
+/**
+ * Generate pdf file id apartments.
+ */
+function realty_generation_pdf_apartment($node) {
+  $html = theme('id_apartment_pdf', array());
+  $error = FALSE;
+
+  if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
+    $pdf = new WkHtmlToPdf;
+    $file_path = file_directory_temp() . '/' . time() . '.html';
+    if (file_put_contents($file_path, $html)) {
+      $pdf->addPage($file_path);
+      if (!$pdf->send("id_apartment-$node->nid.pdf")) {
+        $error = TRUE;
+      }
+      unlink($file_path);
+    }
+    else {
+      $error = TRUE;
+    }
+  }
+  else {
+    $error = TRUE;
+  }
+
+  if ($error) {
+    print $html;
+  }
+
+  drupal_exit();
 }
 
 /**
  * Form builder for search form.
  */
-function realty_search_form($form, $form_state){
+function realty_search_form($form, $form_state) {
+
   $area_option = realty_get_areas_current_city();
   $developer_option = realty_get_developer_current_city();
   $complex_option = realty_get_complex_current_city();
   $city = menu_get_object('taxonomy_term', 2);
+
   $room_option = array(
     '1'=>'1 комната',
     '2'=>'2 комнаты',
     '3'=>'3 комнаты',
     '4'=>'4 комнаты',
   );
+
   $quarter_option = array(
     '1' => '1 квартал',
     '2' => '2 квартал',
     '3' =>'3 квартал',
     '4' =>'4 квартал',
   );
+
   $masonry_option = array(
     '1' => 'Кирпич',
   );
+
   $form['city'] = array(
     '#type' => 'hidden',
     '#title' => 'city',
@@ -399,5 +472,6 @@ function realty_ctools_plugin_directory($owner, $plugin_type) {
  * Draw user menu.
  */
 function realty_user_menu($account) {
+
   return theme('realty_user_menu', array('account' => $account));
 }

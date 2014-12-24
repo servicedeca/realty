@@ -218,6 +218,6 @@ function realty_theme_preprocess_realty_user_menu(&$vars) {
   $vars['menu'] = array(
     'profile' => l(t('Profile'), "user/$uid"),
     'comparison' => l(t('Comparison'), ""),
-    'apartment' => l(t('Apartment'), ""),
+    'apartment' => l(t('Apartment'), "user/$uid/apartment"),
   );
 }
