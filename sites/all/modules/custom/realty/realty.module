@@ -100,15 +100,18 @@ function realty_get_id_apartment(){
 
   $account = user_load($user->uid);
   $node = node_load($_POST['nid']);
-  $flag = 0;
-  foreach($account->field_received_id['und'] as $val) {
-    if($val['target_id'] == $node->nid ) {
-      $flag = 1;
-      break;
+  $flag = FALSE;
+  if (!empty($account->field_received_id[LANGUAGE_NONE])) {
+    foreach ($account->field_received_id[LANGUAGE_NONE] as $val) {
+      if ($val['target_id'] == $node->nid ) {
+        $flag = TRUE;
+        break;
+      }
     }
   }
-  if($flag != 1) {
-    array_push($account->field_received_id['und'], array('target_id'=>$node->nid));
+
+  if ($flag == FALSE) {
+    array_push($account->field_received_id[LANGUAGE_NONE], array('target_id' => $node->nid));
     user_save($account);
   }
   realty_generation_pdf_apartment($node);
@@ -228,13 +231,15 @@ function realty_get_complex_current_city($developers = null, $city_tid = null){
 function realty_generation_pdf_apartment($node) {
   $html = theme('id_apartment_pdf', array());
   $error = FALSE;
+  $html = 'azza';
 
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $pdf = new WkHtmlToPdf;
     $file_path = file_directory_temp() . '/' . time() . '.html';
     if (file_put_contents($file_path, $html)) {
       $pdf->addPage($file_path);
-      if (!$pdf->send("id_apartment-$node->nid.pdf")) {
+
+      if (!$pdf->saveAs("sites/defaulf//id_apartment-$node->nid.pdf")) {
         $error = TRUE;
       }
       unlink($file_path);
