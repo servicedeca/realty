@@ -212,12 +212,12 @@ function realty_preprocess_search_form(&$vars){
  * Process variables for realty-user-menu.tpl.php.
  */
 function realty_theme_preprocess_realty_user_menu(&$vars) {
-  $account = $vars['account'];
-  $uid = $account->uid;
+  global $user;
+  $uid = $user->uid;
 
   $vars['menu'] = array(
     'profile' => l(t('Profile'), "user/$uid"),
-    'comparison' => l(t('Comparison'), ""),
-    'apartment' => l(t('Apartment'), "user/$uid/apartment"),
+    'comparison' => l(t('Comparison'), "comparison"),
+    'apartment' => l(t('Apartment'), "apartment_id"),
   );
 }
