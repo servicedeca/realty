@@ -245,7 +245,7 @@ function realty_generation_pdf_apartment($node) {
     if (file_put_contents($file_path, $html)) {
       $pdf->addPage($file_path);
 
-      if (!$pdf->saveAS("/id_apartment-$node->nid.pdf")) {
+      if (!$pdf->saveAS("/var/www/files/pdf/id_apartment-$node->nid.pdf")) {
         $error = TRUE;
       }
       unlink($file_path);
