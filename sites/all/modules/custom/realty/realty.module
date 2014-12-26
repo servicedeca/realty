@@ -95,27 +95,33 @@ function realty_form_user_profile_form_alter(&$form, &$form_id) {
 /**
  * Page callback to /get_id_apartment.
  */
-function realty_get_id_apartment(){
+function realty_get_id_apartment()
+{
   global $user;
 
   $account = user_load($user->uid);
   $node = node_load($_POST['nid']);
   $flag = FALSE;
-  if (!empty($account->field_received_id[LANGUAGE_NONE])) {
+  if (isset($account->field_received_id)) {
+    if (!isset($account->field_received_id[LANGUAGE_NONE])) {
+      $account->field_received_id = array(
+        LANGUAGE_NONE => array(),
+      );
+    }
     foreach ($account->field_received_id[LANGUAGE_NONE] as $val) {
-      if ($val['target_id'] == $node->nid ) {
+      if ($val['target_id'] == $node->nid) {
         $flag = TRUE;
         break;
       }
     }
-  }
 
-  if ($flag == FALSE) {
-    array_push($account->field_received_id[LANGUAGE_NONE], array('target_id' => $node->nid));
-    user_save($account);
+    if ($flag == FALSE) {
+      array_push($account->field_received_id[LANGUAGE_NONE], array('target_id' => $node->nid));
+      user_save($account);
+    }
+    realty_generation_pdf_apartment($node);
+    drupal_exit();
   }
-  realty_generation_pdf_apartment($node);
-  drupal_exit();
 }
 
 /*
