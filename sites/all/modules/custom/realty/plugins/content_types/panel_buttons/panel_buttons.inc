@@ -46,7 +46,7 @@ function template_preprocess_realty_panel_buttons(&$vars) {
     'get_id_apartment' => l(t('Get id apartments'),'#get-id-apartment', array(
       'external' => TRUE,
       'attributes'=> array(
-        'id'=> 'get-id-apartment',
+        'id' => 'get-id-apartment',
         'data-node-id' => $node->nid,
     ),)),
 

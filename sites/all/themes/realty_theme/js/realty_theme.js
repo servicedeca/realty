@@ -107,7 +107,7 @@ Drupal.behaviors.toursRangeSlider = {
   Drupal.behaviors.realtyGetIdApartment = {
     attach: $(function () {
       $("#get-id-apartment").click(function () {
-          alert('ok');
+
         var nid = $(this).data('node-id');
         $.ajax({
           url: '/get_id_apartment',
@@ -116,6 +116,7 @@ Drupal.behaviors.toursRangeSlider = {
             nid: nid
           },
           success: function(response) {
+            
           },
           error: function(response) {
             alert('false');

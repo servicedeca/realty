@@ -95,8 +95,7 @@ function realty_form_user_profile_form_alter(&$form, &$form_id) {
 /**
  * Page callback to /get_id_apartment.
  */
-function realty_get_id_apartment()
-{
+function realty_get_id_apartment(){
   global $user;
 
   $account = user_load($user->uid);
@@ -237,15 +236,15 @@ function realty_get_complex_current_city($developers = null, $city_tid = null){
 function realty_generation_pdf_apartment($node) {
   $html = theme('id_apartment_pdf', array());
   $error = FALSE;
-  $html = 'azza';
 
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $pdf = new WkHtmlToPdf;
     $file_path = file_directory_temp() . '/' . time() . '.html';
     if (file_put_contents($file_path, $html)) {
       $pdf->addPage($file_path);
-
-      if (!$pdf->saveAS("/var/www/files/pdf/id_apartment-$node->nid.pdf")) {
+      $pdf_path = "/var/www/realty/sites/default/files/pdf/id_apartment-$node->nid.pdf";
+      $pdf_file = "/sites/default/files/pdf/id_apartment-$node->nid.pdf";
+      if (!$pdf->saveAS($pdf_path)) {
         $error = TRUE;
       }
       unlink($file_path);
@@ -261,6 +260,8 @@ function realty_generation_pdf_apartment($node) {
   if ($error) {
     print $html;
   }
+
+  print $pdf_file;
 
   drupal_exit();
 }
