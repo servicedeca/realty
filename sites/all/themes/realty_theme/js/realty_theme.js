@@ -116,7 +116,7 @@ Drupal.behaviors.toursRangeSlider = {
             nid: nid
           },
           success: function(response) {
-            
+
           },
           error: function(response) {
             alert('false');

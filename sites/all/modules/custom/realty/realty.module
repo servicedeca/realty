@@ -487,3 +487,48 @@ function realty_user_menu($account) {
 
   return theme('realty_user_menu', array('account' => $account));
 }
+
+/**
+ * Get the current city.
+ */
+function realty_get_current_city() {
+
+  if (!isset($_GET['q'])) {
+    return null;
+  }
+
+  $entity = explode('/' ,$_GET['q']);
+
+  if ($entity[0] == 'taxonomy') {
+    $term = taxonomy_term_load($entity[2]);
+    if ($term->vocabulary_machine_name == 'cities') {
+      return $term->name;
+    }
+    if ($term->vocabulary_machine_name == 'developers' ) {
+      $city_id = $term->field_city[LANGUAGE_NONE][0]['tid'];
+      $city = taxonomy_term_load($city_id);
+      return $city->name;
+    }
+  }
+  if ($entity[0] == 'node') {
+    $node = node_load($entity[1]);
+    if ($node->type == 'complex') {
+      $dev_id = $node->field_complex_developer[LANGUAGE_NONE][0]['tid'];
+      $term = taxonomy_term_load($dev_id);
+      $city_id = $term->field_city[LANGUAGE_NONE][0]['tid'];
+      $city = taxonomy_term_load($city_id);
+      return $city->name;
+    }
+    if ($node->type == 'apartament') {
+      $home_id = $node->field_apartament_home[LANGUAGE_NONE][0]['tid'];
+      $home = taxonomy_term_load($home_id);
+      $complex_id = $home->field_home_complex[LANGUAGE_NONE][0]['target_id'];
+      $complex = node_load($complex_id);
+      $dev_id = $complex->field_complex_developer[LANGUAGE_NONE][0]['tid'];
+      $term = taxonomy_term_load($dev_id);
+      $city_id = $term->field_city[LANGUAGE_NONE][0]['tid'];
+      $city = taxonomy_term_load($city_id);
+      return $city->name;
+    }
+  }
+}

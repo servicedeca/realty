@@ -5,9 +5,11 @@
         <div class="row">
           <div class="col-md-8">
             <?php print render($logo); ?>
-            <a class="city-but" href="#mymodal" data-toggle="modal">
-              <?php print $city ?>
-            </a>
+            <?php if (isset($_GET['q'])):?>
+              <a class="city-but" href="#mymodal" data-toggle="modal">
+                <?php print $city ?>
+              </a>
+            <?php endif; ?>
           </div>
           <div class="col-md-3">
             <div class="top-user-area clearfix">

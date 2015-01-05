@@ -26,8 +26,10 @@ function realty_theme_preprocess_page(&$vars) {
     $vars['login_profile'] =  l(t('Login'), 'user/login');
     $vars['logout_register'] = l(t('Register'), 'user/register');
   }
-  $term = menu_get_object('taxonomy_term',2);
-  $vars['city'] = $term->name;
+
+  $city = realty_get_current_city();
+  $vars['city'] = $city;
+
   foreach(realty_get_list_city() as $city) {
     $vars['cities'][] = l($city->name, 'taxonomy/term/'.$city->tid);
   }
