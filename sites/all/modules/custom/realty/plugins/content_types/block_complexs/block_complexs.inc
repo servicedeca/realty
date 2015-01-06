@@ -43,5 +43,27 @@ function realty_block_complexs_content_type_theme(&$theme, $plugin) {
  */
 function template_preprocess_realty_block_complexs(&$vars) {
 
- $complexs = views_embed_view('complex', 'complexs');
+  $city = menu_get_object('taxonomy_term', 2);
+
+  $result = views_get_view_result('complex', 'complexs');
+
+  foreach ($result as $key => $val) {
+
+    $vars['complexes'][$key] = array(
+      'title' => l($val->node_title, 'node/'.$val->nid),
+      'image' => theme('image_style', array(
+          'style_name' => 'medium',
+          'path' => $val->field_field_main_photo[0]['raw']['uri'],
+          'alt' => $val->node_title,
+          'title' => $val->node_title,
+          'attributes' => array(
+          ),
+        )
+      ),
+      'description' => $val->field_body[0]['rendered']['#markup'],
+      'details' => l('Details', 'node/'.$val->nid),
+    );
+  }
+
+  $vars['all_complexes'] = l('Residential complexes', 'complexes/city/'.$city->tid);
 }
