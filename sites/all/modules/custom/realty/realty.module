@@ -31,6 +31,11 @@ function realty_menu(){
     'access callback' => TRUE,
   );
 
+  $item['search_map'] = array(
+    'page callback' => 'realty_search_map',
+    'access callback' => TRUE,
+  );
+
   return $item;
 }
 
@@ -80,6 +85,28 @@ function realty_get_list_city(){
   $vid = taxonomy_vocabulary_machine_name_load('cities');
   return $terms = taxonomy_get_tree($vid->vid, 0, NULL, TRUE);
 }
+
+/**
+ * Page callback to /search_map.
+ */
+function realty_search_map() {
+
+  $category = $_POST['category'];
+
+  $view = views_get_view('map');
+  $view->set_display('main_map');
+  //$view->display_handler->options['filters']['field_area_city_tid']['value'] = $city_tid;
+    unset($view->display_handler->options['filters']['field_category_value']['value']);
+    foreach($category as $val){
+      $view->display_handler->options['filters']['field_category_value']['value'][$category] = $val;
+    }
+  $view->pre_execute(array());
+  $view->display_handler->preview();
+  $view->post_execute();
+  $map = $view->display_handler->output;
+  print $map;
+}
+
 
 /**
  * Implement hook form_alter.
@@ -267,6 +294,108 @@ function realty_generation_pdf_apartment($node) {
 }
 
 /**
+ * Form builder for search map form.
+ */
+function realty_search_map_form($form, $form_state) {
+
+  $area_option = realty_get_areas_current_city();
+  $room_option = realty_options_search('room');
+  $quarter_option = realty_options_search('quarter');
+  $masonry_option = realty_options_search('masonry');
+  $category_option = realty_options_search('category');
+  $city = menu_get_object('taxonomy_term', 2);
+
+  $form['area'] = array(
+    '#type'=>'select',
+    '#title'=>'Area',
+    '#name'=>'area[]',
+    '#options'=> $area_option,
+    '#attributes' => array(
+      'id' => 'area-map',
+      'multiple' => 'multiple',
+    ),
+  );
+
+  $form['masonry'] = array(
+    '#type'=>'select',
+    '#title'=>'Masonry',
+    '#name'=>'masonry[]',
+    '#options'=> $masonry_option,
+    '#attributes' => array(
+      'id' => 'masonry-map',
+      'multiple' => 'multiple',
+    ),
+  );
+
+  $form['category'] = array(
+    '#type'=>'select',
+    '#title'=>'Category',
+    '#name'=>'category[]',
+    '#options'=> $category_option,
+    '#attributes' => array(
+      'id' => 'category-map',
+      'multiple' => 'multiple',
+    ),
+  );
+
+  $form['parking'] = array(
+    '#type'=>'checkbox',
+    '#title'=>'Parking',
+    '#attributes' => array(
+      'id' => 'parking-map',
+    ),
+  );
+
+  $form['stock'] = array(
+    '#type'=>'checkbox',
+    '#title'=>'Stock',
+    '#attributes' => array(
+      'id' => 'stock-map',
+    ),
+  );
+
+  return $form;
+}
+
+/**
+ * Options to search for apartments.
+ */
+
+function realty_options_search($option) {
+
+  switch ($option) {
+    case 'room' :
+      return array(
+      '1'=>'1 комната',
+      '2'=>'2 комнаты',
+      '3'=>'3 комнаты',
+      '4'=>'4 комнаты',
+      );
+
+    case 'quarter' :
+      return array(
+      '1' => '1 квартал',
+      '2' => '2 квартал',
+      '3' =>'3 квартал',
+      '4' =>'4 квартал',
+      );
+
+    case 'masonry' :
+      return array(
+      '1' => 'Кирпич',
+      '2' => 'Монолит',
+      );
+
+    case 'category' :
+      return array(
+      '1' => 'Эконом',
+      '2' => 'Комфорт',
+      '3' => 'Бизнес',
+      );
+  }
+}
+
+/**
  * Form builder for search form.
  */
 function realty_search_form($form, $form_state) {
@@ -274,25 +403,11 @@ function realty_search_form($form, $form_state) {
   $area_option = realty_get_areas_current_city();
   $developer_option = realty_get_developer_current_city();
   $complex_option = realty_get_complex_current_city();
+  $room_option = realty_options_search('room');
+  $quarter_option = realty_options_search('quarter');
+  $masonry_option = realty_options_search('masonry');
+  $category_option = realty_options_search('category');
   $city = menu_get_object('taxonomy_term', 2);
-
-  $room_option = array(
-    '1'=>'1 комната',
-    '2'=>'2 комнаты',
-    '3'=>'3 комнаты',
-    '4'=>'4 комнаты',
-  );
-
-  $quarter_option = array(
-    '1' => '1 квартал',
-    '2' => '2 квартал',
-    '3' =>'3 квартал',
-    '4' =>'4 квартал',
-  );
-
-  $masonry_option = array(
-    '1' => 'Кирпич',
-  );
 
   $form['city'] = array(
     '#type' => 'hidden',
@@ -320,6 +435,18 @@ function realty_search_form($form, $form_state) {
     '#default_value' => isset($_GET['masonry']) ? $_GET['masonry'] : 0,
     '#attributes' => array(
       'id' => 'masonry',
+      'multiple' => 'multiple',
+    ),
+  );
+
+  $form['category'] = array(
+    '#type'=>'select',
+    '#title'=>'Category',
+    '#name'=>'category[]',
+    '#options'=> $category_option,
+    '#default_value' => isset($_GET['category']) ? $_GET['category'] : 0,
+    '#attributes' => array(
+      'id' => 'category',
       'multiple' => 'multiple',
     ),
   );

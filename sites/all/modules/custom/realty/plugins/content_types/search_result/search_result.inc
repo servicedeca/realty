@@ -32,14 +32,27 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
       $view->display_handler->options['filters']['field_area_tid']['value'][$area] = $area;
     }
   }
+
   if(isset($_GET['selectAllmasonry'][0]) || !isset($_GET['masonry'])) {
     unset($view->display_handler->options['filters']['field_masonry_value']);
   }
   else {
+    unset($view->display_handler->options['filters']['field_masonry_value']['value']);
     foreach($_GET['masonry'] as $masonry){
       $view->display_handler->options['filters']['field_masonry_value']['value'][$masonry] = $masonry;
     }
   }
+
+  if(isset($_GET['selectAllcategory'][0]) || !isset($_GET['category'])) {
+    unset($view->display_handler->options['filters']['field_category_value']);
+  }
+  else {
+    unset($view->display_handler->options['filters']['field_category_value']['value']);
+    foreach($_GET['category'] as $category){
+      $view->display_handler->options['filters']['field_category_value']['value'][$category] = $category;
+    }
+  }
+
   if(empty($_GET['floor']) || $_GET['floor'] == 0) {
     unset($view->display_handler->options['filters']['field_apartment_floor_value']);
   }

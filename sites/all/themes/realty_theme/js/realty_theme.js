@@ -38,7 +38,27 @@ Drupal.behaviors.toursRangeSlider = {
      }).multipleSelect({
        width: '200px'
      });
+     $('#area-map').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
      $('#masonry').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
+     $('#masonry-map').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
+     $('#category-map').change(function() {
+       console.log($(this).val());
+     }).multipleSelect({
+       width: '200px'
+     });
+     $('#category').change(function() {
        console.log($(this).val());
      }).multipleSelect({
        width: '200px'
@@ -69,9 +89,6 @@ Drupal.behaviors.toursRangeSlider = {
 
   Drupal.behaviors.realtySelectcomplex = {
     attach: $(function () {
-      //if( $('select[name="complex"]') == ) {
-      //  complex_select();
-      //}
       $("#developer").change(function () {
         complex_select($(this).val());
       });
@@ -95,6 +112,35 @@ Drupal.behaviors.toursRangeSlider = {
             complexSelect.append(response);
             $('.form-item-complex .ms-parent ul').html('');
             $('.form-item-complex .ms-parent ul').html(object.li);
+          },
+          error: function(response) {
+            alert('false');
+          }
+        });
+      }
+    })
+  };
+
+  Drupal.behaviors.realtySearchMap = {
+    attach: $(function () {
+      $("#category-map").change(function () {
+        search_map($(this).val());
+      });
+
+      function search_map(category) {
+
+        $.ajax({
+          url: '/search_map',
+          type: 'POST',
+          data: {
+            category: category
+          },
+          success: function(response) {
+            $('#search-map').html('');
+            console.log(response);
+            var $search_map = $('#search-map');
+            $search_map.html(response);
+            Drupal.attachBehaviors($search_map, Drupal.settings);
           },
           error: function(response) {
             alert('false');
