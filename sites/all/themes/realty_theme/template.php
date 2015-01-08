@@ -133,21 +133,16 @@ function realty_preprocess_views_view_table(&$vars) {
  */
 function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
   $a = 1;
- /* foreach($vars['view']->result as $value){
-    $image = theme('image', array(
-        'path' => $value->field_field_main_photo[0]['raw']['uri'],
-        'width' => '100px',
-        'height' => '100px',
-      )
-    );
-    $vars['complex'][] = array(
-      'name' =>  l($value->taxonomy_term_data_name, 'taxonomy/term/'.$value->tid, array('html' => TRUE,)),
-      'developer' => $value->field_field_developer[0]['rendered'],
-      'photo' => l($image, 'taxonomy/term/'.$value->tid, array('html' => TRUE,)),
-      'area' => $value->field_field_complex_area[0]['rendered'],
-      'deadline' => $value->field_field_deadline[0]['raw']['value'],
-    );
-  }*/
+}
+
+/*
+ * Process variables for views-view-unformatted--complex--complex.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__complex__complex(&$vars) {
+  $a = 1;
+  $image_pano = $vars['view']->result[0]
+    ->field_field_pano[0]['rendered']['entity']['field_collection_item'][4]['#entity']
+    ->field_image_pano['und'][0]['uri'];
 }
 
 /*
@@ -171,13 +166,6 @@ function realty_preprocess_views_view_unformatted__term_view__developers(&$vars)
  * Process variables for views-view-table--apartments--developer-apartment.tpl.php.
  */
 function realty_preprocess_views_view_table__apartments__developer_apartment(&$vars){
-  $a = 1;
-}
-
-/**
- * Process variables for views-view-unformatted--term-view--complex.tpl.php
- */
-function realty_preprocess_views_view_unformatted__term_view__complex(&$vars){
   $a = 1;
 }
 
