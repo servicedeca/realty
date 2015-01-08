@@ -136,11 +136,13 @@ Drupal.behaviors.toursRangeSlider = {
             category: category
           },
           success: function(response) {
-            $('#search-map').html('');
-            console.log(response);
+
             var $search_map = $('#search-map');
+            $search_map.html('');
+            console.log(response);
             $search_map.html(response);
             Drupal.attachBehaviors($search_map, Drupal.settings);
+            $("#search-map").tooltip();
           },
           error: function(response) {
             alert('false');
