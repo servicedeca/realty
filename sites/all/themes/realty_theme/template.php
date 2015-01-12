@@ -12,6 +12,7 @@ function realty_theme_preprocess_page(&$vars) {
     'alt' => t(variable_get('site_name')),
     'title' => t(variable_get('site_name')),
   ));
+
   $vars['logo'] = l($logo, '', array('query' => $_GET,
     'html' => TRUE,
     'attributes' => array('class' => 'logo',)
@@ -140,9 +141,30 @@ function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
  */
 function realty_preprocess_views_view_unformatted__complex__complex(&$vars) {
   $a = 1;
-  $image_pano = $vars['view']->result[0]
-    ->field_field_pano[0]['rendered']['entity']['field_collection_item'][4]['#entity']
-    ->field_image_pano['und'][0]['uri'];
+  $image_path = $vars['view']->result[0]->field_field_pano[0]['rendered']['entity']['field_collection_item'][4]['field_image_pano']['#items'][0]['uri'];
+  $image_pano =  theme('image_style', array(
+      'style_name' => 'medium',
+      'path' => $image_path,
+      'attributes' => array(
+      ),
+    )
+  );
+  $vars['complex'] = array(
+    'title' => $vars['view']->result[0]->node_title,
+    'area' => $vars['view']->result[0]->field_field_area[0]['rendered']['#title'],
+    'developer' => $vars['view']->result[0]->field_field_complex_developer[0]['rendered'],
+    'deadline' => $vars['view']->result[0]->field_field_deadline[0]['rendered'],
+    'main_photo' => $vars['view']->result[0]->field_field_main_photo[0]['rendered'],
+    'body'=> $vars['view']->result[0]->field_body[0]['rendered'],
+    'pano' => $vars['view']->result[0]->field_field_pano[0]['rendered']['entity']['field_collection_item'][4]['field_pano_complex']['#items'][0]['value'],
+    'image_pano' => l($image_pano,'#modal-pano', array('external' => TRUE,
+      'html' =>TRUE,
+      'attributes'=> array(
+        'data-toggle' => 'modal',
+      ),
+    )
+  ),
+  );
 }
 
 /*

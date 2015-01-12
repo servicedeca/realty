@@ -45,14 +45,14 @@ function template_preprocess_realty_front_map(&$vars) {
   $city = menu_get_object('taxonomy_term', 2);
 
   $vars['search_map_form'] = drupal_get_form('realty_search_map_form');
-
-  $view = views_get_view('map');
+  $view = views_embed_view('map', 'main_map');
+ /* $view = views_get_view('map');
   $view->set_display('main_map');
   //$view->display_handler->options['filters']['field_area_city_tid']['value'] = $city_tid;
   $view->pre_execute(array());
   $view->display_handler->preview();
   $view->post_execute();
-//  $view = views_embed_view('map', 'main_map');
-  $vars['map'] = $view->display_handler->output;
+//  $view = views_embed_view('map', 'main_map');*/
+  $vars['map'] = $view;
 
 }
