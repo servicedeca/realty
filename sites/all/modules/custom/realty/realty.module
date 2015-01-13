@@ -554,7 +554,9 @@ function realty_search_form($form, $form_state) {
   $form['complex'] = array(
     '#type'=>'select',
     '#title'=>'Complex',
+    '#name'=>'complex[]',
     '#options'=> $complex_option,
+    '#default_value' =>isset($_GET['complex']) ? $_GET['complex'] : 0,
     '#attributes' => array(
       'id' => 'complex',
       'multiple' => 'multiple',

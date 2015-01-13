@@ -92,13 +92,22 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
     $view->display_handler->options['filters']['field_full_cost_value']['value']['min'] = $_GET['coast_from'];
     $view->display_handler->options['filters']['field_full_cost_value']['value']['max'] = $_GET['coast_to'];
   }
-  if(isset($_GET['selectAlldeveloper']) || !isset($_GET['developer'])) {
+  if (isset($_GET['selectAlldeveloper']) || !isset($_GET['developer'])) {
     unset($view->display_handler->options['filters']['field_complex_developer_tid']);
   }
   else {
-    unset($view->display_handler->options['filters']['field_complex_developer_tid']['value']);
-    foreach($_GET['developer'] as $value) {
+    unset ($view->display_handler->options['filters']['field_complex_developer_tid']['value']);
+    foreach ($_GET['developer'] as $value) {
       $view->display_handler->options['filters']['field_complex_developer_tid']['value'][$value] = $value;
+    }
+  }
+  if (isset($_GET['selectAllcomplex']) || !isset($_GET['complex'])) {
+    unset($view->display_handler->options['filters']['field_home_complex_target_id']);
+  }
+  else {
+    unset ($view->display_handler->options['filters']['field_home_complex_target_id']['value']);
+    foreach ($_GET['complex'] as $value) {
+      $view->display_handler->options['filters']['field_home_complex_target_id']['value'][$value] = $value;
     }
   }
   if(isset($_GET['year'])) {
