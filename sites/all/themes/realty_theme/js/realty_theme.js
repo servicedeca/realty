@@ -65,7 +65,7 @@
         var city = $('input[name="city"]');
         var complexSelect = $('select[name="complex"]');
         var developerSelect = $('select[name="developer"]');
-        console.log(developerSelect);
+        //console.log(developerSelect);
         $.ajax({
           url: '/get_developer_complex',
           type: 'POST',
@@ -93,30 +93,26 @@
   Drupal.behaviors.realtySearchMap = {
     attach: $(function () {
       $("#category-map").change(function () {
-        search_map($(this).val());
+        var select = $('select[id="edit-field-category-value"]');;
+        select.val($(this).val());
+        $('#edit-submit-map').trigger('click');
+      });
+      $("#area-map").change(function () {
+        var select = $('select[id="edit-field-area-tid"]');;
+        select.val($(this).val());
+        $('#edit-submit-map').trigger('click');
+      });
+      $("#masonry-map").change(function () {
+        var select = $('select[id="edit-field-masonry-value"]');;
+        select.val($(this).val());
+        $('#edit-submit-map').trigger('click');
+      });
+      $("#parking-map").click(function () {
+        var select = $('select[id="edit-field-parking-value"]');
+        $(this).prop("checked") == true ? select.val(1) :  select.val(2);
+        $('#edit-submit-map').trigger('click');
       });
 
-      function search_map(category) {
-
-        $.ajax({
-          url: '/search_map',
-          type: 'POST',
-          data: {
-            category: category
-          },
-          success: function(response) {
-
-            var $search_map = $('#search-map');
-            $search_map.html('');
-            console.log(response);
-            $search_map.html(response);
-            Drupal.attachBehaviors($search_map, Drupal.settings);
-          },
-          error: function(response) {
-            alert('false');
-          }
-        });
-      }
     })
   };
 

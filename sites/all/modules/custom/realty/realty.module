@@ -120,6 +120,17 @@ function realty_form_user_profile_form_alter(&$form, &$form_id) {
 }
 
 /**
+ * Implement hook form_alter.
+ */
+/*function realty_form_user_profile_form_alter(&$form, &$form_id) {
+  global $user;
+
+  if($user->uid != 1) {
+    $form['#theme'][0] = 'realty_user_profile_form';
+  }
+}
+
+/**
  * Page callback to /get_id_apartment.
  */
 function realty_get_id_apartment(){

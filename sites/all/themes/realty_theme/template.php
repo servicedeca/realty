@@ -192,9 +192,9 @@ function realty_preprocess_views_view_table__apartments__developer_apartment(&$v
 }
 
 /**
- * Process variables for views-view-table--apartments--apartment-complex.tpl.php.
+ * Process variables for views-view-unformatted--apartments--apartment-complex.tpl.php.
  */
-function realty_preprocess_views_view_table__apartments__apartment_complex(&$vars){
+function realty_preprocess_views_view_unformatted__apartments__apartment_complex(&$vars) {
   $a = 1;
 }
 
