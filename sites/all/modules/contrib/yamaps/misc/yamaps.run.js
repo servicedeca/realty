@@ -10,15 +10,30 @@
         function creating_map(mapId, options) {
           $('#' + mapId).once('yamaps', function () {
             // If zoom and center are not set - set it from user's location.
-            if (!options.init.center || !options.init.zoom) {
-              var location = ymaps.geolocation;
-              // Set map center.
-              if (!options.init.center) {
-                // Set location, defined by ip, if they not defined.
-                options.init.center = [location.latitude, location.longitude];
+            if (options.isViewsPage) {
+              var CenterCoords = Drupal.settings.Coords;
+
+              var CenterZoom = ymaps.util.bounds.getCenterAndZoom(
+                CenterCoords,
+                [$('#default-map-content-panel-pane-1').width(), $('#default-map-content-panel-pane-1').height()]
+              );
+              options.init.center = CenterZoom.center;
+              if (CenterZoom.zoom > 23) {
+                CenterZoom.zoom = 23;
               }
-              if (!options.init.zoom) {
-                options.init.zoom = location.zoom ? location.zoom : 10;
+              options.init.zoom = CenterZoom.zoom -1;
+            }
+            else {
+              if (!options.init.center || !options.init.zoom) {
+                var location = ymaps.geolocation;
+                // Set map center.
+                if (!options.init.center) {
+                  // Set location, defined by ip, if they not defined.
+                  options.init.center = [location.latitude, location.longitude];
+                }
+                if (!options.init.zoom) {
+                  options.init.zoom = location.zoom ? location.zoom : 10;
+                }
               }
             }
             // Create new map.

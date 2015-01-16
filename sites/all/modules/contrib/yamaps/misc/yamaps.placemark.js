@@ -210,6 +210,7 @@
           )
         );
 
+
         // Add placemarks support to map.
         $.yaMaps.addMapTools(function(Map) {
           // Default options.
@@ -230,10 +231,42 @@
           for (var i in Map.options.placemarks) {
             placemarksCollection.add(new $.yaMaps.YamapsPlacemark(Map.options.placemarks[i].coords, Map.options.placemarks[i].params, Map.options.placemarks[i].options));
           }
-          // Add collection to the map.
-          Map.map.geoObjects.add(placemarksCollection.elements);
 
-          // If map in view mode exit.
+          var clustererIcons = [{
+            href: 'sites/all/themes/realty_theme/images/cluster_img.png',
+            size: [47, 47],
+            offset: [-23, -23]
+          },
+            {
+              href: 'sites/all/themes/realty_theme/images/cluster_img.png',
+              size: [47, 47],
+              offset: [-23, -23]
+            }
+          ];
+          console.log(Drupal.settings);
+          var clusterer = new ymaps.Clusterer({
+            clusterIcons: clustererIcons,
+            gridSize: 100
+          });
+
+         var Placemarks = [];
+          for (var i in Map.options.placemarks) {
+            var Coords = Map.options.placemarks[i].coords;
+            var Params = Map.options.placemarks[i].params;
+            var Icon = Map.options.placemarks[i].icon;
+            var Placemark = new ymaps.Placemark(Coords, Params, Icon);
+            Placemarks.push(Placemark);
+          }
+
+          clusterer.add(Placemarks);
+          console.log(Map.options);
+          // Add collection to the map
+          if (Map.options){
+            Map.map.geoObjects.add(clusterer)
+          } else {
+              Map.map.geoObjects.add(placemarksCollection.elements);
+          }
+          // If map in view mode exit
           if (!Map.options.edit) {
             return;
           }
