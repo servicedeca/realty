@@ -103,7 +103,7 @@
         $('#edit-submit-map').trigger('click');
       });
       $("#masonry-map").change(function () {
-        var select = $('select[id="edit-field-masonry-value"]');;
+        var select = $('select[id="edit-field-masonry-value"]');
         select.val($(this).val());
         $('#edit-submit-map').trigger('click');
       });
@@ -135,6 +135,34 @@
           }
         });
       });
+    })
+  };
+
+  Drupal.behaviors.realtyCheckAdminMap = {
+    attach: $(function () {
+      var realtyAdmin = function() {
+        var realty_admin
+        $.ajax({
+          url: '/check_admin_map',
+          type: 'POST',
+          async: false,
+          data: {
+          },
+          success: function(response) {
+            // alert(response);
+            if (response == 1) {
+              realty_admin = 1;
+            }
+            else {
+              realty_admin = 0;
+            }
+          },
+          error: function(response) {
+            alert('false');
+          }
+        });
+        return realty_admin;
+      };
     })
   };
 

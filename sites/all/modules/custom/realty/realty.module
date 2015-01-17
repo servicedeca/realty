@@ -36,6 +36,11 @@ function realty_menu(){
     'access callback' => TRUE,
   );
 
+  $item['check_admin_map'] = array(
+    'page callback' => 'realty_check_admin_map',
+    'access callback' => TRUE,
+  );
+
   return $item;
 }
 
@@ -76,6 +81,17 @@ function realty_theme() {
   );
 
   return $items;
+}
+
+/**
+ * Page callback to /realty_check_admin_map.
+ */
+function realty_check_admin_map() {
+  global $user;
+
+  $user->uid == 1 ? print TRUE : print FALSE;
+
+  drupal_exit();
 }
 
 /**
