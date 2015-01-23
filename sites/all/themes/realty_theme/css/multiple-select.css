@@ -56,15 +56,14 @@
     right: 0;
     width: 20px;
     height: 25px;
-    background: url('../images/multiple-select.png') left top no-repeat;
+    background: url('multiple-select.png') left top no-repeat;
 }
 
 .ms-choice > div.open {
-    background: url('../images/multiple-select.png') right top no-repeat;
+    background: url('multiple-select.png') right top no-repeat;
 }
 
 .ms-drop {
-    width: 100%;
     overflow: hidden;
     display: none;
     margin-top: -1px;
@@ -189,3 +188,5 @@
 .ms-drop .ms-no-results {
     display: none;
 }
+
+

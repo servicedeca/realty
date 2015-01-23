@@ -2,55 +2,96 @@
 
  Drupal.behaviors.realtyMultyselect = {
    attach: $(function() {
-     $('#area').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
+//  map-filter select
+     $(function() {
+       $('#map-filter').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         width: '100%'
+       });
      });
-     $('#area-map').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
+
+//  date multiple select
+     $(function() {
+       $('#date').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         placeholder: '',
+         selectAllText: 'Отметить все',
+         allSelected: 'Все'
+       });
      });
-     $('#masonry').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
+
+
+//  wall type multiple select
+     $(function() {
+       $('#wall_type').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         placeholder: '',
+         selectAllText: 'Отметить все',
+         allSelected: 'Все'
+       });
      });
-     $('#masonry-map').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
+
+
+//  category type multiple select
+     $(function() {
+       $('#cat').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         placeholder: '',
+         selectAllText: 'Отметить все',
+         allSelected: 'Все'
+       });
      });
-     $('#category-map').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
+
+
+//  balkon type multiple select
+     $(function() {
+       $('#balkon').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         placeholder: '',
+         selectAllText: 'Отметить все',
+         allSelected: 'Все'
+       });
      });
-     $('#category').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
+     $("#meters").ionRangeSlider({
+       hide_min_max: true,
+       keyboard: true,
+       min: 0,
+       max: 200,
+       postfix: " м<sup>2</sup>",
+       from: 30,
+       to: 150,
+       type: 'double',
+       step: 1,
+       grid: true
      });
-     $('#room').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
+     $("#meter-price").ionRangeSlider({
+       hide_min_max: true,
+       keyboard: true,
+       min: 40,
+       max: 100,
+       postfix: " т.р.",
+       from: 55,
+       to: 85,
+       type: 'double',
+       step: 1,
+       grid: true
      });
-     $('#developer').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
-     });
-     $('#complex').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
-     });
-     $('#quarter').change(function() {
-       console.log($(this).val());
-     }).multipleSelect({
-       width: '200px'
+     $("#flat-price").ionRangeSlider({
+       hide_min_max: true,
+       keyboard: true,
+       min: 0.5,
+       max: 5,
+       postfix: " млн.р.",
+       from: 1.6,
+       to: 4,
+       type: 'double',
+       step: 0.2,
+       grid: true
      });
    })
   };
@@ -93,12 +134,12 @@
   Drupal.behaviors.realtySearchMap = {
     attach: $(function () {
       $("#category-map").change(function () {
-        var select = $('select[id="edit-field-category-value"]');;
+        var select = $('select[id="edit-field-category-value"]');
         select.val($(this).val());
         $('#edit-submit-map').trigger('click');
       });
       $("#area-map").change(function () {
-        var select = $('select[id="edit-field-area-tid"]');;
+        var select = $('select[id="edit-field-area-tid"]');
         select.val($(this).val());
         $('#edit-submit-map').trigger('click');
       });
@@ -166,4 +207,38 @@
     })
   };
 
+
+  Drupal.behaviors.realtyDynamicallyChange = {
+    attach: $(function() {
+     /* if(!$(".big-height").length) {
+        $('.big-height').height($('.fiftyminus').width()/0.71);
+      }*/
+     $('.big-height').height($('.fiftyminus').width()/0.71);
+      $('.height').height($('.fifty').width()/2.85);
+      $('.big-height').height($('.fiftyplus').width()/2.13);
+      $('.double-big-height').height($('.fiftyplus').width()/1.42);
+      $('.double-big-height').height($('.fiftyplus').width()/1.42);
+      $('.height').height($('.fiftyplus').width()/4.27);
+      $('.double-big-height').height($('.fiftyminus').width()/0.473);
+       $(window).resize(function(){
+         $('.big-height').height($('.fiftyminus').width()/0.71);
+         $('.height').height($('.fifty').width()/2.85);
+         $('.big-height').height($('.fiftyplus').width()/2.13);
+         $('.double-big-height').height($('.fiftyplus').width()/1.42);
+         $('.double-big-height').height($('.fiftyplus').width()/1.42);
+         $('.height').height($('.fiftyplus').width()/4.27);
+         $('.double-big-height').height($('.fiftyminus').width()/0.473);
+        });
+
+      })
+ }
+
+  Drupal.behaviors.realtyStickyMenu = {
+    attach: $(function() {
+              //  sticky menu
+              $(window).load(function(){
+                $("#header").sticky({ topSpacing: 0, className: 'sticky', wrapperClassName: 'my-wrapper' });
+              });
+            })
+  }
 }(jQuery));

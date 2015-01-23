@@ -3,6 +3,8 @@
  * @file
  */
 
+define('REALTY_FRONT_THEME_PATH', drupal_get_path('theme', 'realty_theme'));
+
 /*
  * implement hook_init.
  */
@@ -208,27 +210,34 @@ function realty_get_developer_complex() {
 }
 
 /**
- * Get areas the current city
+ * Get options the current city
  */
-function realty_get_areas_current_city() {
+function realty_get_options_current_city($option) {
 
   $city = menu_get_object('taxonomy_term', 2);
   $city != null ? $city_tid = $city->tid : $city_tid = $_GET['city'];
   $view = views_get_view('search');
-  $view->set_display('search_area');
-  $view->display_handler->options['filters']['field_area_city_tid']['value'] = $city_tid;
+  if ($option == 'area') {
+    $view->set_display('search_area');
+    $view->display_handler->options['filters']['field_area_city_tid']['value'] = $city_tid;
+  }
+  if ($option == 'metro') {
+    $view->set_display('search_metro');
+    $view->display_handler->options['filters']['field_city_metro_tid']['value'] = $city_tid;
+  }
   $view->pre_execute(array());
   $view->display_handler->preview();
   $view->post_execute();
 
   foreach($view->result as $value) {
-    $area_option[$value->tid] = $value->taxonomy_term_data_name;
+    $options[$value->tid] = $value->taxonomy_term_data_name;
   }
 
-  isset($area_option) ?  : $area_option = null;
+  isset($options) ?  : $options = null;
 
-  return $area_option;
+  return $options;
 }
+
 
 /**
  * Get developers the current city
@@ -325,7 +334,7 @@ function realty_generation_pdf_apartment($node) {
  */
 function realty_search_map_form($form, $form_state) {
 
-  $area_option = realty_get_areas_current_city();
+  $area_option = realty_get_options_current_city('area');
   $room_option = realty_options_search('room');
   $quarter_option = realty_options_search('quarter');
   $masonry_option = realty_options_search('masonry');
@@ -349,8 +358,9 @@ function realty_search_map_form($form, $form_state) {
     '#name'=>'masonry[]',
     '#options'=> $masonry_option,
     '#attributes' => array(
-      'id' => 'masonry-map',
+      'id' => 'wall_type',
       'multiple' => 'multiple',
+      'class' => array('ss'),
     ),
   );
 
@@ -419,6 +429,12 @@ function realty_options_search($option) {
       '2' => 'Комфорт',
       '3' => 'Бизнес',
       );
+    case 'balcony' :
+      return array(
+        '1' => 'Балкон',
+        '2' => 'Лоджия',
+        '3' => 'Балкон+лоджия',
+      );
   }
 }
 
@@ -427,12 +443,14 @@ function realty_options_search($option) {
  */
 function realty_search_form($form, $form_state) {
 
-  $area_option = realty_get_areas_current_city();
+  $area_option = realty_get_options_current_city('area');
+  $metro_option = realty_get_options_current_city('metro');
   $developer_option = realty_get_developer_current_city();
   $complex_option = realty_get_complex_current_city();
   $room_option = realty_options_search('room');
   $quarter_option = realty_options_search('quarter');
   $masonry_option = realty_options_search('masonry');
+  $balcony_option = realty_options_search('balcony');
   $category_option = realty_options_search('category');
   $city = menu_get_object('taxonomy_term', 2);
 
@@ -454,6 +472,18 @@ function realty_search_form($form, $form_state) {
     ),
   );
 
+  $form['metro'] = array(
+    '#type'=>'select',
+    '#title'=>'metro',
+    '#name'=>'metro[]',
+    '#options'=> $metro_option,
+    '#default_value' => isset($_GET['metro']) ? $_GET['metro'] : 0,
+    '#attributes' => array(
+      'id' => 'metro',
+      'multiple' => 'multiple',
+    ),
+  );
+
   $form['masonry'] = array(
     '#type'=>'select',
     '#title'=>'Masonry',
@@ -461,8 +491,23 @@ function realty_search_form($form, $form_state) {
     '#options'=> $masonry_option,
     '#default_value' => isset($_GET['masonry']) ? $_GET['masonry'] : 0,
     '#attributes' => array(
-      'id' => 'masonry',
+      'id' => 'wall_type',
       'multiple' => 'multiple',
+      'class' => array('ss'),
+    ),
+  );
+
+
+  $form['balcony'] = array(
+    '#type'=>'select',
+    '#title'=>'balcony',
+    '#name'=>'balcony[]',
+    '#options'=> $balcony_option,
+    '#default_value' => isset($_GET['balcony']) ? $_GET['balcony'] : false,
+    '#attributes' => array(
+      'id' => 'balkon',
+      'multiple' => 'multiple',
+      'class' => array('ss'),
     ),
   );
 
@@ -473,8 +518,9 @@ function realty_search_form($form, $form_state) {
     '#options'=> $category_option,
     '#default_value' => isset($_GET['category']) ? $_GET['category'] : 0,
     '#attributes' => array(
-      'id' => 'category',
+      'id' => 'cat',
       'multiple' => 'multiple',
+      'class' => array('ss mini-ss'),
     ),
   );
 
@@ -500,43 +546,25 @@ function realty_search_form($form, $form_state) {
     ),
   );
 
-  $form['sq_from'] = array(
+  $form['sq'] = array(
     '#type'=>'textfield',
     '#title'=>'Sq from',
-    '#default_value' => isset($_GET['sq_from']) ? $_GET['sq_from'] : 0,
+    '#default_value' => isset($_GET['sq_from']) ? $_GET['sq_from'] : false,
     '#attributes'=>array(
-      'size' => 4,
-      'maxlength' => 5,
+      'id' => 'meters',
+      'name' => 'example_name',
+      'class' => array('ion-slider'),
     ),
   );
 
-  $form['sq_to'] = array(
-    '#type'=>'textfield',
-    '#title'=>'Sq to',
-    '#default_value' => isset($_GET['sq_to']) ? $_GET['sq_to'] : 0,
-    '#attributes'=>array(
-      'size' => 4,
-      'maxlength' => 5,
-    ),
-  );
-
-  $form['price_from'] = array(
+  $form['price'] = array(
     '#type'=>'textfield',
     '#title'=>'Price from',
-    '#default_value' => isset($_GET['price_from']) ? $_GET['price_from'] : 0,
+    '#default_value' => isset($_GET['price']) ? $_GET['price'] : false,
     '#attributes'=>array(
-      'size' => 4,
-      'maxlength' => 10,
-    ),
-  );
-
-  $form['price_to'] = array(
-    '#type'=>'textfield',
-    '#title'=>'Price to',
-    '#default_value' => isset($_GET['price_to']) ? $_GET['price_to'] : 0,
-    '#attributes'=>array(
-      'size' => 4,
-      'maxlength' => 10,
+      'id' => 'meter-price',
+      'name' => 'example_name',
+      'class' => array('ion-slider'),
     ),
   );
 
@@ -544,25 +572,19 @@ function realty_search_form($form, $form_state) {
     '#type'=>'checkbox',
     '#title'=>'Parking',
     '#default_value' => isset($_GET['parking']) ? $_GET['parking'] : 0,
-  );
-
-  $form['coast_from'] = array(
-    '#type'=>'textfield',
-    '#title'=>'Coast from',
-    '#default_value' => isset($_GET['coast_from']) ? $_GET['coast_from'] : 0,
     '#attributes'=>array(
-      'size' => 7,
-      'maxlength' => 10,
+      'id' => 'check',
     ),
   );
 
-  $form['coast_to'] = array(
+  $form['coast'] = array(
     '#type'=>'textfield',
-    '#title'=>'Coast to',
-    '#default_value' => isset($_GET['coast_to']) ? $_GET['coast_to'] : 0,
+    '#title'=>'Coast',
+    '#default_value' => isset($_GET['coast_from']) ? $_GET['coast_from'] : false,
     '#attributes'=>array(
-      'size' => 7,
-      'maxlength' => 10,
+      'id' => 'flat-price',
+      'name' => 'example_name',
+      'class' => array('ion-slider'),
     ),
   );
 
@@ -597,23 +619,28 @@ function realty_search_form($form, $form_state) {
     '#options'=> $quarter_option,
     '#default_value' =>isset($_GET['quarter']) ? $_GET['quarter'] : 0,
     '#attributes' => array(
-      'id' => 'quarter',
+      'id' => 'date',
       'multiple' => 'multiple',
+      'class' => array('ss mini-ss'),
     ),
   );
 
   $form['year'] = array(
     '#type'=>'textfield',
     '#title'=>'Year',
-    '#default_value' =>isset($_GET['year']) ? $_GET['year'] : 0,
+    '#default_value' =>isset($_GET['year']) ? $_GET['year'] : null,
     '#attributes'=>array(
-      'size' => 7,
-      'maxlength' => 10,
+      'class' => array('search-input ear'),
+      'placeholder' => t('Year'),
+      'maxlength' => '4',
     ),
   );
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Search'),
+    '#value' => t('Choose option'),
+    '#attributes' => array(
+      'class' => array('search-button'),
+    ),
   );
 
   $form['#method'][] = 'GET';

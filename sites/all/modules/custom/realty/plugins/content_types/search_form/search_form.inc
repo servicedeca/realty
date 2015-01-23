@@ -47,11 +47,35 @@ function template_preprocess_realty_search_form(&$vars) {
   $result = views_get_view_result('news', 'main_news');
 
   if ($result[0]) {
-    $vars['news'] = array(
-      'title' => $result[0]->node_title,
-      'image' => $result[0]->field_field_image_news[0]['rendered'],
-      'description' => $result[0]->field_body[0]['raw']['value'],
-      'details' => l('Details', 'node/'.$result[0]->nid),
-    );
+    $image_path = $result[0]->field_field_image_news[0]['raw']['uri'];
+    $logo_path = $result[0]->field_field_news_logo[0]['raw']['uri'];
+    $vars['title'] = $result[0]->node_title;
+    if (!empty($image_path)) {
+      $vars['image'] =  theme('image', array(
+          'path' => $image_path,
+          'attributes' => array(
+            'class' => array('photo'),
+          ),
+        )
+      );
+    }
+    if (!empty($logo_path)) {
+      $vars['news_logo'] =  theme('image', array(
+          'path' => $logo_path,
+          'attributes' => array(
+            'class' => array('logo-z'),
+          ),
+        )
+      );;
+    }
+      $vars['description'] = $result[0]->field_body[0]['raw']['value'];
+      $vars['details'] = l('Details', 'node/'.$result[0]->nid, array('attributes' => array('class' => 'button-info') ));
   }
+
+  $vars['img_close'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
+    'title' => t('Close'),
+  ));
+
+  $vars['areas'] = realty_get_options_current_city('area');
 }

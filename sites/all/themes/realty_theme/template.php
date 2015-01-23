@@ -18,6 +18,12 @@ function realty_theme_preprocess_page(&$vars) {
     'attributes' => array('class' => 'logo',)
   ));
 
+  $main_menu = menu_navigation_links('main-menu');
+  unset($vars['main_menu']);
+  foreach ($main_menu as $item) {
+    $vars['main_menu'][] = l($item['title'], $item['href']);
+  }
+
   // Get user links.
   if (user_is_logged_in()) {
     $vars['login_profile'] = l(t('User profile'), "user/$user->uid");
@@ -34,6 +40,11 @@ function realty_theme_preprocess_page(&$vars) {
   foreach(realty_get_list_city() as $city) {
     $vars['cities'][] = l($city->name, 'taxonomy/term/'.$city->tid);
   }
+
+  $vars['img_close'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
+    'title' => t('Close'),
+  ));
 }
 
 /**
@@ -215,9 +226,62 @@ function realty_preprocess_views_view_table__apartments__result_search(&$vars){
 /**
  * Process variables for search-form.tpl.php
  */
-function realty_preprocess_search_form(&$vars){
+function realty_preprocess_search_form(&$vars) {
+
+  $vars['micro_logo'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
+    'attributes' => array(
+      'class' => array('search-head-logo'),
+    ),
+  ));
+
+  foreach(realty_get_list_city() as $city) {
+    $vars['cities'][] = l($city->name, 'taxonomy/term/'.$city->tid);
+  }
+
+  $city = realty_get_current_city();
+  $vars['city'] = $city;
+
   $vars['area'] = $vars['form']['area'];
+  $vars['masonry'] = $vars['form']['masonry'];
+  unset($vars['masonry']['#title']);
+  $vars['category'] = $vars['form']['category'];
+  unset($vars['category']['#title']);
+  $vars['quarter'] = $vars['form']['quarter'];
+  unset($vars['quarter']['#title']);
+  $vars['year'] = $vars['form']['year'];
+  unset($vars['year']['#title']);
+  $vars['sq'] = $vars['form']['sq'];
+  unset($vars['sq']['#title']);
+  $vars['price'] = $vars['form']['price'];
+  unset($vars['price']['#title']);
+  $vars['coast'] = $vars['form']['coast'];
+  unset($vars['coast']['#title']);
+  $vars['parking'] = $vars['form']['parking'];
+  unset($vars['parking']['#title']);
+  $vars['balcony'] = $vars['form']['balcony'];
+  unset($vars['balcony']['#title']);
   $vars['submit'] = $vars['form']['submit'];
+
+  $vars['area'] = realty_get_options_current_city('area');
+
+}
+
+
+/**
+*  implement hook_theme_registry_alter().
+ */
+function realty_theme_registry_alter(&$theme_registry) {
+  $theme_path = path_to_theme();
+
+  // Checkboxes.
+  if (isset($theme_registry['checkbox'])) {
+    $theme_registry['checkbox']['type'] = 'theme';
+    $theme_registry['checkbox']['theme path'] = $theme_path;
+    $theme_registry['checkbox']['template'] = $theme_path. '/templates/field--type-checkbox';
+    unset($theme_registry['checkbox']['function']);
+  }
+
 }
 
 /**
@@ -232,4 +296,11 @@ function realty_theme_preprocess_realty_user_menu(&$vars) {
     'comparison' => l(t('Comparison'), "comparison"),
     'apartment' => l(t('Apartment'), "apartment_id"),
   );
+}
+
+/**
+ * Process variables for field--type-checkbox.tpl.php.
+ */
+function realty_theme_preprocess_field__type_checkbox(&$vars) {
+  $a = 1;
 }
