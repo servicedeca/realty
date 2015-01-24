@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8" />
+        <title>Main Page</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/fotorama.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/multiple-select.css" />
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+        <link rel="stylesheet" href="css/ion.rangeSlider.skinHTML5.css" />
+        
+       
+        <link href="css/style.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/fotorama.js"></script>
+        <script src="js/jquery.multiple.select.js"></script>
+        <script src="js/ion.rangeSlider.js"></script>
+<script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+
+            <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/findom.js"></script>
+    
+    <script>
+        //чекбокс
+		$(document).ready(function(){
+			// проверяем, какие чекбоксы активны и меняем сласс для родительского дива
+			$('.decor_checkbox').each(function(){
+				var checkbox = $(this).find('input[type=checkbox]');
+				if(checkbox.prop("checked")) $(this).addClass("check_active");
+			});
+		
+			// при клике по диву, делаем проверку
+			$('.decor_checkbox').click(function(){
+				var checkbox = $(this).find('input[type=checkbox]');
+				// если чекбокс был активен
+				if(checkbox.prop("checked")){
+					// снимаем класс с родительского дива
+					$(this).removeClass("check_active");
+					// и снимаем галочку с чекбокса
+					checkbox.prop("checked", false);
+				// если чекбокс не был активен
+				}else{
+					// добавляем класс родительскому диву
+					$(this).addClass("check_active");
+					// ставим галочку в чекбоксе
+					checkbox.prop("checked", true);
+				}
+			});
+		});
+    </script>
+
+    </head>
+    <body id="index">
+       <div class="col-xs-12 menu-parent zero-padding">
+        <div id="menu">
+            <ul>
+                <li class="main-logo">
+                   <a href="#">
+                        <img src="images/minilogo.svg">
+                    </a>
+                </li>
+               <li class="page-scroll">
+                    <a data-toggle="modal" data-target=".bs-example-modal-md">
+                        Выберите город
+                    </a>
+                </li>                   
+                <li>О проекте</li>
+                <li>Регистрация/вход</li>
+            </ul>    
+       </div>
+    </div>
+    <div class="container-fluid container-fix">      
+        <div class="row">
+            <div class="col-xs-6 fifty height  logo-block">
+                    <a href="#page-top">
+                    <img src="images/findome-03.svg">
+                </a>
+                    <div class="head-line">
+                    </div>
+            </div>
+            <div class="col-xs-6 fifty height zero-padding header-block">
+               <div class="header-text">
+                    <h1>Единый поисковик квартир в новостройках твоего города</h1>
+                    <h2>Актуальные цены и наличие. Быстро и удобно. Новости и акции каждый день.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 header-parent">   
+            <div id="header">
+               <ul>
+                    <li class="display-none-logo">
+                       <a href="#" class="scrollup">
+                            <img src="images/minilogo.svg">
+                        </a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#search">Поиск</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#zk">Жилые комплексы</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#card">Карта новостроек</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#stock">Акции</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#za">Застройщики</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#dtours">3D туры</a>
+                    </li>
+                </ul>
+            </div>
+        </div>    
+        <div class="row relative">
+            <div class="col-xs-9 fiftyplus big-height poster-photo parent">
+                <img src="images/photo.jpg" class="photo">
+            </div>
+            <div class="col-xs-3 fiftyminus big-height parent">
+                <div class="col-xs-12 beige-block zero-padding">
+                   <div class="col-xs-12 quarter-item zero-padding">
+                        <img src="images/logo-z1.png" class="logo-z">
+                   <!--<div class="gorizont-line">
+                        </div> -->
+                    </div>
+                    <div class="col-xs-12 second-quarter-item zero-padding item-text-field">
+                        <div class="arrow-left"></div>
+                       <p>Новый многоквартирный жилой комплекс на проспекте Медиков</p> 
+                        <a href="#" class="button-info">Подробности</a>             
+                    </div>
+                </div> 
+            </div>
+            
+            
+            <div class="col-xs-9 fiftyplus height search-block zero-padding">
+                <div class="col-xs-12" id="search-header">
+                    <ul>
+                        <li>
+                             <img src="images/micrologo.png" class="search-head-logo">
+                        </li>
+                        <li class="search-title-city">
+                              Поиск жилья
+                        </li>
+                        <li class="search-name-city">
+                            <a data-toggle="modal" data-target=".bs-example-modal-md">
+                                Новосибирск
+                            </a>
+                        </li>
+                    </ul> 
+                </div>
+
+                   <div class="col-xs-12 search-top-line">
+                       <div class="col-xs-2 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                             <label class="hint">Район</label>
+                                <a data-toggle="modal" data-target=".modal-area">
+                                    <input  class="search-input">
+                                </a>
+                           </div>
+                       </div>
+                       <div class="col-xs-2 search-top-line-item zero-padding item-left">
+                            <div class="form-group text-center">
+                             <label class="hint">Застройщик</label>
+                                <a data-toggle="modal" data-target=".modal-z">
+                                    <input  class="search-input">
+                                </a>
+                           </div>
+                       </div>
+                       <div class="col-xs-1 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                             <label class="hint">ЖК</label>
+                                <a data-toggle="modal" data-target=".modal-zk">
+                                    <input  class="search-input mini-width">
+                                </a>
+                           </div>
+                       </div>
+                       <div class="col-xs-1 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Тип</label>
+                                <a data-toggle="modal" data-target=".modal-type">
+                                    <input  class="search-input mini-width">
+                                </a>
+                            </div>
+                       </div>
+                       <div class="col-xs-1 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Этаж</label>
+                                    <input  class="search-input mini-width floor" maxlength="2">
+                            </div>
+                       </div>   
+                       <div class="col-xs-2 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Материал стен</label>
+                                <select id="wall_type" class="ss" multiple="multiple">
+                                    <option value="1">Кирпич</option>
+                                    <option value="2">Панели</option>
+                                    <option value="3">Сибит</option>
+                                    <option value="4">Дерево</option>
+                                </select>
+                            </div>
+                       </div>
+                       <div class="col-xs-1 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Категория</label>
+                                <select id="cat" class="ss mini-ss" multiple="multiple">
+                                    <option value="1">Бизнесс</option>
+                                    <option value="2">Комфорт</option>
+                                    <option value="3">Эконом</option>
+                                </select>
+                            </div>
+                       </div>
+                        <div class="col-xs-2 search-top-line-item zero-padding">
+                            <div class="form-group text-center">
+                                <label class="hint">Срок сдачи</label>
+                                <div class="col-xs-7 zero-padding">
+                                    <select id="date" class="ss mini-ss" multiple="multiple">
+                                        <option value="1">1 квартал</option>
+                                        <option value="2">2 квартал</option>
+                                        <option value="3">3 квартал</option>
+                                        <option value="4">4 квартал</option>
+                                    </select>
+                                </div>  
+                               <div class="col-xs-5 zero-padding padding-right">  
+                                    <input  class="search-input ear" placeholder="год" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="col-xs-12 search-back-line zero-padding padding-left">
+                       <div class="col-xs-8 search-slider-block zero-padding">
+                            <div class="col-xs-4 search-slider-item">
+                                <label class="hint margin-bottom">Площадь, м<sup>2</sup></label>
+                                <input type="text" id="meters" name="example_name" value="" class="ion-slider"/>
+                            </div>
+                            <div class="col-xs-4 search-slider-item">
+                                <label class="hint margin-bottom">Цена за м2, тыс. руб</label>
+                                <input type="text" id="meter-price" name="example_name" value="" class="ion-slider"/>
+                            </div>
+                            <div class="col-xs-4 search-slider-item">
+                                <label class="hint margin-bottom">Стоимость, млн. руб</label>
+                                <input type="text" id="flat-price" name="example_name" value="" class="ion-slider"/>
+                            </div>
+                       </div>
+                        <div class="col-xs-4 search-slider-block zero-padding">
+                            <div class="col-xs-12 search-last-item-top">
+                                <div class="col-xs-2 col-xs-offset-2 box">
+                                <div class="form-group decor_checkbox">
+                                        <label class="hint fix-hint">Парковка</label>
+                                    <span>
+                                        <input type="checkbox"/>		
+                                    </span>
+                                </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group text-center">
+                                        <label class="hint">Балкон</label>
+                                        <select id="balkon" class="ss" multiple="multiple">
+                                            <option value="1">Кирпич</option>
+                                            <option value="2">Панели</option>
+                                            <option value="3">Сибит</option>
+                                            <option value="4">Дерево</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4 metro-block">
+                                    <div class="form-group text-center">
+                                        <label class="hint">Метро</label>
+                                        <a data-toggle="modal" data-target=".metro">
+                                            <input  class="search-input metro">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 search-last-item-bottom">
+                                <div class="col-xs-5">
+                                </div>
+                                <div class="col-xs-7 search-button-block">
+                                    <input type="button" class="search-button" value="Показать варианты"></input> 
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+
+                       
+                <div id="search">
+                </div>
+            </div>
+            
+            
+            <div id="zk"></div>
+            </div>
+        </div>
+  
+    
+    
+    <div class="container-fluid container-fix" >
+        <div class="row">
+            <div class="col-xs-3 big-height zero-padding ">
+            <a href="#">  
+                <div class="col-xs-12 half-item zero-padding title-black">
+                  <img src="images/micrologo.png" class="micrologo">
+                   <div class="title-block">
+                        <h2>Жилые</h2>
+                        <h2>комплексы</h2>
+                        <p>перейти ></p>
+                    </div>
+                </div>
+            </a>
+            <div class="col-xs-12 second-half-item zero-padding">
+                <img src="images/c-image.jpg" class="title-image">
+            </div>        
+        </div>
+         
+            
+            
+            <div class="col-xs-9 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false">
+               
+               
+                <div class="big-height">
+                    <div class="col-xs-4 beige-block zero-padding">
+                       <div class="col-xs-12 quarter-item zero-padding">
+                            <img src="images/logo-z1.png" class="logo-z">
+                        </div>
+                       <div class="col-xs-12 second quarter-item zero-padding display-table">
+                            <div class="vertical">
+                                <h2>Жилой комплекс на Рублёвском шоссе</h2>
+                            </div>
+                            <div class="gorizont-line">
+                            </div>
+                        </div>
+                       <div class="col-xs-12 third quarter-item zero-padding item-text-field">
+                       <p>Новый многоквартирный жилой комплекс на проспекте Медиков</p> 
+                        </div>
+                       <div class="col-xs-12 fourth button-item zero-padding item-text-field">
+                            <a href="#" class="button-info button-info-top">Подробности</a> 
+                        </div>
+                    </div>
+                    <div class="col-xs-8 big-height zero-padding">
+                        <img src="images/s1.jpg" class="photo">
+                    </div>
+                </div>
+
+               
+               <div class="fotorama__arr fotorama__arr--next" tabindex="0" role="button"></div>
+               
+               
+                <div class="big-height">
+                    <div class="col-xs-4 beige-block zero-padding">
+                       <div class="col-xs-12 quarter-item zero-padding">
+                            <img src="images/logo-z3.png" class="logo-z">
+                        </div>
+                       <div class="col-xs-12 second quarter-item zero-padding display-table">
+                            <div class="vertical">
+                                <h2>Жилой дом на Декабристов</h2>
+                            </div>
+                            <div class="gorizont-line">
+                            </div>
+                        </div>
+                       <div class="col-xs-12 third quarter-item zero-padding item-text-field">
+                       <p>Все инфраструктурные «плюсы» делового центра в сочетании с «уютным», тихим местом для жизни.</p> 
+                        </div>
+                       <div class="col-xs-12 fourth button-item zero-padding item-text-field">
+                            <a href="#" class="button-info button-info-top">Подробности</a> 
+                        </div>
+                    </div>
+                    <div class="col-xs-8 big-height zero-padding">
+                        <img src="images/s2.jpg" class="photo">
+                    </div>
+                </div>  
+
+                <div class="big-height">
+                    <div class="col-xs-4 beige-block zero-padding">
+                       <div class="col-xs-12 quarter-item zero-padding">
+                            <img src="images/logo-z2.png" class="logo-z vertical-logo">
+                        </div>
+                       <div class="col-xs-12 second quarter-item zero-padding display-table">
+                            <div class="vertical">
+                                <h2>Жилой комплекс Марсель</h2>
+                            </div>
+                            <div class="gorizont-line">
+                            </div>
+                        </div>
+                       <div class="col-xs-12 third quarter-item zero-padding item-text-field">
+                       <p>"Марсель" - дом на набережной</p> 
+                        </div>
+                       <div class="col-xs-12 fourth button-item zero-padding item-text-field">
+                            <a href="#" class="button-info button-info-top">Подробности</a> 
+                        </div>
+                    </div>
+                    <div class="col-xs-8 big-height zero-padding">
+                        <img src="images/s3.jpg" class="photo">
+                    </div>
+                </div>    
+
+            </div>
+            <div id="card">
+            </div>
+        </div>
+    </div>
+
+ <div class="container-fluid container-fix">      
+        <div class="row">
+            <div class="col-xs-6 fifty height header-block fix">
+                        <div class="title-line header-text padd-bot">
+                            <h2>
+                            <img src="images/minihome.png" class="minihome">
+                            Карта новостроек</h2>
+                        </div>
+                    <div class="head-line marg-top">
+                    </div>
+            </div>
+            <div class="col-xs-6 fifty height zero-padding header-block">
+               <div class="header-text padd-bot">
+                    <h1>Все предложения на карте вашего города</h1>
+                    <h2>Найдите то, что подходит именно Вам</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 header-parent">   
+            <div class="form-group c-select">
+                <select id="map-filter" multiple="multiple" class="maps">
+                    <option value="1">Эконом</option>
+                    <option value="2">Бизнесс</option>
+                    <option value="3">Комфорт</option>
+                </select>
+            </div>
+            <div id="filters">
+               <ul>
+                    <li>
+                        <a data-toggle="modal" data-target=".modal-area">Район</a>
+                    </li>
+                    <li class="store">           
+                        <input type="checkbox" id="mapcheck">
+                        <label class="map-hint"  for="mapcheck">Акции</label>
+                    </li>
+                </ul>
+            </div>
+        </div>    
+        <div class="row relative">
+            <div class="col-xs-9 fiftyplus double-big-height poster-photo parent">
+                <div id="map" style="width:100%; height:100%;"></div>
+            </div>
+            <div class="col-xs-3 double-big-height fifty-minus zero-padding parent">
+                <div class="col-xs-12 height zero-padding">
+                    <img src="images/image-c2.png" class="title-image">
+                </div>   
+                <div class="col-xs-12 beige-block big-height zero-padding">
+                           <div class="col-xs-12 quarter-item zero-padding">
+                                <img src="images/logo-z2.png" class="logo-z vertical-logo">
+                            </div>
+                           <div class="col-xs-12 second quarter-item zero-padding display-table">
+                                <div class="vertical">
+                                    <h2>Жилой комплекс Марсель</h2>
+                                </div>
+                                <div class="gorizont-line">
+                                </div>
+                            </div>
+                           <div class="col-xs-12 third quarter-item zero-padding item-text-field">
+                           <p>"Марсель" - дом на набережной</p> 
+                            </div>
+                           <div class="col-xs-12 fourth button-item zero-padding item-text-field">
+                                <a href="#" class="button-info button-info-top">Подробности</a> 
+                            </div>
+                    </div> 
+                </div>    
+            </div>
+    </div>
+    
+        <div class="container-fluid container-fix" >
+            <div class="row">
+                <div id="stock"></div>   
+                <div class="col-xs-6 big-height fifty zero-padding big-stock">
+                   <img src="images/s3.jpg" class="big-stock-image">
+                    <div class="col-xs-6 big-stock-quarter zero-padding title-black">
+                      <img src="images/micrologo.png" class="micrologo">
+                       <div class="title-block">
+                            <h2>Акции</h2>
+                            <p>перейти ></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 big-stock-quarter right-place zero-padding big-stock-block">
+                        <div class="col-xs-12 big-stock-title zero-padding">
+                                <h2>Горячее предложение</h2>
+                        </div>
+                        <div class="col-xs-12 big-stock-body zero-padding">
+                            <div class="table-item">последняя квартира в первой очереди "Европейского берега" со скидкой 150 т.р.</div>
+                        </div>
+                        <div class="col-xs-12 big-stock-button zero-padding">
+                            <a href="#" class="button-info stock-button">Подробности</a>         
+                        </div>
+                        <div class="arrow-left-bigstock"></div>
+                    </div>
+                </div>
+                
+                <div class="col-xs-3 big-height fifty-minus zero-padding ">
+                <div class="col-xs-12 half-item zero-padding">
+                    <img src="images/s2.jpg" class="title-image">
+                </div>  
+                <a href="#">  
+                    <div class="col-xs-12 second-half-item zero-padding v1stock">
+                        <div class="arrow-left-stock1"></div>
+                        <div class="col-xs-12 big-stock-title zero-padding cb-stock">
+                            <h2>Третья очередь на Декабристов</h2>
+                        </div>
+                        <div class="col-xs-12 big-stock-body zero-padding cb-stock">
+                            <div class="table-item">К новому году мы подготовили специальное предложение — 
+15 квартир в третьей очереди квартала на Декабристов
+по специальной цене. </div>
+                        </div>
+                        <div class="col-xs-12 big-stock-button zero-padding">
+                            <a href="#" class="button-info stock-button cb-b-stock">Подробности</a>         
+                        </div>
+                    </div>
+                </a>      
+                </div>
+
+                <div class="col-xs-3 big-height fifty-minus zero-padding ">
+                <a href="#">  
+                    <div class="col-xs-12 half-item zero-padding v2stock">
+                        <div class="arrow-left-stock2"></div>
+                        <div class="col-xs-12 big-stock-title zero-padding cb-stock">
+                            <h2>ТРЁШКА В ЖК «АСТРА»</h2>
+                        </div>
+                        <div class="col-xs-12 big-stock-body zero-padding cb-stock">
+                            <div class="table-item"> при покупке трёшки в ЖК «Астра» действует скидка — 250 000 рублей.</div>
+                        </div>
+                        <div class="col-xs-12 big-stock-button zero-padding">
+                            <a href="#" class="button-info stock-button cb-b-stock">Подробности</a>         
+                        </div>
+                    </div>
+                </a>
+                <div class="col-xs-12 second-half-item zero-padding">
+                    <img src="images/s3.jpg" class="title-image">
+                </div>        
+                </div>
+            </div>
+        <div id="za">
+        </div>
+        </div>
+    
+    <div class="container-fluid container-fix">      
+        <div class="row">
+            <div class="col-xs-9 fiftyplus height zero-padding">
+                <a href="#">
+                    <div class="col-xs-4 z-item">
+                            <img src="images/logo-z1.png">    
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="col-xs-4 z-item">
+                            <img src="images/logo-z2.png">    
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="col-xs-4 z-item">
+                            <img src="images/logo-z3.png">    
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="col-xs-4 z-item">
+                            <img src="images/logo-z3.png">    
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="col-xs-4 z-item">
+                            <img src="images/logo-z1.png">    
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="col-xs-4 z-item">
+                            <img src="images/logo-z2.png">    
+                    </div>
+                </a>
+            </div>
+                <div class="col-xs-3 fiftyminus height zero-padding title-black">
+                   <a href="">
+                        <div class="col-xs-12 full-item zero-padding">
+                          <img src="images/micrologo.png" class="micrologo">
+                           <div class="title-block title-block-line">
+                                <h2>Застройщики</h2>
+                                <p>перейти ></p>
+                            </div>
+                        </div>       
+                    </a>
+                </div>
+        </div>
+        <div id="dtours">
+        </div>
+    </div>
+
+
+    <div class="container-fluid container-fix" >
+        <div class="row">
+            <div class="col-xs-3 big-height zero-padding ">
+            <a href="#">  
+                <div class="col-xs-12 half-item zero-padding title-black">
+                  <img src="images/micrologo.png" class="micrologo">
+                   <div class="title-block">
+                        <h2>3D ТУРЫ</h2>
+                        <p>перейти ></p>
+                    </div>
+                </div>
+            </a>
+            <div class="col-xs-12 second-half-item zero-padding">
+
+            </div>        
+        </div>
+         
+            
+            
+            <div id="3d" class="col-xs-9 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false" >
+               
+               
+                <div class="big-height">
+                    <div class="col-xs-4 beige-block zero-padding">
+                       <div class="col-xs-12 quarter-item zero-padding">
+                            <img src="images/logo-z1.png" class="logo-z">
+                        </div>
+                       <div class="col-xs-12 second quarter-item zero-padding display-table">
+                            <div class="vertical">
+                                <h2>Жилой комплекс на Рублёвском шоссе</h2>
+                            </div>
+                            <div class="gorizont-line">
+                            </div>
+                        </div>
+                       <div class="col-xs-12 third quarter-item zero-padding item-text-field">
+                       <p>Новый многоквартирный жилой комплекс на проспекте Медиков</p> 
+                        </div>
+                       <div class="col-xs-12 fourth button-item zero-padding item-text-field">
+                            <a href="#" class="button-info button-info-top">Подробности</a> 
+                        </div>
+                    </div>
+                   <div class="col-xs-8 big-height zero-padding">
+                        <img src="images/s1.jpg" class="photo">
+                    </div>
+                </div>
+
+            
+                <div class="big-height">
+                    <div class="col-xs-4 beige-block zero-padding">
+                       <div class="col-xs-12 quarter-item zero-padding">
+                            <img src="images/logo-z3.png" class="logo-z">
+                        </div>
+                       <div class="col-xs-12 second quarter-item zero-padding display-table">
+                            <div class="vertical">
+                                <h2>Жилой дом на Декабристов</h2>
+                            </div>
+                            <div class="gorizont-line">
+                            </div>
+                        </div>
+                       <div class="col-xs-12 third quarter-item zero-padding item-text-field">
+                       <p>Все инфраструктурные «плюсы» делового центра в сочетании с «уютным», тихим местом для жизни.</p> 
+                        </div>
+                       <div class="col-xs-12 fourth button-item zero-padding item-text-field">
+                            <a href="#" class="button-info button-info-top">Подробности</a> 
+                        </div>
+                    </div>
+                    <div class="col-xs-8 big-height zero-padding">
+                        <img src="images/s2.jpg" class="photo">
+                    </div>
+                </div>  
+
+                <div class="big-height">
+                    <div class="col-xs-4 beige-block zero-padding">
+                       <div class="col-xs-12 quarter-item zero-padding">
+                            <img src="images/logo-z2.png" class="logo-z vertical-logo">
+                        </div>
+                       <div class="col-xs-12 second quarter-item zero-padding display-table">
+                            <div class="vertical">
+                                <h2>Жилой комплекс Марсель</h2>
+                            </div>
+                            <div class="gorizont-line">
+                            </div>
+                        </div>
+                       <div class="col-xs-12 third quarter-item zero-padding item-text-field">
+                       <p>"Марсель" - дом на набережной</p> 
+                        </div>
+                       <div class="col-xs-12 fourth button-item zero-padding item-text-field">
+                            <a href="#" class="button-info button-info-top">Подробности</a> 
+                        </div>
+                    </div>
+                    <div class="col-xs-8 big-height zero-padding">
+                        <img src="images/s3.jpg" class="photo">
+                    </div>
+                </div>    
+
+            </div>
+            <div id="card">
+            </div>
+        </div>
+    </div>
+       
+ <div class="container-fluid container-fix" id="footer">      
+        <div class="row">
+            <div class="col-xs-4">
+                    <img src="images/black-logo.svg" class="footer-logo">
+            </div>
+            <div class="col-xs-4 zero-padding">
+            </div>
+            <div class="col-xs-4 zero-padding">
+                <ul class="list-line list-inline">
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-vk"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        
+    
+    <!--    Modal_city   -->
+
+    <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-city zero-padding">
+                <div class="col-xs-12 header-container-modal header-block">
+                    <div class="modal-text">
+                        <p>Выберите город</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 list-modal-city">
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">Новосибирск</a>
+                            </li>
+                            <li>
+                                <a href="#">Москва</a>
+                            </li>
+                            <li>
+                                <a href="#">Новосибирск</a>
+                            </li>
+                            <li>
+                                <a href="#">Москва</a>
+                            </li>
+                        </ul>
+                    
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">Екатеринбург</a>
+                            </li>
+                            <li>
+                                <a href="#">Омск</a>
+                            </li>
+                            <li>
+                                <a href="#">Екатеринбург</a>
+                            </li>
+                            <li>
+                                <a href="#">Омск</a>
+                            </li>
+                        </ul>
+                    
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">Томск</a>
+                            </li>
+                            <li>
+                                <a href="#">Санкт-Петербург</a>
+                            </li>
+                            <li>
+                                <a href="#">Томск</a>
+                            </li>
+                            <li>
+                                <a href="#">Санкт-Петербург</a>
+                            </li>
+
+                        </ul>
+                    
+                    </div>
+                </div>
+                <div class="col-xs-12 modal-button">
+                    <a href="#" class="search-button modal-but">Выбрать</a> 
+                </div>
+        </div>
+    </div>
+
+    <!--    End Modal_city   -->
+    
+    <!--    Modal_area   -->
+    <div class="modal fade modal-area" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-city zero-padding">
+                <div class="col-xs-12 header-container-modal header-block">
+                    <div class="modal-text">
+                        <p>Выберите район</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 list-modal-city">
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Центральный
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Железнодорожный
+                                </label>
+                            </li>
+                        </ul>
+                    
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Калининский
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Дзержинский
+                                </label>
+                            </li>
+                        </ul>
+                    
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Октябрьский
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Первомайский
+                                </label>
+                            </li>
+
+                        </ul>
+                    
+                    </div>
+                </div>
+                <div class="col-xs-12 modal-button">
+                    <a href="#" class="search-button modal-but">Выбрать</a> 
+                </div>
+        </div>
+    </div>
+    <!--    End Modal_area   -->
+
+
+    
+          <!--    Modal_z   -->
+    <div class="modal fade modal-z" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-city zero-padding">
+                <div class="col-xs-12 header-container-modal header-block">
+                    <div class="modal-text">
+                        <p>Выберите застройщика</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 list-modal-city">
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">ЗАО «Строитель»
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">«Первый строительный фонд» 
+                                </label>
+                            </li>    
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Группа компаний ЗАО «СД Альфа Капитал»
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>     
+                <div class="col-xs-12 modal-button">
+                    <a href="#" class="search-button modal-but">Выбрать</a> 
+                </div>
+        </div>
+    </div>
+
+    <!--    End Modal_z   -->
+    
+             
+    <!--    Modal_zk   -->
+    <div class="modal fade modal-zk" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-city zero-padding">
+                <div class="col-xs-12 header-container-modal header-block">
+                    <div class="modal-text">
+                        <p>Выберите жилой комплекс</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 list-modal-city">
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Акатуйский
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">Некрасовский</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">Европейский берег</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 modal-button">
+                    <a href="#" class="search-button modal-but">Выбрать</a> 
+                </div>
+        </div>
+    </div>
+    <!--    End Modal_zk   -->
+
+   
+    <!--    Modal_type   -->
+    <div class="modal fade modal-type" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-city zero-padding">
+                <div class="col-xs-12 header-container-modal header-block">
+                    <div class="modal-text">
+                        <p>Выберите тип квартиры</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 list-modal-city">
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">1 комнатная
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">2 комнатная</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">3 комнатная</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 modal-button">
+                    <a href="#" class="search-button modal-but">Выбрать</a> 
+                </div>
+        </div>
+    </div>
+    <!--    End Modal_type   -->
+    
+
+    <!--    Modal_metro   -->
+    <div class="modal fade metro" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-city zero-padding">
+                <div class="col-xs-12 header-container-modal header-block">
+                    <div class="modal-text">
+                        <p>Выберите ближайшее метро</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 list-modal-city">
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <label class="checkbox-inline check-style">
+                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Площадь Ленина
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">Октябрьская</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <ul>
+                            <li>
+                                <a href="#">Красный проспект</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 modal-button">
+                    <a href="#" class="search-button modal-but">Выбрать</a> 
+                </div>
+        </div>
+    </div>
+    <!--    End Modal_type   -->
+    
+    
+    
+    
+    </body>
+</html>
