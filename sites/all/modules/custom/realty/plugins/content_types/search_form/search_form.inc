@@ -78,4 +78,8 @@ function template_preprocess_realty_search_form(&$vars) {
   ));
 
   $vars['areas'] = realty_get_options_current_city('area');
+  $vars['metros'] = realty_get_options_current_city('metro');
+  $vars['developers'] = realty_get_developer_current_city();
+  $vars['complexes'] = realty_get_complex_current_city();
+  $vars['rooms'] = realty_options_search('room');
 }

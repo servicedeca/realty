@@ -3,6 +3,7 @@
  Drupal.behaviors.realtyMultyselect = {
    attach: $(function() {
 //  map-filter select
+//  map-filter select
      $(function() {
        $('#map-filter').change(function() {
          console.log($(this).val());
@@ -14,7 +15,7 @@
 //  date multiple select
      $(function() {
        $('#date').change(function() {
-         console.log($(this).val());
+        // console.log($(this).val());
        }).multipleSelect({
          placeholder: '',
          selectAllText: 'Отметить все',
@@ -26,7 +27,7 @@
 //  wall type multiple select
      $(function() {
        $('#wall_type').change(function() {
-         console.log($(this).val());
+        // console.log($(this).val());
        }).multipleSelect({
          placeholder: '',
          selectAllText: 'Отметить все',
@@ -38,7 +39,7 @@
 //  category type multiple select
      $(function() {
        $('#cat').change(function() {
-         console.log($(this).val());
+        // console.log($(this).val());
        }).multipleSelect({
          placeholder: '',
          selectAllText: 'Отметить все',
@@ -50,14 +51,14 @@
 //  balkon type multiple select
      $(function() {
        $('#balkon').change(function() {
-         console.log($(this).val());
+       //  console.log($(this).val());
        }).multipleSelect({
          placeholder: '',
          selectAllText: 'Отметить все',
          allSelected: 'Все'
        });
      });
-     $("#meters").ionRangeSlider({
+     $(".sq").ionRangeSlider({
        hide_min_max: true,
        keyboard: true,
        min: 0,
@@ -69,7 +70,7 @@
        step: 1,
        grid: true
      });
-     $("#meter-price").ionRangeSlider({
+     $(".price").ionRangeSlider({
        hide_min_max: true,
        keyboard: true,
        min: 40,
@@ -79,9 +80,11 @@
        to: 85,
        type: 'double',
        step: 1,
-       grid: true
+       grid: true,
+       hasGrid: true
+
      });
-     $("#flat-price").ionRangeSlider({
+     $(".coast").ionRangeSlider({
        hide_min_max: true,
        keyboard: true,
        min: 0.5,
@@ -91,69 +94,122 @@
        to: 4,
        type: 'double',
        step: 0.2,
-       grid: true
+       grid: true,
+       hasGrid: true
+     });
+
+
+     $('.CheckboxArea').click(function () {
+       var select = $('select[id="area"]');
+       $(this).prop("checked") == true ? $('#area option[value='+$(this).val()+']').attr('selected', 'selected') :
+         $('#area option[value='+$(this).val()+']').attr('selected', false);
+     });
+
+     $('.CheckboxMapArea').click(function () {
+       var select = $('select[id="area-map"]');
+       $(this).prop("checked") == true ? $('#area-map option[value='+$(this).val()+']').attr('selected', 'selected') :
+         $('#area-map option[value='+$(this).val()+']').attr('selected', false);
+     });
+
+     $('.CheckboxRoom').click(function () {
+       var select = $('select[id="room"]');
+       $(this).prop("checked") == true ? $('#room option[value='+$(this).val()+']').attr('selected', 'selected') :
+         $('#room option[value='+$(this).val()+']').attr('selected', false);
+     });
+
+     $('.CheckboxMetro').click(function () {
+       var select = $('select[id="metro"]');
+       $(this).prop("checked") == true ? $('#metro option[value='+$(this).val()+']').attr('selected', 'selected') :
+         $('#metro option[value='+$(this).val()+']').attr('selected', false);
+     });
+
+     $('.CheckboxDeveloper').click(function () {
+       var select = $('select[id="developer"]');
+       if ($(this).prop("checked") == true) {
+         $('#developer option[value='+$(this).val()+']').attr('selected', 'selected');
+         console.log( $("#developer").val());
+         complex_select($("#developer").val());
+       }
+       else {
+         $('#developer option[value='+$(this).val()+']').attr('selected', false);
+       }
+     });
+
+     $('.CheckboxComplex').click(function () {
+       var select = $('select[id="complex"]');
+       $(this).prop("checked") == true ? $('#complex option[value='+$(this).val()+']').attr('selected', 'selected') :
+         $('#complex option[value='+$(this).val()+']').attr('selected', false);
+     });
+
+     function complex_select(devid){
+       var city = $('input[name="city"]');
+       $.ajax({
+         url: '/get_developer_complex',
+         type: 'POST',
+         data: {
+           developer: devid,
+           city: city.val()
+         },
+         success: function(response) {
+           var object = jQuery.parseJSON(response);
+           console.log(response);
+           $('.complexes-lis').html('');
+           $('#complex').html('');
+           if (object != null) {
+             $('.complexes-lis').html(object.modal);
+             $('#complex').html(object.select);
+           }
+         },
+         error: function(response) {
+           alert('false');
+         }
+       });
+     }
+
+     // действия после полной загрузки страницы
+       // проверяем, какие чекбоксы активны и меняем сласс для родительского дива
+       $('.decor_checkbox').each(function(){
+         var checkbox = $('#parking');
+         if(checkbox.prop("checked")) $(this).addClass("check_active");
+       });
+
+     // при клике по диву, делаем проверку
+     $('.decor_checkbox').click(function() {
+       var checkbox = $('#parking');
+       // если чекбокс был активен
+       if(checkbox.prop("checked")){
+         // снимаем класс с родительского дива
+         $(this).removeClass("check_active");
+         // и снимаем галочку с чекбокса
+         checkbox.prop("checked", false);
+         // если чекбокс не был активен
+         checkbox.val(0);
+       }else{
+         // добавляем класс родительскому диву
+         $(this).addClass("check_active");
+         // ставим галочку в чекбоксе
+         checkbox.prop("checked", true);
+         checkbox.val(1);
+       }
      });
    })
   };
 
 
-  Drupal.behaviors.realtySelectcomplex = {
-    attach: $(function () {
-      $("#developer").change(function () {
-        complex_select($(this).val());
-      });
-      function complex_select(devid){
-        var city = $('input[name="city"]');
-        var complexSelect = $('select[name="complex"]');
-        var developerSelect = $('select[name="developer"]');
-        //console.log(developerSelect);
-        $.ajax({
-          url: '/get_developer_complex',
-          type: 'POST',
-          data: {
-            developer: devid,
-            city: city.val()
-          },
-          success: function(response) {
-            var object = jQuery.parseJSON(response);
-            complexSelect.html('');
-            complexSelect.html(object.option);
-
-            complexSelect.append(response);
-            $('.form-item-complex .ms-parent ul').html('');
-            $('.form-item-complex .ms-parent ul').html(object.li);
-          },
-          error: function(response) {
-            alert('false');
-          }
-        });
-      }
-    })
-  };
 
   Drupal.behaviors.realtySearchMap = {
     attach: $(function () {
-      $("#category-map").change(function () {
+      $("#map-filter").change(function () {
         var select = $('select[id="edit-field-category-value"]');
         select.val($(this).val());
         $('#edit-submit-map').trigger('click');
       });
-      $("#area-map").change(function () {
+
+      $(".CheckboxMapArea").change(function () {
         var select = $('select[id="edit-field-area-tid"]');
         select.val($(this).val());
         $('#edit-submit-map').trigger('click');
       });
-      $("#masonry-map").change(function () {
-        var select = $('select[id="edit-field-masonry-value"]');
-        select.val($(this).val());
-        $('#edit-submit-map').trigger('click');
-      });
-      $("#parking-map").click(function () {
-        var select = $('select[id="edit-field-parking-value"]');
-        $(this).prop("checked") == true ? select.val(1) :  select.val(2);
-        $('#edit-submit-map').trigger('click');
-      });
-
     })
   };
 
@@ -213,7 +269,7 @@
      /* if(!$(".big-height").length) {
         $('.big-height').height($('.fiftyminus').width()/0.71);
       }*/
-     $('.big-height').height($('.fiftyminus').width()/0.71);
+      $('.big-height').height($('.fiftyminus').width()/0.71);
       $('.height').height($('.fifty').width()/2.85);
       $('.big-height').height($('.fiftyplus').width()/2.13);
       $('.double-big-height').height($('.fiftyplus').width()/1.42);

@@ -51,7 +51,17 @@ function template_preprocess_realty_front_map(&$vars) {
     ),
   ));
 
+  $vars['img_close'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
+    'title' => t('Close'),
+  ));
+
+  $vars['areas'] = realty_get_options_current_city('area');
+
   $vars['search_map_form'] = drupal_get_form('realty_search_map_form');
+
+  unset($vars['search_map_form']['category']['#title']);
+
   $view = views_embed_view('map', 'main_map');
   $vars['map'] = $view;
 

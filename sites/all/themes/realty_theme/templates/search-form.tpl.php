@@ -64,7 +64,7 @@
       <label class="hint">
         <?php print t('floor')?>
       </label>
-      <input  class="search-input mini-width floor" maxlength="2">
+      <?php print render($form['floor'])?>
     </div>
   </div>
 
@@ -73,7 +73,7 @@
       <label class="hint">
         <?php print t('Masonry');?>
       </label>
-      <?php print render($masonry)?>
+      <?php print render($form['masonry'])?>
     </div>
   </div>
 
@@ -82,7 +82,7 @@
         <label class="hint">
           <?php print t('Category');?>
         </label>
-        <?php print render($category)?>
+        <?php print render($form['category'])?>
       </div>
     </div>
 
@@ -92,10 +92,10 @@
           <?php print t('Deadline')?>
         </label>
         <div class="col-xs-7 zero-padding">
-          <?php print render($quarter)?>
+          <?php print render($form['quarter'])?>
         </div>
         <div class="col-xs-5 zero-padding padding-right">
-          <?php print render($year)?>
+          <?php print render($form['year'])?>
         </div>
       </div>
     </div>
@@ -107,32 +107,38 @@
 
       <div class="col-xs-4 search-slider-item">
         <label class="hint margin-bottom"><?php print t('Площадь, м').'<sup>2<sup>'?></label>
-        <?php print render($sq)?>
+        <?php print render($form['sq'])?>
       </div>
 
       <div class="col-xs-4 search-slider-item">
         <label class="hint margin-bottom"><?php print t('Цена за м') . '<sup>2</sup>' . t('тыс. руб')?></label>
-        <?php print render($price)?>
+        <?php print render($form['price'])?>
       </div>
 
       <div class="col-xs-4 search-slider-item">
         <label class="hint margin-bottom"><?php print t('Стоимость, млн. руб');?></label>
-        <input type="text" id="flat-price" name="example_name" value="" class="ion-slider"/>
+        <?php print render($form['coast'])?>
       </div>
     </div>
 
   <div class="col-xs-4 search-slider-block zero-padding">
   <div class="col-xs-12 search-last-item-top">
     <div class="col-xs-4">
-      <div class="form-group text-center box">
-        <?php print render($parking)?>
-        <label class="hint" for="check"><?php print t('Parking')?></label>
+      <div class="col-xs-2 col-xs-offset-2 box">
+        <div class="form-group decor_checkbox">
+          <label class="hint fix-hint">
+            <?php print t('Parking');?>
+          </label>
+          <span>
+              <?php print render($form['parking'])?>
+          </span>
+        </div>
       </div>
     </div>
     <div class="col-xs-4">
       <div class="form-group text-center">
         <label class="hint"><?php print t('Balcony')?></label>
-        <?php print render($balcony)?>
+        <?php print render($form['balcony'])?>
       </div>
     </div>
     <div class="col-xs-4 metro-block">
@@ -148,13 +154,12 @@
     <div class="col-xs-5">
     </div>
     <div class="col-xs-7 search-button-block">
-      <?php print render($submit)?>
+      <?php print render($form['submit'])?>
     </div>
   </div>
 
   </div>
   </div>
-
 <div id="form-search-hidden">
   <?php print drupal_render_children($form); ?>
 </div>

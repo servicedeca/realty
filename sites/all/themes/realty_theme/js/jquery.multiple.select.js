@@ -533,11 +533,11 @@
     $.fn.multipleSelect.defaults = {
         name: '',
         isOpen: false,
-        placeholder: '',
+        placeholder: 'Все категории',
         selectAll: true,
         selectAllText: 'Выбрать все',
         selectAllDelimiter: ['[', ']'],
-        allSelected: 'Все',
+        allSelected: 'Все категории',
         minimumCountSelected: 3,
         countSelected: '# of % selected',
         noMatchesFound: 'No matches found',

@@ -242,26 +242,16 @@ function realty_preprocess_search_form(&$vars) {
   $city = realty_get_current_city();
   $vars['city'] = $city;
 
-  $vars['area'] = $vars['form']['area'];
-  $vars['masonry'] = $vars['form']['masonry'];
-  unset($vars['masonry']['#title']);
-  $vars['category'] = $vars['form']['category'];
-  unset($vars['category']['#title']);
-  $vars['quarter'] = $vars['form']['quarter'];
-  unset($vars['quarter']['#title']);
-  $vars['year'] = $vars['form']['year'];
-  unset($vars['year']['#title']);
-  $vars['sq'] = $vars['form']['sq'];
-  unset($vars['sq']['#title']);
-  $vars['price'] = $vars['form']['price'];
-  unset($vars['price']['#title']);
-  $vars['coast'] = $vars['form']['coast'];
-  unset($vars['coast']['#title']);
-  $vars['parking'] = $vars['form']['parking'];
-  unset($vars['parking']['#title']);
-  $vars['balcony'] = $vars['form']['balcony'];
-  unset($vars['balcony']['#title']);
-  $vars['submit'] = $vars['form']['submit'];
+  unset($vars['form']['masonry']['#title']);
+  unset($vars['form']['category']['#title']);
+  unset($vars['form']['quarter']['#title']);
+  unset($vars['form']['year']['#title']);
+  unset($vars['form']['sq']['#title']);
+  unset($vars['form']['price']['#title']);
+  unset($vars['form']['coast']['#title']);
+  unset($vars['form']['parking']['#title']);
+  unset($vars['form']['balcony']['#title']);
+  unset($vars['form']['floor']['#title']);
 
   $vars['area'] = realty_get_options_current_city('area');
 
@@ -275,13 +265,13 @@ function realty_theme_registry_alter(&$theme_registry) {
   $theme_path = path_to_theme();
 
   // Checkboxes.
-  if (isset($theme_registry['checkbox'])) {
+ /* if (isset($theme_registry['checkbox'])) {
     $theme_registry['checkbox']['type'] = 'theme';
     $theme_registry['checkbox']['theme path'] = $theme_path;
     $theme_registry['checkbox']['template'] = $theme_path. '/templates/field--type-checkbox';
     unset($theme_registry['checkbox']['function']);
   }
-
+*/
 }
 
 /**

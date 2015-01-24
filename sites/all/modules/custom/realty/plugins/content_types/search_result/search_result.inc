@@ -22,6 +22,25 @@ function realty_search_result_ctools_content_types() {
 function realty_search_result_content_type_render($subtype, $conf, $panel_args, $context) {
   $block = new stdClass();
 
+  if(isset($_GET['price'])) {
+    $pricemin = explode(";", $_GET['price']);
+    $pricemax = explode(";", $_GET['price']);
+    $data['priceMin'] = $pricemin[0] * 1000;
+    $data['priceMax'] = $pricemax[1] * 1000;
+  }
+  if(isset($_GET['sq'])) {
+    $sqmin = explode(";", $_GET['sq']);
+    $sqmax = explode(";", $_GET['sq']);
+    $data['sqMin'] = $sqmin[0];
+    $data['sqMax'] = $sqmax[1];
+  }
+  if(isset($_GET['coast'])) {
+    $coastmin = explode(";", $_GET['coast']);
+    $coastmax = explode(";", $_GET['coast']);
+    $data['coastMin'] = $coastmin[0] * 1000000;
+    $data['coastMax'] = $coastmax[1] * 1000000;
+  }
+
   $view = views_get_view('apartments');
   $view->set_display('result_search');
   if(isset($_GET['selectAllarea'][0]) || !isset($_GET['area'])) {
@@ -67,30 +86,30 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
       $view->display_handler->options['filters']['field_number_rooms_value']['value'][$room] = $room;
     }
   }
-  if(empty($_GET['sq_from']) && empty($_GET['sq_to'])) {
+  if(empty($_GET['sq'])) {
     unset($view->display_handler->options['filters']['field_gross_area_value']);
   }
   else {
-    $view->display_handler->options['filters']['field_gross_area_value']['value']['min'] = $_GET['sq_from'];
-    $view->display_handler->options['filters']['field_gross_area_value']['value']['max'] = $_GET['sq_to'];
+    $view->display_handler->options['filters']['field_gross_area_value']['value']['min'] = $data['sqMin'];
+    $view->display_handler->options['filters']['field_gross_area_value']['value']['max'] = $data['sqMax'];
   }
 
-  if(empty($_GET['price_from']) && empty($_GET['price_to'])) {
+  if(empty($_GET['price'])) {
    unset($view->display_handler->options['filters']['field_price_value']);
   }
   else {
-    $view->display_handler->options['filters']['field_price_value']['value']['min'] = $_GET['price_from'];
-    $view->display_handler->options['filters']['field_price_value']['value']['max'] = $_GET['price_to'];
+    $view->display_handler->options['filters']['field_price_value']['value']['min'] = $data['priceMin'];
+    $view->display_handler->options['filters']['field_price_value']['value']['max'] = $data['priceMax'];
   }
   if(!isset($_GET['parking'])) {
     unset($view->display_handler->options['filters']['field_parking_value']);
   }
-  if(empty($_GET['coast_from']) && empty($_GET['coast_to'])) {
+  if(empty($_GET['coast'])) {
     unset($view->display_handler->options['filters']['field_full_cost_value']);
   }
   else {
-    $view->display_handler->options['filters']['field_full_cost_value']['value']['min'] = $_GET['coast_from'];
-    $view->display_handler->options['filters']['field_full_cost_value']['value']['max'] = $_GET['coast_to'];
+    $view->display_handler->options['filters']['field_full_cost_value']['value']['min'] = $data['coast_Min'];
+    $view->display_handler->options['filters']['field_full_cost_value']['value']['max'] = $data['coastMax'];
   }
   if (isset($_GET['selectAlldeveloper']) || !isset($_GET['developer'])) {
     unset($view->display_handler->options['filters']['field_complex_developer_tid']);

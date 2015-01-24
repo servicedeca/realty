@@ -187,25 +187,21 @@ function realty_get_developer_complex() {
   foreach($_POST['developer'] as $value) {
     $developer_id[] = $value;
   }
-  $complexs = realty_get_complex_current_city($developer_id, $_POST['city']);
-
-  $select['li'][] = "<li class='ms-select-all'>
-      <label>
-          <input type='checkbox' name='selectAllcomplex'>[Выбрать все]
-      </label>
-    </li>";
-
-  foreach($complexs as $key => $complex ) {
-    $select['option'][] = "<option value=". $key .">". $complex ."</option>";
-    $select['li'][] = "<li class='selected'>
-        <label>
-          <input type='checkbox' name='selectItemdeveloper' value=".$key.">
-          ".$complex."
-        </label>
-      </li>";
+  $complexes = realty_get_complex_current_city($developer_id, $_POST['city']);
+  if (!empty($complexes)) {
+    $options = '';
+    foreach($complexes as $key => $complex) {
+      $options['modal'] .= '<div class="col-xs-4">
+        <li>
+          <label class="checkbox-inline check-style">
+            <input type="checkbox" class="inlineCheckbox1 CheckboxComplex " value="'.$key.'"> '.$complex.'
+          </label>
+        </li>
+      </div>';
+      $options['select'] .= '<option value='.$key.'>'.$complex.'</option>';
+    }
   }
-
-  print json_encode($select);
+  print json_encode($options);
   drupal_exit();
 }
 
@@ -335,11 +331,7 @@ function realty_generation_pdf_apartment($node) {
 function realty_search_map_form($form, $form_state) {
 
   $area_option = realty_get_options_current_city('area');
-  $room_option = realty_options_search('room');
-  $quarter_option = realty_options_search('quarter');
-  $masonry_option = realty_options_search('masonry');
   $category_option = realty_options_search('category');
-  $city = menu_get_object('taxonomy_term', 2);
 
   $form['area'] = array(
     '#type'=>'select',
@@ -352,34 +344,15 @@ function realty_search_map_form($form, $form_state) {
     ),
   );
 
-  $form['masonry'] = array(
-    '#type'=>'select',
-    '#title'=>'Masonry',
-    '#name'=>'masonry[]',
-    '#options'=> $masonry_option,
-    '#attributes' => array(
-      'id' => 'wall_type',
-      'multiple' => 'multiple',
-      'class' => array('ss'),
-    ),
-  );
-
   $form['category'] = array(
     '#type'=>'select',
     '#title'=>'Category',
     '#name'=>'category[]',
     '#options'=> $category_option,
     '#attributes' => array(
-      'id' => 'category-map',
+      'id' => 'map-filter',
       'multiple' => 'multiple',
-    ),
-  );
-
-  $form['parking'] = array(
-    '#type'=>'checkbox',
-    '#title'=>'Parking',
-    '#attributes' => array(
-      'id' => 'parking-map',
+      'class' => 'maps',
     ),
   );
 
@@ -527,10 +500,14 @@ function realty_search_form($form, $form_state) {
   $form['floor'] = array(
     '#type'=>'textfield',
     '#title'=>'floor',
-    '#default_value' => isset($_GET['floor']) ? $_GET['floor'] : 0,
+    '#default_value' => isset($_GET['floor']) ? $_GET['floor'] : false,
     '#attributes'=>array(
-      'size' => 2,
+      'id' => 'floor',
       'maxlength' => 2,
+      'class' => array('search-input',
+        'mini-width',
+        'floor',
+      ),
     ),
   );
 
@@ -547,44 +524,35 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['sq'] = array(
-    '#type'=>'textfield',
+    '#type'=>'hidden',
     '#title'=>'Sq from',
-    '#default_value' => isset($_GET['sq_from']) ? $_GET['sq_from'] : false,
     '#attributes'=>array(
-      'id' => 'meters',
-      'name' => 'example_name',
-      'class' => array('ion-slider'),
+      'class' => array('ion-slider', 'sq'),
     ),
   );
 
   $form['price'] = array(
-    '#type'=>'textfield',
+    '#type'=>'hidden',
     '#title'=>'Price from',
-    '#default_value' => isset($_GET['price']) ? $_GET['price'] : false,
     '#attributes'=>array(
-      'id' => 'meter-price',
-      'name' => 'example_name',
-      'class' => array('ion-slider'),
+      'class' => array('ion-slider', 'price'),
     ),
   );
 
   $form['parking'] = array(
     '#type'=>'checkbox',
     '#title'=>'Parking',
-    '#default_value' => isset($_GET['parking']) ? $_GET['parking'] : 0,
+    '#default_value' => isset($_GET['parking']) && $_GET['parking'] == 1  ? 1 : 0,
     '#attributes'=>array(
-      'id' => 'check',
+      'id ' => 'parking',
     ),
   );
 
   $form['coast'] = array(
-    '#type'=>'textfield',
+    '#type'=>'hidden',
     '#title'=>'Coast',
-    '#default_value' => isset($_GET['coast_from']) ? $_GET['coast_from'] : false,
     '#attributes'=>array(
-      'id' => 'flat-price',
-      'name' => 'example_name',
-      'class' => array('ion-slider'),
+      'class' => array('ion-slider', 'coast'),
     ),
   );
 
