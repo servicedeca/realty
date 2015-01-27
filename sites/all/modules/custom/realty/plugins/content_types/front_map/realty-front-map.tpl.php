@@ -39,10 +39,34 @@
     </div>
   </div>
 </div>
-
-<div id='search-map'>
-  <?php print render($map);?>
-</div>
+  <div class="row relative">
+    <div class="col-xs-9 fiftyplus double-big-height poster-photo parent">
+      <?php print render($map);?>
+    </div>
+    <div class="col-xs-3 double-big-height fifty-minus zero-padding parent">
+      <div class="col-xs-12 height zero-padding">
+        <img src="images/image-c2.png" class="title-image">
+      </div>
+      <div class="col-xs-12 beige-block big-height zero-padding">
+        <div class="col-xs-12 quarter-item zero-padding">
+          <img src="images/logo-z2.png" class="logo-z vertical-logo">
+        </div>
+        <div class="col-xs-12 second quarter-item zero-padding display-table">
+          <div class="vertical">
+            <h2>Жилой комплекс Марсель</h2>
+          </div>
+          <div class="gorizont-line">
+          </div>
+        </div>
+        <div class="col-xs-12 third quarter-item zero-padding item-text-field">
+          <p>"Марсель" - дом на набережной</p>
+        </div>
+        <div class="col-xs-12 fourth button-item zero-padding item-text-field">
+          <a href="#" class="button-info button-info-top">Подробности</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 <div class="modal fade modal-map-area" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

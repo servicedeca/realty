@@ -48,9 +48,21 @@ function template_preprocess_realty_block_developers(&$vars) {
 
   foreach($result as $key => $val) {
     $vars['developers'][$key] = array(
-      'logo' => $val->field_field_developer_logo[0]['rendered'],
+      'logo' => theme('image', array(
+        'path' => $val->field_field_developer_logo[0]['raw']['uri'],
+        'title' => $val->_field_data['tid']['entity']->name,
+        'alt' => $val->_field_data['tid']['entity']->name,
+      )),
+      'path' => 'taxonomy/term/' . $val->tid,
     );
   }
 
-  $vars['all_developers'] = l('Developers', 'developers/city/'.$city->tid);
+  $vars['all_developers'] = 'developers/city/' . $city->tid;
+
+  $vars['micro_logo'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
+    'attributes' => array(
+      'class' => array('micrologo'),
+    ),
+  ));
 }

@@ -43,12 +43,21 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
 
   $view = views_get_view('apartments');
   $view->set_display('result_search');
-  if(isset($_GET['selectAllarea'][0]) || !isset($_GET['area'])) {
+  if(!isset($_GET['area'])) {
     unset($view->display_handler->options['filters']['field_area_tid']);
   }
   else {
     foreach($_GET['area'] as $area) {
       $view->display_handler->options['filters']['field_area_tid']['value'][$area] = $area;
+    }
+  }
+
+  if(!isset($_GET['metro'])) {
+    unset($view->display_handler->options['filters']['field_complex_metro_tid']);
+  }
+  else {
+    foreach($_GET['metro'] as $metro) {
+      $view->display_handler->options['filters']['field_complex_metro_tid']['value'][$metro] = $metro;
     }
   }
 

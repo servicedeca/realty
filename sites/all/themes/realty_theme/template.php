@@ -45,6 +45,13 @@ function realty_theme_preprocess_page(&$vars) {
     'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
     'title' => t('Close'),
   ));
+
+  $vars['footer_logo'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/black-logo.svg',
+    'attributes' => array(
+      'class' => array('footer-logo'),
+    ),
+  ));
 }
 
 /**

@@ -51,22 +51,43 @@ function template_preprocess_realty_block_stock(&$vars) {
       $vars['stock'][$key] = array(
         'title' => $val->node_title,
         'description' => $val->field_body[0]['raw']['value'],
-        'image' => $val->field_field_image[0]['rendered'],
+        'image' => theme('image', array(
+            'path' => $val->field_field_image[0]['raw']['uri'],
+            'attributes' => array(
+              'class' => array('title-image'),
+            ),
+          )
+        ),
+        'details' => l('details', 'node/' . $val->nid, array('attributes' => array('class' => 'button-info',
+        'stock-button'))),
       );
     }
   }
 
   $priority_stock = views_get_view_result('stock', 'priority_stock');
 
-  if ($priority_stock) {
-    foreach ($priority_stock as $key => $val) {
-      $vars['priority_stock'][$key] = array(
-        'title' => $val->node_title,
-        'description' => $val->field_body[0]['raw']['value'],
-        'image' => $val->field_field_image[0]['rendered'],
+     if (!empty($priority_stock)) {
+      $vars['priority_stock'] = array(
+        'title' => $priority_stock[0]->node_title,
+        'description' => $priority_stock[0]->field_body[0]['raw']['value'],
+        'image' => theme('image', array(
+          'path' => $priority_stock[0]->field_field_image[0]['raw']['uri'],
+          'attributes' => array(
+            'class' => array('big-stock-image'),
+            ),
+          )
+        ),
+        'details' => l('details', 'node/' . $priority_stock[0]->nid, array('attributes' => array('class' => 'button-info',
+          'stock-button'))),
       );
     }
-  }
 
-  $vars['all_stock'] = l('All stock', 'stock/city/'.$city->tid);
+  $vars['micro_logo'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
+    'attributes' => array(
+      'class' => array('micrologo'),
+    ),
+  ));
+
+  $vars['all_stock'] = 'stock/city/'.$city->tid;
 }

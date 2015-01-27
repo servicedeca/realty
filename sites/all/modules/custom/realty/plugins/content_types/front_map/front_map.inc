@@ -63,6 +63,12 @@ function template_preprocess_realty_front_map(&$vars) {
   unset($vars['search_map_form']['category']['#title']);
 
   $view = views_embed_view('map', 'main_map');
+  /*$block = new stdClass();
+  $view = views_get_view('map');
+  $view->set_display('main_map');
+  $view->pre_execute(array());
+  $block->content = $view->display_handler->preview();
+  $view->post_execute();*/
   $vars['map'] = $view;
 
 }

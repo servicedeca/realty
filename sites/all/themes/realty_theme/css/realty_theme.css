@@ -1905,6 +1905,7 @@ li {
   }
 }
 
+
 @media(max-width:1200px){
   .check_active span{
     background-position: 0 -20px;
@@ -1914,5 +1915,47 @@ li {
 @media(max-width:1200px){
   .fix-hint {
     margin-left: -19px;
+  }
+}
+
+.yamaps-map-container {
+  margin: 0;
+  height: 100%;
+  position: absolute;
+}
+
+#footer{
+  background: #414042;
+  height: 300px;
+  position: relative;
+}
+
+@media(max-width:1200px){
+  #footer{
+    height: 200px;
+  }
+}
+
+.footer-logo{
+  position: absolute;
+  left: 50%;
+  height: 50px;
+  top:125px;
+}
+
+@media(max-width:1200px){
+  .footer-logo{
+    top:75px;
+  }
+}
+.list-line {
+  height: 50px;
+  position: absolute;
+  top:125px;
+}
+
+@media(max-width:1200px){
+  .list-line{
+    top:75px;
   }
 }

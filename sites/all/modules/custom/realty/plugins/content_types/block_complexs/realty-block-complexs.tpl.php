@@ -7,7 +7,7 @@
           <div class="title-block">
             <h2><?php print t('Residential')?></h2>
             <h2><?php print t('complexes')?></h2>
-            <p><?php print t('move on');?> ></p>
+            <p><?php print t('move on');?></p>
           </div>
         </div>
       </a>

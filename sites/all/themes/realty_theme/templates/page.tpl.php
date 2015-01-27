@@ -33,18 +33,17 @@
   <?php print render($action_links); ?>
   <?php endif; ?>
   <?php print render($page['content']); ?>
-  <?php foreach($cities as $city):?>
-  <?php print $city; ?>
-  <?php endforeach ?>
+
+
 <div class="container-fluid container-fix" id="footer">
   <div class="row">
-    <div class="col-xs-3 col-xs-offset-3 fifty height header-block logo-block">
+    <div class="col-xs-4">
       <?php print render($footer_logo)?>
     </div>
-    <div class="col-xs-3 fifty height zero-padding header-block">
+    <div class="col-xs-4 zero-padding">
     </div>
-    <div class="col-xs-3 fifty height zero-padding header-block">
-      <ul class="list-inline">
+    <div class="col-xs-4 zero-padding">
+      <ul class="list-line list-inline">
         <li>
           <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
         </li>
@@ -64,6 +63,9 @@
     </div>
   </div>
 </div>
+
+
+
 <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="container container-modal-city zero-padding">
     <div class="col-xs-12 header-container-modal header-block">
