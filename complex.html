@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8" />
+        <title>Main Page</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/fotorama.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/multiple-select.css" />
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+        <link rel="stylesheet" href="css/ion.rangeSlider.skinHTML5.css" />
+        <link rel="stylesheet" href="css/jquery.dataTables.css" />
+        <link href="css/style.css" rel="stylesheet">
+        
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/fotorama.js"></script>
+        <script src="js/jquery.multiple.select.js"></script>
+        <script src="js/ion.rangeSlider.js"></script>
+        <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+        
+        <!-- Plugin JavaScript -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="js/js/cbpAnimatedHeader.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="js/findom.js"></script>
+    </head>
+    
+    <script>
+        $(document).ready(function() {
+            $('#complex').dataTable( {
+                "paging": false,
+                "info": false,
+                "columnDefs": [ {
+                    "targets": [ 0,1,2,8],
+                    "orderable": false,
+                } ]
+            } );
+        } );
+    </script>
+    
+    <body>  
+       <div class="col-xs-12 menu-parent zero-padding">
+            <div id="menu">
+                <ul>
+                    <li class="main-logo">
+                       <a href="index.html">
+                            <img src="images/minilogo.svg">
+                        </a>
+                    </li>
+                   <li class="page-scroll">
+                        <a data-toggle="modal" data-target=".bs-example-modal-md">
+                            Выберите город
+                        </a>
+                    </li>                   
+                    <li>О проекте</li>
+                    <li>Регистрация/вход</li>
+                </ul>    
+           </div>
+        </div>
+        
+        <div id="wrapper">        
+            
+            <div class="container fin">
+               <div class="col-xs-12 breadcrumb-block  margine-top">
+                    <ol class="breadcrumb zero-padding breadcrumbfix">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="issue.html">Результаты поиска</a></li>
+                        <li class="active"><a href="#">Жилой комплекс</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>   
+        <div class="container fin">
+           <div class="col-xs-12 complex-menu zero-padding">
+               <div class="col-xs-5">
+                    <h2 class="active-complex">
+                        <a href="complex.html" class="active-complex">Марсель
+                        </a>
+                    </h2>
+               </div>
+                <div class="col-xs-7 complex-right-menu">
+                    <ul>
+                        <li>
+                            <a href="plan.html" >ПЛАН ЖК
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" >ГАЛЕРЕЯ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">3D ТУР
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">ДОКУМЕНТЫ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">АКЦИИ
+                            </a>
+                        </li>
+                   </ul>    
+                </div>
+           </div>
+            <div class="col-xs-6 right-part-complex zero-padding">
+                <img src="images/s3.jpg">
+            </div>
+            <div class="col-xs-6 left-part-complex zero-padding">
+                <div class="vertical">               
+                    <h2><span class="grey-span">Срок сдачи</span>18 октября 2023</h2>
+                    <h2><span class="grey-span">Застройщик</span>ЗАО «Береговое»</h2>
+                    <p>
+                        15 минут до метро "Речной вокзал"
+                    </p>
+                    <p>
+                        Современный двор площадью 8,5 га
+                    </p>
+                    <p>
+                        Надземные и подземные парковки
+                    </p>
+                    <p>
+                        1-, 2-, 3, 4-комнатные квартиры и студии площадью от 27 до 117 кв.м.
+                    </p>
+                    <p>
+                        Просторные планировки и высокие потолки 2,9 м
+                     </p>
+                </div>     
+            </div>       
+        </div>
+           
+          <div class="container fin">
+              <div class="col-xs-12 zero-padding complex-map">
+                    <h2><span class="grey-span">Адрес</span>Заельцовский район, ул. Водонапорная 2</h2>
+                    <div id="map" style="width:100%; height:100%;">
+                    </div>
+              </div>
+          </div>
+        <div class="container-fluid zero-padding">
+            <div class="col-xs-12 complex-title-line zero-padding">
+            </div>  
+        </div>
+        <div class="container fin">
+            <div class="col-xs-9 zero-padding selection-title">
+                <h2>Подбор квартир в жк</h2>
+            </div>
+            <div class="col-xs-3 zero-padding reviews-title">
+                <h2>Отзывы</h2>
+            </div>  
+        </div>
+           
+        <div class="container fin last-block">
+            <div class="col-xs-9 table-block text-center">
+                <div class="col-xs-12 complex-filters">
+
+                </div>   
+                <table class="table issue-table display" id="complex">
+                        <thead>
+                            <tr>
+                                <th id="bn">Квартира</th>
+                                <th>Адресс</th>
+                                <th>Секция</th>
+                                <th>Комн.&nbsp&nbsp</th>
+                                <th>Этаж&nbsp&nbsp</th>
+                                <th >S</th>
+                                <th>Цена&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp</th>
+                                <th class="none-border-right">Стоимость</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><div class="flat-number">94</div></td>
+                                <td>Кропоткина 142</td>
+                                <td>1.1</td>
+                                <td>3</td>
+                                <td>20</td>
+                                <td>20 м<sup>2</sup></td>
+                                <td>65 т.р.</td>
+                                <td>5 500 т.р.</td>
+                                <td>
+                                    <a href="#">
+                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
+                                            <g>
+                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
+                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
+                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
+                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
+                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
+                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
+                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><div class="flat-number">94</div></td>
+                                <td>Кропоткина 142</td>
+                                <td>1.2</td>
+                                <td>3</td>
+                                <td>20</td>
+                                <td>20 м<sup>2</sup></td>
+                                <td>65 т.р.</td>
+                                <td>5 500 т.р.</td>
+                                <td>
+                                    <a href="#">
+                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
+                                            <g>
+                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
+                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
+                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
+                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
+                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
+                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
+                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><div class="flat-number">94</div></td>
+                                <td>Кропоткина 142</td>
+                                <td>2.1</td>
+                                <td>3</td>
+                                <td>20</td>
+                                <td>20 м<sup>2</sup></td>
+                                <td>65 т.р.</td>
+                                <td>5 500 т.р.</td>
+                                <td>
+                                    <a href="#">
+                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
+                                            <g>
+                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
+                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
+                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
+                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
+                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
+                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
+                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><div class="flat-number">94</div></td>
+                                <td>Кропоткина 142</td>
+                                <td>1.4</td>
+                                <td>3</td>
+                                <td>20</td>
+                                <td>20 м<sup>2</sup></td>
+                                <td>65 т.р.</td>
+                                <td>5 500 т.р.</td>
+                                <td>
+                                    <a href="#">
+                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
+                                            <g>
+                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
+                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
+                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
+                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
+                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
+                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
+                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><div class="flat-number">94</div></td>
+                                <td>Кропоткина 142</td>
+                                <td>2.1</td>
+                                <td>3</td>
+                                <td>20</td>
+                                <td>20 м<sup>2</sup></td>
+                                <td>65 т.р.</td>
+                                <td>5 500 т.р.</td>
+                                <td>
+                                    <a href="#">
+                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
+                                            <g>
+                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
+                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
+                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
+                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
+                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
+                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
+                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+            </div>
+            <div class="col-xs-3 reviews">
+                
+                 <div class="col-xs-12 recall zero-padding">
+                     <h3>viktoria-star-1</h3>
+                     <span>
+                         <img src="images/finger.svg" class="recall-img">
+                     </span>
+                     <div class="date"> 20.12.2014, 22:44</div>
+                     <p>
+                     Сегодня приобрели квартиру в Марселе, объездили много новостроек, но ни одна не сравниться с качеством постройки и внушительными размерами территории. Очень располагающий персонал и обстановка в офисе! Нас обслуживала Елена, также работали с Натальей и Иваном - все очень компетентны в своем вопросе. Если берете квартиру за наличку, Вам делают скидку в размере 50тыс руб. Имеется подземная парковка, в отличии от многих других также может похвастаться своей просторностью и приемлемой ценой. В общем на данном этапе мы всем очень довольны, надеемся и в дальнейшим разочарований не будет. Всем удачи в выборе)
+                     </p>
+                 </div>
+                                 
+                <div class="col-xs-12 recall zero-padding">
+                     <h3>gl0k</h3>
+                     <span>
+                         <img src="images/finger.svg" class="recall-img">
+                     </span>
+                     <div class="date"> 20.12.2014, 22:44</div>
+                     <p>
+Нашёл объявление в нгс от агента , предложил такие варианты в марселе каких не предлагал никто очень хорошо осведомлённый парень (засланный наверное ) через 2 недели пришли в офис и купили всё отлично захожу на сайт смотрю в вёбку .надеюсь рядом со мной будут жить фламперы!
+                     </p>
+                 </div>
+                                  <div class="col-xs-12 recall zero-padding">
+                     <h3>nikkelfrau </h3>
+                     <span>
+                         <img src="images/finger.svg" class="recall-img">
+                     </span>
+                     <div class="date"> 20.12.2014, 22:44</div>
+                     <p>
+Доброго дня и отличного настроения!!! Хотим поблагодарить менеджера отдела продаж Ивана. На всех этапах консультаций, экскурсий, продажи, да и вообще с первого телефонного звонка этот специалист располагает к себе своим позитивом, оптимизмом, активностью и заинтересованностью! Ваша позиция отдела продаж действительно пока одна из немногих подходит под название "сервис + эффективность", надеемся что и дальше , на последующих этапах покупки, у нас будут только положительные ощущения! "Марсель", цените своих харизматичных менеджеров! "))
+                     </p>
+                 </div>
+                <div class="col-xs-12 recall">
+                     
+                 </div>
+                <div class="col-xs-12 recall">
+                     
+                 </div>
+            </div>
+        </div>   
+              
+                                                                                                                                               
+ <div class="container-fluid container-fix" id="footer">      
+        <div class="row">
+            <div class="col-xs-4">
+                    <img src="images/black-logo.svg" class="footer-logo">
+            </div>
+            <div class="col-xs-4 zero-padding">
+            </div>
+            <div class="col-xs-4 zero-padding">
+                <ul class="list-line list-inline">
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-vk"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    </body>
+</html>
