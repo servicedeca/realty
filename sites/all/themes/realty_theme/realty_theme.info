@@ -3,7 +3,6 @@ package = Realty
 core = 7.x
 
 stylesheets[all][] = css/bootstrap.css
-stylesheets[all][] = css/bootstrap.min.css
 stylesheets[all][] = css/bootstrap.css.map
 stylesheets[all][] = css/fotorama.css
 stylesheets[all][] = css/bootstrap-theme.css

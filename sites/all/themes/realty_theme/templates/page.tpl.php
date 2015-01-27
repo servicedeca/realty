@@ -64,8 +64,6 @@
   </div>
 </div>
 
-
-
 <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="container container-modal-city zero-padding">
     <div class="col-xs-12 header-container-modal header-block">
