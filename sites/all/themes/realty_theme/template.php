@@ -13,7 +13,7 @@ function realty_theme_preprocess_page(&$vars) {
     'title' => t(variable_get('site_name')),
   ));
 
-  $vars['logo'] = l($logo, '', array('query' => $_GET,
+  $vars['logo'] = l($logo, '/', array('query' => $_GET,
     'html' => TRUE,
     'attributes' => array('class' => 'logo',)
   ));
