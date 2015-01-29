@@ -13,13 +13,13 @@
 }
 
 @media(max-width:1600px){
-    .irs{
+   #index .irs{
     margin-top: 10px;
     }
 }
 
 @media(max-width:1200px){
-    .irs{
+   #index .irs{
     margin-top: 5px;
     }
 }
@@ -83,7 +83,7 @@ background: #227d92;
 }
 
 @media(max-width:1600px){
-  .irs-slider {
+    #index .irs-slider {
     width: 23px;
     height: 23px;
     border-radius: 23px;
@@ -92,7 +92,7 @@ background: #227d92;
 }
 
 @media(max-width:1200px){
-.irs-slider{
+#index .irs-slider{
     width: 20px;
     height: 20px;
     border-radius: 20px;
@@ -128,20 +128,29 @@ background: #227d92;
     margin-top: -5px;
 }
 
+
+ .irs-from, .irs-to, .irs-single {
+    color: #fff;
+    font-size: 14px; line-height: 1.333;
+    text-shadow: none;
+    padding: 2px 5px;
+    background: #227d92;
+    margin-top: -5px;
+}
+
 @media(max-width:1600px){
-    .irs-from, .irs-to, .irs-single {
+   .irs-from, .irs-to, .irs-single {
         font-size: 12px;
         margin-top: 0px;
     }
 }
 
 @media(max-width:1200px){
-    .irs-from, .irs-to, .irs-single{
+       .irs-from, .irs-to, .irs-single{
         font-size: 10px;
         margin-top: 5px;
     }
 }
-
 
 .lt-ie9 .irs-from, .lt-ie9 .irs-to, .lt-ie9 .irs-single {
     background: #999;
@@ -152,7 +161,7 @@ background: #227d92;
 }
 
 @media(max-width:1600px){
-    .irs-grid {
+       #index .irs-grid {
     height: 25px;
     }
 }
@@ -173,11 +182,10 @@ background: #227d92;
 }
 
 @media(max-width:1300px){
-    .irs-grid-text{
+      #index .irs-grid-text{
      bottom:7px;   
     }
 }
-
 
 .irs-disabled {
 }

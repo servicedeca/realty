@@ -45,7 +45,7 @@
 
     <div class="col-xs-3 big-height fifty-minus zero-padding ">
       <div class="col-xs-12 half-item zero-padding">
-        <?php if($stock[1]):?>
+        <?php if(isset($stock[1])):?>
           <?php print $stock[1]['image']?>
         <?php endif?>
       </div>
@@ -53,20 +53,20 @@
           <div class="arrow-left-stock1"></div>
           <div class="col-xs-12 big-stock-title zero-padding cb-stock">
             <h2>
-              <?php if($stock[0]):?>
+              <?php if(isset($stock[0])):?>
                 <?php print $stock[0]['title']?>
               <?php endif?>
             </h2>
           </div>
           <div class="col-xs-12 big-stock-body zero-padding cb-stock">
             <div class="table-item">
-              <?php if($stock[0]):?>
+              <?php if(isset($stock[0])):?>
                 <?php print $stock[0]['description']?>
               <?php endif?>
             </div>
           </div>
           <div class="col-xs-12 big-stock-button zero-padding">
-              <?php if($stock[0]):?>
+              <?php if(isset($stock[0])):?>
                 <?php print $stock[0]['details']?>
               <?php endif?>
           </div>
@@ -79,20 +79,20 @@
           <div class="arrow-left-stock2"></div>
           <div class="col-xs-12 big-stock-title zero-padding cb-stock">
             <h2>
-              <?php if($stock[1]):?>
+              <?php if(isset($stock[1])):?>
                 <?php print $stock[1]['title']?>
               <?php endif?>
             </h2>
           </div>
           <div class="col-xs-12 big-stock-body zero-padding cb-stock">
             <div class="table-item">
-              <?php if($stock[1]):?>
+              <?php if(isset($stock[1])):?>
                 <?php print $stock[1]['description']?>
               <?php endif?>
             </div>
           </div>
           <div class="col-xs-12 big-stock-button zero-padding">
-            <?php if($stock[1]):?>
+            <?php if(isset($stock[1])):?>
               <?php print $stock[1]['details']?>
             <?php endif?>
           </div>

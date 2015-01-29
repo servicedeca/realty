@@ -22,7 +22,7 @@
         <div class="big-height">
           <div class="col-xs-4 beige-block zero-padding">
             <div class="col-xs-12 quarter-item zero-padding">
-              <?php if ($complex['logo']):?>
+              <?php if (isset($complex['logo'])):?>
                 <?php print $complex['logo']?>
               <?php endif?>
             </div>
@@ -51,7 +51,6 @@
           </div>
         </div>
       <?php endforeach;?>
-
     </div>
     <div id="card">
     </div>

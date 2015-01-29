@@ -8,12 +8,26 @@ define('REALTY_FRONT_THEME_PATH', drupal_get_path('theme', 'realty_theme'));
 /*
  * implement hook_init.
  */
-function realty_init(){
-  if(current_path() == '<front>') {
+function realty_init() {
+  $object = menu_get_object('taxonomy_term', 2);
+
+  if (current_path() == '<front>') {
     if (!drupal_is_cli()) {
       drupal_goto('taxonomy/term/1');
     }
   }
+
+  if (!empty($object) && $object->vid == 1) {
+    drupal_add_js(array('id' => 'index'), 'setting');
+  }
+}
+
+/**
+ * get the path to the directory /files
+ */
+
+function realty_file_directory_path() {
+  return variable_get('file_directory_path', conf_path() .'/files');
 }
 
 /*
@@ -28,8 +42,12 @@ function realty_menu(){
   );
 
   $item['get_id_apartment'] = array(
-    'title' => 'complex',
     'page callback' => 'realty_get_id_apartment',
+    'access callback' => TRUE,
+  );
+
+  $item['apartment_comparison'] = array(
+    'page callback' => 'realty_apartment_comparison',
     'access callback' => TRUE,
   );
 
@@ -176,6 +194,39 @@ function realty_get_id_apartment(){
     }
     realty_generation_pdf_apartment($node);
     drupal_exit();
+  }
+}
+
+/**
+ * Page callback to /get_id_apartment.
+ */
+function realty_apartment_comparison() {
+  global $user;
+
+  $account = user_load($user->uid);
+  if ($user->uid != 0 ) {
+    $node = node_load($_POST['nid']);
+    $flag = FALSE;
+    if (isset($account->field_apartment_comparison)) {
+      if (!isset($account->field_apartment_comparison[LANGUAGE_NONE])) {
+        $account->field_apartment_comparison = array(
+          LANGUAGE_NONE => array(),
+        );
+      }
+      foreach ($account->field_apartment_comparison[LANGUAGE_NONE] as $val) {
+        if ($val['target_id'] == $node->nid) {
+          $flag = TRUE;
+          break;
+        }
+      }
+
+      if ($flag == FALSE) {
+        array_push($account->field_apartment_comparison[LANGUAGE_NONE], array('target_id' => $node->nid));
+        user_save($account);
+      }
+      realty_generation_pdf_apartment($node);
+      drupal_exit();
+    }
   }
 }
 
@@ -681,5 +732,9 @@ function realty_get_current_city() {
       $city = taxonomy_term_load($city_id);
       return $city->name;
     }
+  }
+  if ($entity[0] == 'search') {
+    $city = taxonomy_term_load($_GET['city']);
+    return $city->name;
   }
 }

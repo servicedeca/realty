@@ -22,19 +22,19 @@ function realty_search_result_ctools_content_types() {
 function realty_search_result_content_type_render($subtype, $conf, $panel_args, $context) {
   $block = new stdClass();
 
-  if(isset($_GET['price'])) {
+  if (isset($_GET['price'])) {
     $pricemin = explode(";", $_GET['price']);
     $pricemax = explode(";", $_GET['price']);
     $data['priceMin'] = $pricemin[0] * 1000;
     $data['priceMax'] = $pricemax[1] * 1000;
   }
-  if(isset($_GET['sq'])) {
+  if (isset($_GET['sq'])) {
     $sqmin = explode(";", $_GET['sq']);
     $sqmax = explode(";", $_GET['sq']);
     $data['sqMin'] = $sqmin[0];
     $data['sqMax'] = $sqmax[1];
   }
-  if(isset($_GET['coast'])) {
+  if (isset($_GET['coast'])) {
     $coastmin = explode(";", $_GET['coast']);
     $coastmax = explode(";", $_GET['coast']);
     $data['coastMin'] = $coastmin[0] * 1000000;
@@ -43,7 +43,7 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
 
   $view = views_get_view('apartments');
   $view->set_display('result_search');
-  if(!isset($_GET['area'])) {
+  if (!isset($_GET['area'])) {
     unset($view->display_handler->options['filters']['field_area_tid']);
   }
   else {

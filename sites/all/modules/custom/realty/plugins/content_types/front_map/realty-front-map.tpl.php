@@ -45,11 +45,11 @@
     </div>
     <div class="col-xs-3 double-big-height fifty-minus zero-padding parent">
       <div class="col-xs-12 height zero-padding">
-        <img src="images/image-c2.png" class="title-image">
+
       </div>
       <div class="col-xs-12 beige-block big-height zero-padding">
         <div class="col-xs-12 quarter-item zero-padding">
-          <img src="images/logo-z2.png" class="logo-z vertical-logo">
+
         </div>
         <div class="col-xs-12 second quarter-item zero-padding display-table">
           <div class="vertical">

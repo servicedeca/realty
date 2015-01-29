@@ -2,8 +2,9 @@
 
  Drupal.behaviors.realtyMultyselect = {
    attach: $(function() {
-//  map-filter select
-//  map-filter select
+     if(Drupal.settings.id) {
+       $("body").attr("id","index");
+     }
      $(function() {
        $('#map-filter').change(function() {
          console.log($(this).val());
@@ -100,15 +101,30 @@
 
 
      $('.CheckboxArea').click(function () {
-       var select = $('select[id="area"]');
-       $(this).prop("checked") == true ? $('#area option[value='+$(this).val()+']').attr('selected', 'selected') :
-         $('#area option[value='+$(this).val()+']').attr('selected', false);
+       //console.log(select.text());
+      if ($(this).prop("checked") == true ) {
+        $('#area option[value='+$(this).val()+']').attr('selected', 'selected');
+        var select = $('#area option:selected');
+        $('.search-input-area').val(select.text());
+      }
+       else{
+        $('#area option[value='+$(this).val()+']').attr('selected', false);
+        var select = $('#area option:selected');
+        $('.search-input-area').val(select.text());
+      }
+       $('.search-input-area').val(select.text());
      });
 
      $('.CheckboxMapArea').click(function () {
        var select = $('select[id="area-map"]');
        $(this).prop("checked") == true ? $('#area-map option[value='+$(this).val()+']').attr('selected', 'selected') :
          $('#area-map option[value='+$(this).val()+']').attr('selected', false);
+     });
+
+     $('.CheckboxArea').click(function() {
+       var select = $('#area option:selected');
+       console.log(select.text());
+       $('.search-input-area').val(select.text());
      });
 
      $('.CheckboxRoom').click(function () {
@@ -232,6 +248,25 @@
           }
         });
       });
+
+      $("#apartment-comparison").click(function () {
+
+        var nid = $(this).data('node-id');
+        $.ajax({
+          url: '/apartment_comparison',
+          type: 'POST',
+          data: {
+            nid: nid
+          },
+          success: function(response) {
+            alert('Добавленнно');
+          },
+          error: function(response) {
+            alert('false');
+          }
+        });
+      });
+
     })
   };
 
@@ -289,12 +324,42 @@
       })
  }
 
-  Drupal.behaviors.realtyStickyMenu = {
+  Drupal.behaviors.realtyStickyMenuScroll = {
     attach: $(function() {
-              //  sticky menu
-              $(window).load(function(){
-                $("#header").sticky({ topSpacing: 0, className: 'sticky', wrapperClassName: 'my-wrapper' });
-              });
-            })
+      //  sticky menu
+      $(window).load(function(){
+        $("#header").sticky({ topSpacing: 0, className: 'sticky', wrapperClassName: 'my-wrapper' });
+      });
+
+      // jQuery for page scrolling feature - requires jQuery Easing plugin
+      $('.page-scroll a').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+          scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+      });
+
+    })
   }
+
+  Drupal.behaviors.realtySearchTabel = {
+    attach: $(function() {
+      $(function() {
+        $('#example').dataTable( {
+          "paging":   false,
+          "info":     false,
+          "columnDefs": [ {
+            "targets": [ 0, 1, 2, 3, 4, 11],
+            "orderable": false
+          } ]
+      } );
+      } );
+
+      $(function () {
+        $("[rel='tooltip']").tooltip();
+      });
+    })
+  }
+
 }(jQuery));

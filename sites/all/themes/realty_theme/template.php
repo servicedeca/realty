@@ -224,10 +224,54 @@ function realty_preprocess_views_view_unformatted__apartments__apartment(&$vars)
 }
 
 /**
- * Process variables for views-view--apartments--result-search.tpl.php.
+ * Process variables for views-view-unformatted--apartments--result-search.tpl.php.
  */
-function realty_preprocess_views_view_table__apartments__result_search(&$vars){
-  $a = 1;
+function realty_preprocess_views_view_unformatted__apartments__result_search(&$vars) {
+
+  if (!empty($vars['view']->result)) {
+
+    foreach ($vars['view']->result as $key => $val) {
+      $vars['apartments'][$key] = array(
+        'number' => l($val->field_field_number_apartament[0]['raw']['value'], 'node/' . $val->nid),
+        'area' => $val->field_field_area[0]['raw']['taxonomy_term']->name,
+        'developer' =>l($val->field_field_complex_developer[0]['raw']['taxonomy_term']->name,
+          'taxonomy/term/'.$val->field_field_complex_developer[0]['raw']['tid']),
+
+        'complex' => l($val->field_field_home_complex[0]['raw']['entity']->title,
+          'node/' . $val->field_field_home_complex[0]['raw']['target_id'] ),
+
+        'address' => $val->field_field_address_house[0]['raw']['value'],
+        'quarter' => $val->field_field_quarter[0]['raw']['value'],
+        'year' => $val->field_field_year[0]['raw']['value'],
+        'rooms' => $val->field_field_number_rooms[0]['raw']['value'],
+        'floor' => $val->field_field_apartment_floor[0]['raw']['value'],
+        'sq' => $val->field_field_gross_area[0]['raw']['value'],
+        'price' => $val->field_field_price[0]['raw']['value'] / 1000,
+        'coast' => $val->field_field_full_cost[0]['raw']['value'] / 1000,
+        'status' => $val->field_field_status[0]['raw']['value'],
+        'apartment_comparison' => l('<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
+                    <g>
+                      <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
+                            L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
+                            C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
+                            L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
+                            h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
+                            c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
+                             M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
+                    </g>
+</svg>',
+          '#apartment-comparison', array(
+            'external' => TRUE,
+            'html' => TRUE,
+            'attributes'=> array(
+              'id' => 'apartment-comparison',
+              'data-node-id' => $val->nid,
+            ),
+          )),
+      );
+    }
+  }
 }
 
 /**

@@ -96,7 +96,7 @@
 }
 
 @media(max-width:1200px){
-    .irs-with-grid .irs-grid {
+        #index .irs-with-grid .irs-grid {
     display:none;
     }
 }
@@ -120,13 +120,13 @@
     }
 
 @media(max-width:1600px){
-    .irs-grid-text {
+        #index .irs-grid-text {
         font-size: 8px; line-height: 8px;
     }
 }
 
 @media(max-width:1200px){
-    .irs-grid-text{
+       #index  .irs-grid-text{
         font-size: 7px; line-height: 7px;
     }
 }

@@ -18,11 +18,12 @@
           <li><?php print $item?></li>
         <?php endforeach ?>
       <?php endif;?>
-      <li><?php print render($logout_register); ?></li>
+      <li><?php print render($logout_register) . '/'; ?>
+      <?php print render($login_profile); ?></li>
     </ul>
   </div>
 </div>
-
+<div id="wrapper">
   <?php print render($main_menu) ?>
   <?php print render($title_prefix); ?>
   <?php print render($title_suffix); ?>
@@ -33,8 +34,7 @@
   <?php print render($action_links); ?>
   <?php endif; ?>
   <?php print render($page['content']); ?>
-
-
+</div>
 <div class="container-fluid container-fix" id="footer">
   <div class="row">
     <div class="col-xs-4">
