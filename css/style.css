@@ -1970,6 +1970,12 @@ padding-left: 15px;
     color:#f2f2f2;
 }
 
+.flat-number:hover a{
+    background: #333;
+    color:#f2f2f2;
+    text-decoration: none;
+}
+
 .big {
     height: 640px;
 }
@@ -1982,9 +1988,22 @@ padding-left: 15px;
     -o-transition: all 200ms linear;
 }
 
+.table > tbody > tr a {
+        color:#4d4d4d;
+}
+
 .table > tbody > tr:hover {
     background: #2793b0;
     color:#f2f2f2;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.table > tbody > tr:hover a{
+    color:#f2f2f2;
+    text-decoration: none;
     transition: all 200ms linear;
     -moz-transition: all 200ms linear;
     -webkit-transition: all 200ms linear;
@@ -2430,4 +2449,177 @@ table.dataTable thead #bn.sorting_asc {
     margin-top: 25px;
     position: absolute;
     right: 0px;
+}
+
+.tab-menu {
+    height: 60px;
+    line-height: 60px;
+    border-top:2px solid #333333;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.tab-menu div{
+    text-transform: uppercase;
+}
+
+.tab-menu-active {
+    color:#2391af;
+    font-size: 25px;
+    cursor: context-menu;
+}
+
+.tab-menu-passive {
+    color:#999999;
+    font-size: 16px;
+}
+
+.tab-menu-passive a{
+    color:#999999;
+    font-size: 16px;
+}
+
+.tab-menu-passive a:hover{
+    color:#4d4d4d;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.dom1 {
+    position: absolute;
+    top:45%;
+    left: 20%;
+}
+
+.dom2 {
+    position: absolute;
+    top:45%;
+    left: 50%;
+}
+
+.dom3 {
+    position: absolute;
+    right: 0px;
+    top:45%;
+    right: 20%;
+}
+
+.a-dom {
+    text-align:center;
+    color:#4d4d4d;
+    font-size:22px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+    border-radius: 60px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.a-dom:hover {
+    background: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+.a-section {
+    text-align:center;
+    color:#f2f2f2;
+    font-size:22px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-decoration: none;
+    border-radius: 60px;
+    background: rgba(102, 102, 102, 0.8);
+}
+
+.a-section:hover {
+    background: rgba(102, 102, 102, 1);
+    text-decoration: none;
+        color:#f2f2f2;
+}
+
+.section1 {
+    position: absolute;
+    top:40%;
+    left: 25%;
+}
+
+.section2 {
+    position: absolute;
+    right: 0px;
+    top:40%;
+    right: 25%;
+}
+
+.floor-image-block {
+    text-align: center;
+}
+
+.vertical-flat-image {
+   height: 430px;
+}
+
+.sunset {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+
+.sunrice {
+    position: absolute;
+    right: 5%;
+    top:5%;
+}
+
+.sunmid {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    margin-top: -10px;
+}
+
+#block2 {
+     display:none;
+}
+
+#block1 {
+    display: inline;
+}
+
+.block3 {
+    display: none;
+}
+
+
+
+#block3 {
+    display: none;
+}
+
+.not-allowed {
+    cursor: not-allowed;
+}
+
+.cursor-auto {
+        cursor: auto;
+}
+
+#floorTab li a{
+    color:#4d4d4d;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#floorTab li a:hover{
+    color:#2391af;
+}
+
+#floorTab li a:focus{
+    color:#2391af;
+}
+
+#floorTab li a:focus:before{
+     content: "<"; /* Добавляем желаемый символ перед элементом списка */ 
+    margin-left: -13px;
 }

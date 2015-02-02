@@ -42,6 +42,35 @@
         } );
     </script>
     
+        <script>
+            $(document).ready(function() {
+                $(".a-dom").click(function(){
+                    $('#block1').hide();
+                    $('#block2').show();
+                });
+                
+                $(".a-section").click(function(){
+                    $('#block2').hide();
+                    $('#block3').show();
+                });
+                
+                $(".block1").click(function(){
+                    $('#block1').hide();
+                    $('#block2').hide();
+                    $('#block1').show();
+                });
+                
+                $(".block2").click(function(){
+                    $('#block1').hide();
+                    $('#block3').hide();
+                    $('#block2').show();
+                });
+            });
+            
+    </script>
+    
+
+    
     <body>  
        <div class="col-xs-12 menu-parent zero-padding">
             <div id="menu">
@@ -77,14 +106,14 @@
         <div class="container fin">
            <div class="col-xs-12 complex-menu zero-padding">
                <div class="col-xs-5">
-                    <h2 class="active-complex">
+                    <h2>
                         <a href="complex.html" class="active-complex">Марсель
                         </a>
                     </h2>
                </div>
                 <div class="col-xs-7 complex-right-menu">
                     <ul>
-                        <li>
+                        <li class="active-menu">
                             <a href="plan.html" >ПЛАН ЖК
                             </a>
                         </li>
@@ -107,30 +136,145 @@
                    </ul>    
                 </div>
            </div>
-            <div class="col-xs-6 right-part-complex zero-padding">
-                <img src="images/s3.jpg">
+        
+                                   
+                                 
+           <div id="block1">
+               <div class="col-xs-12 tab-menu zero-padding">
+                    <div class="col-xs-8 zero-padding">
+                        <div class="col-xs-4 tab-menu-active">
+                            Общий план
+                        </div>
+                        <div class="col-xs-4 tab-menu-passive">
+                            <a href="#" class="not-allowed" title="Выберите дом">
+                                Планировки по cекциям
+                            </a>
+                        </div>
+                        <div class="col-xs-4 tab-menu-passive">
+                            <a href="#" class="not-allowed" title="Выберите дом">
+                                Планировки по этажам
+                            </a>
+                        </div>  
+                    </div>
+               </div>
+                <div class="col-xs-8 right-part-complex zero-padding">
+                    <a  href="#" class="dom1 a-dom">1</a>
+                    <a  href="#" class="dom2 a-dom">2</a>
+                    <a  href="#" class="dom3 a-dom">3</a>
+                    <img src="images/panorama.jpg">
+                </div>
+                <div class="col-xs-4 left-part-complex zero-padding">
+                    <div class="vertical">               
+                        <p>
+                            Новосибирск, Водопроводная, 1а
+                        </p>
+                        <p>
+                            Этажность: 9 – 20 этажей
+                        </p>
+                        <p>
+                            Первая очередь строительства: секции №1, №2, №3 II квартал 2013 г. – II квартал 2015 г
+                        </p>
+                        <p>
+                            Вторая очередь строительства: секции №4, №5, №6, №7, №8 III квартал 2014 г. – IV квартал 2016 г.
+                         </p>
+                    </div>     
+                </div> 
             </div>
-            <div class="col-xs-6 left-part-complex zero-padding">
-                <div class="vertical">               
-                    <h2><span class="grey-span">Срок сдачи</span>18 октября 2023</h2>
-                    <h2><span class="grey-span">Застройщик</span>ЗАО «Береговое»</h2>
-                    <p>
-                        15 минут до метро "Речной вокзал"
-                    </p>
-                    <p>
-                        Современный двор площадью 8,5 га
-                    </p>
-                    <p>
-                        Надземные и подземные парковки
-                    </p>
-                    <p>
-                        1-, 2-, 3, 4-комнатные квартиры и студии площадью от 27 до 117 кв.м.
-                    </p>
-                    <p>
-                        Просторные планировки и высокие потолки 2,9 м
-                     </p>
-                </div>     
-            </div>       
+
+           <div id="block2">
+               <div class="col-xs-12 tab-menu zero-padding">
+                    <div class="col-xs-8 zero-padding">
+                        <div class="col-xs-4 tab-menu-passive">
+                            <a href="#" class="block1">
+                                 Общий план
+                            </a>
+                        </div>
+                        <div class="col-xs-4 tab-menu-active">
+                                Секции
+                        </div>
+                        <div class="col-xs-4 tab-menu-passive">
+                            <a href="#" class="not-allowed" title="Выберите секцию">
+                                Планировки по этажам
+                            </a>
+                        </div>  
+                    </div>
+               </div>
+                <div class="col-xs-8 right-part-complex zero-padding">
+                    <a href="#" class="section1 a-section">1</a>
+                    <a href="#" class="section2 a-section">2</a>
+                    <img src="images/section.jpg">
+                </div>
+                <div class="col-xs-4 left-part-complex zero-padding">
+                    <div class="vertical">               
+                        <p>
+                            Тип дома: каркасно-монолитный.
+                        </p>
+                        <p>
+                            Этажность: 17 этажей.
+                        </p>
+                        <p>
+                            Количество подъездов в доме: два.
+                        </p>
+                        <p>
+                            Внутренние перегородки: монолитные бетонные.
+                         </p>
+                        <p>
+                            Фундаменты жилых домов: монолитные железобетонные ростверки.
+                         </p>
+                    </div>     
+                </div> 
+            </div>
+
+           <div id="block3">
+               <div class="col-xs-12 tab-menu zero-padding">
+                    <div class="col-xs-8 zero-padding">
+                        <div class="col-xs-4 tab-menu-passive">
+                           <a href="#" class="block1">
+                                 Общий план
+                            </a>
+                        </div>
+                        <div class="col-xs-4 tab-menu-passive">
+                           <a href="#" class="block2">
+                                Планировки по секциям
+                            </a>
+                        </div>
+                        <div class="col-xs-4 tab-menu-active">
+                            Этаж
+                        </div>  
+                    </div>
+               </div>
+                <div class="col-xs-8 zero-padding floor-image-block">
+                    <div id="myTabContent" class="tab-content">
+                      <div role="tabpanel" class="tab-pane fade active in" id="floor1" aria-labelledby="home-tab">
+                        <img src="images/floor1.png" class="vertical-flat-image">
+                      </div>
+                      <div role="tabpanel" class="tab-pane fade" id="floor2" aria-labelledby="profile-tab">
+                        <img src="images/floor2.jpg" class="vertical-flat-image">
+                      </div>
+                      <div role="tabpanel" class="tab-pane fade" id="floor3" aria-labelledby="profile-tab">
+                        <img src="images/floor3.jpg" class="vertical-flat-image">
+                      </div>
+                    </div>
+                
+                   <img src="images/sunset.svg" class="sunset">
+                   <img src="images/sunrise.svg" class="sunrice">
+                   <img src="images/sunmid.svg" class="sunmid">
+
+                </div>
+                <div class="col-xs-4 left-part-complex zero-padding">
+                    <div class="vertical">               
+
+<div role="tabpanel" data-example-id="togglable-tabs">
+    <ul id="floorTab" role="tablist">
+      <li role="presentation" class="active"><a href="#floor1" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">1-8 этаж</a></li>
+      <li role="presentation" class=""><a href="#floor2" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">8-16 этаж</a></li>
+      <li role="presentation" class=""><a href="#floor3" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">16-24 этаж</a></li>
+    </ul>
+  </div>
+                    </div>     
+                </div> 
+            </div>
+                        
         </div>
            
           <div class="container fin">
