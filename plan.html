@@ -29,48 +29,6 @@
         <script src="js/findom.js"></script>
     </head>
     
-    <script>
-        $(document).ready(function() {
-            $('#complex').dataTable( {
-                "paging": false,
-                "info": false,
-                "columnDefs": [ {
-                    "targets": [ 0,1,2,8],
-                    "orderable": false,
-                } ]
-            } );
-        } );
-    </script>
-    
-        <script>
-            $(document).ready(function() {
-                $(".a-dom").click(function(){
-                    $('#block1').hide();
-                    $('#block2').show();
-                });
-                
-                $(".a-section").click(function(){
-                    $('#block2').hide();
-                    $('#block3').show();
-                });
-                
-                $(".block1").click(function(){
-                    $('#block1').hide();
-                    $('#block2').hide();
-                    $('#block1').show();
-                });
-                
-                $(".block2").click(function(){
-                    $('#block1').hide();
-                    $('#block3').hide();
-                    $('#block2').show();
-                });
-            });
-            
-    </script>
-    
-
-    
     <body>  
        <div class="col-xs-12 menu-parent zero-padding">
             <div id="menu">
@@ -118,7 +76,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" >ГАЛЕРЕЯ
+                            <a href="gallery.html">ГАЛЕРЕЯ
                             </a>
                         </li>
                         <li>
@@ -263,14 +221,13 @@
                 </div>
                 <div class="col-xs-4 left-part-complex zero-padding">
                     <div class="vertical">               
-
-<div role="tabpanel" data-example-id="togglable-tabs">
-    <ul id="floorTab" role="tablist">
-      <li role="presentation" class="active"><a href="#floor1" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">1-8 этаж</a></li>
-      <li role="presentation" class=""><a href="#floor2" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">8-16 этаж</a></li>
-      <li role="presentation" class=""><a href="#floor3" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">16-24 этаж</a></li>
-    </ul>
-  </div>
+                        <div role="tabpanel" data-example-id="togglable-tabs">
+                            <ul id="floorTab" role="tablist">
+                              <li role="presentation" class="active"><a href="#floor1" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">1-8 этаж</a></li>
+                              <li role="presentation" class=""><a href="#floor2" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">8-16 этаж</a></li>
+                              <li role="presentation" class=""><a href="#floor3" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">16-24 этаж</a></li>
+                            </ul>
+                          </div>
                     </div>     
                 </div> 
             </div>

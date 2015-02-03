@@ -275,6 +275,45 @@ function init () {
             grid: true
         });
     });
+
+
+    //plan-zk 
+    $(document).ready(function() {
+        $(".a-dom").click(function(){
+            $('#block1').hide();
+            $('#block2').show();
+        });
+
+        $(".a-section").click(function(){
+            $('#block2').hide();
+            $('#block3').show();
+        });
+
+        $(".block1").click(function(){
+            $('#block3').hide();
+            $('#block2').hide();
+            $('#block1').show();
+        });
+
+        $(".block2").click(function(){
+            $('#block1').hide();
+            $('#block3').hide();
+            $('#block2').show();
+        });
+    });       
+
+
+    //mini table no-sort
+    $(document).ready(function() {
+        $('#complex').dataTable( {
+            "paging": false,
+            "info": false,
+            "columnDefs": [ {
+                "targets": [ 0,1,2,8],
+                "orderable": false,
+            } ]
+        } );
+    } );
 	
 
 

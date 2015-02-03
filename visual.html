@@ -27,9 +27,30 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="js/findom.js"></script>
+        
+        <!-- Magnific Popup core CSS file -->
+        <link rel="stylesheet" href="css/magnific-popup.css"> 
+
+        <!-- Magnific Popup core JS file -->
+        <script src="js/jquery.magnific-popup.js"></script>
+        
     </head>
-    
-    
+       
+    <script>
+        $(document).ready(function() {
+            $('.visual-album').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+                },
+            });
+        });
+    </script>
+        
     <body>  
        <div class="col-xs-12 menu-parent zero-padding">
             <div id="menu">
@@ -51,7 +72,6 @@
         </div>
         
         <div id="wrapper">        
-            
             <div class="container fin">
                <div class="col-xs-12 breadcrumb-block  margine-top">
                     <ol class="breadcrumb zero-padding breadcrumbfix">
@@ -61,74 +81,101 @@
                     </ol>
                 </div>
             </div>
-        </div>   
-        <div class="container fin">
-           <div class="col-xs-12 complex-menu zero-padding">
-               <div class="col-xs-5">
-                    <h2 class="active-complex">
-                        <a href="complex.html" class="active-complex">Марсель
-                        </a>
-                    </h2>
-               </div>
-                <div class="col-xs-7 complex-right-menu">
-                    <ul>
-                        <li>
-                            <a href="plan.html" >ПЛАН ЖК
+            
+            <div class="container fin">
+               <div class="col-xs-12 complex-menu zero-padding">
+                   <div class="col-xs-5">
+                        <h2>
+                            <a href="complex.html" class="active-complex">Марсель
                             </a>
-                        </li>
-                        <li>
-                            <a href="gallery.html" >ГАЛЕРЕЯ
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">3D ТУР
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">ДОКУМЕНТЫ
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">АКЦИИ
-                            </a>
-                        </li>
-                   </ul>    
-                </div>
-           </div>
-            <div class="col-xs-6 right-part-complex zero-padding">
-                <img src="images/s3.jpg">
-            </div>
-            <div class="col-xs-6 left-part-complex zero-padding">
-                <div class="vertical">               
-                    <h2><span class="grey-span">Срок сдачи</span>18 октября 2023</h2>
-                    <h2><span class="grey-span">Застройщик</span>ЗАО «Береговое»</h2>
-                    <p>
-                        15 минут до метро "Речной вокзал"
-                    </p>
-                    <p>
-                        Современный двор площадью 8,5 га
-                    </p>
-                    <p>
-                        Надземные и подземные парковки
-                    </p>
-                    <p>
-                        1-, 2-, 3, 4-комнатные квартиры и студии площадью от 27 до 117 кв.м.
-                    </p>
-                    <p>
-                        Просторные планировки и высокие потолки 2,9 м
-                     </p>
-                </div>     
-            </div>       
-        </div>
-           
-          <div class="container fin">
-              <div class="col-xs-12 zero-padding complex-map">
-                    <h2><span class="grey-span">Адрес</span>Заельцовский район, ул. Водонапорная 2</h2>
-                    <div id="map" style="width:100%; height:100%;">
+                        </h2>
+                   </div>
+                    <div class="col-xs-7 complex-right-menu">
+                        <ul>
+                            <li>
+                                <a href="plan.html">ПЛАН ЖК
+                                </a>
+                            </li>
+                            <li class="active-menu">
+                                <a href="gallery.html">ГАЛЕРЕЯ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">3D ТУР
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">ДОКУМЕНТЫ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">АКЦИИ
+                                </a>
+                            </li>
+                       </ul>    
                     </div>
-              </div>
-          </div>
-          
+               </div>    
+               <div class="col-xs-12 tab-menu zero-padding">
+                    <div class="col-xs-8 zero-padding">
+                        <div class="col-xs-4  tab-menu-passive">
+                            <a href="gallery.html">
+                                Дневник стройки
+                            </a>
+                        </div>
+                        <div class="col-xs-4 tab-menu-active">
+                            <a href="gallery.html" title="Выберите дом">
+                                Визуализация
+                            </a>
+                        </div>
+                        <div class="col-xs-4 tab-menu-passive">
+                            <a href="#" title="Выберите дом">
+                                3d тур
+                            </a>
+                        </div>  
+                    </div>
+               </div>
+               
+                <div class="col-xs-12 gallery-body zero-padding visual-album">
+                   
+                    <div class="col-xs-6">   
+                        <div class="col-xs-6 gallery-item visual-item">
+                            <a href="images/visual/1.jpg">
+                                <img src="images/visual/1.jpg"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 gallery-item visual-item">
+                            <a href="images/visual/2.jpg">
+                                <img src="images/visual/2.jpg"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 gallery-item visual-item">
+                            <a href="images/visual/3.jpg">
+                                <img src="images/visual/3.jpg"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 gallery-item visual-item">
+                            <a href="images/visual/4.jpg">
+                                <img src="images/visual/4.jpg"  width="100%" height="100%">
+                            </a>
+                        </div>
+                    </div>    
+                    
+                    <div class="col-xs-6">
+                        <div class="col-xs-6 gallery-big-item visual-item">
+                            <a href="images/visual/5.jpg">
+                                <img src="images/visual/5.jpg"  width="100%" height="100%">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 gallery-big-item visual-item">
+                            <a href="images/visual/6.jpg">
+                                <img src="images/visual/6.jpg"  width="100%" height="100%">
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div> 
+        </div>         
+    
         <div class="container-fluid zero-padding">
             <div class="col-xs-12 complex-title-line zero-padding">
             </div>  

@@ -2289,6 +2289,7 @@ table.dataTable thead #bn.sorting_asc {
 
 .complex-map {
     height: 350px;
+    margin-bottom: 98px;
 }
 
 .complex-map h2{
@@ -2309,7 +2310,6 @@ table.dataTable thead #bn.sorting_asc {
 .complex-title-line {
     height: 100px;
     background: #666666;
-    margin-top: 98px;
     width: 50%;
     left: 0px;
 }
@@ -2421,6 +2421,12 @@ table.dataTable thead #bn.sorting_asc {
     cursor: pointer;
 }
 
+@media(max-width:1250px){
+    .complex-menu ul li{
+        margin-right: 12px;
+    }
+}
+
 .complex-menu a{
     color:#999999;
     text-decoration: none;
@@ -2455,7 +2461,6 @@ table.dataTable thead #bn.sorting_asc {
     height: 60px;
     line-height: 60px;
     border-top:2px solid #333333;
-    margin-bottom: 25px;
     text-align: center;
 }
 
@@ -2465,7 +2470,7 @@ table.dataTable thead #bn.sorting_asc {
 
 .tab-menu-active {
     color:#2391af;
-    font-size: 25px;
+    font-size: 16px;
     cursor: context-menu;
 }
 
@@ -2622,4 +2627,88 @@ table.dataTable thead #bn.sorting_asc {
 #floorTab li a:focus:before{
      content: "<"; /* Добавляем желаемый символ перед элементом списка */ 
     margin-left: -13px;
+}
+
+.gallery-body {
+    height: 404px;
+}
+
+@media(max-width:1200px){
+    .gallery-body{
+        height: 326px;
+    }   
+}
+
+.gallery-body div{
+    padding: 0px;
+}
+
+.gallery-item {
+    height: 202px;
+}
+
+@media(max-width:1200px){
+    .gallery-item{
+        height: 163px;
+    }   
+}
+
+.gallery-big-item {
+    height: 404px;
+}
+
+@media(max-width:1200px){
+    .gallery-big-item{
+        height: 326px;
+    }   
+}
+
+.thump-gallery:hover .date-album {
+    background: rgba(26, 26, 26, 0.8);
+    color:#f2f2f2;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.date-album{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    color: #1a1a1a;
+    margin-left: -50px;
+    margin-top: -50px;
+    z-index: 200;
+    text-align: center;
+    padding-top: 25px;
+    font-size: 20px;
+    background: rgba(242, 242, 242, 0.8);
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.date-album:hover{
+    text-decoration: none;
+    color:#f2f2f2;
+}
+
+.date-album:focus{
+    text-decoration: none;
+    color:#1a1a1a;
+}
+
+.visual-item img{
+    opacity: 0.7;
+}
+
+.visual-item img:hover{
+    opacity: 1;
 }
