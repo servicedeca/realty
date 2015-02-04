@@ -245,6 +245,7 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
         'year' => $val->field_field_year[0]['raw']['value'],
         'rooms' => $val->field_field_number_rooms[0]['raw']['value'],
         'floor' => $val->field_field_apartment_floor[0]['raw']['value'],
+        'home_floor' =>  $val->field_field_number_floor[0]['raw']['value'],
         'sq' => $val->field_field_gross_area[0]['raw']['value'],
         'price' => $val->field_field_price[0]['raw']['value'] / 1000,
         'coast' => $val->field_field_full_cost[0]['raw']['value'] / 1000,
@@ -344,4 +345,29 @@ function realty_theme_preprocess_realty_user_menu(&$vars) {
  */
 function realty_theme_preprocess_field__type_checkbox(&$vars) {
   $a = 1;
+}
+
+/**
+ * Process variables for realty-map-complex.tpl.php.
+ */
+function realty_theme_preprocess_realty_map_complex(&$vars) {
+  $a = 1;
+  if ($vars['nid']) {
+    $vars['node'] = node_load($vars['nid']);
+    $vars['image'] = theme('image', array(
+      'path' => $vars['node']->field_main_photo['und'][0]['uri'],
+      'attributes' => array(
+        'class' => array('title-image'),
+      ),
+    ));
+
+    $vars['logo'] = theme('image', array(
+      'path' => $vars['node']->field_complex_logo['und'][0]['uri'],
+      'attributes' => array(
+        'class' => array('logo-z', 'vertical-logo'),
+      ),
+    ));
+
+    $vars['details'] = l('details', 'node/' . $vars['node']->nid, array('attributes' => array('class' => array('button-info','button-info-top') )));
+  }
 }

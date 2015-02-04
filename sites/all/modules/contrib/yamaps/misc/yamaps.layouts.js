@@ -90,6 +90,14 @@
             Drupal.t('Save') +
             '"/></div>'
         ));
+
+        // button actions layout.
+        $.yaMaps.addLayout('yamaps#ButtonLayout', ymaps.templateLayoutFactory.createClass(
+          "<div class=my-button>" +
+            "{{data.content}}" +
+            "</div>"
+        ));
+
       });
     }
   }

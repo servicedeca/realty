@@ -10,6 +10,7 @@
         // Class for one placemark.
         $.yaMaps.YamapsPlacemark = function(geometry, properties, options) {
           this.placemark = new ymaps.Placemark(geometry, properties, options);
+
           this.parent = null;
 
           // Set placemark icon and balloon content.
@@ -153,7 +154,7 @@
               '<div class="form-element">',
               '<label for="balloonContent">' + Drupal.t('Balloon text') + '</label>',
               '<input type="text" id="balloonContent" value="$[properties.balloonContentBody]"/>',
-              '<input type="text" id="entityid" value="$[properties.entityid]"/>',
+              '<input type="text" style="display: none" id="entityid" value="$[properties.entityid]"/>',
               '</div>',
               '$[[yamaps#ActionsButtons]]',
               '</div>'
@@ -177,10 +178,16 @@
                 });
                 this.$placemarkColors.bind('click', this, this.colorClick);
 
+                $('#edit-field-home-complex-und').change(function() {
+                  var $complexid = $('#edit-field-home-complex-und').val();
+                  //console.log(Map.options.placemarks);
+                });
+
                 // Placemark icon and balloon content.
                 this.$iconContent = $element.find('#iconContent');
                 this.$balloonContent = $element.find('#balloonContent');
-                this.$entityid = $element.find('#entityid');
+                this.$entityid = $('#edit-field-home-complex-und').val();
+                console.log(this.$entityid);
 
                 // Actions.
                 $('#deleteButton').bind('click', this, this.onDeleteClick);
@@ -206,7 +213,7 @@
                 // Save click.
                 var placemark = e.data.properties.Placemark;
                 // Save content, color and close balloon.
-                placemark.setContent(e.data.$iconContent.val(), e.data.$balloonContent.val(), e.data.$entityid.val() );
+                placemark.setContent(e.data.$iconContent.val(), e.data.$balloonContent.val(), e.data.$entityid );
                 placemark.setColor(e.data.properties.color);
                 placemark.closeBalloon();
               }
@@ -253,23 +260,81 @@
             gridSize: 100
           });
 
+          $('#edit-field-home-complex-und').change(function() {
+            var $complexid = $('#edit-field-home-complex-und').val();
+            console.log(Map.options.placemarks);
+              $('#entityid').val($complexid);
+            $('#saveButton').trigger('click');
+          });
+
+          var GetDataComplex = function(complexID) {
+            $.ajax({
+              url: '/get_data_complex',
+              type: 'POST',
+              data: {
+                nid: complexID
+              },
+              success: function(answer) {
+                var object = jQuery.parseJSON(answer);
+                $('#map-balloon-image').html('');
+                if (object.image) {
+                  $('#map-balloon-image').html(object.image);
+                }
+                $('#map-balloon-logo').html('');
+                if (object.logo) {
+                  $('#map-balloon-logo').html(object.logo);
+                }
+                $('#map-balloon-title h2').html('');
+                if (object.title) {
+                  $('#map-balloon-title h2').html(object.title);
+                }
+                $('#map-balloon-description p').html('');
+                if (object.description) {
+                  $('#map-balloon-description p').html(object.description);
+                }
+                $('#map-balloon-details').html('');
+                if (object.details) {
+                  $('#map-balloon-details').html(object.details);
+                }
+              },
+              error: function(response) {
+                alert('false');
+              }
+            });
+          }
+
          var Placemarks = [];
           for (var i in Map.options.placemarks) {
             var Coords = Map.options.placemarks[i].coords;
             var Params = Map.options.placemarks[i].params;
             var Icon = Map.options.placemarks[i].icon;
             var Placemark = new ymaps.Placemark(Coords, Params, Icon);
+            //Map.options.placemarks[i].params.balloonContentBody = Map.options.placemarks[i].params.iconContent;
+            Map.options.placemarks[i].params.balloonContentHeader = Map.options.placemarks[i].params.iconContent;
+            Map.options.placemarks[i].params.iconContent = '';
+            console.log(Map.options.placemarks[i].params);
+            //console.log(Map.options.placemarks[i].params.iconContent);
             Placemarks.push(Placemark);
-            console.log(Placemark.properties._K.entityid);
           }
-
           clusterer.add(Placemarks);
+
+
           // Add collection to the map
           if (!Map.options.edit){
-            Map.map.geoObjects.add(clusterer)
+            Map.map.geoObjects.add(clusterer);
+
           } else {
               Map.map.geoObjects.add(placemarksCollection.elements);
+
           }
+
+          Map.map.geoObjects.events.add('click', function (e) {
+            var entityid = e.get('target').properties.get('entityid');
+            if(entityid) {
+              GetDataComplex(e.get('target').properties.get('entityid'));
+              console.log(e.get('target').properties.get('entityid'));
+            }
+          });
 
           // If map in edit mode add search form.
           var $searchForm = $([
@@ -310,12 +375,12 @@
           });
           // Add search form after current map.
           $searchForm.insertAfter('#' + Map.mapId);
-
           // Map click listener to adding new placemark.
           var mapClick = function(event) {
             var Placemark = placemarksCollection.createPlacemark(event.get('coordPosition'), {iconContent: '', color: 'blue', balloonContentBody: '', balloonContentHeader: '', entityid: '' });
             Placemark.openBalloon();
           };
+
 
           // New button.
           var pointButton = new ymaps.control.Button({

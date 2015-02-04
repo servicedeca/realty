@@ -55,7 +55,7 @@
               <?php print $apartment['rooms']?>
             </td>
             <td>
-              <?php print $apartment['floor']?>
+              <?php print $apartment['floor'] . '/' . $apartment['home_floor'] ?>
             </td>
             <td>
               <?php print $apartment['sq'] . 'м'?><sup>2</sup>

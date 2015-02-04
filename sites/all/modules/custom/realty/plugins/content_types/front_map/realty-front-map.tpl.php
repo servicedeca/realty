@@ -23,49 +23,50 @@
     </div>
   </div>
   <div class="col-xs-12 header-parent">
-    <div class="form-group c-select">
-      <?php print render($search_map_form['category'])?>
-    </div>
-    <div id="filters">
-      <ul>
-        <li>
-          <a data-toggle="modal" data-target=".modal-map-area">Район</a>
-        </li>
-        <li class="store">
-          <input type="checkbox" id="mapcheck">
-          <label class="map-hint"  for="mapcheck">Акции</label>
-        </li>
-      </ul>
-    </div>
+
   </div>
 </div>
   <div class="row relative">
-    <div class="col-xs-9 fiftyplus double-big-height poster-photo parent">
-      <?php print render($map);?>
+    <div id = 'custom-map' class="col-xs-9 fiftyplus double-big-height poster-photo parent">
+      <?php print render($map->content);?>
     </div>
-    <div class="col-xs-3 double-big-height fifty-minus zero-padding parent">
-      <div class="col-xs-12 height zero-padding">
 
+    <div id = 'map-balloon' class="col-xs-3 double-big-height fifty-minus zero-padding parent">
+      <div id="map-balloon-image" class="col-xs-12 height zero-padding">
+        <?php if(isset($image)):?>
+          <?php print render($image)?>
+        <?php endif;?>
       </div>
       <div class="col-xs-12 beige-block big-height zero-padding">
-        <div class="col-xs-12 quarter-item zero-padding">
-
+        <div id="map-balloon-logo" class="col-xs-12 quarter-item zero-padding">
+          <?php if(isset($logo)):?>
+            <?php print render($logo)?>
+          <?php endif;?>
         </div>
         <div class="col-xs-12 second quarter-item zero-padding display-table">
-          <div class="vertical">
-            <h2>Жилой комплекс Марсель</h2>
+          <div id="map-balloon-title" class="vertical">
+            <h2>
+              <?php if(isset($title)):?>
+                <?php print $title;?>
+              <?php endif?>
+            </h2>
           </div>
           <div class="gorizont-line">
           </div>
         </div>
-        <div class="col-xs-12 third quarter-item zero-padding item-text-field">
-          <p>"Марсель" - дом на набережной</p>
+        <div id="map-balloon-description" class="col-xs-12 third quarter-item zero-padding item-text-field">
+          <p>
+            <?php if(isset($description)):?>
+              <?php print $description;?>
+            <?php endif?>
+          </p>
         </div>
-        <div class="col-xs-12 fourth button-item zero-padding item-text-field">
-          <a href="#" class="button-info button-info-top">Подробности</a>
+        <div id="map-balloon-details" class="col-xs-12 fourth button-item zero-padding item-text-field">
+          <?php print $details?>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -101,5 +102,4 @@
 </div>
 
 <div id="form-search-hidden">
-  <?php print render($search_map_form)?>
 </div>

@@ -270,31 +270,27 @@
     })
   };
 
-  Drupal.behaviors.realtyCheckAdminMap = {
+  Drupal.behaviors.realtyFilterMap = {
     attach: $(function () {
-      var realtyAdmin = function() {
-        var realty_admin
+      $('#edit-field-area-tid').change(function(){
+        var area = $(this).val();
+        alert(area);
         $.ajax({
-          url: '/check_admin_map',
+          url: '/search_map',
           type: 'POST',
-          async: false,
           data: {
+            area: area
           },
           success: function(response) {
-            // alert(response);
-            if (response == 1) {
-              realty_admin = 1;
-            }
-            else {
-              realty_admin = 0;
-            }
+           $('#custom-map').html('');
+             $('#custom-map').html(response);
+
           },
           error: function(response) {
             alert('false');
           }
         });
-        return realty_admin;
-      };
+      });
     })
   };
 
@@ -311,7 +307,7 @@
       $('.double-big-height').height($('.fiftyplus').width()/1.42);
       $('.height').height($('.fiftyplus').width()/4.27);
       $('.double-big-height').height($('.fiftyminus').width()/0.473);
-       $(window).resize(function(){
+       $(window).resize(function() {
          $('.big-height').height($('.fiftyminus').width()/0.71);
          $('.height').height($('.fifty').width()/2.85);
          $('.big-height').height($('.fiftyplus').width()/2.13);
@@ -320,7 +316,6 @@
          $('.height').height($('.fiftyplus').width()/4.27);
          $('.double-big-height').height($('.fiftyminus').width()/0.473);
         });
-
       })
  }
 
@@ -361,5 +356,13 @@
       });
     })
   }
+
+  Drupal.behaviors.realtyPlacemarkAddComplex = {
+    attach: $(function(){
+      $('#edit-field-home-complex-und').change(function(){
+        console.log($(this).val());
+      })
+    })
+    }
 
 }(jQuery));

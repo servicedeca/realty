@@ -56,8 +56,8 @@ function realty_menu(){
     'access callback' => TRUE,
   );
 
-  $item['check_admin_map'] = array(
-    'page callback' => 'realty_check_admin_map',
+  $item['get_data_complex'] = array(
+    'page callback' => 'realty_get_data_complex',
     'access callback' => TRUE,
   );
 
@@ -100,16 +100,53 @@ function realty_theme() {
     'template' => 'realty-id-apartment-pdf',
   );
 
+
+  $items['realty_map_complex'] = array(
+    'variables' => array(
+      'nid' => NULL,
+    ),
+    'template' => 'realty-map-complex',
+  );
+
   return $items;
 }
 
 /**
- * Page callback to /realty_check_admin_map.
+ * Page callback to /get_data_complex.
  */
-function realty_check_admin_map() {
-  global $user;
+function realty_get_data_complex() {
 
-  $user->uid == 1 ? print TRUE : print FALSE;
+  if ($_POST['nid']) {
+    $node = node_load($_POST['nid']);
+
+    $answer['title'] = $node->title;
+
+    $answer['image'] = theme('image', array(
+      'path' => $node->field_main_photo['und'][0]['uri'],
+      'attributes' => array(
+        'class' => array('title-image'),
+      ),
+    ));
+
+    if (!empty($node->field_complex_logo)) {
+      $answer['logo'] = theme('image', array(
+        'path' => $node->field_complex_logo['und'][0]['uri'],
+        'attributes' => array(
+          'class' => array('logo-z', 'vertical-logo'),
+        ),
+      ));
+    }
+
+    if(!empty($node->field_description)) {
+      $answer['description'] = $node->field_description['und'][0]['value'];
+    }
+
+    $answer['details'] = l('details', 'node/' . $node->nid, array('attributes' => array('class' => array(
+      'button-info','button-info-top')
+    )));
+
+    print json_encode($answer);
+  }
 
   drupal_exit();
 }
@@ -127,20 +164,18 @@ function realty_get_list_city(){
  */
 function realty_search_map() {
 
-  $category = $_POST['category'];
+  $block = new stdClass();
+
+  $area = $_POST['area'];
 
   $view = views_get_view('map');
   $view->set_display('main_map');
-  //$view->display_handler->options['filters']['field_area_city_tid']['value'] = $city_tid;
-    unset($view->display_handler->options['filters']['field_category_value']['value']);
-    foreach($category as $val){
-      $view->display_handler->options['filters']['field_category_value']['value'][$category] = $val;
-    }
+
+  $view->display_handler->options['filters']['field_category_tid']['value'] = 36;
   $view->pre_execute(array());
-  $view->display_handler->preview();
+  $block->content = $view->display_handler->preview();
   $view->post_execute();
-  $map = $view->display_handler->output;
-  print $map;
+  print $block->content;
  }
 
 
@@ -577,6 +612,7 @@ function realty_search_form($form, $form_state) {
   $form['sq'] = array(
     '#type'=>'hidden',
     '#title'=>'Sq from',
+    '#default_value' => isset($_GET['sq']) ? $_GET['sq'] : '30;150',
     '#attributes'=>array(
       'class' => array('ion-slider', 'sq'),
     ),
@@ -585,6 +621,7 @@ function realty_search_form($form, $form_state) {
   $form['price'] = array(
     '#type'=>'hidden',
     '#title'=>'Price from',
+    '#default_value' => isset($_GET['price']) ? $_GET['price'] : '55;85',
     '#attributes'=>array(
       'class' => array('ion-slider', 'price'),
     ),
@@ -602,6 +639,7 @@ function realty_search_form($form, $form_state) {
   $form['coast'] = array(
     '#type'=>'hidden',
     '#title'=>'Coast',
+    '#default_value' => isset($_GET['coast']) ? $_GET['coast'] : '1.6;4',
     '#attributes'=>array(
       'class' => array('ion-slider', 'coast'),
     ),
