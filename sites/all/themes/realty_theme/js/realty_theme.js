@@ -115,12 +115,6 @@
        $('.search-input-area').val(select.text());
      });
 
-     $('.CheckboxMapArea').click(function () {
-       var select = $('select[id="area-map"]');
-       $(this).prop("checked") == true ? $('#area-map option[value='+$(this).val()+']').attr('selected', 'selected') :
-         $('#area-map option[value='+$(this).val()+']').attr('selected', false);
-     });
-
      $('.CheckboxArea').click(function() {
        var select = $('#area option:selected');
        console.log(select.text());
@@ -218,14 +212,15 @@
       $("#map-filter").change(function () {
         var select = $('select[id="edit-field-category-value"]');
         select.val($(this).val());
-        $('#edit-submit-map').trigger('click');
       });
 
-      $(".CheckboxMapArea").change(function () {
+
+      $('.CheckboxMapArea').click(function () {
         var select = $('select[id="edit-field-area-tid"]');
-        select.val($(this).val());
-        $('#edit-submit-map').trigger('click');
+        $(this).prop("checked") == true ? $('#edit-field-area-tid option[value='+$(this).val()+']').attr('selected', 'selected') :
+          $('#edit-field-area-tid option[value='+$(this).val()+']').attr('selected', false);
       });
+
     })
   };
 
@@ -270,29 +265,7 @@
     })
   };
 
-  Drupal.behaviors.realtyFilterMap = {
-    attach: $(function () {
-      $('#edit-field-area-tid').change(function(){
-        var area = $(this).val();
-        alert(area);
-        $.ajax({
-          url: '/search_map',
-          type: 'POST',
-          data: {
-            area: area
-          },
-          success: function(response) {
-           $('#custom-map').html('');
-             $('#custom-map').html(response);
 
-          },
-          error: function(response) {
-            alert('false');
-          }
-        });
-      });
-    })
-  };
 
 
   Drupal.behaviors.realtyDynamicallyChange = {

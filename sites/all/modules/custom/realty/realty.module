@@ -22,6 +22,29 @@ function realty_init() {
   }
 }
 
+/*
+ * Implement hook_taxonomy_term_insert.
+ */
+function realty_taxonomy_term_insert($term) {
+  if ($term->vid == '6' ) {
+      $place = json_decode($term->field_map['und'][0]['placemarks']);
+      $place[0]->params->tid = $term->tid;
+      $term->field_map['und'][0]['placemarks'] = json_encode($place);
+      taxonomy_term_save($term);
+  }
+}
+
+/*
+ * Implement hook_taxonomy_term_presave.
+ */
+function realty_taxonomy_term_presave($term) {
+  if ($term->tid) {
+    $place = json_decode($term->field_map['und'][0]['placemarks']);
+    $place[0]->params->tid = $term->tid;
+    $term->field_map['und'][0]['placemarks'] = json_encode($place);
+  }
+}
+
 /**
  * get the path to the directory /files
  */
@@ -100,14 +123,6 @@ function realty_theme() {
     'template' => 'realty-id-apartment-pdf',
   );
 
-
-  $items['realty_map_complex'] = array(
-    'variables' => array(
-      'nid' => NULL,
-    ),
-    'template' => 'realty-map-complex',
-  );
-
   return $items;
 }
 
@@ -164,18 +179,33 @@ function realty_get_list_city(){
  */
 function realty_search_map() {
 
-  $block = new stdClass();
-
-  $area = $_POST['area'];
+  $areas = $_POST['area'];
+  $categorys = $_POST['category'];
 
   $view = views_get_view('map');
-  $view->set_display('main_map');
-
-  $view->display_handler->options['filters']['field_category_tid']['value'] = 36;
+  $view->set_display('map_city');
+  if (!empty($categorys)) {
+    foreach ($categorys as $category) {
+      $view->display_handler->options['filters']['field_category_value']['value'][] = $category;
+    }
+  }
+  if (!empty($areas)) {
+    foreach ($areas as $area) {
+      $view->display_handler->options['filters']['field_area_tid']['value'][] = $area;
+    }
+  }
   $view->pre_execute(array());
-  $block->content = $view->display_handler->preview();
+  $view->display_handler->preview();
   $view->post_execute();
-  print $block->content;
+  if (!empty($view->result)) {
+    foreach($view->result as $key => $tid) {
+      $homes[$key]['tid'] = $tid->tid;
+      $homes[$key]['address'] = $tid->_field_data['tid']['entity']->field_address_house['und'][0]['value'];
+    }
+    print json_encode($homes);
+  }
+  else
+    print FALSE;
  }
 
 

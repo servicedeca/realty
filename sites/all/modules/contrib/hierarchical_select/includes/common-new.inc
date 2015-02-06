@@ -1,3 +1,13 @@
+	if ( ! empty($elements) ){
+		foreach ($elements as $key => $value) {
+			if ($key === '' || $key[0] !== '#') {
+				$children[$key] = $value;
+				if (is_array($value) && isset($value['#weight'])) {
+					$sortable = TRUE;
+				}
+			}
+		}
+	}
 <?php
 
 /**

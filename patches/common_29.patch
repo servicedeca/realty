@@ -1,0 +1,27 @@
+--- common.inc	2014-05-16 09:59:22.825965210 -0700
++++ common-new.inc	2014-05-16 09:59:51.464557446 -0700
+@@ -6430,14 +6430,16 @@
+   // Filter out properties from the element, leaving only children.
+   $children = array();
+   $sortable = FALSE;
+-  foreach ($elements as $key => $value) {
+-    if ($key === '' || $key[0] !== '#') {
+-      $children[$key] = $value;
+-      if (is_array($value) && isset($value['#weight'])) {
+-        $sortable = TRUE;
+-      }
+-    }
+-  }
++	if ( ! empty($elements) ){
++		foreach ($elements as $key => $value) {
++			if ($key === '' || $key[0] !== '#') {
++				$children[$key] = $value;
++				if (is_array($value) && isset($value['#weight'])) {
++					$sortable = TRUE;
++				}
++			}
++		}
++	}
+   // Sort the children if necessary.
+   if ($sort && $sortable) {
+     uasort($children, 'element_sort');

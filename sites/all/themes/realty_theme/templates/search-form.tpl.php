@@ -162,5 +162,5 @@
   </div>
 </div>
 <div id="form-search-hidden">
-<?php print drupal_render_children($form); ?>
+  <?php print drupal_render_children($form); ?>
 </div>

@@ -23,12 +23,25 @@
     </div>
   </div>
   <div class="col-xs-12 header-parent">
-
-  </div>
+      <div class="form-group c-select">
+        <?php print render($search_map_form['category'])?>
+      </div>
+      <div id="filters">
+        <ul>
+          <li>
+            <a data-toggle="modal" data-target=".modal-map-area">Район</a>
+          </li>
+          <li class="store">
+            <input type="checkbox" id="mapcheck">
+            <label class="map-hint"  for="mapcheck">Акции</label>
+          </li>
+        </ul>
+      </div>
+    </div>
 </div>
   <div class="row relative">
     <div id = 'custom-map' class="col-xs-9 fiftyplus double-big-height poster-photo parent">
-      <?php print render($map->content);?>
+      <?php print render($map);?>
     </div>
 
     <div id = 'map-balloon' class="col-xs-3 double-big-height fifty-minus zero-padding parent">

@@ -82,6 +82,12 @@ function template_preprocess_realty_front_map(&$vars) {
       ));
     }
 
+    $vars['areas'] = realty_get_options_current_city('area');
+
+    $vars['search_map_form'] = drupal_get_form('realty_search_map_form');
+
+    unset($vars['search_map_form']['category']['#title']);
+
     if (!empty($complex[0]->field_field_description)) {
       $vars['description'] = $complex[0]->field_field_description[0]['raw']['value'];
     }
@@ -91,17 +97,8 @@ function template_preprocess_realty_front_map(&$vars) {
     )));
   }
 
+  $view = views_embed_view('map', 'map_city');
 
-  $vars['areas'] = realty_get_options_current_city('area');
-  $block = new stdClass();
-  //$view = views_embed_view('map', 'main_map');
-  $view = views_get_view('map');
-  $view->set_display('main_map');
-  $view->display_handler->options['filters']['field_category_tid']['value'] = 36;
-  $view->pre_execute(array());
-  $block->content = $view->display_handler->preview();
-  $view->post_execute();
-
-  $vars['map'] = $block;
+  $vars['map'] = $view;
 
 }

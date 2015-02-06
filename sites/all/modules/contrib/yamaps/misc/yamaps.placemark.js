@@ -14,11 +14,12 @@
           this.parent = null;
 
           // Set placemark icon and balloon content.
-          this.setContent = function(iconContent, balloonContent, entityid) {
+          this.setContent = function(iconContent, balloonContent, entityid, tid) {
             this.placemark.properties.set('iconContent', iconContent);
             this.placemark.properties.set('balloonContentHeader', iconContent);
             this.placemark.properties.set('balloonContentBody', balloonContent);
             this.placemark.properties.set('entityid', entityid);
+            this.placemark.properties.set('tid', tid);
           };
 
           // Set placemark color.
@@ -65,7 +66,8 @@
                 iconContent: props.iconContent,
                 balloonContentBody: props.balloonContentBody,
                 balloonContentHeader: props.iconContent,
-                entityid: props.entityid
+                entityid: props.entityid,
+                tid: props.tid
               }
             };
           };
@@ -155,6 +157,7 @@
               '<label for="balloonContent">' + Drupal.t('Balloon text') + '</label>',
               '<input type="text" id="balloonContent" value="$[properties.balloonContentBody]"/>',
               '<input type="text" style="display: none" id="entityid" value="$[properties.entityid]"/>',
+              '<input type="text" style="display: none" id="tid" value="$[properties.tid]"/>',
               '</div>',
               '$[[yamaps#ActionsButtons]]',
               '</div>'
@@ -187,7 +190,8 @@
                 this.$iconContent = $element.find('#iconContent');
                 this.$balloonContent = $element.find('#balloonContent');
                 this.$entityid = $('#edit-field-home-complex-und').val();
-                console.log(this.$entityid);
+                this.$tid = $('#edit-field-home-complex-und').val();
+                console.log(window.location.toString());
 
                 // Actions.
                 $('#deleteButton').bind('click', this, this.onDeleteClick);
@@ -213,7 +217,7 @@
                 // Save click.
                 var placemark = e.data.properties.Placemark;
                 // Save content, color and close balloon.
-                placemark.setContent(e.data.$iconContent.val(), e.data.$balloonContent.val(), e.data.$entityid );
+                placemark.setContent(e.data.$iconContent.val(), e.data.$balloonContent.val(), e.data.$entityid, e.data.$tid );
                 placemark.setColor(e.data.properties.color);
                 placemark.closeBalloon();
               }
@@ -256,6 +260,10 @@
           ];
 
           var clusterer = new ymaps.Clusterer({
+            clusterIcons: clustererIcons,
+            gridSize: 100
+          });
+          var clustererr = new ymaps.Clusterer({
             clusterIcons: clustererIcons,
             gridSize: 100
           });
@@ -309,10 +317,9 @@
             var Params = Map.options.placemarks[i].params;
             var Icon = Map.options.placemarks[i].icon;
             var Placemark = new ymaps.Placemark(Coords, Params, Icon);
-            //Map.options.placemarks[i].params.balloonContentBody = Map.options.placemarks[i].params.iconContent;
             Map.options.placemarks[i].params.balloonContentHeader = Map.options.placemarks[i].params.iconContent;
             Map.options.placemarks[i].params.iconContent = '';
-            console.log(Map.options.placemarks[i].params);
+             console.log(Map.options.placemarks[i].params.tid);
             //console.log(Map.options.placemarks[i].params.iconContent);
             Placemarks.push(Placemark);
           }
@@ -320,7 +327,7 @@
 
 
           // Add collection to the map
-          if (!Map.options.edit){
+          if (!Map.options.edit) {
             Map.map.geoObjects.add(clusterer);
 
           } else {
@@ -331,9 +338,65 @@
           Map.map.geoObjects.events.add('click', function (e) {
             var entityid = e.get('target').properties.get('entityid');
             if(entityid) {
-              GetDataComplex(e.get('target').properties.get('entityid'));
-              console.log(e.get('target').properties.get('entityid'));
+              GetDataComplex(entityid);
             }
+          });
+
+          var placmark_filter = function(obj) {
+            clusterer.removeAll();
+            if (obj) {
+              var Placemarks = [];
+              for (var i in Map.options.placemarks) {
+                var Coords = Map.options.placemarks[i].coords;
+                var Params = Map.options.placemarks[i].params;
+                var Icon = Map.options.placemarks[i].icon;
+                var Placemark = new ymaps.Placemark(Coords, Params, Icon);
+                $.each(obj, function(key, value) {
+                  if (Map.options.placemarks[i].params.tid == value.tid ) {
+                    Map.options.placemarks[i].params.balloonContentHeader = value.address;
+                    Placemarks.push(Placemark);
+                  }
+                });
+              }
+              clusterer.add(Placemarks);
+              Map.map.geoObjects.add(clusterer);
+            }
+          }
+
+          var get_placemarks_filter = function() {
+            var area = $('#edit-field-area-tid').val();
+            var category = $('#edit-field-category-value').val();
+
+            $.ajax({
+              url: '/search_map',
+              type: 'POST',
+              data: {
+                area: area,
+                category: category
+              },
+              success: function(answer) {
+                if(answer){
+                  var object = jQuery.parseJSON(answer);
+                  console.log(object);
+                  placmark_filter(object);
+                }
+                else {
+                  placmark_filter(null);
+                }
+              },
+              error: function(answer) {
+                alert('false');
+              }
+            });
+          }
+
+
+          $('.CheckboxMapArea').click(function() {
+            get_placemarks_filter();
+          });
+
+          $('#map-filter').change(function() {
+            get_placemarks_filter();
           });
 
           // If map in edit mode add search form.
@@ -377,7 +440,7 @@
           $searchForm.insertAfter('#' + Map.mapId);
           // Map click listener to adding new placemark.
           var mapClick = function(event) {
-            var Placemark = placemarksCollection.createPlacemark(event.get('coordPosition'), {iconContent: '', color: 'blue', balloonContentBody: '', balloonContentHeader: '', entityid: '' });
+            var Placemark = placemarksCollection.createPlacemark(event.get('coordPosition'), {iconContent: '', color: 'blue', balloonContentBody: '', balloonContentHeader: '', entityid: '',tid: '' });
             Placemark.openBalloon();
           };
 
