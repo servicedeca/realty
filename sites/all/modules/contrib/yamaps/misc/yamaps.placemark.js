@@ -366,13 +366,15 @@
           var get_placemarks_filter = function() {
             var area = $('#edit-field-area-tid').val();
             var category = $('#edit-field-category-value').val();
+            var stock = $('#edit-field-stock-value').val();
 
             $.ajax({
               url: '/search_map',
               type: 'POST',
               data: {
                 area: area,
-                category: category
+                category: category,
+                stock: stock
               },
               success: function(answer) {
                 if(answer){
@@ -392,6 +394,12 @@
 
 
           $('.CheckboxMapArea').click(function() {
+            get_placemarks_filter();
+          });
+
+          $('#mapcheck').click(function() {
+            $(this).prop("checked") == true ? $('#edit-field-stock-value option[value=1]').attr('selected', 'selected') :
+            $('#edit-field-stock-value option[value=1]').attr('selected', false);
             get_placemarks_filter();
           });
 
