@@ -197,6 +197,7 @@ li {
 
 .zero-padding {
     padding: 0px;
+
 }
 
 .header-block {
@@ -2474,6 +2475,12 @@ table.dataTable thead #bn.sorting_asc {
     cursor: context-menu;
 }
 
+.tab-menu-active a {
+    color:#2391af;
+    text-decoration: none;
+}
+
+
 .tab-menu-passive {
     color:#999999;
     font-size: 16px;
@@ -2711,4 +2718,280 @@ table.dataTable thead #bn.sorting_asc {
 
 .visual-item img:hover{
     opacity: 1;
+}
+
+
+.booked {
+    background: url(../images/booked.svg);
+}
+
+.free {
+    background: url(../images/free.svg);
+}
+
+.apartment-menu {
+    height: 50px;
+    margin-top: 25px; 
+}
+
+.apartment-title h2 {
+    height: 60px;
+    line-height: 60px;
+    text-transform: uppercase;
+}
+
+.apartment-title {
+    text-align: left;
+    font-size: 30px;
+    color:#4d4d4d;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+
+.apartment-title a{
+    color:#4d4d4d;
+}
+
+.apartment-title a:hover{
+    color:#4d4d4d;
+    text-decoration: none;
+}
+.apartment-tabs li {
+    display: inline; 
+    margin-right: 20px;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+    }
+
+.apartment-tabs li a{
+    color: #999999;
+}
+
+.apartment-tabs li a:hover{
+    text-decoration: none;
+    color:#333333;
+}
+
+
+.apartment-status-block {
+    height: 60px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.booked-body {
+    background: #bf4b4b;
+}
+
+.circle-transparent {
+    position: absolute;
+    left: -35px;
+    background: #fff;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+}
+
+.apartment-status-button{
+    margin-left: 10px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    border: 2px solid #666666;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #808080;
+    text-decoration: none;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.booked-button:hover{
+    color:#f2f2f2;
+    background: #666666;
+    text-decoration: none;
+    border: 2px solid #666666;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.free-button:hover{
+    color:#f2f2f2;
+    background: #2391af;
+    text-decoration: none;
+    border: 2px solid #2391af;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.status-icon {
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1000;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    margin-top: -5px;
+    border: 5px solid #fff;
+    border-radius: 70px;
+}
+
+.apartment-status-body {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: left;
+    margin-left: -25px;
+    padding-left: 40px;
+    height: 60px;
+    line-height: 60px;
+    color:#fff;
+    letter-spacing: 1px;
+}
+
+@media(max-width:1200px){
+    .apartment-status-body{
+        font-size: 18px;
+        padding-left: 35px;
+            letter-spacing: 0.5px;
+    }
+}
+
+.free-body {
+    background: #2391af;
+}
+
+.apartment-button {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border: 5px solid #fff;
+    border-radius: 70px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    z-index: 1000;
+}
+
+.apartment-button img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+}
+
+.but1 {
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    opacity: 1;
+}
+
+.but1:hover {
+    opacity: 0;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.but1h {
+    position: absolute;
+    opacity: 0;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    border: 5px solid #fff;
+    border-radius: 60px;
+    margin-top: -5px;
+    margin-left: -5px;
+
+}
+
+.but1h:hover {
+        transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+
+
+.tip-button {
+    height: 60px;
+    line-height: 60px;
+    width: 205px;
+    position: relative;
+    left: 10px;
+    background: #666666;
+    z-index: 10;
+    color:#f2f2f2;
+    padding-left: 50px;
+    opacity: 0;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.apartment-body {
+    height:  430px;
+}
+
+.apartment-plan {
+    text-align: center;
+    height: 430px;
+    margin-top: 15px;
+}
+
+.apartment-image-gorizont {
+    width: 90%;
+}
+
+.apartment-image-vertical {
+    height:90%;
+}
+
+.apartment-tabs li.active>a{
+        color:#2391af;
+    border-bottom: 1px solid #2391af;
+}
+
+.apartment-tabs li.active>a:focus{
+    text-decoration: none;
+}
+
+.apartment-text {
+    height:430px;
+}
+
+.apartment-text h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    color:#999999;
+    margin-bottom: 2px;
+}
+
+.apartment-text p {
+    font-size: 16px;
+    color:#666666;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 15px;
+}
+
+.apartment-button a{
+    color:#f2f2f2;
+    text-decoration: none;
 }

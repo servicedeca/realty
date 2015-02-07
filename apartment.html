@@ -29,6 +29,48 @@
         <script src="js/findom.js"></script>
     </head>
     
+    <script>
+        $(document).ready(function(){
+       $("#comparisonh").hover(function(){
+           $(this).css("opacity","1");
+          $("#comparison").css("opacity","1");
+       });
+    });
+    $(document).ready(function(){
+       $("#comparisonh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#comparison").css("opacity","0");
+       });
+    });
+        
+    $(document).ready(function(){
+       $("#bankh").hover(function(){
+           $(this).css("opacity","1");
+          $("#bank").css("opacity","1");
+       });
+    });
+    $(document).ready(function(){
+       $("#bankh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#bank").css("opacity","0");
+       });
+    });
+        
+    $(document).ready(function(){
+       $("#documentsh").hover(function(){
+           $(this).css("opacity","1");
+          $("#documents").css("opacity","1");
+       });
+    });
+    $(document).ready(function(){
+       $("#documentsh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#documents").css("opacity","0");
+       });
+    });
+    
+    
+    </script>
     
     <body>  
        <div class="col-xs-12 menu-parent zero-padding">
@@ -57,70 +99,166 @@
                     <ol class="breadcrumb zero-padding breadcrumbfix">
                         <li><a href="index.html">Главная</a></li>
                         <li><a href="issue.html">Результаты поиска</a></li>
-                        <li class="active"><a href="#">Жилой комплекс</a></li>
+                        <li><a href="complex.html">Жилой комплекс</a></li>
+                        <li class="active"><a href="#">Квартира</a></li>
                     </ol>
                 </div>
             </div>
-        </div>   
+        </div>
+                               
         <div class="container fin">
-           <div class="col-xs-12 complex-menu zero-padding">
-               <div class="col-xs-5">
-                    <h2 class="active-complex">
-                        <a href="complex.html" class="active-complex">Марсель
+           <div class="col-xs-12 apartment-menu zero-padding">
+               <div class="col-xs-3 apartment-title zero-padding">
+                        <a href="apartment.html" class="active-complex">Квартира №94
                         </a>
-                    </h2>
                </div>
-                <div class="col-xs-7 complex-right-menu">
-                    <ul>
-                        <li>
-                            <a href="plan.html" >ПЛАН ЖК
-                            </a>
+               <div class="col-xs-9 zero-padding">
+                    <ul class="apartment-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#layout"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Планировка</a>
                         </li>
-                        <li>
-                            <a href="gallery.html" >ГАЛЕРЕЯ
-                            </a>
+                        <li role="presentation" class="">
+                            <a href="#layout-area" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Расположение на этаже</a>
                         </li>
-                        <li>
-                            <a href="#">3D ТУР
-                            </a>
+                        <li role="presentation" class="">
+                            <a href="#layout-home" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Расположение в доме</a>
                         </li>
-                        <li>
-                            <a href="#">ДОКУМЕНТЫ
-                            </a>
+                        <li role="presentation" class="">
+                            <a href="#credit" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Ипотека</a>
                         </li>
-                        <li>
-                            <a href="#">АКЦИИ
-                            </a>
-                        </li>
-                   </ul>    
-                </div>
+                    </ul>   
+               </div>
            </div>
-            <div class="col-xs-6 right-part-complex zero-padding fotorama" data-arrows="false" data-click="true" data-swipe="false" data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-nav="false">
-                <img src="images/s3.jpg">
-                <img src="images/s1.jpg">
-                <img src="images/s2.jpg">
+                       <!--  
+            <div class="col-xs-12 zero-padding apartment-status-block">
+                <div class="col-xs-1 status-icon booked">
+                </div>
+                 <div class="col-xs-4 apartment-status-body booked-body">
+                     Квартира забронирована
+                </div>
+                 <a href="#" class="col-xs-6 apartment-status-button booked-button">
+                     Отправить уведомление, если бронь снимется
+                </a>
             </div>
-            <div class="col-xs-6 left-part-complex zero-padding">
-                <div class="vertical">               
-                    <h2><span class="grey-span">Срок сдачи</span>18 октября 2023</h2>
-                    <h2><span class="grey-span">Застройщик</span>ЗАО «Береговое»</h2>
-                    <p>
-                        15 минут до метро "Речной вокзал"
-                    </p>
-                    <p>
-                        Современный двор площадью 8,5 га
-                    </p>
-                    <p>
-                        Надземные и подземные парковки
-                    </p>
-                    <p>
-                        1-, 2-, 3, 4-комнатные квартиры и студии площадью от 27 до 117 кв.м.
-                    </p>
-                    <p>
-                        Просторные планировки и высокие потолки 2,9 м
-                     </p>
-                </div>     
-            </div>       
+                 -->
+
+            <div class="col-xs-12 zero-padding apartment-status-block">
+                <div class="col-xs-1 status-icon free">
+                </div>
+                 <div class="col-xs-4 apartment-status-body free-body">
+                     Квартира свободна
+                </div>
+                 <a href="#" class="col-xs-3 apartment-status-button  booked-button">
+                     Забронировать
+                </a>
+            </div>
+         
+               
+        </div>
+        
+
+        <div class="container fin">
+           
+           <div class="col-xs-1 apartment-buttons-block zero-padding">
+               <div class="col-xs-12 apartment-button">
+                    <a href="#">       
+                        <img src="images/but1.svg" class="but1">                    
+                        <img src="images/but1h.svg" class="but1h" id="comparisonh">
+                        <div class="tip-button" id="comparison">
+                            Добавить в сравнение
+                        </div>
+                   </a>        
+               </div>
+               <div class="col-xs-12 apartment-button">
+                   <a href="#">
+                        <img src="images/but2.svg" class="but1">                    
+                        <img src="images/but2h.svg" class="but1h" id="bankh">
+                        <div class="tip-button" id="bank">
+                            Получить ID квартиры
+                        </div>
+                    </a>
+               </div>
+               <div class="col-xs-12 apartment-button">
+                   <a href="#">
+                        <img src="images/but3.svg" class="but1">                    
+                        <img src="images/but3h.svg" class="but1h" id="documentsh">
+                        <div class="tip-button" id="documents">
+                            Документы
+                        </div>
+                   </a>
+               </div>
+            </div>
+            
+            <div class="col-xs-11 zero-pading tab-content apartment-body">
+                <div role="tabpanel" class="tab-pane fade active in" id="layout" aria-labelledby="home-tab">
+                    <div class="col-xs-8 zero-padding apartment-plan">
+                        <img src="images/floor7.png" class="apartment-image-vertical">
+                    </div>
+                    <div class="col-xs-4 zero-padding apartment-text">
+                        <h3>Тип</h3>
+                            <p>1 комнатная студия</p>
+                        <h3>Цена</h3>
+                            <p>2 500 000 руб.</p>
+                        <h3>Расположение</h3>
+                            <p>Номер секции: 3</p>
+                            <p>Этаж: 7</p>
+                            <p>Номер квартиры: 337</p>
+                        <h3>Площади</h3>
+                            <p>Общая площадь: 25,83 м2</p>
+                            <p>Жилая площадь: 18,83 м2</p>
+                            <p>Площадь кухни: ---</p>
+                            <p>Площадь лоджии: 5,88 м2</p>
+                        <h3>Адрес</h3>
+                            <p>Заельцовский район</p>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="layout-area" aria-labelledby="profile-tab">
+                    <div class="col-xs-8 zero-padding apartment-plan">
+                        <img src="images/floor3.jpg" class="apartment-image-vertical">
+                    </div>
+                    <div class="col-xs-4 zero-padding apartment-text">
+                        <h3>Тип</h3>
+                            <p>1 комнатная студия</p>
+                        <h3>Цена</h3>
+                            <p>2 500 000 руб.</p>
+                        <h3>Расположение</h3>
+                            <p>Номер секции: 3</p>
+                            <p>Этаж: 7</p>
+                            <p>Номер квартиры: 337</p>
+                        <h3>Площади</h3>
+                            <p>Общая площадь: 25,83 м2 Общая площадь: 25,83 м2 Общая площадь: 25,83 м2</p>
+                            <p>Жилая площадь: 18,83 м2</p>
+                            <p>Площадь кухни: ---</p>
+                            <p>Площадь лоджии: 5,88 м2</p>
+                        <h3>Адрес</h3>
+                            <p>Заельцовский район</p>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="layout-home" aria-labelledby="profile-tab">
+                    <div class="col-xs-8 zero-padding apartment-plan">
+                        <img src="images/floor8.png" class="apartment-image-vertical">
+                    </div>
+                    <div class="col-xs-4 zero-padding apartment-text">
+                        <h3>Тип</h3>
+                            <p>1 комнатная студия</p>
+                        <h3>Цена</h3>
+                            <p>2 500 000 руб.</p>
+                        <h3>Расположение</h3>
+                            <p>Номер секции: 3</p>
+                            <p>Этаж: 7</p>
+                            <p>Номер квартиры: 337</p>
+                        <h3>Площади</h3>
+                            <p>Общая площадь: 25,83 м2</p>
+                            <p>Жилая площадь: 18,83 м2</p>
+                            <p>Площадь кухни: ---</p>
+                            <p>Площадь лоджии: 5,88 м2</p>
+                        <h3>Адрес</h3>
+                            <p>Заельцовский район</p>
+                    </div>
+                </div>
+            </div>
+            
+            
         </div>
            
           <div class="container fin">
@@ -165,11 +303,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td scope="row"><div class="flat-number">
-                                    <a href="apartment.html">
-                                        94
-                                    </a>
-                                </div></td>
+                                <td scope="row"><div class="flat-number">94</div></td>
                                 <td>Кропоткина 142</td>
                                 <td>1.1</td>
                                 <td>3</td>
