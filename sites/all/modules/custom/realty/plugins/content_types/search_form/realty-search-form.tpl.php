@@ -44,7 +44,7 @@
         <div class="col-xs-4">
           <li>
             <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxArea" value="<?php print $key?>"><?php print $area; ?>
+              <input type="checkbox" class="inlineCheckbox1 CheckboxArea" value="<?php print $key. ';' .$area?>"><?php print $area; ?>
             </label>
           </li>
         </div>
@@ -78,7 +78,7 @@
         <div class="col-xs-4">
           <li>
             <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxDeveloper " value="<?php print $key?>"><?php print $developer; ?>
+              <input type="checkbox" class="inlineCheckbox1 CheckboxDeveloper " value="<?php print $key. ';' .$developer?>"><?php print $developer; ?>
             </label>
           </li>
         </div>
@@ -111,7 +111,7 @@
         <div class="col-xs-4">
           <li>
             <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxComplex " value="<?php print $key?>"><?php print $complex; ?>
+              <input type="checkbox" class="inlineCheckbox1 CheckboxComplex " value="<?php print $key. ';' .$complex?>"><?php print $complex; ?>
             </label>
           </li>
         </div>
@@ -143,7 +143,7 @@
         <div class="col-xs-4">
           <li>
             <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxRoom " value="<?php print $key?>"><?php print $room; ?>
+              <input type="checkbox" class="inlineCheckbox1 CheckboxRoom " value="<?php print $key. ';' .$room?>"><?php print $room; ?>
             </label>
           </li>
         </div>
@@ -175,7 +175,7 @@
         <div class="col-xs-4">
           <li>
             <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxMetro " value="<?php print $key?>"><?php print $metro; ?>
+              <input type="checkbox" class="inlineCheckbox1 CheckboxMetro " value="<?php print $key. ';' .$metro?>"><?php print $metro; ?>
             </label>
           </li>
         </div>

@@ -1,10 +1,19 @@
 (function ($) {
 
+  Drupal.behaviors.realtyInit = {
+    attach: $(function() {
+
+      if(Drupal.settings.id) {
+        $("body").attr("id","index");
+      }
+
+    })
+  }
+
+
  Drupal.behaviors.realtyMultyselect = {
    attach: $(function() {
-     if(Drupal.settings.id) {
-       $("body").attr("id","index");
-     }
+
      $(function() {
        $('#map-filter').change(function() {
          console.log($(this).val());
@@ -59,6 +68,7 @@
          allSelected: 'Все'
        });
      });
+
      $(".sq").ionRangeSlider({
        hide_min_max: true,
        keyboard: true,
@@ -98,60 +108,41 @@
        grid: true,
        hasGrid: true
      });
+     var multiselect_modal = function(class_check_box, id_select, class_input) {
+       var array_input = {};
+       var string_input = '';
+       $('.'+class_check_box).click(function () {
+         var param =  $(this).val().split(';');
+         if ($(this).prop("checked") == true ) {
+           $('#'+id_select+' option[value='+param[0]+']').attr('selected', 'selected');
+           array_input[param[1]] = param[1];
 
+           string_input = '';
+           $.each(array_input, function(key, val) {
+             string_input == '' ?  string_input = val : string_input += ', '+val;
+           });
+           $('.'+class_input).val(string_input);
+         }
 
-     $('.CheckboxArea').click(function () {
-       //console.log(select.text());
-      if ($(this).prop("checked") == true ) {
-        $('#area option[value='+$(this).val()+']').attr('selected', 'selected');
-        var select = $('#area option:selected');
-        $('.search-input-area').val(select.text());
-      }
-       else{
-        $('#area option[value='+$(this).val()+']').attr('selected', false);
-        var select = $('#area option:selected');
-        $('.search-input-area').val(select.text());
-      }
-       $('.search-input-area').val(select.text());
-     });
+         else{
+           $('#'+id_select+' option[value='+param[0]+']').attr('selected', false);
+           delete array_input[param[1]];
+           string_input = '';
+           $.each(array_input, function(key, val) {
+             string_input == '' ?  string_input = val : string_input += ', '+val;
+           });
+           $('.'+class_input).val(string_input);
+         }
+       });
+     }
 
-     $('.CheckboxArea').click(function() {
-       var select = $('#area option:selected');
-       console.log(select.text());
-       $('.search-input-area').val(select.text());
-     });
+     multiselect_modal('CheckboxArea', 'area', 'search-input-area');
+     multiselect_modal('CheckboxRoom', 'room', 'search-input-room');
+     multiselect_modal('CheckboxDeveloper', 'developer', 'search-input-developer');
+     multiselect_modal('CheckboxMetro', 'metro', 'search-input-metro');
+     multiselect_modal('CheckboxComplex', 'complex', 'search-input-complex');
 
-     $('.CheckboxRoom').click(function () {
-       var select = $('select[id="room"]');
-       $(this).prop("checked") == true ? $('#room option[value='+$(this).val()+']').attr('selected', 'selected') :
-         $('#room option[value='+$(this).val()+']').attr('selected', false);
-     });
-
-     $('.CheckboxMetro').click(function () {
-       var select = $('select[id="metro"]');
-       $(this).prop("checked") == true ? $('#metro option[value='+$(this).val()+']').attr('selected', 'selected') :
-         $('#metro option[value='+$(this).val()+']').attr('selected', false);
-     });
-
-     $('.CheckboxDeveloper').click(function () {
-       var select = $('select[id="developer"]');
-       if ($(this).prop("checked") == true) {
-         $('#developer option[value='+$(this).val()+']').attr('selected', 'selected');
-         console.log( $("#developer").val());
-         complex_select($("#developer").val());
-       }
-       else {
-         $('#developer option[value='+$(this).val()+']').attr('selected', false);
-       }
-     });
-
-     $('.CheckboxComplex').click(function () {
-       var select = $('select[id="complex"]');
-       $(this).prop("checked") == true ? $('#complex option[value='+$(this).val()+']').attr('selected', 'selected') :
-         $('#complex option[value='+$(this).val()+']').attr('selected', false);
-     });
-
-     function complex_select(devid){
+     function complex_select(devid) {
        var city = $('input[name="city"]');
        $.ajax({
          url: '/get_developer_complex',
@@ -176,28 +167,19 @@
        });
      }
 
-     // действия после полной загрузки страницы
-       // проверяем, какие чекбоксы активны и меняем сласс для родительского дива
-       $('.decor_checkbox').each(function(){
-         var checkbox = $('#parking');
-         if(checkbox.prop("checked")) $(this).addClass("check_active");
-       });
+     $('.decor_checkbox').each(function(){
+       var checkbox = $('#parking');
+       if(checkbox.prop("checked")) $(this).addClass("check_active");
+     });
 
-     // при клике по диву, делаем проверку
      $('.decor_checkbox').click(function() {
        var checkbox = $('#parking');
-       // если чекбокс был активен
        if(checkbox.prop("checked")){
-         // снимаем класс с родительского дива
          $(this).removeClass("check_active");
-         // и снимаем галочку с чекбокса
          checkbox.prop("checked", false);
-         // если чекбокс не был активен
          checkbox.val(0);
-       }else{
-         // добавляем класс родительскому диву
+       }else {
          $(this).addClass("check_active");
-         // ставим галочку в чекбоксе
          checkbox.prop("checked", true);
          checkbox.val(1);
        }
