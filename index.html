@@ -20,8 +20,6 @@
         <script src="js/ion.rangeSlider.js"></script>
 <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
 
-            <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -29,6 +27,23 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/findom.js"></script>
+    
+    
+    <script>
+     $(document).ready(function(){
+        var $fotoramaDiv = $('.fotorama').fotorama();
+        var fotorama = $fotoramaDiv.data('fotorama');
+        console.log(fotorama);
+        $('.next').click(function(){
+		           alert('!!');
+          fotorama.show('>');
+		        alert('!');
+        });
+      });
+                
+    </script>
+    
+    
     
     <script>
         //чекбокс
@@ -58,6 +73,9 @@
 			});
 		});
     </script>
+    
+
+
 
     </head>
     <body id="index">
@@ -111,6 +129,9 @@
                     </li>
                     <li class="page-scroll">
                         <a href="#card">Карта новостроек</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#news">Новости</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#stock">Акции</a>
@@ -353,10 +374,8 @@
                     </div>
                 </div>
 
-               
-               <div class="fotorama__arr fotorama__arr--next" tabindex="0" role="button"></div>
-               
-               
+            
+           
                 <div class="big-height">
                     <div class="col-xs-4 beige-block zero-padding">
                        <div class="col-xs-12 quarter-item zero-padding">
@@ -364,7 +383,7 @@
                         </div>
                        <div class="col-xs-12 second quarter-item zero-padding display-table">
                             <div class="vertical">
-                                <h2>Жилой дом на Декабристов</h2>
+                                <h2><a href="#">Жилой дом на Декабристов</a></h2>
                             </div>
                             <div class="gorizont-line">
                             </div>
@@ -415,17 +434,15 @@
         <div class="row">
             <div class="col-xs-6 fifty height header-block fix">
                         <div class="title-line header-text padd-bot">
-                            <h2>
-                            <img src="images/minihome.png" class="minihome">
-                            Карта новостроек</h2>
+                            <h2>Карта новостроек</h2>
                         </div>
                     <div class="head-line marg-top">
                     </div>
             </div>
-            <div class="col-xs-6 fifty height zero-padding header-block">
-               <div class="header-text padd-bot">
-                    <h1>Все предложения на карте вашего города</h1>
-                    <h2>Найдите то, что подходит именно Вам</h2>
+            <div class="col-xs-6 fifty height zero-padding map-text">
+               <div class="text-vertical padd-bot">
+                    <h3>Все предложения на карте вашего города</h3>
+                    <h4>Найдите то, что подходит именно Вам</h4>
                 </div>
             </div>
         </div>
@@ -477,14 +494,80 @@
                     </div> 
                 </div>    
             </div>
+            <div id="news">
+            </div>
     </div>
+    
+        <div class="container-fluid container-fix">      
+        <div class="row">
+            <div class="col-xs-9 fiftyplus height zero-padding">
+               
+                <div class="col-xs-4 newsitem">
+                   <div class="news-item-title">
+                        <div>Среда, 24.04.2015</div>
+                       <a href="#">Комплексная застройка</a>
+                   </div>
+                   <div class="news-body">
+                       <p>Комплексная застройка из 27 жилых домов. Пять очередей строительства образуют пять кварталов с общим закрытым периметром. Каждая очередь сдается самостоятельным благоустроенным кварталом, территориально отделенным от новой стройплощадки.
+                       </p>
+                   </div>
+                    <div class="news-item-footer">
+                        <a href="#">Читать далее</a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-4 newsitem">
+                   <div class="news-item-title">
+                        <div>Среда, 24.04.2015</div>
+                       <a href="#">Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка</a>
+                   </div>
+                   <div class="news-body">
+                       <p>Комплексная застройка из 27 жилых домов. Пять очередей строительства образуют пять кварталов с общим закрытым периметром. Каждая очередь сдается самостоятельным благоустроенным кварталом, территориально отделенным от новой стройплощадки.
+                       </p>
+                   </div>
+                    <div class="news-item-footer">
+                        <a href="#">Читать далее</a>
+                    </div>
+                </div>
+
+                <div class="col-xs-4 newsitem">
+                   <div class="news-item-title">
+                        <div>Среда, 24.04.2015</div>
+                       <a href="#">Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка</a>
+                   </div>
+                   <div class="news-body">
+                       <p>Комплексная застройка из 27 жилых домов. Пять очередей строительства образуют пять кварталов с общим закрытым периметром. Каждая очередь сдается самостоятельным благоустроенным кварталом, территориально отделенным от новой стройплощадки.
+                       </p>
+                   </div>
+                    <div class="news-item-footer">
+                        <a href="#">Читать далее</a>
+                    </div>
+                </div>
+
+            </div>
+               
+                <div class="col-xs-3 fiftyminus height zero-padding title-black">
+                   <a href="">
+                        <div class="col-xs-12 full-item zero-padding">
+                          <img src="images/micrologo.png" class="micrologo">
+                           <div class="title-block title-block-line">
+                                <h2>Новости</h2>
+                                <p>перейти ></p>
+                            </div>
+                        </div>       
+                    </a>
+                </div>
+        </div>
+    </div>
+    
+    
     
         <div class="container-fluid container-fix" >
             <div class="row">
                 <div id="stock"></div>   
                 <div class="col-xs-6 big-height fifty zero-padding big-stock">
                    <img src="images/s3.jpg" class="big-stock-image">
-                    <div class="col-xs-6 big-stock-quarter zero-padding title-black">
+                    <div class="col-xs-6 big-stock-quarter zero-padding title-black opacity-title-block">
                       <img src="images/micrologo.png" class="micrologo">
                        <div class="title-block">
                             <h2>Акции</h2>
@@ -604,28 +687,32 @@
 
     <div class="container-fluid container-fix" >
         <div class="row">
-            <div class="col-xs-3 big-height zero-padding ">
+            <div class="col-xs-3 big-height zero-padding absolute">
             <a href="#">  
-                <div class="col-xs-12 half-item zero-padding title-black">
+                <div class="col-xs-12 half-item zero-padding title-black opacity-title-block">
                   <img src="images/micrologo.png" class="micrologo">
                    <div class="title-block">
                         <h2>3D ТУРЫ</h2>
                         <p>перейти ></p>
                     </div>
                 </div>
-            </a>
-            <div class="col-xs-12 second-half-item zero-padding">
-
-            </div>        
+            </a>      
         </div>
          
             
             
-            <div id="3d" class="col-xs-9 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false" >
+            <div id="3d" class="col-xs-12 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false" data-arrowPrev=">>">
                
+               
+
                
                 <div class="big-height">
-                    <div class="col-xs-4 beige-block zero-padding">
+                   <div class="col-xs-9 big-height zero-padding">
+                        <img src="images/photo.jpg" class="photo">
+                    </div>
+                    <div class="col-xs-3 beige-block zero-padding">
+                       <div class="prev"></div>
+                       <div class="next"></div>
                        <div class="col-xs-12 quarter-item zero-padding">
                             <img src="images/logo-z1.png" class="logo-z">
                         </div>
@@ -643,14 +730,16 @@
                             <a href="#" class="button-info button-info-top">Подробности</a> 
                         </div>
                     </div>
-                   <div class="col-xs-8 big-height zero-padding">
-                        <img src="images/s1.jpg" class="photo">
-                    </div>
                 </div>
 
             
                 <div class="big-height">
-                    <div class="col-xs-4 beige-block zero-padding">
+                    <div class="col-xs-9 big-height zero-padding">
+                        <img src="images/photo.jpg" class="photo">
+                    </div>
+                    <div class="col-xs-3 beige-block zero-padding">
+                       <div class="prev"></div>
+                       <div class="next"></div>
                        <div class="col-xs-12 quarter-item zero-padding">
                             <img src="images/logo-z3.png" class="logo-z">
                         </div>
@@ -668,13 +757,15 @@
                             <a href="#" class="button-info button-info-top">Подробности</a> 
                         </div>
                     </div>
-                    <div class="col-xs-8 big-height zero-padding">
-                        <img src="images/s2.jpg" class="photo">
-                    </div>
                 </div>  
 
                 <div class="big-height">
-                    <div class="col-xs-4 beige-block zero-padding">
+                    <div class="col-xs-9 big-height zero-padding">
+                        <img src="images/photo.jpg" class="photo">
+                    </div>
+                    <div class="col-xs-3 beige-block zero-padding">
+                       <div class="prev"></div>
+                       <div class="next"></div>
                        <div class="col-xs-12 quarter-item zero-padding">
                             <img src="images/logo-z2.png" class="logo-z vertical-logo">
                         </div>
@@ -692,11 +783,10 @@
                             <a href="#" class="button-info button-info-top">Подробности</a> 
                         </div>
                     </div>
-                    <div class="col-xs-8 big-height zero-padding">
-                        <img src="images/s3.jpg" class="photo">
-                    </div>
                 </div>    
 
+
+           
             </div>
             <div id="card">
             </div>
@@ -819,52 +909,26 @@
                     </button>
                 </div>
                 <div class="col-xs-12 list-modal-city">
-                    <div class="col-xs-4">
-                        <ul>
-                            <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Центральный
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Железнодорожный
-                                </label>
-                            </li>
-                        </ul>
-                    
-                    </div>
-                    <div class="col-xs-4">
-                        <ul>
-                            <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Калининский
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Дзержинский
-                                </label>
-                            </li>
-                        </ul>
-                    
-                    </div>
-                    <div class="col-xs-4">
-                        <ul>
-                            <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Октябрьский
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Первомайский
-                                </label>
-                            </li>
 
-                        </ul>
-                    
+                    <div class="col-xs-4">
+                        <li>
+                            <label class="checkbox-inline check-style">
+                            <input type="checkbox" class="inlineCheckbox1 CheckboxArea" value="23;Октябрьский">Октябрьский            </label>
+                        </li>
                     </div>
+                    <div class="col-xs-4">
+                        <li>
+                            <label class="checkbox-inline check-style">
+                            <input type="checkbox" class="inlineCheckbox1 CheckboxArea" value="24;Ленинский">Ленинский            </label>
+                        </li>
+                    </div>
+                    <div class="col-xs-4">
+                        <li>
+                            <label class="checkbox-inline check-style">
+                            <input type="checkbox" class="inlineCheckbox1 CheckboxArea" value="27;Советский">Советский            </label>
+                        </li>
+                    </div>
+
                 </div>
                 <div class="col-xs-12 modal-button">
                     <a href="#" class="search-button modal-but">Выбрать</a> 

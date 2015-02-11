@@ -33,39 +33,39 @@
         $(document).ready(function(){
        $("#comparisonh").hover(function(){
            $(this).css("opacity","1");
-          $("#comparison").css("opacity","1");
+          $("#comparison").css("color","#000");
        });
     });
     $(document).ready(function(){
        $("#comparisonh").mouseout(function(){
          $(this).css("opacity","0");
-          $("#comparison").css("opacity","0");
+          $("#comparison").css("color","#999");
        });
     });
         
     $(document).ready(function(){
        $("#bankh").hover(function(){
            $(this).css("opacity","1");
-          $("#bank").css("opacity","1");
+          $("#bank").css("color","#000");
        });
     });
     $(document).ready(function(){
        $("#bankh").mouseout(function(){
          $(this).css("opacity","0");
-          $("#bank").css("opacity","0");
+          $("#bank").css("color","#999");
        });
     });
         
     $(document).ready(function(){
        $("#documentsh").hover(function(){
            $(this).css("opacity","1");
-          $("#documents").css("opacity","1");
+          $("#documents").css("color","#000");
        });
     });
     $(document).ready(function(){
        $("#documentsh").mouseout(function(){
          $(this).css("opacity","0");
-          $("#documents").css("opacity","0");
+          $("#documents").css("opacity","#999");
        });
     });
     
@@ -104,8 +104,7 @@
                     </ol>
                 </div>
             </div>
-        </div>
-                               
+            
         <div class="container fin">
            <div class="col-xs-12 apartment-menu zero-padding">
                <div class="col-xs-3 apartment-title zero-padding">
@@ -129,9 +128,10 @@
                     </ul>   
                </div>
            </div>
-                       <!--  
+                
             <div class="col-xs-12 zero-padding apartment-status-block">
-                <div class="col-xs-1 status-icon booked">
+                <div class="col-xs-1 status-icon border">
+                    <img src="images/booked.svg">
                 </div>
                  <div class="col-xs-4 apartment-status-body booked-body">
                      Квартира забронирована
@@ -140,8 +140,8 @@
                      Отправить уведомление, если бронь снимется
                 </a>
             </div>
-                 -->
-
+             
+       <!--  
             <div class="col-xs-12 zero-padding apartment-status-block">
                 <div class="col-xs-1 status-icon free">
                 </div>
@@ -152,12 +152,12 @@
                      Забронировать
                 </a>
             </div>
-         
+             -->
                
         </div>
         
 
-        <div class="container fin">
+        <div class="container fin margin-bottom">
            
            <div class="col-xs-1 apartment-buttons-block zero-padding">
                <div class="col-xs-12 apartment-button">
@@ -165,7 +165,7 @@
                         <img src="images/but1.svg" class="but1">                    
                         <img src="images/but1h.svg" class="but1h" id="comparisonh">
                         <div class="tip-button" id="comparison">
-                            Добавить в сравнение
+                            Добавить в сравнение`
                         </div>
                    </a>        
                </div>
@@ -183,7 +183,7 @@
                         <img src="images/but3.svg" class="but1">                    
                         <img src="images/but3h.svg" class="but1h" id="documentsh">
                         <div class="tip-button" id="documents">
-                            Документы
+                            Получить документы
                         </div>
                    </a>
                </div>
@@ -260,15 +260,6 @@
             
             
         </div>
-           
-          <div class="container fin">
-              <div class="col-xs-12 zero-padding complex-map">
-                    <h2><span class="grey-span">Адрес</span>Заельцовский район, ул. Водонапорная 2</h2>
-                    <div id="map" style="width:100%; height:100%;">
-                    </div>
-              </div>
-          </div>
-          
         <div class="container-fluid zero-padding">
             <div class="col-xs-12 complex-title-line zero-padding">
             </div>  
@@ -478,7 +469,8 @@
             </div>
         </div>   
               
-                                                                                                                                               
+    </div>
+                                                                                                                                                                 
  <div class="container-fluid container-fix" id="footer">      
         <div class="row">
             <div class="col-xs-4">
