@@ -7,7 +7,7 @@
         <?php print render($priority_stock['image'])?>
       <?php endif?>
       <a href="<?php print $all_stock?>">
-        <div class="col-xs-6 big-stock-quarter zero-padding title-black">
+        <div class="col-xs-6 big-stock-quarter zero-padding title-black opacity-title-block">
           <?php print $micro_logo?>
           <div class="title-block">
             <h2>
@@ -105,6 +105,5 @@
       </div>
     </div>
   </div>
-  <div id="za">
-  </div>
+
 </div>

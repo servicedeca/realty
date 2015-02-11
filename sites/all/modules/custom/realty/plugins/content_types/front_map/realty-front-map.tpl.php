@@ -1,27 +1,28 @@
 
 <div class="container-fluid container-fix">
+
   <div class="row">
     <div class="col-xs-6 fifty height header-block fix">
       <div class="title-line header-text padd-bot">
         <h2>
-          <?php print $image_map?>
           <?php print t('Map of buildings')?>
         </h2>
       </div>
       <div class="head-line marg-top">
       </div>
     </div>
-    <div class="col-xs-6 fifty height zero-padding header-block">
-      <div class="header-text padd-bot">
-        <h1>
+    <div class="col-xs-6 fifty height zero-padding map-text">
+      <div class="text-vertical padd-bot">
+        <h3>
           <?php print t('Any suggestions on a map of your city')?>
-        </h1>
-        <h2>
+        </h3>
+        <h4>
           <?php print t('Find what suits you')?>
-        </h2>
+        </h4>
       </div>
     </div>
   </div>
+
   <div class="col-xs-12 header-parent">
       <div class="form-group c-select">
         <?php print render($search_map_form['category'])?>
@@ -112,7 +113,4 @@
       </button>
     </div>
   </div>
-</div>
-
-<div id="form-search-hidden">
 </div>

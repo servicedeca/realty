@@ -13,6 +13,7 @@ stylesheets[all][] = css/bootstrap-theme.css.map
 stylesheets[all][] = css/bootstrap-theme.min.css
 stylesheets[all][] = css/multiple-select.css
 stylesheets[all][] = css/jquery.dataTables.css
+stylesheets[all][] = css/style.css
 stylesheets[all][] = css/realty_theme.css
 
 scripts[] = js/bootstrap.min.js

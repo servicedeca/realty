@@ -160,6 +160,22 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
   else {
     $view->display_handler->options['filters']['field_year_value']['value']['value'] = $_GET['year'];
   }
+
+  if($_GET['selectAllbalcony'] || !$_GET['balcony']) {
+    unset($view->display_handler->options['filters']['field_balcony_value']);
+    unset($view->display_handler->options['filters']['field_loggia_value']);
+  }
+  else {
+    if($_GET['balcony'][0] && $_GET['balcony'][0] == 1){
+      unset($view->display_handler->options['filters']['field_loggia_value']['value']);
+      $view->display_handler->options['filters']['field_loggia_value']['value'][1] = 1;
+    }
+    if($_GET['balcony'][0] && $_GET['balcony'][0] == 2){
+      unset($view->display_handler->options['filters']['field_balcony_value']['value']);
+      $view->display_handler->options['filters']['field_balcony_value']['value'][1] = 1;
+    }
+  }
+
   $view->pre_execute(array());
   $block->content = $view->display_handler->preview();
   $view->post_execute();

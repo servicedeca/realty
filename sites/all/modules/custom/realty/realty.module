@@ -56,7 +56,7 @@ function realty_file_directory_path() {
 /*
  * implement hook_menu.
  */
-function realty_menu(){
+function realty_menu() {
 
   $item['get_developer_complex'] = array(
     'title' => 'complex',
@@ -113,6 +113,10 @@ function realty_theme() {
   $items['realty_user_profile_form'] = $base + array(
     'template' => 'realty-user-profile-form',
     'render element' => 'form',
+  );
+
+  $items['realty_modal_search_form'] = array(
+    'template' => 'realty-modal-search-form',
   );
 
   $items['id_apartment_pdf'] = array(
@@ -539,7 +543,6 @@ function realty_options_search($option) {
       return array(
         '1' => 'Балкон',
         '2' => 'Лоджия',
-        '3' => 'Балкон+лоджия',
       );
   }
 }

@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="col-xs-9 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false">
+    <div id="fotorama-complex" class="col-xs-9 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false">
 
       <?php foreach($complexes as $complex):?>
         <div class="big-height">

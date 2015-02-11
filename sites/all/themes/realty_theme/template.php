@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * Implements hook_css_alter().
+ */
+function realty_theme_css_alter(&$css) {
+  unset($css['modules/system/system.menus.css']);
+  unset($css['modules/system/system.theme.css']);
+  // ...
+}
+
+/**
 * Process variables for page.tpl.php.
 */
 function realty_theme_preprocess_page(&$vars) {
@@ -305,10 +314,24 @@ function realty_preprocess_search_form(&$vars) {
   unset($vars['form']['balcony']['#title']);
   unset($vars['form']['floor']['#title']);
 
-  $vars['area'] = realty_get_options_current_city('area');
-
 }
 
+/**
+ * Process variables realty-modal-search-form.tpl.php
+ */
+function realty_preprocess_realty_modal_search_form(&$vars) {
+
+  $vars['img_close'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
+    'title' => t('Close'),
+  ));
+
+  $vars['areas'] = realty_get_options_current_city('area');
+  $vars['metros'] = realty_get_options_current_city('metro');
+  $vars['developers'] = realty_get_developer_current_city();
+  $vars['complexes'] = realty_get_complex_current_city();
+  $vars['rooms'] = realty_options_search('room');
+}
 
 /**
 *  implement hook_theme_registry_alter().
@@ -369,5 +392,19 @@ function realty_theme_preprocess_realty_map_complex(&$vars) {
     ));
 
     $vars['details'] = l('details', 'node/' . $vars['node']->nid, array('attributes' => array('class' => array('button-info','button-info-top') )));
+  }
+}
+
+/**
+ * Process variables for views-view-unformatted--news--news-city.tpl.php
+ */
+function realty_preprocess_views_view_unformatted__news__news_city(&$vars) {
+  foreach ($vars['view']->result as $key => $value) {
+    $vars['news'][$key] = array(
+      'title' => l($value->node_title, 'node/' .$value->nid),
+      'description' => $value->field_field_news_description[0]['raw']['value'],
+      'details' => l('details', 'node/' .$value->nid),
+      'date' => format_date($value->node_created, 'm/d/Y'),
+    );
   }
 }

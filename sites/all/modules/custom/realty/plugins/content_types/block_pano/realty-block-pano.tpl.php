@@ -1,8 +1,8 @@
 <div class="container-fluid container-fix" >
   <div class="row">
-    <div class="col-xs-3 big-height zero-padding ">
+    <div class="col-xs-3 big-height zero-padding absolute">
       <a href="#">
-        <div class="col-xs-12 half-item zero-padding title-black">
+        <div class="col-xs-12 half-item zero-padding title-black opacity-title-block">
           <?php print $micro_logo?>
           <div class="title-block">
             <h2>
@@ -14,15 +14,18 @@
           </div>
         </div>
       </a>
-      <div class="col-xs-12 second-half-item zero-padding">
-
-      </div>
+    </div>
     </div>
 
-    <div id="3d" class="col-xs-9 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false" >
+  <div id="3d" class="col-xs-12 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false" data-arrowPrev=">>">
       <?php foreach($complexes as $complex):?>
       <div class="big-height">
-        <div class="col-xs-4 beige-block zero-padding">
+        <div class="col-xs-9 big-height zero-padding">
+          <?php print render($complex['image'])?>
+        </div>
+        <div class="col-xs-3 beige-block zero-padding">
+          <div class="prev"></div>
+          <div class="next"></div>
           <div class="col-xs-12 quarter-item zero-padding">
             <?php if (isset($complex['logo'])):?>
               <?php print $complex['logo']?>
@@ -47,9 +50,6 @@
           <div class="col-xs-12 fourth button-item zero-padding item-text-field">
             <?php print $complex['details'] ?>
           </div>
-        </div>
-        <div class="col-xs-8 big-height zero-padding">
-          <?php print render($complex['image'])?>
         </div>
       </div>
       <?php endforeach?>

@@ -44,7 +44,7 @@ function template_preprocess_realty_search_form(&$vars) {
 
   $vars['search_form'] = drupal_get_form('realty_search_form');
 
-  $result = views_get_view_result('news', 'main_news');
+  $result = views_get_view_result('news', 'information_form_search');
 
   if ($result[0]) {
     $image_path = $result[0]->field_field_image_news[0]['raw']['uri'];
@@ -68,18 +68,9 @@ function template_preprocess_realty_search_form(&$vars) {
         )
       );;
     }
-      $vars['description'] = $result[0]->field_body[0]['raw']['value'];
-      $vars['details'] = l('Details', 'node/'.$result[0]->nid, array('attributes' => array('class' => 'button-info') ));
+    $vars['description'] = $result[0]->field_body[0]['raw']['value'];
+    $vars['details'] = l('Details', 'node/'.$result[0]->nid, array('attributes' => array('class' => 'button-info') ));
   }
 
-  $vars['img_close'] = theme('image', array(
-    'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
-    'title' => t('Close'),
-  ));
-
-  $vars['areas'] = realty_get_options_current_city('area');
-  $vars['metros'] = realty_get_options_current_city('metro');
-  $vars['developers'] = realty_get_developer_current_city();
-  $vars['complexes'] = realty_get_complex_current_city();
-  $vars['rooms'] = realty_options_search('room');
+  $vars['modal'] = theme('realty_modal_search_form');
 }

@@ -6,7 +6,16 @@
       if(Drupal.settings.id) {
         $("body").attr("id","index");
       }
+/*
+      var $fotoramaDiv = $('#fotorama-complex').fotorama();
+      var fotorama = $fotoramaDiv.data('fotorama');
+      console.log(fotorama);
+      fotorama.loop = true;
 
+      $('.search-head-logo').click(function(){
+        fotorama.show('1');
+
+      });*/
     })
   }
 
@@ -68,27 +77,33 @@
          allSelected: 'Все'
        });
      });
+     if(Drupal.settings.get) {
+       var sq =  Drupal.settings.get.sq.split(';');
+       var price = Drupal.settings.get.price.split(';');
+       var coast = Drupal.settings.get.coast.split(';');
+     }
 
      $(".sq").ionRangeSlider({
        hide_min_max: true,
        keyboard: true,
        min: 0,
        max: 200,
-       postfix: " м<sup>2</sup>",
-       from: 30,
-       to: 150,
+       postfix: "  м<sup>2</sup>",
+       from: sq ? sq[0] : 30 ,
+       to:  sq ? sq[1] : 150 ,
        type: 'double',
        step: 1,
        grid: true
      });
+
      $(".price").ionRangeSlider({
        hide_min_max: true,
        keyboard: true,
        min: 40,
        max: 100,
        postfix: " т.р.",
-       from: 55,
-       to: 85,
+       from: price ? price[0] : 55,
+       to: price ? price[1  ] :85,
        type: 'double',
        step: 1,
        grid: true,
@@ -101,8 +116,8 @@
        min: 0.5,
        max: 5,
        postfix: " млн.р.",
-       from: 1.6,
-       to: 4,
+       from: coast ? coast[0] : 1.6,
+       to: coast ? coast[1] : 4,
        type: 'double',
        step: 0.2,
        grid: true,
@@ -187,6 +202,38 @@
    })
   };
 
+
+  Drupal.behaviors.realtySearchGetParam = {
+    attach: $(function () {
+      if (Drupal.settings.get) {
+        if (Drupal.settings.get.area) {
+         $.each(Drupal.settings.get.area, function(key, val){
+          $('.area-'+val).trigger('click');
+         });
+        }
+        if (Drupal.settings.get.developer) {
+          $.each(Drupal.settings.get.developer, function(key, val){
+            $('.developer-'+val).trigger('click');
+          });
+        }
+        if (Drupal.settings.get.category) {
+          $.each(Drupal.settings.get.category, function(key, val){
+            $('.room-'+val).trigger('click');
+          });
+        }
+        if (Drupal.settings.get.complex) {
+          $.each(Drupal.settings.get.complex, function(key, val){
+              $('.complex-'+val).trigger('click');
+          });
+        }
+        if (Drupal.settings.get.metro) {
+          $.each(Drupal.settings.get.metro, function(key, val){
+            $('.metro-'+val).trigger('click');
+          });
+        }
+      }
+    })
+  };
 
 
   Drupal.behaviors.realtySearchMap = {

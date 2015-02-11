@@ -41,7 +41,12 @@
           </a>
         </li>
         <li class="page-scroll">
-          <a href="#stock" rollapp-href="/#stock">
+          <a href="#newss" rollapp-href="#newss">
+            <?php print t('News');?>
+          </a>
+        </li>
+        <li class="page-scroll">
+          <a href="#stock" rollapp-href="#stock">
             <?php print t('Stock');?>
           </a>
         </li>
