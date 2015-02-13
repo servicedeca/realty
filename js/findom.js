@@ -53,6 +53,8 @@
             var result = height / 2.7;
             $('.fotorama__arr--prev').css('top', result);
             $('.fotorama__arr--next').css('top', result);
+            $('.prev').css('top', result);
+            $('.next').css('top', result);
         };
 
     $(function(){

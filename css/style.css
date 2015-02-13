@@ -28,6 +28,16 @@ li {
     border: 1px solid black;
 }
 
+.table{
+    font-size: 16px;
+}
+
+@media(max-width:1200px){
+    .table{
+        font-size: 14px;
+    }
+}
+
 .container-fix {
     padding: 0px;
     position: relative;
@@ -744,7 +754,13 @@ li {
     background-repeat: no-repeat;
     background-position: center center;
     position: absolute;
-    left: 20px;
+    left: 1%;
+}
+
+@media(max-width:1300px){
+    .fotorama__arr--prev{
+        left:0.5%;
+    }
 }
 
 .fotorama__arr--prev:hover{
@@ -758,13 +774,24 @@ li {
     background-repeat: no-repeat;
     background-position: center center;
     position: absolute;
-    left: 28.5%;
+    left: 28%;
+}
+
+@media(max-width:1400px){
+    .fotorama__arr--next{
+        left:27.5%;
+    }
+}
+
+@media(max-width:1300px){
+    .fotorama__arr--next{
+        left:27%;
+    }
 }
 
 .fotorama__arr--next:hover{
     background: url(../images/ArrowRightHover.svg);
 }
-
 
 
 .prev{
@@ -775,7 +802,21 @@ li {
     background-repeat: no-repeat;
     background-position: center center;
     position: absolute;
-    right: 20px;
+    right: 85%;
+    cursor: pointer;
+}
+
+@media(max-width:1400px){
+    .prev{
+        right:81.5%;
+    }
+}
+
+
+@media(max-width:1300px){
+    .prev{
+        right:80%;
+    }
 }
 
 .prev:hover{
@@ -785,12 +826,19 @@ li {
 .next{
     width:50px;
     height: 50px;
-        z-index: 10000;
+    z-index: 10000;
     background: url(../images/ArrowRight.svg);
     background-repeat: no-repeat;
     background-position: center center;
     position: absolute;
-    right: 28.5%;
+    right: 1%;
+    cursor: pointer;
+}
+
+@media(max-width:1300px){
+    .next{
+        right:0.5%;
+    }
 }
 
 .next:hover{
@@ -2012,24 +2060,36 @@ padding-left: 15px;
     text-align: center;
 }
 
- .table > tbody > tr > td,
+.table > tbody > tr > td,
 .table > tbody > tr > th{
-    border-top: 1px solid #b3b3b3;
+    border-bottom: 2px solid #999999;
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
 }
-
-
 
 .flat-number{
     border:1px solid #333;
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
     padding: 0px;
-    border-radius: 40px;
-    line-height: 40px;
-    margin-left: 20px;
+    border-radius: 45px;
+    line-height: 45px;
+    margin-left: 0px;
     cursor: pointer;
     font-weight: 300;
+    z-index: 1000;
+    background: #fff;
+    z-index: 200;
+    margin-top: -22.5px;
+    position: absolute;
 }
+
+@media(max-width:1200px){
+    .flat-number{
+            margin-left: -4px;
+    }
+}
+    
 
 .flat-number:hover{
     background: #333;
@@ -2047,11 +2107,9 @@ padding-left: 15px;
 }
 
 .table > tbody > tr {
-    height: 60px;
-    transition: all 200ms linear;
-    -moz-transition: all 200ms linear;
-    -webkit-transition: all 200ms linear;
-    -o-transition: all 200ms linear;
+    height: 80px;
+    color: #4d4d4d;
+
 }
 
 .table > tbody > tr a {
@@ -2059,32 +2117,40 @@ padding-left: 15px;
 }
 
 .table > tbody > tr:hover {
-    background: #2793b0;
+    background: #2fade2;
     color:#f2f2f2;
-    transition: all 200ms linear;
-    -moz-transition: all 200ms linear;
-    -webkit-transition: all 200ms linear;
-    -o-transition: all 200ms linear;
+}
+
+.table > tbody > tr:hover .booking {
+    background: #2fade2;
+    color:#f2f2f2;
+}
+
+
+.table > tbody > tr.booking:hover {
+    background: #ba3636;
+    color:#f2f2f2;
+}
+
+.table > tbody > tr:hover .no-hover {
+    background: #fff;
+    color: #434343;
+    z-index: 50;
+    position: relative;
+}
+
+.table > tbody > tr:hover .no-hover a {
+    color: #434343;
+}
+
+.table > tbody > tr:hover .no-hover .flat-number-booked  a {
+    color: #f2f2f2;
 }
 
 .table > tbody > tr:hover a{
     color:#f2f2f2;
     text-decoration: none;
-    transition: all 200ms linear;
-    -moz-transition: all 200ms linear;
-    -webkit-transition: all 200ms linear;
-    -o-transition: all 200ms linear;
 }
-
-.table > tbody > tr.booking:hover {
-    background: rgba(193, 39, 45, 0.1);
-    color:#4d4d4d;
-}
-
-.booking {
-    background: rgba(193, 39, 45, 0.1);
-}
-
 
 .scales{
     fill: #808080;
@@ -2104,15 +2170,18 @@ padding-left: 15px;
  }
 
 .tooltip-inner {
-    max-width: 200px;
-    padding: 10px 7px;
-    color: #f2f2f2;
-    text-align: center;
+    height: 35px;
+    padding-top: 4px;
+    line-height: 13px;
+    color: #4d4d4d;
+    text-align: left;
     text-decoration: none;
-    background-color: #4d4d4d;
+    background-color: #e6e6e6;
     border-radius: 0px;
-    font-size:14px;
+    font-size: 12px;
     opacity: 1;
+    z-index: 1000;
+    width:170px;
 }
 
 .tooltip.in {
@@ -2121,39 +2190,44 @@ padding-left: 15px;
 }
 
 .tooltip-arrow {
+    display: none;
 }
 
-.tooltip.left {
+.tooltip.right{
     padding: 0 5px;
-    margin-left: -3px;
-    left: 0px;
-    position: absolute;
-    margin-left: 290px;
+    /* margin-left: 3px; */
+    /* padding-left: 25px; */
+    margin-left: 85px;
+    margin-top: 40px;
 }
 
 @media(max-width:1200px){
-    .tooltip.left{
-        margin-left: 265px;
+    .tooltip.right{
+        margin-left: 77px;
     }
 }
 
 .table > thead:first-child > tr:first-child > th{
     vertical-align: middle;
     color:#4d4d4d;
-    font-weight: 300;
+    font-weight: 600;
     border-bottom: 0px;
     cursor: pointer;
-    border-right: 1px solid #b3b3b3;
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    height: 80px;
 }
 
 .table > thead:first-child > tr:first-child > th:hover{
     color:#000;
 }
 
-
-.table > thead:first-child > tr:first-child > th.none-border-right{
-   border-right: 0px;
+.table > thead{
+    border-top:3px solid #434343;
+    border-bottom:3px solid #434343;
 }
+
+
 
 .search-block-issue {
     height: 300px;
@@ -3189,7 +3263,6 @@ table.dataTable thead #bn.sorting_asc {
 }
 
 .news-body {
-    border-right: 1px solid #2fade2;
     position: absolute;
     top:40%;
     height: 45%;
@@ -3198,6 +3271,7 @@ table.dataTable thead #bn.sorting_asc {
     word-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: 98%;
 }
 
 .news-body p{
@@ -3230,7 +3304,7 @@ table.dataTable thead #bn.sorting_asc {
 }
 
 .margin-bottom {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .developer-item {
@@ -3256,7 +3330,13 @@ table.dataTable thead #bn.sorting_asc {
     position: absolute;
     height: 100%;
     width:100%;
+    margin-left: -15px;
+    opacity: 0;
+    z-index: 1000;
+}
 
+.develop-hover:hover {
+    opacity: 1;
 }
 
 .develop-hover-title {
@@ -3286,18 +3366,148 @@ table.dataTable thead #bn.sorting_asc {
 
 .develop-hover-body a{
     border: 1px solid #f2f2f2;
-    height: 30px;
+    height: 40px;
     position: absolute;
     bottom: 20px;
     left: 50%;
     margin-left: -90px;
     width: 180px;
-    line-height: 25px;
+    line-height: 35px;
     color:#f2f2f2;
     text-decoration: none;
+}
+
+.develop-hover-body p{
+    text-align: left;
+    margin: 0px;
+    margin-left: 25px;
+    padding-right: 25px;
+    margin-top: 10px;
+    font-size:20px;
+    line-height: 21px;
+}
+
+@media(max-width:1200px){
+    .develop-hover-body p{
+        margin-left: 35px;
+        padding-right: 25px;
+        font-size:18px;
+        line-height: 19px;
+    }
 }
 
 .develop-hover-body a:hover{
     color:#fff;
     border: 1px solid #f2f2f2;
+}
+
+.margin-top-minus {
+    margin-top: -15px;
+}
+
+.develop-padding {
+    margin-top: 25px;
+}
+
+.develop-sum {
+    color:#e6e6e6;
+}
+
+
+.news-devider {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    top:50%;
+    background: #333;
+    margin-top: -50px;
+    border: 1px solid #27aae1;
+    right: 0px;
+}
+
+.news-border {
+        border-right: 1px solid #2fade2;
+}
+
+.no-no-hover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #ccc;
+}
+
+.flat-number-booked {
+    background: #ba3636;
+    color:#f2f2f2;
+    border: 1px solid #ba3636;
+}
+
+.no-hover .flat-number-booked a {
+    color:#f2f2f2;
+}
+
+.no-hover .flat-number-booked:hover a {
+    color:#f2f2f2;
+    background: none;
+}
+
+.flat-number-booked:hover{
+    background: #ba3636;
+}
+
+.add {
+    margin-left: 47.5px;
+    margin-top: -33px;
+    position: absolute;
+    z-index: 100;
+}
+
+@media(max-width:1200px){
+    .add{
+            margin-left: 43.5px;
+    }
+}
+
+.dingdong {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 53.5px;
+}
+
+@media(max-width:1200px){
+    .dingdong{
+            margin-left: 49.5px;
+    }
+}
+
+.z-but{
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    opacity: 1;
+}
+
+.z-but:hover{
+    opacity: 0;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.z-but-h{
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    opacity: 0;
+}
+
+.z-but-h:hover{
+    opacity: 1;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
 }

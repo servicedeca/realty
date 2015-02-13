@@ -18,7 +18,7 @@
         <script src="js/fotorama.js"></script>
         <script src="js/jquery.multiple.select.js"></script>
         <script src="js/ion.rangeSlider.js"></script>
-        <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+
         <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
         
         <!-- Plugin JavaScript -->
@@ -34,47 +34,23 @@
                     "paging":   false,
                     "info":     false,
                     "columnDefs": [ {
-                    "targets": [ 0, 1, 2, 3, 4, 11],
+                    "targets": [ 0, 1, 2, 3, 4],
                     "orderable": false,
                 } ]
                 } );
             } );
         </script>
 
+   
         <script>
-            $(function () {
-                $("[rel='tooltip']").tooltip();
+            $(document).ready(function () {
+                $("[rel='tooltip']").tooltip({
+                });
             });
         </script>
-        
-            <script>
-        //чекбокс
-		$(document).ready(function(){
-			// проверяем, какие чекбоксы активны и меняем сласс для родительского дива
-			$('.decor_checkbox').each(function(){
-				var checkbox = $(this).find('input[type=checkbox]');
-				if(checkbox.prop("checked")) $(this).addClass("check_active");
-			});
-		
-			// при клике по диву, делаем проверку
-			$('.decor_checkbox').click(function(){
-				var checkbox = $(this).find('input[type=checkbox]');
-				// если чекбокс был активен
-				if(checkbox.prop("checked")){
-					// снимаем класс с родительского дива
-					$(this).removeClass("check_active");
-					// и снимаем галочку с чекбокса
-					checkbox.prop("checked", false);
-				// если чекбокс не был активен
-				}else{
-					// добавляем класс родительскому диву
-					$(this).addClass("check_active");
-					// ставим галочку в чекбоксе
-					checkbox.prop("checked", true);
-				}
-			});
-		});
-    </script>
+   
+           
+           
 
     </head>
     
@@ -294,18 +270,22 @@
                                 <th>Этаж&nbsp&nbsp</th>
                                 <th >S</th>
                                 <th>Цена&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp</th>
-                                <th class="none-border-right">Стоимость</th>
-                                <th></th>
+                                <th>Стоимость</th>
                             </tr>
                         </thead>
                         <tbody>
+                            
                             <tr>
-                                <td scope="row">
-                                    <div class="flat-number">
-                                        <a href="#">
-                                            94
-                                        </a>
-                                    </div>
+                                <td scope="row" class="no-hover">
+                                    <a href="#" title="Посмотреть квартиру">
+                                        <div class="flat-number">
+                                            103
+                                        </div>
+                                    </a>
+                                    <a href="#" title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
+                                        <img src="images/add.svg" class="add z-but">
+                                        <img src="images/addh.svg" class="add z-but-h">
+                                    </a>
                                 </td>
                                 <td>Центральный</td>
                                 <td>
@@ -325,35 +305,37 @@
                                 <td>20 м<sup>2</sup></td>
                                 <td>65 т.р.</td>
                                 <td>5 500 т.р.</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="images/ready.svg">
-                                    </a>
-                                </td>
                             </tr>
-                            <tr>
-                                <td scope="row"><div class="flat-number">19</div></td>
-                                <td>Центральный</td>
-                                <td>Сибакадемстрой</td>
-                                <td>Панорама</td>
-                                <td>Кропоткина 142</td>
-                                <td>2 кв. 2016</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>30 м<sup>2</sup></td>
-                                <td>65 т.р.</td>
-                                <td>5 500 т.р.</td>
-                                <td>
-                                    <a href="#">
-                                        <img src="images/balance.svg">
+                            
+                            
+                            <tr title="Квартира забронирована" class="booking">
+                                <td scope="row" class="no-hover">
+                                    <a href="#" title="Посмотреть квартиру">
+                                        <div class="flat-number flat-number-booked">
+                                            32
+                                        </div>
+                                    </a>
+ 
+                                    <a href="#" title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
+                                        <img src="images/add.svg" class="add z-but">
+                                        <img src="images/addh.svg" class="add z-but-h">
+                                    </a>
+                                    <a href="#" title="отправить уведомлении о снятии брони" rel="tooltip" data-placement="right">
+                                        <img src="images/dingdong.svg" class="dingdong z-but">
+                                        <img src="images/dingdongh.svg" class="dingdong z-but-h">
                                     </a>
                                 </td>
-                            </tr>   
-                            <tr  rel="tooltip" data-placement="top" title="Квартира забронирована" class="booking">
-                                <td scope="row"><div class="flat-number">194</div></td>
                                 <td>Центральный</td>
-                                <td>Сибакадемстрой</td>
-                                <td>Панорама</td>
+                                <td>
+                                    <a href="#">
+                                        Сибакадемстрой
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        Панорама
+                                    </a>
+                                </td>
                                 <td>Кропоткина 142</td>
                                 <td>2 кв. 2016</td>
                                 <td>3</td>
@@ -361,86 +343,31 @@
                                 <td>40 м<sup>2</sup></td>
                                 <td>65 т.р.</td>
                                 <td>5 500 т.р.</td>
-                                <td>
-                                    <a href="#">
-                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
-                                            <g>
-                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
-                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
-                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
-                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
-                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
-                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
-                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                </td>
                             </tr>
+
                             <tr>
-                                <td scope="row"><div class="flat-number">9</div></td>
-                                <td>Центральный</td>
-                                <td>Сибакадемстрой</td>
-                                <td>Панорама</td>
-                                <td>Кропоткина 142</td>
-                                <td>2 кв. 2016</td>
-                                <td>2</td>
-                                <td>80</td>
-                                <td>50 м<sup>2</sup></td>
-                                <td>65 т.р.</td>
-                                <td>5 500 т.р.</td>
-                                <td>
-                                    <a href="#">
-                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
-                                            <g>
-                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
-                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
-                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
-                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
-                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
-                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
-                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
-                                            </g>
-                                        </svg>
+                                <td scope="row" class="no-hover">
+                                    <a href="#" title="Посмотреть квартиру">
+                                        <div class="flat-number">
+                                            98
+                                        </div>
+                                    </a>
+                                    <a href="#" title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
+                                        <img src="images/add.svg" class="add z-but">
+                                        <img src="images/addh.svg" class="add z-but-h">
                                     </a>
                                 </td>
-                            </tr>
-                            <tr class="booking" rel="tooltip" data-placement="top" title="Квартира забронирована">     
-                                <td scope="row"><div class="flat-number">194</div></td>
                                 <td>Центральный</td>
-                                <td>Сибакадемстрой</td>
-                                <td>Панорама</td>
-                                <td>Кропоткина 142</td>
-                                <td>2 кв. 2016</td>
-                                <td>5</td>
-                                <td>15</td>
-                                <td>60 м<sup>2</sup></td>
-                                <td>65 т.р.</td>
-                                <td>5 500 т.р.</td>
                                 <td>
                                     <a href="#">
-                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
-                                            <g>
-                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
-                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
-                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
-                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
-                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
-                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
-                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
-                                            </g>
-                                        </svg>
+                                        Сибакадемстрой
                                     </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><div class="flat-number">94</div></td>
-                                <td>Центральный</td>
-                                <td>Сибакадемстрой</td>
-                                <td>Панорама</td>
+                                <td>
+                                    <a href="#">
+                                        Панорама
+                                    </a>
+                                </td>
                                 <td>Кропоткина 142</td>
                                 <td>2 кв. 2016</td>
                                 <td>3</td>
@@ -448,57 +375,37 @@
                                 <td>20 м<sup>2</sup></td>
                                 <td>65 т.р.</td>
                                 <td>5 500 т.р.</td>
-                                <td>
-                                    <a href="#">
-                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
-                                            <g>
-                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
-                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
-                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
-                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
-                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
-                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
-                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                </td>
                             </tr>
-                            <tr>
-                                <td scope="row"><div class="flat-number">19</div></td>
-                                <td>Центральный</td>
-                                <td>Сибакадемстрой</td>
-                                <td>Панорама</td>
-                                <td>Кропоткина 142</td>
-                                <td>2 кв. 2016</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>30 м<sup>2</sup></td>
-                                <td>65 т.р.</td>
-                                <td>5 500 т.р.</td>
-                                <td>
-                                    <a href="#">
-                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
-                                            <g>
-                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
-                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
-                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
-                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
-                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
-                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
-                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
-                                            </g>
-                                        </svg>
+                            
+                            
+                            <tr title="Квартира забронирована" class="booking">
+                                <td scope="row" class="no-hover">
+                                    <a href="#" title="Перейти к просмотру">
+                                        <div class="flat-number flat-number-booked">
+                                            32
+                                        </div>
+                                    </a>
+ 
+                                    <a href="#" title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
+                                        <img src="images/add.svg" class="add z-but">
+                                        <img src="images/addh.svg" class="add z-but-h">
+                                    </a>
+                                    <a href="#" title="отправить уведомлении о снятии брони" rel="tooltip" data-placement="right">
+                                        <img src="images/dingdong.svg" class="dingdong z-but">
+                                        <img src="images/dingdongh.svg" class="dingdong z-but-h">
                                     </a>
                                 </td>
-                            </tr>   
-                            <tr  rel="tooltip" data-placement="top" title="Квартира забронирована" class="booking">
-                                <td scope="row"><div class="flat-number">194</div></td>
                                 <td>Центральный</td>
-                                <td>Сибакадемстрой</td>
-                                <td>Панорама</td>
+                                <td>
+                                    <a href="#">
+                                        Сибакадемстрой
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        Панорама
+                                    </a>
+                                </td>
                                 <td>Кропоткина 142</td>
                                 <td>2 кв. 2016</td>
                                 <td>3</td>
@@ -506,23 +413,9 @@
                                 <td>40 м<sup>2</sup></td>
                                 <td>65 т.р.</td>
                                 <td>5 500 т.р.</td>
-                                <td>
-                                    <a href="#">
-                                        <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                        width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
-                                            <g>
-                                                <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
-                                                    L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
-                                                    C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
-                                                    L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
-                                                    h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
-                                                    c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
-                                                     M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                </td>
                             </tr>
+                            
+                            
                         </tbody>
                     </table>
                 </div>

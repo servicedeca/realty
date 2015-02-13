@@ -28,22 +28,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/findom.js"></script>
     
-    
-    <script>
-     $(document).ready(function(){
-        var $fotoramaDiv = $('.fotorama').fotorama();
-        var fotorama = $fotoramaDiv.data('fotorama');
-        console.log(fotorama);
-        $('.next').click(function(){
-		           alert('!!');
-          fotorama.show('>');
-		        alert('!');
-        });
-      });
-                
-    </script>
-    
-    
+        
     
     <script>
         //чекбокс
@@ -507,7 +492,7 @@
                         <div>Среда, 24.04.2015</div>
                        <a href="#">Комплексная застройка</a>
                    </div>
-                   <div class="news-body">
+                   <div class="news-body news-border">
                        <p>Комплексная застройка из 27 жилых домов. Пять очередей строительства образуют пять кварталов с общим закрытым периметром. Каждая очередь сдается самостоятельным благоустроенным кварталом, территориально отделенным от новой стройплощадки.
                        </p>
                    </div>
@@ -516,12 +501,13 @@
                     </div>
                 </div>
                 
+                
                 <div class="col-xs-4 newsitem">
                    <div class="news-item-title">
                         <div>Среда, 24.04.2015</div>
                        <a href="#">Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка</a>
                    </div>
-                   <div class="news-body">
+                   <div class="news-body news-border">
                        <p>Комплексная застройка из 27 жилых домов. Пять очередей строительства образуют пять кварталов с общим закрытым периметром. Каждая очередь сдается самостоятельным благоустроенным кварталом, территориально отделенным от новой стройплощадки.
                        </p>
                    </div>
@@ -529,13 +515,15 @@
                         <a href="#">Читать далее</a>
                     </div>
                 </div>
+                
+                
 
                 <div class="col-xs-4 newsitem">
                    <div class="news-item-title">
                         <div>Среда, 24.04.2015</div>
                        <a href="#">Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка Комплексная застройка</a>
                    </div>
-                   <div class="news-body">
+                   <div class="news-body news-border">
                        <p>Комплексная застройка из 27 жилых домов. Пять очередей строительства образуют пять кварталов с общим закрытым периметром. Каждая очередь сдается самостоятельным благоустроенным кварталом, территориально отделенным от новой стройплощадки.
                        </p>
                    </div>
@@ -669,7 +657,7 @@
                 </a>
             </div>
                 <div class="col-xs-3 fiftyminus height zero-padding title-black">
-                   <a href="">
+                   <a href="developers.html">
                         <div class="col-xs-12 full-item zero-padding">
                           <img src="images/micrologo.png" class="micrologo">
                            <div class="title-block title-block-line">
@@ -701,7 +689,7 @@
          
             
             
-            <div id="3d" class="col-xs-12 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false" data-arrowPrev=">>">
+            <div id="3d" class="col-xs-12 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="crossfade" data-clicktransition="crossfade" data-arrows="false" data-click="false" data-swipe="false" data-nav="false">
                
                
 
@@ -931,7 +919,9 @@
 
                 </div>
                 <div class="col-xs-12 modal-button">
-                    <a href="#" class="search-button modal-but">Выбрать</a> 
+                         <button type="button" class="search-button modal-but" data-dismiss="modal" aria-hidden="true">
+                             Выбрать
+                         </button>
                 </div>
         </div>
     </div>
