@@ -2143,7 +2143,7 @@ padding-left: 15px;
     color: #434343;
 }
 
-.table > tbody > tr:hover .no-hover .flat-number-booked  a {
+.table > tbody > tr:hover .no-hover .booking .flat-number-booked  a {
     color: #f2f2f2;
 }
 
@@ -3436,22 +3436,22 @@ table.dataTable thead #bn.sorting_asc {
     background: #ccc;
 }
 
-.flat-number-booked {
+.booking .flat-number-booked {
     background: #ba3636;
     color:#f2f2f2;
     border: 1px solid #ba3636;
 }
 
-.no-hover .flat-number-booked a {
+.no-hover .booking .flat-number-booked a {
     color:#f2f2f2;
 }
 
-.no-hover .flat-number-booked:hover a {
+.no-hover .booking .flat-number-booked:hover a {
     color:#f2f2f2;
     background: none;
 }
 
-.flat-number-booked:hover{
+.booking .flat-number-booked:hover{
     background: #ba3636;
 }
 
