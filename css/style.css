@@ -2092,8 +2092,9 @@ padding-left: 15px;
     
 
 .flat-number:hover{
-    background: #333;
+    background: #2fade2;
     color:#f2f2f2;
+    border: 1px solid #2fade2;
 }
 
 .flat-number:hover a{
@@ -2131,6 +2132,19 @@ padding-left: 15px;
     background: #ba3636;
     color:#f2f2f2;
 }
+
+.table > tbody > .booking{
+    background: rgba(186, 54, 54, 0.1);
+}
+
+.table > tbody > tr .no-hover {
+    background: #fff;
+    color: #434343;
+    z-index: 50;
+    position: relative;
+}
+
+
 
 .table > tbody > tr:hover .no-hover {
     background: #fff;
@@ -3510,4 +3524,8 @@ table.dataTable thead #bn.sorting_asc {
     -moz-transition: all 200ms linear;
     -webkit-transition: all 200ms linear;
     -o-transition: all 200ms linear;
+}
+.anchor {
+    cursor:pointer;
+    cursor:hand;
 }
