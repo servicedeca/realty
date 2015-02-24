@@ -163,6 +163,157 @@
     });
 
 
+//  adress type multiple select
+    $(function() {
+        $('#adds').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Адрес дома',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+
+//  room type multiple select
+    $(function() {
+        $('#room').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Комнаты',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+
+//  section type multiple select
+    $(function() {
+        $('#fsection').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Секция',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+//  section type multiple select
+    $(function() {
+        $('#ffloor').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Этаж',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+
+//  adress-city type multiple select
+    $(function() {
+        $('#adds-city').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Адрес дома',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+
+//  room city type multiple select
+    $(function() {
+        $('#room-city').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Комнаты',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+
+//  section city type multiple select
+    $(function() {
+        $('#fsection-city').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Секция',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+//  ffloor-city type multiple select
+    $(function() {
+        $('#ffloor-city').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Этаж',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+	//apartment buttons
+
+        $(document).ready(function(){
+       $("#comparisonh").hover(function(){
+           $(this).css("opacity","1");
+          $("#comparison").css("color","#000");
+       });
+    });
+    $(document).ready(function(){
+       $("#comparisonh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#comparison").css("color","#999");
+       });
+    });
+        
+    $(document).ready(function(){
+       $("#bankh").hover(function(){
+           $(this).css("opacity","1");
+          $("#bank").css("color","#000");
+       });
+    });
+    $(document).ready(function(){
+       $("#bankh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#bank").css("color","#999");
+       });
+    });
+        
+    $(document).ready(function(){
+       $("#documentsh").hover(function(){
+           $(this).css("opacity","1");
+          $("#documents").css("color","#000");
+       });
+    });
+    $(document).ready(function(){
+       $("#documentsh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#documents").css("opacity","#999");
+       });
+    });
+
+    $(document).ready(function(){
+       $("#callh").hover(function(){
+           $(this).css("opacity","1");
+          $("#call").css("color","#000");
+       });
+    });
+    $(document).ready(function(){
+       $("#callh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#call").css("opacity","#999");
+       });
+    });
+
+
+
+
+
 // map
 ymaps.ready(init);
 
@@ -305,17 +456,118 @@ function init () {
     });       
 
 
-    //mini table no-sort
-    $(document).ready(function() {
-        $('#complex').dataTable( {
-            "paging": false,
-            "info": false,
-            "columnDefs": [ {
-                "targets": [ 0,1,2,8],
-                "orderable": false,
-            } ]
-        } );
-    } );
-	
+    // чек бокс для модалки
+    $(document).ready(function(){
+        // проверяем, какие чекбоксы активны и меняем сласс для родительского дива
+
+        $('.modal_checkbox').each(function(){
+            var checkbox = $(this).find('input[type=checkbox]');
+            if(checkbox.prop("checked")) $(this).addClass("check_active");
+        });
+
+        // при клике по диву, делаем проверку
+        $('.modal_checkbox').click(function(){
+            var checkbox = $(this).find('input[type=checkbox]');
+            // если чекбокс был активен
+            if(checkbox.prop("checked")){
+                // снимаем класс с родительского дива
+                $(this).removeClass("check_active_modal");
+                // и снимаем галочку с чекбокса
+                checkbox.prop("checked", false);
+            // если чекбокс не был активен
+            }else{
+                // добавляем класс родительскому диву
+                $(this).addClass("check_active_modal");
+                // ставим галочку в чекбоксе
+                checkbox.prop("checked", true);
+            }
+        });
+    });
+
+
+    // чек бокс для парковки
+    $(document).ready(function(){
+        // проверяем, какие чекбоксы активны и меняем сласс для родительского дива
+
+        $('.decor_checkbox').each(function(){
+            var checkbox = $(this).find('input[type=checkbox]');
+            if(checkbox.prop("checked")) $(this).addClass("check_active");
+        });
+
+        // при клике по диву, делаем проверку
+        $('.decor_checkbox').click(function(){
+            var checkbox = $(this).find('input[type=checkbox]');
+            // если чекбокс был активен
+            if(checkbox.prop("checked")){
+                // снимаем класс с родительского дива
+                $(this).removeClass("check_active");
+                // и снимаем галочку с чекбокса
+                checkbox.prop("checked", false);
+            // если чекбокс не был активен
+            }else{
+                // добавляем класс родительскому диву
+                $(this).addClass("check_active");
+                // ставим галочку в чекбоксе
+                checkbox.prop("checked", true);
+            }
+        });
+    });
+
+
+	//apartment buttons
+
+        $(document).ready(function(){
+       $("#comparisonh").hover(function(){
+           $(this).css("opacity","1");
+          $("#comparison").css("color","#000");
+       });
+    });
+    $(document).ready(function(){
+       $("#comparisonh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#comparison").css("color","#999");
+       });
+    });
+        
+    $(document).ready(function(){
+       $("#bankh").hover(function(){
+           $(this).css("opacity","1");
+          $("#bank").css("color","#000");
+       });
+    });
+    $(document).ready(function(){
+       $("#bankh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#bank").css("color","#999");
+       });
+    });
+        
+    $(document).ready(function(){
+       $("#documentsh").hover(function(){
+           $(this).css("opacity","1");
+          $("#documents").css("color","#000");
+       });
+    });
+    $(document).ready(function(){
+       $("#documentsh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#documents").css("color","#999");
+       });
+    });
+
+    $(document).ready(function(){
+       $("#callh").hover(function(){
+           $(this).css("opacity","1");
+          $("#call").css("color","#000");
+       });
+    });
+    $(document).ready(function(){
+       $("#callh").mouseout(function(){
+         $(this).css("opacity","0");
+          $("#call").css("color","#999");
+       });
+    });
+
+
 
 

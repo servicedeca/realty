@@ -3,6 +3,7 @@
     <head>
 	<meta charset="UTF-8" />
         <title>Main Page</title>
+        
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/fotorama.css" rel="stylesheet">
         <link rel="stylesheet" href="css/multiple-select.css" />
@@ -18,49 +19,17 @@
         <script src="js/fotorama.js"></script>
         <script src="js/jquery.multiple.select.js"></script>
         <script src="js/ion.rangeSlider.js"></script>
-<script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+        <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
 
 
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/js/cbpAnimatedHeader.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="js/js/cbpAnimatedHeader.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/findom.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="js/findom.js"></script>
+
     
-        
-    
-    <script>
-        //чекбокс
-		$(document).ready(function(){
-			// проверяем, какие чекбоксы активны и меняем сласс для родительского дива
-			$('.decor_checkbox').each(function(){
-				var checkbox = $(this).find('input[type=checkbox]');
-				if(checkbox.prop("checked")) $(this).addClass("check_active");
-			});
-		
-			// при клике по диву, делаем проверку
-			$('.decor_checkbox').click(function(){
-				var checkbox = $(this).find('input[type=checkbox]');
-				// если чекбокс был активен
-				if(checkbox.prop("checked")){
-					// снимаем класс с родительского дива
-					$(this).removeClass("check_active");
-					// и снимаем галочку с чекбокса
-					checkbox.prop("checked", false);
-				// если чекбокс не был активен
-				}else{
-					// добавляем класс родительскому диву
-					$(this).addClass("check_active");
-					// ставим галочку в чекбоксе
-					checkbox.prop("checked", true);
-				}
-			});
-		});
-    </script>
-    
-
-
 
     </head>
     <body id="index">
@@ -215,6 +184,7 @@
                                     <option value="3">Сибит</option>
                                     <option value="4">Дерево</option>
                                 </select>
+                                
                             </div>
                        </div>
                        <div class="col-xs-1 search-top-line-item zero-padding">
@@ -899,21 +869,33 @@
                 <div class="col-xs-12 list-modal-city">
 
                     <div class="col-xs-4">
-                        <li>
-                            <label class="checkbox-inline check-style">
-                            <input type="checkbox" class="inlineCheckbox1 CheckboxArea" value="23;Октябрьский">Октябрьский            </label>
+                        <li>                 
+                            <div class="modal_checkbox">
+                                <span>
+                                    <input type="checkbox" />     
+                                </span>
+                                <label>Октябрьский</label>
+                            </div>
                         </li>
                     </div>
                     <div class="col-xs-4">
                         <li>
-                            <label class="checkbox-inline check-style">
-                            <input type="checkbox" class="inlineCheckbox1 CheckboxArea" value="24;Ленинский">Ленинский            </label>
+                            <div class="modal_checkbox">
+                                <span>
+                                    <input type="checkbox" />     
+                                </span>
+                                <label>Ленинский</label>
+                            </div>
                         </li>
                     </div>
                     <div class="col-xs-4">
                         <li>
-                            <label class="checkbox-inline check-style">
-                            <input type="checkbox" class="inlineCheckbox1 CheckboxArea" value="27;Советский">Советский            </label>
+                            <div class="modal_checkbox">
+                                <span>
+                                    <input type="checkbox" />     
+                                </span>
+                                <label>Центральный</label>
+                            </div>
                         </li>
                     </div>
 

@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="css/ion.rangeSlider.css" />
         <link rel="stylesheet" href="css/ion.rangeSlider.skinHTML5.css" />
         <link rel="stylesheet" href="css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="css/owl.theme.css">
+		<link rel="stylesheet" href="css/owl.carousel.css">
         <link href="css/style.css" rel="stylesheet">
         
         <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -20,6 +22,7 @@
         <script src="js/ion.rangeSlider.js"></script>
         <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
         <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+        <script src="js/owl.carousel.js"></script>
         
         <!-- Plugin JavaScript -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -33,45 +36,11 @@
 
         <!-- Magnific Popup core JS file -->
         <script src="js/jquery.magnific-popup.js"></script>
-        
     </head>
        
     <script>
         $(document).ready(function() {
-            $('.april-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-            
-            $('.may-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-            
-            $('.june-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-
-            $('.july-album').magnificPopup({
+            $('.visual-album').magnificPopup({
                 delegate: 'a',
                 type: 'image',
                 mainClass: 'mfp-img-mobile',
@@ -83,6 +52,32 @@
             });
         });
     </script>
+       
+       
+      <script>
+		  
+		  	$(document).ready(function() {
+  		$("#owl-demo").owlCarousel({
+
+		  navigation : true, // Show next and prev buttons
+		  slideSpeed : 300,
+		  paginationSpeed : 400,
+		  singleItem:true,
+		  navigationText: [
+			"",
+			""
+			],
+
+		  // "singleItem:true" is a shortcut for:
+		  // items : 1, 
+		  // itemsDesktop : false,
+		  // itemsDesktopSmall : false,
+		  // itemsTablet: false,
+		  // itemsMobile : false
+ 
+  			});
+	});
+	</script>
         
     <body>  
        <div class="col-xs-12 menu-parent zero-padding">
@@ -118,149 +113,119 @@
 			</div>
             
             <div class="container fin">
-               <div class="col-xs-12 complex-menu zero-padding">
-                   <div class="col-xs-5">
-				   <span>
-				   	<img src="images/marsel.png" class="complex-logo">
-				   </span>
-                    <h2 class="active-complex">
-                        <a href="complex.html" class="active-complex">Марсель
-                        </a>
-                    </h2>
-                   </div>
-                    <div class="col-xs-7 complex-right-menu">
-                        <ul>
-                            <li>
-                                <a href="plan.html">ПЛАН ЖК
-                                </a>
-                            </li>
-                            <li class="active-menu">
-                                <a href="gallery.html">ГАЛЕРЕЯ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="docs.html">ДОКУМЕНТЫ
-                                </a>
-                            </li>
-                            <li>
-                                <a href="stock.html">АКЦИИ
-                                </a>
-                            </li>
-                       </ul>    
-                    </div>
-               </div>    
-               <div class="col-xs-11 col-xs-offset-1 tab-menu zero-padding">
-                    <div class="col-xs-8 zero-padding">
-                        <div class="col-xs-4 tab-menu-active">
-                           <a href="gallery.html">
-                                Дневник стройки
-                            </a>
-                        </div>
-                        <div class="col-xs-4 tab-menu-passive">
-                            <a href="visual.html" title="Выберите дом">
-                                Визуализация
-                            </a>
-                        </div>
-                        <div class="col-xs-4 tab-menu-passive">
-                            <a href="3D.html" title="Выберите дом">
-                                3d тур
-                            </a>
-                        </div>  
-                    </div>
-               </div>
-               
-                <div class="col-xs-12 gallery-body zero-padding">
-                    <div class="col-xs-3 gallery-item april-album thump-gallery">
-                       <a  href="images/gallery/1.1.jpg" class="date-album">
-                           Апрель 2014
-                        </a>
-                        <a href="images/gallery/1.1.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.jpg"  width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/1.2.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/1.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item may-album thump-gallery">
-                       <a  href="images/gallery/1.jpg" class="date-album">
-                           Май 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item june-album thump-gallery">
-                       <a  href="images/gallery/2.1.jpg" class="date-album">
-                           Июнь 2014
-                        </a>
-                        <a href="images/gallery/1.1.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.1.jpg" class="thump-gallery"  width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/1.2.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/1.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.2.jpg" class="date-album">
-                           Июль 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.1.jpg" class="date-album">
-                           Август 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.2.jpg" class="date-album">
-                           Сентябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.jpg" class="date-album">
-                           Октябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/1.jpg" class="date-album">
-                           Ноябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
+
+			   <div class="col-xs-12 complex-menu zero-padding">
+				   <div class="col-xs-5">
+					   <span>
+						<img src="images/marsel.png" class="complex-logo">
+					   </span>
+						<h2 class="active-complex">
+							<a href="complex.html" class="active-complex">Марсель
+							</a>
+						</h2>
+				   </div>
+					<div class="col-xs-7 complex-right-menu">
+						<ul>
+							<li>
+								<a href="plan.html" >ПЛАН ЖК
+								</a>
+							</li>
+							<li>
+								<a href="gallery.html">ГАЛЕРЕЯ
+								</a>
+							</li>
+							<li>
+								<a href="docs.html">ДОКУМЕНТЫ
+								</a>
+							</li>
+							<li class="active-menu">
+								<a href="stock.html">АКЦИИ
+								</a>
+							</li>
+					   </ul>    
+					</div>
+			   </div>
+             
+             
+				<div id="owl-demo" class="owl-carousel owl-theme">
+
+				<div class=" col-xs-12 item">
+					<div class=" col-xs-12 stock-title">
+						<p>ГОЛОВОКРУЖИТЕЛЬНЫЕ СКИДКИ ДО 14%</p>
+					</div>
+					<div class="col-xs-5 zero-padding">
+						<img src="images/s3.jpg" alt="Акция1">
+					</div>
+					<div class="col-xs-7 stock-text-block zero-padding">
+						<div class="vertical">
+							<p>Уважаемые господа!</p>
+							<p>В канун долгожданных февральских праздников действуют головокружительные скидки до 14% на квартиры в жилом комплексе ART.</p>
+							<p>
+								Период беспроцентной рассрочки – до 6 месяцев под 0% годовых
+							</p>
+							<p>
+								Период процентной рассрочки платежа от 12 до 24 месяцев под 17% годовых
+							</p>
+							<p>
+								Размер скидки: до 9% от стоимости квартиры + скидки от величины первого взноса 5%
+							</p>
+						</div>	
+					</div>
+				</div>
+
+				<div class=" col-xs-12 item">
+					<div class=" col-xs-12 stock-title">
+						<p>ГОЛОВОКРУЖИТЕЛЬНЫЕ СКИДКИ ДО 14%</p>
+					</div>
+					<div class="col-xs-5 zero-padding">
+						<img src="images/s2.jpg" alt="Акция1">
+					</div>
+					<div class="col-xs-7 stock-text-block zero-padding">
+						<div class="vertical">
+							<p>Уважаемые господа!</p>
+							<p>В канун долгожданных февральских праздников действуют головокружительные скидки до 14% на квартиры в жилом комплексе ART.</p>
+							<p>
+								Период беспроцентной рассрочки – до 6 месяцев под 0% годовых
+							</p>
+							<p>
+								Период процентной рассрочки платежа от 12 до 24 месяцев под 17% годовых
+							</p>
+							<p>
+								Размер скидки: до 9% от стоимости квартиры + скидки от величины первого взноса 5%
+							</p>
+						</div>	
+					</div>
+				</div>
+
+				<div class=" col-xs-12 item">
+					<div class=" col-xs-12 stock-title">
+						<p>ГОЛОВОКРУЖИТЕЛЬНЫЕ СКИДКИ ДО 14%</p>
+					</div>
+					<div class="col-xs-5 zero-padding">
+						<img src="images/s1.jpg" alt="Акция1">
+					</div>
+					<div class="col-xs-7 stock-text-block zero-padding">
+						<div class="vertical">
+							<p>Уважаемые господа!</p>
+							<p>В канун долгожданных февральских праздников действуют головокружительные скидки до 14% на квартиры в жилом комплексе ART.</p>
+							<p>
+								Период беспроцентной рассрочки – до 6 месяцев под 0% годовых
+							</p>
+							<p>
+								Период процентной рассрочки платежа от 12 до 24 месяцев под 17% годовых
+							</p>
+							<p>
+								Размер скидки: до 9% от стоимости квартиры + скидки от величины первого взноса 5%
+							</p>
+						</div>	
+					</div>
+				</div>
 
 
-
-
-
-
-                </div>
-           
-        </div>         
-   
-          
+				</div>
+              
+        	</div>         
+    
         <div class="container fin">
             <div class="col-xs-9 zero-padding selection-title">
                 <h2>Подбор квартир в жк</h2>

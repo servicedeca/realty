@@ -38,40 +38,7 @@
        
     <script>
         $(document).ready(function() {
-            $('.april-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-            
-            $('.may-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-            
-            $('.june-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-
-            $('.july-album').magnificPopup({
+            $('.visual-album').magnificPopup({
                 delegate: 'a',
                 type: 'image',
                 mainClass: 'mfp-img-mobile',
@@ -120,13 +87,13 @@
             <div class="container fin">
                <div class="col-xs-12 complex-menu zero-padding">
                    <div class="col-xs-5">
-				   <span>
-				   	<img src="images/marsel.png" class="complex-logo">
-				   </span>
-                    <h2 class="active-complex">
-                        <a href="complex.html" class="active-complex">Марсель
-                        </a>
-                    </h2>
+					   <span>
+						<img src="images/marsel.png" class="complex-logo">
+					   </span>
+						<h2 class="active-complex">
+							<a href="complex.html" class="active-complex">Марсель
+							</a>
+						</h2>
                    </div>
                     <div class="col-xs-7 complex-right-menu">
                         <ul>
@@ -134,11 +101,11 @@
                                 <a href="plan.html">ПЛАН ЖК
                                 </a>
                             </li>
-                            <li class="active-menu">
+                            <li>
                                 <a href="gallery.html">ГАЛЕРЕЯ
                                 </a>
                             </li>
-                            <li>
+                            <li class="active-menu">
                                 <a href="docs.html">ДОКУМЕНТЫ
                                 </a>
                             </li>
@@ -149,118 +116,75 @@
                        </ul>    
                     </div>
                </div>    
-               <div class="col-xs-11 col-xs-offset-1 tab-menu zero-padding">
-                    <div class="col-xs-8 zero-padding">
-                        <div class="col-xs-4 tab-menu-active">
-                           <a href="gallery.html">
-                                Дневник стройки
-                            </a>
-                        </div>
-                        <div class="col-xs-4 tab-menu-passive">
-                            <a href="visual.html" title="Выберите дом">
-                                Визуализация
-                            </a>
-                        </div>
-                        <div class="col-xs-4 tab-menu-passive">
-                            <a href="3D.html" title="Выберите дом">
-                                3d тур
-                            </a>
-                        </div>  
-                    </div>
-               </div>
                
-                <div class="col-xs-12 gallery-body zero-padding">
-                    <div class="col-xs-3 gallery-item april-album thump-gallery">
-                       <a  href="images/gallery/1.1.jpg" class="date-album">
-                           Апрель 2014
-                        </a>
-                        <a href="images/gallery/1.1.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.jpg"  width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/1.2.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/1.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item may-album thump-gallery">
-                       <a  href="images/gallery/1.jpg" class="date-album">
-                           Май 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item june-album thump-gallery">
-                       <a  href="images/gallery/2.1.jpg" class="date-album">
-                           Июнь 2014
-                        </a>
-                        <a href="images/gallery/1.1.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.1.jpg" class="thump-gallery"  width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/1.2.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/1.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.2.jpg" class="date-album">
-                           Июль 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.1.jpg" class="date-album">
-                           Август 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.2.jpg" class="date-album">
-                           Сентябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.jpg" class="date-album">
-                           Октябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/1.jpg" class="date-album">
-                           Ноябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-
-
-
-
-
-
-                </div>
-           
+               <div class="col-xs-8 col-xs-offset-1 doc-block">
+              		
+               		<div class="col-xs-12 zero-padding doc-item">
+						<div class="col-xs-1 doc-icon zero-padding">
+							<a href="#">
+								<img src="images/doc.svg">
+							</a>	
+						</div>
+						<div class="col-xs-11 doc-title">
+							<p>Изменение_к_проектной_декларации</p>
+						</div>
+						<div class="col-xs-11 col-xs-ofset-1 doc-download">
+							<a href="#">Скачать</a> /
+							<a href="#"> Посмотреть образец</a>
+						</div>
+				   </div>
+				   
+               		<div class="col-xs-12 zero-padding doc-item">
+						<div class="col-xs-1 doc-icon zero-padding">
+							<a href="#">
+								<img src="images/doc.svg">
+							</a>	
+						</div>
+						<div class="col-xs-11 doc-title">
+							<p>Изменение_к_проектной_декларации</p>
+						</div>
+						<div class="col-xs-11 col-xs-ofset-1 doc-download">
+							<a href="#">Скачать</a> /
+							<a href="#"> Посмотреть образец</a>
+						</div>
+				   </div>
+				   
+               		<div class="col-xs-12 zero-padding doc-item">
+						<div class="col-xs-1 doc-icon zero-padding">
+							<a href="#">
+								<img src="images/doc.svg">
+							</a>	
+						</div>
+						<div class="col-xs-11 doc-title">
+							<p>Изменение_к_проектной_декларации</p>
+						</div>
+						<div class="col-xs-11 col-xs-ofset-1 doc-download">
+							<a href="#">Скачать</a> /
+							<a href="#"> Посмотреть образец</a>
+						</div>
+				   </div>
+				   
+               		<div class="col-xs-12 zero-padding doc-item">
+						<div class="col-xs-1 doc-icon zero-padding">
+							<a href="#">
+								<img src="images/doc.svg">
+							</a>	
+						</div>
+						<div class="col-xs-11 doc-title">
+							<p>Изменение_к_проектной_декларации</p>
+						</div>
+						<div class="col-xs-11 col-xs-ofset-1 doc-download">
+							<a href="#">Скачать</a> /
+							<a href="#"> Посмотреть образец</a>
+						</div>
+				   </div>
+				</div>
+               
+               
+               
+               
         </div>         
-   
-          
+    
         <div class="container fin">
             <div class="col-xs-9 zero-padding selection-title">
                 <h2>Подбор квартир в жк</h2>
@@ -311,11 +235,11 @@
                     </div>
                   
                    <div class="col-xs-3 complex-filter-square zero-padding">
+                       <div class="cf-square-hint">площадь</div>
                         <label class="complex-filter-square-lebel">от</label>
                         <input  class="complex-filter-square-input" maxlength="3">
                         <label class="complex-filter-square-lebel">до</label>
                         <input  class="complex-filter-square-input" maxlength="3">
-					   <label class="complex-filter-square-lebel">м<sup>2</sup></label>
                     </div>
                    <!-- <a href="#" class="col-xs-2  complex-filter-free-button zero-padding">
                         Показать только свободные

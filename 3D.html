@@ -38,40 +38,7 @@
        
     <script>
         $(document).ready(function() {
-            $('.april-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-            
-            $('.may-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-            
-            $('.june-album').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                mainClass: 'mfp-img-mobile',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                },
-            });
-
-            $('.july-album').magnificPopup({
+            $('.visual-album').magnificPopup({
                 delegate: 'a',
                 type: 'image',
                 mainClass: 'mfp-img-mobile',
@@ -139,11 +106,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="docs.html">ДОКУМЕНТЫ
+                                <a href="#">ДОКУМЕНТЫ
                                 </a>
                             </li>
                             <li>
-                                <a href="stock.html">АКЦИИ
+                                <a href="#">АКЦИИ
                                 </a>
                             </li>
                        </ul>    
@@ -151,17 +118,17 @@
                </div>    
                <div class="col-xs-11 col-xs-offset-1 tab-menu zero-padding">
                     <div class="col-xs-8 zero-padding">
-                        <div class="col-xs-4 tab-menu-active">
-                           <a href="gallery.html">
+                        <div class="col-xs-4  tab-menu-passive">
+                            <a href="gallery.html">
                                 Дневник стройки
                             </a>
                         </div>
                         <div class="col-xs-4 tab-menu-passive">
-                            <a href="visual.html" title="Выберите дом">
+                            <a href="gallery.html" title="Выберите дом">
                                 Визуализация
                             </a>
                         </div>
-                        <div class="col-xs-4 tab-menu-passive">
+                        <div class="col-xs-4 tab-menu-active">
                             <a href="3D.html" title="Выберите дом">
                                 3d тур
                             </a>
@@ -169,98 +136,13 @@
                     </div>
                </div>
                
-                <div class="col-xs-12 gallery-body zero-padding">
-                    <div class="col-xs-3 gallery-item april-album thump-gallery">
-                       <a  href="images/gallery/1.1.jpg" class="date-album">
-                           Апрель 2014
-                        </a>
-                        <a href="images/gallery/1.1.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.jpg"  width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/1.2.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/1.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item may-album thump-gallery">
-                       <a  href="images/gallery/1.jpg" class="date-album">
-                           Май 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item june-album thump-gallery">
-                       <a  href="images/gallery/2.1.jpg" class="date-album">
-                           Июнь 2014
-                        </a>
-                        <a href="images/gallery/1.1.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.1.jpg" class="thump-gallery"  width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/1.2.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/1.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.2.jpg" class="date-album">
-                           Июль 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.1.jpg" class="date-album">
-                           Август 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.2.jpg" class="date-album">
-                           Сентябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/2.jpg" class="date-album">
-                           Октябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/2.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-                    <div class="col-xs-3 gallery-item july-album thump-gallery">
-                       <a  href="images/gallery/1.jpg" class="date-album">
-                           Ноябрь 2014
-                        </a>
-                        <a href="images/gallery/2.jpg" title="ОБРАТНАЯ ЗАСЫПКА ГРУНТА БС-3">
-                            <img src="images/gallery/1.jpg" class="thump-gallery" width="100%" height="100%">
-                        </a>
-                        <a href="images/gallery/2.1.jpg" title="БЕТОНИРОВАНИЕ ПЛИТЫ-ПЕРЕКРЫТИЯ 1ГО ЭТАЖА БС-1"></a>
-                        <a href="images/gallery/2.2.jpg" title="БЕТОНИРОВАНИЕ КОНСТРУКЦИИ ВЫШЕ ОТМЕТКИ НУЛЯ БС-2"></a>
-                    </div>
-
-
-
-
-
-
-                </div>
-           
+                <a href="#" class="col-xs-10 col-xs-offset-1 zero-padding dt-item border" data-toggle="modal" data-target=".modal_dt">
+                   <img src="images/photo.jpg">
+					<div class="dticon">360<sup class="o">o</sup>
+					</div>
+                </a> 
         </div>         
-   
-          
+    
         <div class="container fin">
             <div class="col-xs-9 zero-padding selection-title">
                 <h2>Подбор квартир в жк</h2>
@@ -539,6 +421,24 @@
             </div>
         </div>   
     </div>
+             
+          <!--    Modal_dt   -->
+    <div class="modal fade modal_dt" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-dt zero-padding">
+                <div class="col-xs-12 header-container-modal header-block margin-bottom-50">
+                    <div class="modal-text">
+                        <p>3d тур</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+
+        </div>
+    </div>
+    <!--    End Modal_comment  -->                      
+             
+             
               
                                                                                                                                                
  <div class="container-fluid container-fix" id="footer">      
