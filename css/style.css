@@ -156,6 +156,14 @@ li {
     bottom:15%;
 }
 
+.logo-c {
+	width: 50%;
+	left: 25%;
+	position: absolute;
+	top: 5%;
+}
+
+
 .header-text {
     display: table-cell;
     vertical-align: middle;
@@ -1016,9 +1024,12 @@ li {
 }
 
 .z-item img{
-    opacity: 1;
-    height: 50%;
-    margin-top: 10%;
+	opacity: 1;
+	opacity: 1;
+	width: 80%;
+	left: 10%;
+	bottom: 10%;
+	margin-top: 5%;
 }
 
 .z-item:hover{
@@ -1173,8 +1184,13 @@ li {
     border: none;
     border-radius: 0px;
     outline:none;
-
 }
+
+.mm .ms-choice{
+    font-size: 16px;
+	color: #999999;
+}
+
 
 .cf .ms-choice{
     font-size: 16px;
@@ -1212,8 +1228,25 @@ li {
     border: none;
 }
 
+.mm .ms-choice > span{
+	text-align: left;
+	padding-left: 10px;
+	;
+}
+
 .ms-choice > span.placeholder{
     color:#fff;
+}
+
+.mm .ms-choice > span.placeholder{
+	color:#999999;
+	text-align: left;
+	padding-left: 15px;
+
+} 
+
+.mini-map-filter.ms-choice > span.placeholder{
+	color:#999999;
 }
 
 .ms-drop{
@@ -1223,6 +1256,55 @@ li {
     border:none;
     font-size: 16px;
     margin-top: 5px;
+}
+
+.mm .ms-drop{
+    background: #ffffff;
+    color:#999999;
+    border-radius: 0px;
+    border:none;
+    font-size: 16px;
+	text-transform: uppercase;
+    margin-top: 0px;
+	width:240px;
+	padding-left: 0px;
+}
+
+.mm .ms-drop ul {
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+}
+
+.mm .ms-drop ul > li{
+	padding-left: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.mm .ms-drop ul > li:hover{
+	background: #29abe2;
+	color:#fff;
+	cursor: pointer;
+}
+
+mm .ms-drop ul > li label {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.mm .ms-choice > div {
+    position: absolute;
+	top: 20px;
+	right: 5px;
+    width: 20px;
+    height: 25px;
+    background: url('../images/multiple-select-blue.png') left top no-repeat;
+}
+
+.mm .ms-choice > div.open {
+    background: url('../images/multiple-select-blue.png') right top no-repeat;
 }
 
 .cf .ms-drop{
@@ -1243,7 +1325,6 @@ li {
             margin-top: 3px;
     }
 }
-
 
 .maps .ms-drop{
     width: 100%;
@@ -2578,7 +2659,7 @@ table.dataTable thead #bn.sorting_asc {
 
 .complex-menu h2{
     text-align: left;
-	padding-left: 100px;
+	padding-left: 130px;
     font-size: 30px;
     margin-top: 20px;
     text-transform: uppercase;
@@ -2610,6 +2691,7 @@ table.dataTable thead #bn.sorting_asc {
 .complex-menu a{
     color:#4d4d4d;
     text-decoration: none;
+	text-transform: uppercase;
 }
 
 .complex-menu a:hover{
@@ -2957,7 +3039,7 @@ table.dataTable thead #bn.sorting_asc {
 
 
 .apartment-status-block {
-    height: 60px;
+    height: 70px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -4152,10 +4234,11 @@ padding-top: 10px;
 	color:#434343;
 	background: #f2f2f2;
 	font-size: 20px;
-	border: 1px solid #434343;
+	border: none;
 	width: 100%;
 	padding-left: 15px;
 	margin-top: 2px;
+	outline:none;
 }
 
 .comment-input-item {
@@ -4170,13 +4253,14 @@ padding-top: 10px;
 	color:#434343;
 	background: #f2f2f2;
 	font-size: 16px;
-	border: 1px solid #434343;
+	border: none;
 	width: 100%;
-		padding-left: 15px;
+	padding-left: 15px;
 	margin-top: 2px;
 	border-radius: 0px;
 	position: relative;
 	margin-bottom: 25px;
+	outline:none;
 }
 
 .comment-button {
@@ -4341,6 +4425,16 @@ padding-top: 10px;
 	color:#333333;
 }
 
+.comment-textarea::-webkit-input-placeholder {
+	color:#333333;
+	font-size: 20px;
+}
+
+.comment-textarea:-moz-placeholder {
+	color:#333333;
+font-size: 20px;
+}
+
 .success-booking {
 	background: #f2f2f2;
 	height: 150px;
@@ -4367,4 +4461,63 @@ padding-top: 10px;
 .booking-success-icon {
 	margin-top: -10px;
 	margin-right: 5px;
+}
+
+.develop-text {
+	padding-top: 70px;
+	padding-bottom: 70px;
+	padding-left: 70px;
+	padding-right: 70px;
+	margin-left: 15px;
+	colror:#666666;
+	font-size:18px;
+	line-height: 22px;
+}
+
+.mini-map-title {
+	height: 70px;
+	line-height: 70px;
+	padding-left: 70px;
+	margin-left: 15px;
+}
+
+.mini-map-title h2 {
+	text-transform: uppercase;
+	color:#666666;
+	line-height: 70px;
+	font-size: 25px;
+}
+
+.mini-map-filter {
+	height: 70px;
+	margin-left: -15px;
+}
+
+.mm input[type="radio"], input[type="checkbox"] {
+margin-top: -1px;
+}
+.padding-left-0 {
+	padding-left: 0px;
+}
+
+.develop-complex-item {
+	height:210px;
+	line-height: 210px;
+	text-align: center;
+}
+
+.develop-complex-item:hover {
+	background: #f2f2f2;
+}
+
+.develop-complex-item img{
+	width: 250px;
+}
+
+.margin-top-70 {
+	margin-top: 25px;
+}
+
+.banks-img img{
+	width: 220px;
 }

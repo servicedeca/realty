@@ -114,6 +114,17 @@
         });
     });
 
+//  mini-map-filter select
+    $(function() {
+        $('#mini-map-filter').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '100%',
+			placeholder:'ОТОБРАЖАТЬ НА КАРТЕ',
+        });
+    });
+
+
 
 //  date multiple select
     $(function() {
