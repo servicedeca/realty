@@ -2898,6 +2898,7 @@ table.dataTable thead #bn.sorting_asc {
 
 .gallery-body {
     height: 404px;
+	margin-bottom: 70px;
 }
 
 @media(max-width:1200px){
@@ -4269,6 +4270,19 @@ padding-top: 10px;
 .dt-item {
 	position: relative;
 	height: 460px;
+	margin-bottom: 70px;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.dt-item:hover {
+	opacity: 0.9;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
 }
 
 @media(max-width:1200px){
@@ -4591,4 +4605,34 @@ margin-top: -1px;
 	.develop-item-line {
 	margin-top: 130px;
 	}
+}
+
+.develop-complex {
+	min-height: 630px;
+}
+
+.allcomplex-filter {
+	height: 70px;
+	line-height: 70px;
+}
+
+.allcomplex-filter a {
+	font-size: 16px;
+	color:#999999;
+	padding-left: 5px;
+	text-transform: uppercase;
+	outline: none;
+}
+
+.allcomplex-filter a:hover {
+	text-decoration: none;
+	color:#29abe2;
+	outline: none;
+}
+
+
+.allcomplex-filter a:focus {
+	text-decoration: none;
+	color:#29abe2;
+	outline: none;
 }
