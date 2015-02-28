@@ -6,21 +6,40 @@
       if(Drupal.settings.id) {
         $("body").attr("id","index");
       }
-/*
-      var $fotoramaDiv = $('#fotorama-complex').fotorama();
+    })
+  }
+
+  Drupal.behaviors.realtyFotorama = {
+    attach: $(function() {
+
+      var $fotoramaDiv = $('#3d').fotorama();
       var fotorama = $fotoramaDiv.data('fotorama');
-      console.log(fotorama);
-      fotorama.loop = true;
 
-      $('.search-head-logo').click(function(){
-        fotorama.show('1');
+      $('.next').click(function() {
+        fotorama.show('>');
+      });
+      $('.prev').click(function() {
+        fotorama.show('<');
+      });
 
-      });*/
+      function ArrowMeter(){
+        var height = $('.big-height').height();
+        var result = height / 2.7;
+        $('.fotorama__arr--prev').css('top', result);
+        $('.fotorama__arr--next').css('top', result);
+        $('.prev').css('top', result);
+        $('.next').css('top', result);
+      };
+      ArrowMeter();
+      $(window).resize(function(){
+      ArrowMeter();
+      });
+
     })
   }
 
 
- Drupal.behaviors.realtyMultyselect = {
+ Drupal.behaviors.realtyFormSearch = {
    attach: $(function() {
 
      $(function() {
@@ -123,14 +142,21 @@
        grid: true,
        hasGrid: true
      });
+     devid={};
      var multiselect_modal = function(class_check_box, id_select, class_input) {
        var array_input = {};
        var string_input = '';
-       $('.'+class_check_box).click(function () {
+       $(document).on('click', '.'+class_check_box, function(){
          var param =  $(this).val().split(';');
          if ($(this).prop("checked") == true ) {
            $('#'+id_select+' option[value='+param[0]+']').attr('selected', 'selected');
            array_input[param[1]] = param[1];
+
+           if (class_check_box == 'CheckboxDeveloper') {
+             devid[param[0]] = param[0];
+             $('.search-input-complex').val('');
+             complex_select(devid);
+           }
 
            string_input = '';
            $.each(array_input, function(key, val) {
@@ -139,7 +165,7 @@
            $('.'+class_input).val(string_input);
          }
 
-         else{
+         else {
            $('#'+id_select+' option[value='+param[0]+']').attr('selected', false);
            delete array_input[param[1]];
            string_input = '';
@@ -147,6 +173,12 @@
              string_input == '' ?  string_input = val : string_input += ', '+val;
            });
            $('.'+class_input).val(string_input);
+
+           if (class_check_box == 'CheckboxDeveloper') {
+             delete devid[param[0]];
+             $('.search-input-complex').val('');
+             complex_select(devid);
+           }
          }
        });
      }
@@ -203,7 +235,7 @@
   };
 
 
-  Drupal.behaviors.realtySearchGetParam = {
+  Drupal.behaviors.realtyFormSearchGetParam = {
     attach: $(function () {
       if (Drupal.settings.get) {
         if (Drupal.settings.get.area) {
@@ -244,10 +276,56 @@
       });
 
 
+      function complex_select_map(devid) {
+        var city = Drupal.settings.city;
+        $.ajax({
+          url: '/get_developer_complex',
+          type: 'POST',
+          data: {
+            developer: devid,
+            city: city,
+            map: 1
+          },
+          success: function(response) {
+            var object = jQuery.parseJSON(response);
+            console.log(response);
+            $('.complexes-lis-map').html('');
+            $('#edit-field-home-complex-target-id').html('');
+            if (object != null) {
+              $('.complexes-lis-map').html(object.modal);
+              $('#edit-field-home-complex-target-id').html(object.select);
+            }
+          },
+          error: function(response) {
+            alert('false');
+          }
+        });
+      }
+
+      map_devid = {};
       $('.CheckboxMapArea').click(function () {
         var select = $('select[id="edit-field-area-tid"]');
         $(this).prop("checked") == true ? $('#edit-field-area-tid option[value='+$(this).val()+']').attr('selected', 'selected') :
           $('#edit-field-area-tid option[value='+$(this).val()+']').attr('selected', false);
+      });
+      $(document).on('click', '.CheckboxMapComplex',function () {
+        var select = $('select[id="edit-field-home-complex-target-id"]');
+        $(this).prop("checked") == true ? $('#edit-field-home-complex-target-id option[value='+$(this).val()+']').attr('selected', 'selected') :
+          $('#edit-field-home-complex-target-id option[value='+$(this).val()+']').attr('selected', false);
+      });
+
+      $('.CheckboxMapDeveloper').click(function () {
+        var param =  $(this).val()
+        if($(this).prop("checked") == true ) {
+          $('#edit-field-complex-developer-tid option[value='+$(this).val()+']').attr('selected', 'selected');
+          map_devid[param] = param;
+          complex_select_map(map_devid);
+        }
+        else {
+          $('#edit-field-complex-developer-tid option[value='+$(this).val()+']').attr('selected', false);
+          delete map_devid[param];
+          complex_select_map(map_devid);
+        }
       });
 
     })
@@ -291,6 +369,31 @@
         });
       });
 
+      $("#apartment-signal").click(function () {
+
+        var nid = $(this).data('node-id');
+        $.ajax({
+          url: '/apartment_signal',
+          type: 'POST',
+          data: {
+            nid: nid
+          },
+          success: function(response) {
+            if(response == 'user') {
+              window.location.replace('user');
+            }
+            else if(response == true) {
+              $('#signal').html('');
+              $('#signal').html('<a href="#apartment-signal" rel="tooltip" data-placement="right" title="" data-original-title="уведомление отправится о снятии брони">' +
+                '<img class="dingdong" src='+Drupal.settings.REALTY_FRONT_THEME_PATH +'/images/dingdong.svg>' +
+                '</a>');
+            }
+          },
+          error: function(response) {
+            alert('false');
+          }
+        });
+      });
     })
   };
 
@@ -299,9 +402,6 @@
 
   Drupal.behaviors.realtyDynamicallyChange = {
     attach: $(function() {
-     /* if(!$(".big-height").length) {
-        $('.big-height').height($('.fiftyminus').width()/0.71);
-      }*/
       $('.big-height').height($('.fiftyminus').width()/0.71);
       $('.height').height($('.fifty').width()/2.85);
       $('.big-height').height($('.fiftyplus').width()/2.13);
@@ -347,7 +447,7 @@
           "paging":   false,
           "info":     false,
           "columnDefs": [ {
-            "targets": [ 0, 1, 2, 3, 4, 11],
+            "targets": [ 0,1,2,3,4],
             "orderable": false
           } ]
       } );
@@ -361,10 +461,18 @@
 
   Drupal.behaviors.realtyPlacemarkAddComplex = {
     attach: $(function(){
-      $('#edit-field-home-complex-und').change(function(){
+        $('#edit-field-home-complex-und').change(function() {
+          console.log($(this).val());
+        })
+      })
+    }
+
+  Drupal.behaviors.realty = {
+    attach: $(function(){
+      $('#edit-field-home-complex-und').change(function() {
         console.log($(this).val());
       })
     })
-    }
+  }
 
 }(jQuery));

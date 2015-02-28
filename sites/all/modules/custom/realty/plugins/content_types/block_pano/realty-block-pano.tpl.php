@@ -17,7 +17,7 @@
     </div>
     </div>
 
-  <div id="3d" class="col-xs-12 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false" data-arrowPrev=">>">
+  <div id="3d" class="col-xs-12 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="crossfade" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false" data-arrowPrev=">>">
       <?php foreach($complexes as $complex):?>
       <div class="big-height">
         <div class="col-xs-9 big-height zero-padding">
@@ -27,7 +27,7 @@
           <div class="prev"></div>
           <div class="next"></div>
           <div class="col-xs-12 quarter-item zero-padding">
-            <?php if (isset($complex['logo'])):?>
+            <?php if (!empty($complex['logo'])):?>
               <?php print $complex['logo']?>
             <?php endif?>
           </div>

@@ -1,0 +1,112 @@
+<?php
+/**
+ * @file
+ */
+
+function mark_picture_init() {
+
+}
+
+/**
+ * Implement hook_form_alter.
+ */
+function mark_picture_form_taxonomy_form_term_alter(&$form, &$form_state,$form_id) {
+  $a = 1;
+  if ($form['vocabulary_machine_name']['#value'] == 'homes') {
+    $form['#theme'] = 'taxonomy_form_term_homes';
+  }
+}
+
+/**
+ * Implement hook_form_alter.
+ */
+function mark_picture_form_field_ui_field_edit_form_alter(&$form, &$form_state,$form_id) {
+  $form['field']['cardinality']['#options'] = array(
+    -1 => 'Не ограничено',
+    1 => 1,
+    2 => 2,
+    3 => 3,
+    4 => 4,
+    5 => 5,
+    6 => 6,
+    7 => 7,
+    8 => 8,
+    9 => 9,
+    11 => 11,
+    12 => 12,
+    13 => 12,
+    14 => 14,
+    15 => 15,
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+
+function mark_picture_theme() {
+
+  $base = array(
+    'file' => 'theme.inc',
+    'path' => drupal_get_path('module', 'mark_picture') . '/theme',
+  );
+
+  $items['taxonomy_form_term_homes'] = $base + array(
+      'template' => 'taxonomy-form-term-homes',
+      'render element' => 'form',
+  );
+
+  return $items;
+}
+
+/*
+ * implement hook_menu.
+ */
+function mark_picture_menu() {
+
+  $item['add_plan_complex'] = array(
+    'page callback' => 'mark_picture_add_plan_complex',
+    'access callback' => TRUE,
+  );
+
+  $item['mark_picture_add_section'] = array(
+    'page callback' => 'mark_picture_add_section',
+    'access callback' => TRUE,
+  );
+
+  return $item;
+}
+
+
+/**
+ * Page callback to /add_plan_complex.
+ */
+function mark_picture_add_plan_complex() {
+
+  if ($_POST['nid']) {
+    $node = node_load($_POST['nid']);
+    if (!empty($node->field_plan_complex)) {
+      $answer['img'] = theme('image', array(
+        'path' => $node->field_plan_complex[LANGUAGE_NONE][0]['uri'],
+        'attributes' => array(
+          'class' => array('img-mark'),
+        ),
+      ));
+
+      print json_encode($answer);
+    }
+    else {
+      print NULL;
+    }
+  }
+
+  drupal_exit();
+}
+
+/**
+ * Page callback to /mark_picture_add_section.
+ */
+function mark_picture_add_section() {
+
+  $section = $_POST['sections'];
+}

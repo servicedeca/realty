@@ -3,55 +3,73 @@
 Drupal.behaviors.entityreference_filter_dynamic = {
   attach: function (context, settings) {
     if (settings.entityreference_filter) {
-      for (var id in settings.entityreference_filter) {
-        var form_id = id;
+      $.each(settings.entityreference_filter, function(form_id, filter_setting) {
         var form = $('#' + form_id, context);
         if (form.length === 0) {
-          continue;
+          return;
         }
 
-        var view = settings.entityreference_filter[form_id]['view'];
-        var args = settings.entityreference_filter[form_id]['args'];
-        var dependent_filters = settings.entityreference_filter[form_id]['dynamic'];
+        var view = filter_setting['view'];
+        var args = filter_setting['args'];
+        var dependent_filters = filter_setting['dynamic'];
         var elements = {};
-
-        var beforeSerialize = function(element, options) {
-          options.type = 'GET';
-          options.data = {};
-          for (var fn in elements) {
-            var value = elements[fn].fieldValue();
-            if (value.length > 0) {
-              options.data[fn] = value[0];
-            }
-          }
-          options.data['entityreference_filter_form_id'] = form_id;
-          options.data['entityreference_filter_args'] = args;
-        };
-
         var controlling_filters = {};
 
         if (dependent_filters) {
-          for (var dependent_filter in dependent_filters) {
-            var dep_controlling_filters = dependent_filters[dependent_filter];
-            for (var i in dep_controlling_filters) {
-              var controlling_filter = dep_controlling_filters[i];
+          $.each(dependent_filters, function(i, dep_controlling_filters) {
+            $.each(dep_controlling_filters, function(j, controlling_filter) {
               controlling_filters[controlling_filter] = controlling_filter;
-            }
-          }
+            });
+          });
         }
 
-        for (var i in controlling_filters) {
-          var controlling_filter = controlling_filters[i];
+        $.each(controlling_filters, function(i, controlling_filter) {
           var element = form.find('[name="' + controlling_filter + '"],[name="' + controlling_filter + '[]"]');
           if (element.length > 0) {
             elements[controlling_filter] = element;
             element.attr('autocomplete', 'off');
             var url = settings['basePath'] + 'entityreference_filter/update/' + view + '/' + controlling_filter;
-            var ajax = new Drupal.ajax(false, element, {event: 'change', url: url});
-            ajax.beforeSerialize = beforeSerialize;
+
+            element.once('entityreference_filter').change(function() {
+              var ajax = new Drupal.ajax(false, false, {url: url});
+              var parentBeforeSerialize = ajax.beforeSerialize;
+              ajax.beforeSerialize = function(element, options) {
+                parentBeforeSerialize(element, options);
+                options.type = 'GET';
+                options.data = {};
+
+                $.each(elements, function(fn, element) {
+                  var value = element.fieldValue();
+                  if (value.length > 0) {
+                    options.data[fn] = value[0];
+                  }
+                });
+
+                options.data['entityreference_filter_form_id'] = form_id;
+                options.data['entityreference_filter_args'] = args;
+              };
+              ajax.eventResponse(ajax, {});
+            });
+            //var ajax = new Drupal.ajax(false, element, {event: 'change', url: url});
+            //var parentBeforeSerialize = ajax.beforeSerialize;
+            //ajax.beforeSerialize = function(element, options) {
+            //  parentBeforeSerialize(element, options);
+            //  options.type = 'GET';
+            //  options.data = {};
+            //
+            //  $.each(elements, function(fn, element) {
+            //    var value = element.fieldValue();
+            //    if (value.length > 0) {
+            //      options.data[fn] = value[0];
+            //    }
+            //  });
+            //
+            //  options.data['entityreference_filter_form_id'] = form_id;
+            //  options.data['entityreference_filter_args'] = args;
+            //};
           }
-        }
-      }
+        });
+      });
     }
   }
 };
@@ -90,7 +108,7 @@ Drupal.ajax.prototype.commands.entityreference_filter_insertnowrap = function (a
   wrapper[method](new_content);
 
   // Immediately hide the new content if we're using any effects.
-  if (effect.showEffect != 'show') {
+  if (effect.showEffect !== 'show') {
     new_content.hide();
   }
 
@@ -101,7 +119,7 @@ Drupal.ajax.prototype.commands.entityreference_filter_insertnowrap = function (a
     new_content.show();
     $('.ajax-new-content', new_content)[effect.showEffect](effect.showSpeed);
   }
-  else if (effect.showEffect != 'show') {
+  else if (effect.showEffect !== 'show') {
     new_content[effect.showEffect](effect.showSpeed);
   }
 

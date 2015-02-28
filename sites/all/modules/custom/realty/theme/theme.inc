@@ -21,3 +21,10 @@ function realty_preprocess_realty_user_profile_form(&$vars) {
 function realty_preprocess_realty_id_apartment_pdf(&$vars) {
   $a = 1;
 }
+
+/**
+ * Preprocess for realty-sending-messages.tpl.php
+ */
+function realty_preprocess_realty_sending_messages(&$vars) {
+
+}

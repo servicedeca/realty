@@ -55,10 +55,8 @@ function template_preprocess_realty_block_pano(&$vars) {
   ));
   if (!empty($result)) {
     foreach ($result as $key => $val) {
-
       $vars['complexes'][$key] = array (
         'title' => l($val->node_title, 'node/'.$val->nid),
-        'description' => $val->field_field_description[0]['raw']['value'],
         'image' => theme('image', array(
             'path' => $val->field_field_main_photo[0]['rendered']['#item']['uri'],
             'alt' => $val->node_title,
@@ -72,6 +70,10 @@ function template_preprocess_realty_block_pano(&$vars) {
           'external' => TRUE,
           'attributes' => array('class' => array('button-info button-info-top'),))),
       );
+
+      if(!empty($val->field_field_description)) {
+        $vars['complexes'][$key]['description'] = $val->field_field_description[0]['rendered']['#markup'];
+      }
 
       if (isset($val->field_field_complex_logo[0])) {
         $vars['complexes'][$key]['logo'] = theme('image', array(

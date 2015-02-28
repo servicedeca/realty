@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ * Ctools content type
+ */
+
+/**
+ * Implements hook_ctools_content_types().
+ */
+function realty_apartment_complex_ctools_content_types() {
+  return array(
+    'single' => TRUE,
+    'title' => t('Apartment complex '),
+    'all contexts' => TRUE,
+    'category' => t('Realty'),
+    'hook theme' => 'realty_apartment_complex_content_type_theme',
+  );
+}
+
+/**
+ * Implements hook_content_type_render().
+ */
+function realty_apartment_complex_content_type_render($subtype, $conf, $panel_args, $context) {
+  $block = new stdClass();
+  $block->content = theme('realty_apartment_complex');
+
+  return $block;
+}
+
+/**
+ * Implements hook_content_type_theme().
+ */
+function realty_apartment_complex_content_type_theme(&$theme, $plugin) {
+  $theme['realty_apartment_complex'] = array(
+    'path' => $plugin['path'],
+    'template' => 'realty-apartment-complex',
+  );
+}
+
+/**
+ * Process variables for realty-info-complex.tpl.php.
+ */
+function template_preprocess_realty_apartment_complex(&$vars) {
+  $a = 1;
+}

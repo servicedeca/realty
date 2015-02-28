@@ -57,6 +57,7 @@ function template_preprocess_realty_front_map(&$vars) {
   ));
 
   $complex = views_get_view_result('complex', 'random_complex');
+
   if (!empty($complex)) {
     $vars['title'] =  $complex[0]->node_title;
 
@@ -83,8 +84,10 @@ function template_preprocess_realty_front_map(&$vars) {
     }
 
     $vars['areas'] = realty_get_options_current_city('area');
+    $vars['complexes'] = realty_get_complex_current_city(null, $city->tid);
+    $vars['developers'] = realty_get_developer_current_city();
 
-    $vars['search_map_form'] = drupal_get_form('realty_search_map_form');
+   $vars['search_map_form'] = drupal_get_form('realty_search_map_form');
 
     unset($vars['search_map_form']['category']['#title']);
 

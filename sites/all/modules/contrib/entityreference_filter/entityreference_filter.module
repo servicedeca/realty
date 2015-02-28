@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Views Reference Filter module hook implementations.
+ */
+
+/**
  * Implements hook_views_api().
  */
 function entityreference_filter_views_api() {
@@ -35,22 +40,30 @@ function entityreference_filter_exposed_form_after_build($form) {
           $form[$filter]['#attributes'] = array();
         }
         $form[$filter]['#attributes']['autocomplete'] = 'off';
+        foreach (element_children($form[$filter]) as $child) {
+          if (!isset($form[$filter][$child]['#attributes'])) {
+            $form[$filter][$child]['#attributes'] = array();
+          }
+          $form[$filter][$child]['#attributes']['autocomplete'] = 'off';
+        }
       }
     }
   }
 
-  $form['#attached']['js'][] = array(
-    'type' => 'setting',
-    'data' => array(
-      'entityreference_filter' => array(
-        $form['#id'] => array(
-          'view' => $form['#entityreference_filter_view'] . '/' . $form['#entityreference_filter_display'],
-          'args' => $form['#entityreference_filter_args'],
-          'dynamic' => $form['#entityreference_filter_dynamic'],
+  if (empty($form['#entityreference_filter_autosubmit'])) {
+    $form['#attached']['js'][] = array(
+      'type' => 'setting',
+      'data' => array(
+        'entityreference_filter' => array(
+          $form['#id'] => array(
+            'view' => $form['#entityreference_filter_view'] . '/' . $form['#entityreference_filter_display'],
+            'args' => $form['#entityreference_filter_args'],
+            'dynamic' => $form['#entityreference_filter_dynamic'],
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 
   return $form;
 }

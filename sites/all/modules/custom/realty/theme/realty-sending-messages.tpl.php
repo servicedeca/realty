@@ -1,0 +1,1 @@
+<?php print t('Квартира №' . $node->field_number_apartament[LANGUAGE_NONE][0]['value']). 'снята с бронирования!'?>

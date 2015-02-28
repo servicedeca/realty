@@ -51,7 +51,6 @@ function template_preprocess_realty_block_complexs(&$vars) {
 
     $vars['complexes'][$key] = array (
       'title' => l($val->node_title, 'node/'.$val->nid),
-      'description' => $val->field_field_description[0]['raw']['value'],
       'image' => theme('image', array(
           'path' => $val->field_field_main_photo[0]['rendered']['#item']['uri'],
           'alt' => $val->node_title,
@@ -64,8 +63,11 @@ function template_preprocess_realty_block_complexs(&$vars) {
       'details' => l('Details', 'node/'.$val->nid, array(
         'attributes' => array('class' => array('button-info button-info-top'),))),
     );
+    if(!empty($val->field_field_description)) {
+      $vars['complexes'][$key]['description'] = $val->field_field_description[0]['rendered']['#markup'];
+    }
 
-    if ($val->field_field_complex_logo[0]['raw']['uri']) {
+    if (!empty($val->field_field_complex_logo)) {
       $vars['complexes'][$key]['logo'] = theme('image', array(
           'path' => $val->field_field_complex_logo[0]['raw']['uri'],
           'alt' => $val->node_title,

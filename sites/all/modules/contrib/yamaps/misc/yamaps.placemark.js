@@ -272,7 +272,7 @@
             var $complexid = $('#edit-field-home-complex-und').val();
             console.log(Map.options.placemarks);
               $('#entityid').val($complexid);
-            $('#saveButton').trigger('click');
+              $('#saveButton').trigger('click');
           });
 
           var GetDataComplex = function(complexID) {
@@ -365,6 +365,8 @@
 
           var get_placemarks_filter = function() {
             var area = $('#edit-field-area-tid').val();
+            var developer = $('#edit-field-complex-developer-tid').val();
+            var complex = $('#edit-field-home-complex-target-id').val();
             var category = $('#edit-field-category-value').val();
             var stock = $('#edit-field-stock-value').val();
 
@@ -373,6 +375,8 @@
               type: 'POST',
               data: {
                 area: area,
+                developer: developer,
+                complex: complex,
                 category: category,
                 stock: stock
               },
@@ -394,6 +398,14 @@
 
 
           $('.CheckboxMapArea').click(function() {
+            get_placemarks_filter();
+          });
+
+          $('.CheckboxMapDeveloper').click(function() {
+            get_placemarks_filter();
+          });
+
+          $(document).on('click', '.CheckboxMapComplex',function() {
             get_placemarks_filter();
           });
 

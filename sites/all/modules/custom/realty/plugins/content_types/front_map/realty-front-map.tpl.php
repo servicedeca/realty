@@ -30,11 +30,19 @@
       <div id="filters">
         <ul>
           <li>
-            <a data-toggle="modal" data-target=".modal-map-area">Район</a>
+            <a data-toggle="modal" data-target=".modal-map-area"><?php print t('Area');?></a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target=".modal-map-developer"><?php print t('Developer');?></a>
+          </li>
+          <li>
+            <a data-toggle="modal" data-target=".modal-map-complex"><?php print t('RC');?></a>
           </li>
           <li class="store">
             <input type="checkbox" id="mapcheck">
-            <label class="map-hint"  for="mapcheck">Акции</label>
+            <label class="map-hint"  for="mapcheck">
+              <?php print t('Stock');?>
+            </label>
           </li>
         </ul>
       </div>
@@ -108,8 +116,70 @@
 
     </div>
     <div class="col-xs-12 modal-button">
+      <button type="button" class="search-button modal-but" data-dismiss="modal" aria-hidden="true">
+        <?php print t('select')?>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-map-complex" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="container container-modal-city zero-padding">
+    <div class="col-xs-12 header-container-modal header-block">
+      <div class="modal-text">
+        <p><?php print t('Select complex')?></p>
+      </div>
       <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
-        <a href="#" class="search-button modal-but"><?php print t('select')?></a>
+        <?php print render($img_close)?>
+      </button>
+    </div>
+    <div class="col-xs-12 list-modal-city complex-list-map">
+
+      <?php foreach($complexes as $key => $complex):?>
+        <div class="col-xs-4">
+          <li>
+            <label class="checkbox-inline check-style">
+              <input type="checkbox" class="inlineCheckbox1 CheckboxMapComplex" value="<?php print $key?>"><?php print $complex; ?>
+            </label>
+          </li>
+        </div>
+      <?php endforeach ?>
+
+    </div>
+    <div class="col-xs-12 modal-button">
+      <button type="button" class="search-button modal-but" data-dismiss="modal" aria-hidden="true">
+        <?php print t('select')?>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-map-developer" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="container container-modal-city zero-padding">
+    <div class="col-xs-12 header-container-modal header-block">
+      <div class="modal-text">
+        <p><?php print t('Select developers')?></p>
+      </div>
+      <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+        <?php print render($img_close)?>
+      </button>
+    </div>
+    <div class="col-xs-12 list-modal-city">
+
+      <?php foreach($developers as $key => $developer):?>
+        <div class="col-xs-4">
+          <li>
+            <label class="checkbox-inline check-style">
+              <input type="checkbox" class="inlineCheckbox1 CheckboxMapDeveloper" value="<?php print $key?>"><?php print $developer; ?>
+            </label>
+          </li>
+        </div>
+      <?php endforeach ?>
+
+    </div>
+    <div class="col-xs-12 modal-button">
+      <button type="button" class="search-button modal-but" data-dismiss="modal" aria-hidden="true">
+        <?php print t('select')?>
       </button>
     </div>
   </div>

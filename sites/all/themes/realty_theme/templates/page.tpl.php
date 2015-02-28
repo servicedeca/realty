@@ -24,16 +24,16 @@
   </div>
 </div>
 <div id="wrapper">
-  <?php print render($main_menu) ?>
-  <?php print render($title_prefix); ?>
-  <?php print render($title_suffix); ?>
-  <?php if ($tabs): ?>
-  <?php print render($tabs); ?>
-  <?php endif; ?>
-  <?php if (!empty($action_links)): ?>
-  <?php print render($action_links); ?>
-  <?php endif; ?>
-  <?php print render($page['content']); ?>
+  <div id="content">
+    <?php print render($title_prefix); ?>
+    <?php print render($title_suffix); ?>
+    <?php if (!empty($action_links)): ?>
+      <ul class="action-links">
+        <?php print render($action_links); ?>
+      </ul>
+    <?php endif; ?>
+    <?php print render($page['content']); ?>
+  </div>
 </div>
 <div class="container-fluid container-fix" id="footer">
   <div class="row">

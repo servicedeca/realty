@@ -6,7 +6,6 @@
 function realty_theme_css_alter(&$css) {
   unset($css['modules/system/system.menus.css']);
   unset($css['modules/system/system.theme.css']);
-  // ...
 }
 
 /**
@@ -237,17 +236,46 @@ function realty_preprocess_views_view_unformatted__apartments__apartment(&$vars)
  */
 function realty_preprocess_views_view_unformatted__apartments__result_search(&$vars) {
 
+  $add_img = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/add.svg',
+    'attributes' => array(
+      'class' => array('add', 'z-but'),
+    ),
+  ));
+  $addh_img = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/addh.svg',
+    'attributes' => array(
+      'class' => array('add', 'z-but-h'),
+    ),
+  ));
+
+  $dingdong = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/dingdong.svg',
+    'attributes' => array(
+      'class' => array('dingdong', 'z-but'),
+    ),
+  ));
+  $dingdongh = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/dingdongh.svg',
+    'attributes' => array(
+      'class' => array('dingdong', 'z-but-h'),
+    ),
+  ));
+
   if (!empty($vars['view']->result)) {
 
     foreach ($vars['view']->result as $key => $val) {
       $vars['apartments'][$key] = array(
-        'number' => l($val->field_field_number_apartament[0]['raw']['value'], 'node/' . $val->nid),
-        'area' => $val->field_field_area[0]['raw']['taxonomy_term']->name,
-        'developer' =>l($val->field_field_complex_developer[0]['raw']['taxonomy_term']->name,
-          'taxonomy/term/'.$val->field_field_complex_developer[0]['raw']['tid']),
+        'apartment_path' => 'node/' . $val->nid,
+        'number' => l('<div class="flat-number flat-number-booked">' . $val->field_field_number_apartament[0]['raw']['value'] . '</div>',
+          'node/' . $val->nid, array('html'=> TRUE)),
 
-        'complex' => l($val->field_field_home_complex[0]['raw']['entity']->title,
-          'node/' . $val->field_field_home_complex[0]['raw']['target_id'] ),
+        'area' => $val->field_field_area[0]['raw']['taxonomy_term']->name,
+        'developer_path' => 'taxonomy/term/'.$val->field_field_complex_developer[0]['raw']['tid'],
+        'developer' => $val->field_field_complex_developer[0]['raw']['taxonomy_term']->name,
+
+        'complex' => $val->field_field_home_complex[0]['raw']['entity']->title,
+        'complex_path' => 'node/' . $val->field_field_home_complex[0]['raw']['target_id'],
 
         'address' => $val->field_field_address_house[0]['raw']['value'],
         'quarter' => $val->field_field_quarter[0]['raw']['value'],
@@ -259,35 +287,40 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
         'price' => $val->field_field_price[0]['raw']['value'] / 1000,
         'coast' => $val->field_field_full_cost[0]['raw']['value'] / 1000,
         'status' => $val->field_field_status[0]['raw']['value'],
-        'apartment_comparison' => l('<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     width="30px" height="30px" viewBox="0 0 30.343 28.871" enable-background="new 0 0 30.343 28.871" xml:space="preserve" class="scales" class="scales-target">
-                    <g>
-                      <path d="M30.218,13.606L27.061,0.59C26.977,0.243,26.668,0,26.294,0l-0.018,0c-0.232,0-0.448,0.103-0.594,0.279
-                            L15.631,4.721c-0.234-0.133-0.505-0.211-0.794-0.211c-0.767,0-1.408,0.537-1.57,1.255L4.128,9.805
-                            C4.114,9.804,4.103,9.798,4.081,9.804l-0.017,0C3.391,9.88,3.32,10.372,3.32,10.372c-0.002,0.007-0.004,0.015-0.006,0.022
-                            L0.157,23.411H0v0.264c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H8.005l-2.964-12.05l8.872-3.92v20.684
-                            h-2.618v0.747h7.282v-0.747h-2.604V7.264c0.294-0.292,0.475-0.621,0.475-1.068l8.688-3.897L22.37,13.606h-0.157v0.264
-                            c0,1.759,1.824,3.19,4.065,3.19s4.065-1.431,4.065-3.19v-0.264H30.218z M6.414,23.411H1.748l2.333-9.621L6.414,23.411z
-                             M23.961,13.606l2.333-9.621l2.333,9.621H23.961z"/>
-                    </g>
-</svg>',
-          '#apartment-comparison', array(
+        'apartment_comparison' => l($add_img . $addh_img, '#apartment-comparison', array(
+          'external' => TRUE,
+          'html' => TRUE,
+          'attributes'=> array(
+            'rel' => "tooltip",
+            'data-placement' => 'right',
+            'title' => 'добавить квартиру в сравнение',
+            'id' => 'apartment-comparison',
+            'data-node-id' => $val->nid,
+            ),
+          )
+        ),
+        'apartment_signal' => l($dingdong . $dingdongh, '#apartment-signal', array(
             'external' => TRUE,
             'html' => TRUE,
             'attributes'=> array(
-              'id' => 'apartment-comparison',
+              'rel' => "tooltip",
+              'data-placement' => 'right',
+              'title' => "отправить уведомлении о снятии брони",
+              'id' => 'apartment-signal',
               'data-node-id' => $val->nid,
             ),
-          )),
+          )
+        ),
       );
     }
   }
+
 }
 
 /**
  * Process variables for search-form.tpl.php
  */
-function realty_preprocess_search_form(&$vars) {
+function realty_theme_preprocess_search_form(&$vars) {
 
   $vars['micro_logo'] = theme('image', array(
     'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
@@ -407,4 +440,28 @@ function realty_preprocess_views_view_unformatted__news__news_city(&$vars) {
       'date' => format_date($value->node_created, 'm/d/Y'),
     );
   }
+}
+
+/**
+ * Process variables for comment.tpl.php
+ */
+function realty_theme_preprocess_comment(&$vars) {
+  $account = user_load($vars['comment']->uid);
+  $vars['comments'] = $vars['comment']->comment_body[LANGUAGE_NONE][0]['safe_value'];
+  $vars['name'] = $account->name;
+  $vars['date'] = gmdate("m-d-Y", $vars['comment']->created);
+}
+
+/**
+ * Process variables for comment_wrapper.tpl.php
+ */
+function realty_theme_preprocess_comment_wrapper(&$vars) {
+  $a = 1;
+}
+
+/**
+ * Process variables for comment-form.tpl.php
+ */
+function realty_theme_preprocess_comment_form(&$vars) {
+  $a = 1;
 }
