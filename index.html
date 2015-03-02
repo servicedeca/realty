@@ -29,9 +29,19 @@
         <!-- Custom Theme JavaScript -->
         <script src="js/findom.js"></script>
 
-    
-
     </head>
+    
+    <script>
+			$(document).ready(function(){
+		$(".reg-item").click(function(){
+			if($(this).attr('class')  ==  'reg-item' ) {
+				$('.reg-item').removeClass('reg-active');
+				$(this).addClass('reg-active');
+			}
+		})
+	});
+	</script>
+    
     <body id="index">
        <div class="col-xs-12 menu-parent zero-padding">
         <div id="menu">
@@ -47,7 +57,11 @@
                     </a>
                 </li>                   
                 <li>О проекте</li>
-                <li>Регистрация/вход</li>
+                <li>                                    
+                	<a class="btn head-reg" data-toggle="modal" data-target=".registration">
+                        Войти / зарегистрироваться
+                	</a>
+                </li>
             </ul>    
        </div>
     </div>
@@ -312,7 +326,7 @@
                         </div>
                        <div class="col-xs-12 second quarter-item zero-padding display-table">
                             <div class="vertical">
-                                <h2>Жилой комплекс Миргород</h2>
+                                <h2>Жилой комплекс Андреевский</h2>
                             </div>
                             <div class="gorizont-line">
                             </div>
@@ -682,7 +696,7 @@
                         </div>
                        <div class="col-xs-12 second quarter-item zero-padding display-table">
                             <div class="vertical">
-                                <h2>Жилой комплекс "Миргород"</h2>
+                                <h2>Жилой комплекс "Андреевский"</h2>
                             </div>
                             <div class="gorizont-line">
                             </div>
@@ -932,27 +946,39 @@
                     <div class="col-xs-4">
                         <ul>
                             <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">ЗАО «Строитель»
-                                </label>
+                            <div class="modal_checkbox">
+                                <span>
+                                    <input type="checkbox" />     
+                                </span>
+                                <label>ЗАО «Строитель»</label> 
+               
+                            </div>
                             </li>
                         </ul>
                     </div>
                     <div class="col-xs-4">
                         <ul>
                             <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">«Первый строительный фонд» 
-                                </label>
+                            <div class="modal_checkbox">
+                                <span>
+                                    <input type="checkbox" />     
+                                </span>
+                                <label>«Cтрой фонд»</label>
+               
+                            </div>
                             </li>    
                         </ul>
                     </div>
                     <div class="col-xs-4">
                         <ul>
                             <li>
-                                <label class="checkbox-inline check-style">
-                                    <input type="checkbox" id="inlineCheckbox1" value="option1">Группа компаний ЗАО «СД Альфа Капитал»
-                                </label>
+                            <div class="modal_checkbox">
+                                <span>
+                                    <input type="checkbox" />     
+                                </span>
+                                <label>ГК «СДА»</label>
+           
+                            </div>
                             </li>
                         </ul>
                     </div>
@@ -1096,6 +1122,30 @@
         </div>
     </div>
     <!--    End Modal_type   -->
+    
+    <!--    Modal_reg   -->
+    <div class="modal fade registration" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-reg zero-padding">
+                <div class="col-xs-12 header-container-modal header-block">
+					<img src="images/findome-gray.svg" class="margin-left-15">
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>  
+                </div>
+<ul  id="menureg">
+	<a href="#reg" data-toggle="tab">
+		<li  class="reg-item reg-active">Регистрация</li>
+	</a>
+	<a href="#enter" data-toggle="tab"  >
+		<li class="reg-item">Вход</li>
+	</a>
+</ul>
+                <div class="col-xs-12 modal-button">
+                    <a href="#" class="search-button modal-but">Войти</a> 
+                </div>
+        </div>
+    </div>
+    <!--    End Modal_reg   -->
     
     
     

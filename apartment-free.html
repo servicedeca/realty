@@ -94,17 +94,17 @@
                 
             <div class="col-xs-12 zero-padding apartment-status-block">
                 <div class="col-xs-1 status-icon">
-                    <img src="images/booked.svg">
+                    <img src="images/free.svg">
                 </div>
-                 <div class="col-xs-6 apartment-status-body apartment-status-booked">
-                     Квартира забронирована
+                 <div class="col-xs-6 apartment-status-body apartment-status-free">
+                     Квартира свободна
                 </div>
 				<div class="col-xs-6 bad-button-block">
-					<a href="#" data-toggle="modal" data-target=".modal_booking">       
-						<img src="images/call.svg" class="but1 bad-button-fix">                    
-						<img src="images/callh.svg" class="but1h bad-button-fix" id="callh">
+					<a href="#" data-toggle="modal" data-target=".modal_free">       
+						<img src="images/lock.svg" class="but1 bad-button-fix">                    
+						<img src="images/lockh.svg" class="but1h bad-button-fix" id="callh">
 						<span class="new-tip-button" id="call">
-							Отправить уведомление, если бронь снимется
+							Забронировать
 						</span>
 				   </a>      
 				</div>
@@ -312,7 +312,7 @@
                         <tbody>
                             
                             <tr>
-                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment.html' ">
+                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment-free.html' ">
                                     <a href="#" title="Посмотреть квартиру">
                                         <div class="flat-number">
                                             103
@@ -323,25 +323,25 @@
                                         <img src="images/addh.svg" class="add z-but-h">
                                     </a>
                                 </td>
-                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
                                     Краузе 142
                                 </td>
-                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
                                     1.1
                                 </td>
-                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
                                     2
                                 </td>
-                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
                                     25
                                 </td>
-                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
                                     28м<sup>2</sup>
                                 </td>
-                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
                                     53 т.р.
                                 </td>
-                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                <td class="anchor" onClick="location.href='apartment-free.html' ">
                                     3 500 т.р.
                                 </td>
                             </tr>
@@ -507,7 +507,6 @@
                         <label class="complex-filter-square-lebel">Этаж</label>
                         <input  class="complex-filter-square-input" maxlength="2">
                     </div>
-                  
                   
                    <div class="col-xs-3 complex-filter-square zero-padding">
                         <label class="complex-filter-square-lebel"> от</label>
@@ -694,10 +693,10 @@
             </div>
 		</div>   
               
-             <!--    Modal_booking   -->
-    <div class="modal fade modal_booking" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+             <!--    Modal_free -->
+    <div class="modal fade modal_free" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="container container-modal-booking zero-padding">
-               
                 <div class="col-xs-12 header-container-modal header-block margin-bottom-50">
                     <div class="modal-text">
                         <p>Бронирование квартиры</p>
@@ -707,8 +706,7 @@
                     </button>
                 </div>
                 <div class="col-xs-12 text-modal-booking">
-					<h3>Заполните поля</h3>
-					<p>C вами свяжется специалист отдела продаж</p>
+					<h3>Чтобы бесплатно забронировать квартиру<br>необходимо заполнить поля</h3>
 				</div>
                 <div class="col-xs-12 comment-modal-row">
                 	<div class="col-xs-2 text-right zero-padding">
@@ -738,10 +736,10 @@
 					</h3>
 					<p>Ожидайте звонка специалиста</p>
 				</div>
-       
         </div>
     </div>
-    <!--    End Modal_booking  -->      
+    <!--    End Modal_free  -->    
+                  
 
              <!--    Modal_download   -->
     <div class="modal fade modal_docs" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -828,9 +826,9 @@
        
         </div>
     </div>
-    <!--    End Modal_download  -->  
-
-    <!--    Modal_id   -->
+    <!--    End Modal_download  -->       
+            
+                  <!--    Modal_id   -->
     <div class="modal fade modal_id" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="container container-modal-booking zero-padding">
                
@@ -859,7 +857,10 @@
        
         </div>
     </div>
-    <!--    End Modal_id-->        
+    <!--    End Modal_id-->               
+                 
+                   
+                       
                 
                  
                     

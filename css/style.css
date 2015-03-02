@@ -909,7 +909,7 @@ li {
     position: relative;
     margin: 0 auto;
     background: #fff;
-    margin-top: 125px;
+    margin-top: 75px;
     background: #f2f2f2;
 }
 
@@ -2109,8 +2109,8 @@ padding-left: 15px;
 	position: absolute;
 	right: 0px;
 	background: rgba(241, 242, 242, 0.8);
-	height: 570px;
-	margin-top: 80px;
+	height: 650px;
+	margin-top: 0px;
 }
 
 .fin{
@@ -3110,7 +3110,6 @@ table.dataTable thead #bn.sorting_asc {
     padding-left: 40px;
     height: 60px;
     line-height: 60px;
-    color:#bf4b4b;
     letter-spacing: 1px;
 }
 
@@ -3816,7 +3815,8 @@ padding-top: 10px;
     border:2px solid #f2f2f2;
     background: #29abe2;
     color:#f2f2f2;
-    height: 30px;
+    height: 35px;
+font-size: 16px;
     margin-top: 10px;
     text-align: center;
     outline:none;
@@ -4653,4 +4653,81 @@ margin-top: -1px;
 	width: 20px;
 	height: 25px;
 	background: url('../images/multiple-select.png') left top no-repeat;
+}
+.container-modal-reg {
+	width: 600px;
+	position: relative;
+	margin: 0 auto;
+	background: #fff;
+	margin-top: 75px;
+	background: #f2f2f2;
+}
+
+.registration-tab {
+	text-align: right;
+	height: 70px;
+	line-height: 70px;
+	color: #808080;
+	font-size: 20px;
+	background: #e6e6e6;
+	padding-right: 15px;
+}
+
+.registration-tab a{
+	color:#808080;
+}
+
+.registration-tab a:hover{
+	text-decoration: none;
+}
+
+.registration-tab a:focus{
+	text-decoration: none;
+}
+
+.enter-tab a{
+	color:#808080;
+}
+
+.enter-tab a:hover{
+	text-decoration: none;
+}
+
+.enter-tab a:focus{
+	text-decoration: none;
+}
+
+.enter-tab {
+	text-align: left;
+	height: 70px;
+	line-height: 70px;
+	color: #808080;
+	font-size: 20px;
+	background: #e6e6e6;
+	padding-left: 15px;
+}
+
+	.reg-item {
+  width: 50%;
+  float: left;
+  text-align: center;
+  height:50px;
+  font-size: 20px;
+  padding-top: 10px;
+  background: #2665AE;
+  color:#fff;
+}
+
+.reg-active {
+  background: #F8F8F8;
+  color:#000;
+}
+
+
+.apartment-status-free {
+	color: #2fade2;
+}
+
+.apartment-status-booked {
+	    color:#bf4b4b;
 }
