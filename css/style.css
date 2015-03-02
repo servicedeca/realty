@@ -468,7 +468,7 @@ li {
     position: absolute;
     text-align: center;
     margin-top: 0px;
-    height: 55%;
+    height: 85%;
     color:#58595b;
     font-size: 16px;
     line-height: 18px;
@@ -632,8 +632,8 @@ li {
     position: relative;
     font-size: 18px;
     width: 80%;
-    margin-top: 15px;
-    margin-left: 10%;;
+    margin-top: 5px;
+    margin-left: 10%;
 }
 
 @media (max-width: 1350px){
@@ -1122,7 +1122,8 @@ li {
 
 .big-stock-body div{
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
+	line-height: 17px;
     color:#f1f2f2;
     padding-left: 15px;
     padding-right: 15px;
@@ -1131,7 +1132,7 @@ li {
 
 @media (max-width: 1350px){
     .big-stock-body div{
-        font-size: 16px;
+        font-size: 15px;
     } 
 }
 
@@ -3812,7 +3813,7 @@ padding-top: 10px;
 
 .complex-filter-square-input {
     width: 40px;
-    border:2px solid #2ebee5;
+    border:2px solid #f2f2f2;
     background: #29abe2;
     color:#f2f2f2;
     height: 30px;
@@ -4054,7 +4055,7 @@ padding-top: 10px;
 	height: 50px;
 	width: 50px;
 	background-repeat: no-repeat;
-	top: 135px;
+	top: -75px;
 	opacity: 0.5;
     transition: all 200ms linear;
     -moz-transition: all 200ms linear;
@@ -4077,7 +4078,7 @@ padding-top: 10px;
 	width: 50px;
 	background: url(../images/ar.svg);
 	background-repeat: no-repeat;
-	top: 135px;
+	top: -75px;
 	opacity: 0.5;
     transition: all 200ms linear;
     -moz-transition: all 200ms linear;
