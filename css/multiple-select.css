@@ -50,19 +50,6 @@
     color: #999;
 }
 
-.ms-choice > div {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 25px;
-    background: url('../images/multiple-select.png') left top no-repeat;
-}
-
-.ms-choice > div.open {
-    background: url('multiple-select.png') right top no-repeat;
-}
-
 .ms-drop {
     overflow: hidden;
     display: none;

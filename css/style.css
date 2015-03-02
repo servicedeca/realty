@@ -1171,7 +1171,7 @@ li {
     width: 200px;
     font-size: 18px;
     left: 50%;
-    margin-left: -300px;
+    margin-left: -450px;
 }
 
 .ms-choice{
@@ -4001,10 +4001,6 @@ padding-top: 10px;
 	text-decoration: none;
  }
 
-.doc-item:hover{
-	background:rgba(53,196,219, 0.2);
-}
-
 .doc-icon {
 	padding-left: 5px;
 }
@@ -4410,7 +4406,7 @@ padding-top: 10px;
 	color:#333333;
 }
 
-.comment-input:-moz-placeholder {
+.comment-input::-moz-placeholder {
 	color:#333333;
 }
 
@@ -4419,9 +4415,9 @@ padding-top: 10px;
 	font-size: 20px;
 }
 
-.comment-textarea:-moz-placeholder {
+.comment-textarea::-moz-placeholder {
 	color:#333333;
-font-size: 20px;
+	font-size: 20px;
 }
 
 .success-booking {
@@ -4630,9 +4626,30 @@ margin-top: -1px;
 	outline: none;
 }
 
-
 .allcomplex-filter a:focus {
 	text-decoration: none;
 	color:#29abe2;
 	outline: none;
+}
+
+.margin-bottom-35 {
+	margin-bottom: 40px;
+}
+
+.c-select .ms-choice > div {
+	position: absolute;
+	top: 25px;
+	right: 0;
+	width: 20px;
+	height: 25px;
+	background: url('../images/multiple-select.png') left top no-repeat;
+}
+
+.cf .ms-choice > div {
+	position: absolute;
+	top: 25px;
+	right: 0;
+	width: 20px;
+	height: 25px;
+	background: url('../images/multiple-select.png') left top no-repeat;
 }
