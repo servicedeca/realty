@@ -468,7 +468,7 @@ li {
     position: absolute;
     text-align: center;
     margin-top: 0px;
-    height: 55%;
+    height: 85%;
     color:#58595b;
     font-size: 16px;
     line-height: 18px;
@@ -632,8 +632,8 @@ li {
     position: relative;
     font-size: 18px;
     width: 80%;
-    margin-top: 15px;
-    margin-left: 10%;;
+    margin-top: 5px;
+    margin-left: 10%;
 }
 
 @media (max-width: 1350px){
@@ -909,7 +909,7 @@ li {
     position: relative;
     margin: 0 auto;
     background: #fff;
-    margin-top: 125px;
+    margin-top: 75px;
     background: #f2f2f2;
 }
 
@@ -987,7 +987,7 @@ li {
 #filters ul li{
     display: inline;
     margin-right: 50px;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 70px;
     color: #ffffff;
     transition: all 200ms linear;
@@ -1096,13 +1096,13 @@ li {
 
 .big-stock-title h2{
     text-align: center;
-    font-size: 25px;
+    font-size: 22px;
     color:#f1f2f2;
     text-transform: uppercase;
     width: 80%;
     left: 10%;
     font-weight: 600;
-    top: 20%;
+    top: 35%;
     position: absolute;
     overflow: hidden;
 }
@@ -1122,7 +1122,8 @@ li {
 
 .big-stock-body div{
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
+	line-height: 17px;
     color:#f1f2f2;
     padding-left: 15px;
     padding-right: 15px;
@@ -1131,7 +1132,7 @@ li {
 
 @media (max-width: 1350px){
     .big-stock-body div{
-        font-size: 16px;
+        font-size: 15px;
     } 
 }
 
@@ -1171,7 +1172,7 @@ li {
     width: 200px;
     font-size: 18px;
     left: 50%;
-    margin-left: -300px;
+    margin-left: -450px;
 }
 
 .ms-choice{
@@ -1179,7 +1180,7 @@ li {
     color:#fff;
     height: 70px;
     line-height: 70px;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     border: none;
     border-radius: 0px;
@@ -2105,11 +2106,11 @@ padding-left: 15px;
     -o-background-size: cover;
 }
 .issue-discription {
-    position: absolute;
-    right: 0px;
-    background: rgba(241, 242, 242, 0.8);
-    height: 601px;
-    margin-top: 49px;
+	position: absolute;
+	right: 0px;
+	background: rgba(241, 242, 242, 0.8);
+	height: 650px;
+	margin-top: 0px;
 }
 
 .fin{
@@ -2163,7 +2164,8 @@ padding-left: 15px;
 
 .table > tbody > tr > td,
 .table > tbody > tr > th{
-    border-bottom: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	vertical-align: middle;
 }
 
 .flat-number{
@@ -2898,6 +2900,7 @@ table.dataTable thead #bn.sorting_asc {
 
 .gallery-body {
     height: 404px;
+	margin-bottom: 70px;
 }
 
 @media(max-width:1200px){
@@ -3108,7 +3111,6 @@ table.dataTable thead #bn.sorting_asc {
     padding-left: 40px;
     height: 60px;
     line-height: 60px;
-    color:#bf4b4b;
     letter-spacing: 1px;
 }
 
@@ -3574,7 +3576,7 @@ table.dataTable thead #bn.sorting_asc {
 }
 
 .add {
-    margin-left: 52.5px;
+    left: 52.5px;
     margin-top: -33px;
     position: absolute;
     z-index: 100;
@@ -3582,19 +3584,19 @@ table.dataTable thead #bn.sorting_asc {
 
 @media(max-width:1200px){
     .add{
-            margin-left: 48.5px;
+            left: 48.5px;
     }
 }
 
 .dingdong {
     position: absolute;
     margin-top: 7px;
-    margin-left: 57px;
+    left: 57px;
 }
 
 @media(max-width:1200px){
     .dingdong{
-            margin-left: 52px;
+            left: 52px;
     }
 }
 
@@ -3811,10 +3813,11 @@ padding-top: 10px;
 
 .complex-filter-square-input {
     width: 40px;
-    border:2px solid #2ebee5;
+    border:2px solid #f2f2f2;
     background: #29abe2;
     color:#f2f2f2;
-    height: 30px;
+    height: 35px;
+font-size: 16px;
     margin-top: 10px;
     text-align: center;
     outline:none;
@@ -3919,7 +3922,7 @@ padding-top: 10px;
     position: relative;
     margin: 0 auto;
     background: #fff;
-    margin-top: 125px;
+    margin-top: 75px;
     background: #f2f2f2;
 }
 
@@ -4000,10 +4003,6 @@ padding-top: 10px;
 	text-decoration: none;
  }
 
-.doc-item:hover{
-	background:rgba(53,196,219, 0.2);
-}
-
 .doc-icon {
 	padding-left: 5px;
 }
@@ -4057,7 +4056,7 @@ padding-top: 10px;
 	height: 50px;
 	width: 50px;
 	background-repeat: no-repeat;
-	top: 135px;
+	top: -75px;
 	opacity: 0.5;
     transition: all 200ms linear;
     -moz-transition: all 200ms linear;
@@ -4080,7 +4079,7 @@ padding-top: 10px;
 	width: 50px;
 	background: url(../images/ar.svg);
 	background-repeat: no-repeat;
-	top: 135px;
+	top: -75px;
 	opacity: 0.5;
     transition: all 200ms linear;
     -moz-transition: all 200ms linear;
@@ -4189,7 +4188,7 @@ padding-top: 10px;
 
 .container-modal-comment {
 	width: 500px;
-	min-height: 450px;
+	min-height: 400px;
     position: relative;
     margin: 0 auto;
     background: #fff;
@@ -4269,6 +4268,19 @@ padding-top: 10px;
 .dt-item {
 	position: relative;
 	height: 460px;
+	margin-bottom: 70px;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.dt-item:hover {
+	opacity: 0.9;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
 }
 
 @media(max-width:1200px){
@@ -4396,7 +4408,7 @@ padding-top: 10px;
 	color:#333333;
 }
 
-.comment-input:-moz-placeholder {
+.comment-input::-moz-placeholder {
 	color:#333333;
 }
 
@@ -4405,9 +4417,9 @@ padding-top: 10px;
 	font-size: 20px;
 }
 
-.comment-textarea:-moz-placeholder {
+.comment-textarea::-moz-placeholder {
 	color:#333333;
-font-size: 20px;
+	font-size: 20px;
 }
 
 .success-booking {
@@ -4591,4 +4603,185 @@ margin-top: -1px;
 	.develop-item-line {
 	margin-top: 130px;
 	}
+}
+
+.develop-complex {
+	min-height: 630px;
+}
+
+.allcomplex-filter {
+	height: 70px;
+	line-height: 70px;
+}
+
+.allcomplex-filter a {
+	font-size: 16px;
+	color:#999999;
+	padding-left: 5px;
+	text-transform: uppercase;
+	outline: none;
+}
+
+.allcomplex-filter a:hover {
+	text-decoration: none;
+	color:#29abe2;
+	outline: none;
+}
+
+.allcomplex-filter a:focus {
+	text-decoration: none;
+	color:#29abe2;
+	outline: none;
+}
+
+.margin-bottom-35 {
+	margin-bottom: 40px;
+}
+
+.c-select .ms-choice > div {
+	position: absolute;
+	top: 25px;
+	right: 0;
+	width: 20px;
+	height: 25px;
+	background: url('../images/multiple-select.png') left top no-repeat;
+}
+
+.cf .ms-choice > div {
+	position: absolute;
+	top: 25px;
+	right: 0;
+	width: 20px;
+	height: 25px;
+	background: url('../images/multiple-select.png') left top no-repeat;
+}
+.container-modal-reg {
+	width: 600px;
+	position: relative;
+	margin: 0 auto;
+	background: #fff;
+	margin-top: 75px;
+	background: #f2f2f2;
+}
+
+.registration-tab {
+	text-align: right;
+	height: 70px;
+	line-height: 70px;
+	color: #808080;
+	font-size: 20px;
+	background: #e6e6e6;
+	padding-right: 15px;
+}
+
+.registration-tab a{
+	color:#808080;
+}
+
+.registration-tab a:hover{
+	text-decoration: none;
+}
+
+.registration-tab a:focus{
+	text-decoration: none;
+}
+
+.enter-tab a{
+	color:#808080;
+}
+
+.enter-tab a:hover{
+	text-decoration: none;
+}
+
+.enter-tab a:focus{
+	text-decoration: none;
+}
+
+.enter-tab {
+	text-align: left;
+	height: 70px;
+	line-height: 70px;
+	color: #808080;
+	font-size: 20px;
+	background: #e6e6e6;
+	padding-left: 15px;
+}
+
+	.reg-item {
+  width: 50%;
+  float: left;
+  text-align: center;
+  height:50px;
+  font-size: 20px;
+  padding-top: 10px;
+  background: #2665AE;
+  color:#fff;
+}
+
+.reg-active {
+  background: #F8F8F8;
+  color:#000;
+}
+
+
+.apartment-status-free {
+	color: #2fade2;
+}
+
+.apartment-status-booked {
+	    color:#bf4b4b;
+}
+
+.profile-flat-number {
+	margin-left: 8%;
+}
+
+.profile-info {
+	margin-top: 70px;
+}
+
+.profile-photo img{
+	width: 150px;
+}
+
+.profile-text p{
+color:#999999;
+	font-size: 16px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+.profile-text h1{
+	color: #999999;
+	text-transform: uppercase;
+	font-size: 30px;
+	margin-bottom: 5px;
+	margin-top: 35px;
+}
+
+
+.profile-text h2{
+	font-size: 30px;
+	color: #333333;
+	margin: 0px;
+}
+
+
+
+.textarea-error {
+	border: 1px solid #ba3636;
+}
+
+.textarea-error-comment {
+	
+}
+
+.textarea-error-text {
+	color:#ba3636;
+	font-size: 14px;
+	margin-left: 30px;
+	position: absolute;
+	top:-30px;
+	
 }

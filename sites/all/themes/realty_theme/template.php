@@ -583,6 +583,8 @@ function realty_theme_preprocess_comment(&$vars) {
  */
 function realty_theme_preprocess_comment_wrapper(&$vars) {
   $vars['realty_comment_form'] = drupal_get_form('realty_comment_form');
+  unset($vars['content']['comments']['pager']);
+
 }
 
 /**
@@ -601,6 +603,3 @@ function realty_theme_preprocess_realty_comment_form(&$vars) {
   ));
 }
 
-function realty_theme_preprocess_realty_views_exposed_form(&$vars) {
-  $a = 1;
-}

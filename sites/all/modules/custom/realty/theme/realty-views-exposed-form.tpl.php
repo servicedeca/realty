@@ -5,37 +5,20 @@
   </div>
 
   <div class="col-xs-2 zero-padding complex-filters-select">
-    <select id="room" class="cf" multiple="multiple">
-      <option value="1">Студия</option>
-      <option value="2">1 кмн.</option>
-      <option value="3">2 кмн.</option>
-      <option value="4">3 кмн.</option>
-    </select>
+    <?php print render($form['field_number_rooms_value']);?>
   </div>
 
   <div class="col-xs-2 zero-padding complex-filters-select">
-    <select id="fsection" class="cf " multiple="multiple">
-      <option value="1">1</option>
-      <option value="2">1.1</option>
-      <option value="3">2</option>
-      <option value="4">2.2</option>
-    </select>
+    <?php print render($form['field_section_value']);?>
   </div>
 
-  <div class="col-xs-2 zero-padding complex-filters-select">
-    <select id="ffloor" class="cf" multiple="multiple">
-      <option value="1">1</option>
-      <option value="2">1.1</option>
-      <option value="3">2</option>
-      <option value="4">2.2</option>
-    </select>
+  <div class="col-xs-2 complex-filter-square zero-padding">
+    <?php print render($form['field_apartment_floor_value']);?>
   </div>
 
   <div class="col-xs-3 complex-filter-square zero-padding">
-    <label class="complex-filter-square-lebel">от</label>
-    <input  class="complex-filter-square-input" maxlength="3">
-    <label class="complex-filter-square-lebel">до</label>
-    <input  class="complex-filter-square-input" maxlength="3">
+    <?php print render($form['field_gross_area_value']['min'])?>
+    <?php print render($form['field_gross_area_value']['max'])?>
     <label class="complex-filter-square-lebel">м<sup>2</sup></label>
   </div>
   <!-- <a href="#" class="col-xs-2  complex-filter-free-button zero-padding">

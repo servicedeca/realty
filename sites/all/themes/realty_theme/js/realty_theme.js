@@ -42,6 +42,7 @@
  Drupal.behaviors.realtyFormSearch = {
    attach: $(function() {
 
+   var multiple_select_form = function() {
      $(function() {
        $('#map-filter').change(function() {
          console.log($(this).val());
@@ -53,7 +54,7 @@
 //  date multiple select
      $(function() {
        $('#date').change(function() {
-        // console.log($(this).val());
+         // console.log($(this).val());
        }).multipleSelect({
          placeholder: '',
          selectAllText: 'Отметить все',
@@ -65,7 +66,7 @@
 //  wall type multiple select
      $(function() {
        $('#wall_type').change(function() {
-        // console.log($(this).val());
+         // console.log($(this).val());
        }).multipleSelect({
          placeholder: '',
          selectAllText: 'Отметить все',
@@ -77,7 +78,7 @@
 //  category type multiple select
      $(function() {
        $('#cat').change(function() {
-        // console.log($(this).val());
+         // console.log($(this).val());
        }).multipleSelect({
          placeholder: '',
          selectAllText: 'Отметить все',
@@ -86,7 +87,7 @@
      });
 
      //  adress type multiple select
-     $(function() {
+
        $('#edit-field-apartament-home-tid').change(function() {
          console.log($(this).val());
        }).multipleSelect({
@@ -94,12 +95,11 @@
          selectAllText: 'Отметить все',
          allSelected: 'Все'
        });
-     });
 
 
 //  room type multiple select
      $(function() {
-       $('#room').change(function() {
+       $('#edit-field-number-rooms-value').change(function() {
          console.log($(this).val());
        }).multipleSelect({
          placeholder: 'Комнаты',
@@ -111,7 +111,7 @@
 
 //  section type multiple select
      $(function() {
-       $('#fsection').change(function() {
+       $('#edit-field-section-value').change(function() {
          console.log($(this).val());
        }).multipleSelect({
          placeholder: 'Секция',
@@ -134,13 +134,20 @@
 //  balkon type multiple select
      $(function() {
        $('#balkon').change(function() {
-       //  console.log($(this).val());
+         //  console.log($(this).val());
        }).multipleSelect({
          placeholder: '',
          selectAllText: 'Отметить все',
          allSelected: 'Все'
        });
      });
+   };
+
+    multiple_select_form();
+    $(document).ajaxSuccess(function(){
+      multiple_select_form();
+    });
+
      if(Drupal.settings.get) {
        var sq =  Drupal.settings.get.sq.split(';');
        var price = Drupal.settings.get.price.split(';');

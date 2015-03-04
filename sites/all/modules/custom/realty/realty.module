@@ -981,10 +981,20 @@ function realty_get_current_city() {
 function realty_form_views_exposed_form_alter(&$form, &$form_state) {
   $complex = menu_get_object('node', 1);
   $homes = views_get_view_result('term_view', 'homes_complex', $complex->nid);
-  foreach ($homes as $home) {
+  foreach ($homes as $key=>$home) {
     $options[$home->tid] = $home->field_field_address_house[0]['rendered']['#markup'];
+    $sections[$home->field_field_address_house[0]['rendered']['#markup']]
+    [$home->field_field_number_section[0]['rendered']['#markup'].':'.$home->tid] = $home->field_field_number_section[0]['rendered']['#markup'];
   }
   $form['field_apartament_home_tid']['#options'] = $options;
+  $form['field_section_value']['#options'] = $sections;
+
+  /*$form['field_section_value'] = array(
+    '#type' => 'select',
+    '#options' => $sections,
+    '#multiple' => TRUE,
+    '#size' => 5,
+  );*/
 
   $form['#theme'] = 'realty_views_exposed_form';
 }
