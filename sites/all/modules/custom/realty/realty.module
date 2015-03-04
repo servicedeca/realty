@@ -92,6 +92,11 @@ function realty_menu() {
     'access callback' => TRUE,
   );
 
+  $item['realty_add_comment'] = array(
+    'page callback' => 'realty_add_comment',
+    'access callback' => TRUE,
+  );
+
   return $item;
 }
 
@@ -140,14 +145,40 @@ function realty_theme() {
     'variables' => array('node' => NULL),
   );
 
-  $items['comment_form'] = array(
+  $items['realty_comment_form'] = array(
     'render element' => 'form',
-    'template' => 'comment-form',
+    'template' => 'realty-comment-form',
+  );
+
+  $items['realty_views_exposed_form'] = $base + array(
+    'render_element' => 'form',
+    'template' => 'realty-views-exposed-form',
   );
 
 
   return $items;
 
+}
+
+/**
+ * Page callback to /realty_add_comment.
+ */
+function realty_add_comment() {
+  global $user;
+  if ($_POST['comment'] && $_POST['nid']) {
+    $comment = new stdClass();
+    $comment->nid = $_POST['nid'];
+    $comment->uid = $user->uid;
+    $comment->name = $user->name;
+    $comment->subject = 'Subject';
+    $comment->field_body[LANGUAGE_NONE][0]['value'] = $_POST['comment'];
+    $comment->field_body[LANGUAGE_NONE][0]['format'] = null;
+    $comment->field_body[LANGUAGE_NONE][0]['safe_value'] = $_POST['comment'];
+    $comment->hostname = $_SERVER['REMOTE_HOST'] ? $_SERVER['REMOTE_HOST'] : '127.0.0.1';
+    $comment->thread = '01/';
+    $comment = comment_submit($comment);
+    comment_save($comment);
+  }
 }
 
 /**
@@ -259,11 +290,22 @@ function realty_apartment_signal() {
       $node = node_load($_POST['nid']);
       $node->field_user_signal[LANGUAGE_NONE][]['target_id'] = $user->uid;
       field_attach_update('node', $node);
-      print TRUE;
+      node_save($node);
+
+      $dindon_r = theme('image', array(
+        'path' => REALTY_FRONT_THEME_PATH . '/images/dingdongr.svg',
+        'attributes' => array(
+          'class' => array('dingdong'),
+        ),
+      ));
+
+      print $dindon_r;
+      drupal_exit();
     }
   }
   else {
     print 'user';
+    drupal_exit();
   }
 }
 
@@ -390,8 +432,16 @@ function realty_apartment_comparison() {
       if ($flag == FALSE) {
         array_push($account->field_apartment_comparison[LANGUAGE_NONE], array('target_id' => $node->nid));
         user_save($account);
+
+        $add_r = theme('image', array (
+          'path' => REALTY_FRONT_THEME_PATH . '/images/ready.svg',
+          'attributes' => array(
+            'class' => array('add',),
+          ),
+        ));
+
+        print $add_r;
       }
-      realty_generation_pdf_apartment($node);
       drupal_exit();
     }
   }
@@ -559,6 +609,26 @@ function realty_generation_pdf_apartment($node) {
 
   drupal_exit();
 }
+
+/**
+ * Form builder for search map form.
+ */
+function realty_realty_comment_form($form, $form_state) {
+
+  $form['body'] = array(
+    '#title'=>'body',
+    '#type' => 'textfield',
+    '#rows' => 6,
+    'attributes' => array(
+      'class' => array('form-control', 'comment-textarea'),
+    ),
+  );
+
+  $form['#theme'][] = 'realty_comment_form';
+
+  return $form;
+}
+
 
 /**
  * Form builder for search map form.
@@ -903,4 +973,18 @@ function realty_get_current_city() {
     $city = taxonomy_term_load($_GET['city']);
     return $city->name;
   }
+}
+
+/**
+ * Implement hook_form_alter.
+ */
+function realty_form_views_exposed_form_alter(&$form, &$form_state) {
+  $complex = menu_get_object('node', 1);
+  $homes = views_get_view_result('term_view', 'homes_complex', $complex->nid);
+  foreach ($homes as $home) {
+    $options[$home->tid] = $home->field_field_address_house[0]['rendered']['#markup'];
+  }
+  $form['field_apartament_home_tid']['#options'] = $options;
+
+  $form['#theme'] = 'realty_views_exposed_form';
 }

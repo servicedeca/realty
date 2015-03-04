@@ -18,5 +18,5 @@
   </div>
 </div>
 
-<?php // print render($content['comment_form']) ?>
+<?php print render($realty_comment_form) ?>
 <?php // print render($content['comments']) ?>

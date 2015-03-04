@@ -1,17 +1,71 @@
-<?php
 
-/**
- * @file
- * Default simple view template to display a list of rows.
- *
- * @ingroup views_templates
- */
-?>
-<?php if (!empty($title)): ?>
-  <h3><?php print $title; ?></h3>
-<?php endif; ?>
-<?php foreach ($rows as $id => $row): ?>
-  <div<?php if ($classes_array[$id]) { print ' class="' . $classes_array[$id] .'"';  } ?>>
-    <?php print $row; ?>
-  </div>
-<?php endforeach; ?>
+<table class="table issue-table display" id="complex">
+  <thead>
+  <tr>
+    <th id="bn">
+      <?php print t('Apartment')?>
+    </th>
+    <th>
+      <?php print t('Address');?>
+    </th>
+    <th>
+      <?php print t('Section');?>
+    </th>
+    <th>
+      <?php print t('Room')?>&nbsp&nbsp
+    </th>
+    <th data-sort="field_apartment_floor_value"  data-order="ASC" class="sort">
+      <?php print t('floor');?>&nbsp&nbsp
+    </th>
+    <th data-sort="field_gross_area_value" data-order="ASC" class="sort">
+      <?php print t('SQ');?>
+    </th>
+    <th data-sort="field_price_value" data-order="ASC" class="sort">
+      <?php print t('Price')?><br>м<sup>2</sup>&nbsp&nbsp
+    </th>
+    <th data-sort="field_full_cost_value" data-order="ASC" class="sort">
+      <?php print t('Coast');?>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <?php if($apartments):?>
+    <?php foreach($apartments as $apartment):?>
+      <?php if ($apartment['status'] == 0):?>
+        <tr title="Квартира забронирована" class="booking" role="row">
+      <?php else: ?>
+        <tr role="row" class="odd">
+      <?php endif?>
+      <td scope="row" class="no-hover anchor">
+        <?php print $apartment['number']?>
+        <?php print $apartment['comparison'];?>
+        <?php if(isset($apartment['dindong'])):?>
+          <?php print $apartment['dindong'];?>
+        <?php endif?>
+      </td>
+      <td class="anchor" onClick="location.href='apartment.html' ">
+        <?php print $apartment['address']?>
+      </td>
+      <td class="anchor" onClick="location.href='apartment.html' ">
+        <?php print $apartment['section']?>
+      </td>
+      <td class="anchor" onClick="location.href='apartment.html' ">
+        <?php print $apartment['room']?>
+      </td>
+      <td class="anchor" onClick="location.href='apartment.html' ">
+        <?php print $apartment['floor']?>
+      </td>
+      <td class="anchor" onClick="location.href='apartment.html' ">
+        <?php print $apartment['sq'] . 'м'?><sup>2</sup>
+      </td>
+      <td class="anchor" onClick="location.href='apartment.html' ">
+        <?php print $apartment['price'] . 'т.р.'?>
+      </td>
+      <td class="anchor" onClick="location.href='apartment.html' ">
+        <?php print $apartment['coast'] . 'т.р.'?>
+      </td>
+    </tr>
+      <?php endforeach;?>
+  <?php endif;?>
+  </tbody>
+</table>

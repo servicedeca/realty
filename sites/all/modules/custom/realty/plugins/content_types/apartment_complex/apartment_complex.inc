@@ -41,5 +41,5 @@ function realty_apartment_complex_content_type_theme(&$theme, $plugin) {
  * Process variables for realty-info-complex.tpl.php.
  */
 function template_preprocess_realty_apartment_complex(&$vars) {
-  $a = 1;
+  $vars['view'] = views_embed_view('apartments', 'apartment_complex');
 }

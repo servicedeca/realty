@@ -1,10 +1,10 @@
 
 <div class="col-xs-12 recall zero-padding">
   <h3>
-    <?php print $name?>
+    <?php print $name;?>
   </h3>
    <span>
-       <img src="images/finger.svg" class="recall-img">
+     <?php print $image_finger;?>
    </span>
   <div class="date">
     <?php print $date;?>

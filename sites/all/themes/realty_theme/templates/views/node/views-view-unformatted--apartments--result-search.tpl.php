@@ -7,6 +7,7 @@
   </div>
   <div class="col-xs-12 table-block text-center zero-padding">
     <table class="table issue-table display" id="example">
+
       <thead>
         <tr>
           <th id="bn"><?php print t('Apartment') ?></th>
@@ -22,6 +23,7 @@
           <th class="none-border-right"><?php print t('Coast') ?></th>
         </tr>
       </thead>
+
       <tbody>
         <?php if (!empty($view->result)):?>
           <?php foreach($apartments as $key=>$apartment) :?>

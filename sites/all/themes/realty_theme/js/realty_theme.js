@@ -85,6 +85,51 @@
        });
      });
 
+     //  adress type multiple select
+     $(function() {
+       $('#edit-field-apartament-home-tid').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         placeholder: 'Адрес дома',
+         selectAllText: 'Отметить все',
+         allSelected: 'Все'
+       });
+     });
+
+
+//  room type multiple select
+     $(function() {
+       $('#room').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         placeholder: 'Комнаты',
+         selectAllText: 'Отметить все',
+         allSelected: 'Все'
+       });
+     });
+
+
+//  section type multiple select
+     $(function() {
+       $('#fsection').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         placeholder: 'Секция',
+         selectAllText: 'Отметить все',
+         allSelected: 'Все'
+       });
+     });
+
+//  section type multiple select
+     $(function() {
+       $('#ffloor').change(function() {
+         console.log($(this).val());
+       }).multipleSelect({
+         placeholder: 'Этаж',
+         selectAllText: 'Отметить все',
+         allSelected: 'Все'
+       });
+     });
 
 //  balkon type multiple select
      $(function() {
@@ -350,9 +395,8 @@
           }
         });
       });
-
-      $("#apartment-comparison").click(function () {
-
+      $(document).on('click', '.apartment-comparison',function () {
+        var apartment = $(this);
         var nid = $(this).data('node-id');
         $.ajax({
           url: '/apartment_comparison',
@@ -361,7 +405,8 @@
             nid: nid
           },
           success: function(response) {
-            alert('Добавленнно');
+            apartment.html('');
+            apartment.html(response);
           },
           error: function(response) {
             alert('false');
@@ -369,8 +414,8 @@
         });
       });
 
-      $("#apartment-signal").click(function () {
-
+      $(document).on('click', '.apartment-signal',function () {
+        var apartment = $(this);
         var nid = $(this).data('node-id');
         $.ajax({
           url: '/apartment_signal',
@@ -382,11 +427,9 @@
             if(response == 'user') {
               window.location.replace('user');
             }
-            else if(response == true) {
-              $('#signal').html('');
-              $('#signal').html('<a href="#apartment-signal" rel="tooltip" data-placement="right" title="" data-original-title="уведомление отправится о снятии брони">' +
-                '<img class="dingdong" src='+Drupal.settings.REALTY_FRONT_THEME_PATH +'/images/dingdong.svg>' +
-                '</a>');
+            else {
+              apartment.html('');
+              apartment.html(response);
             }
           },
           error: function(response) {
@@ -440,6 +483,42 @@
     })
   }
 
+
+  Drupal.behaviors.realtySortApartment = {
+    attach: $(function() {
+      var order = 0;
+      var temp_param = 0;
+      var param;
+
+      $(document).on('click', '.sort', function() {
+        param = $(this).data('sort');
+        if (temp_param != param) {
+          if (order === 'ASC' || order === 0) {
+            $('#edit-sort-by option[value='+param+']').attr('selected', 'selected');
+            $('#edit-sort-order option[value=ASC]').attr('selected', 'selected');
+            $('#edit-submit-apartments').trigger('click');
+            temp_param = param;
+
+          }
+          else if (order === 'DESC') {
+            $('#edit-sort-by option[value='+param+']').attr('selected', 'selected');
+            $('#edit-sort-order option[value=DESC]').attr('selected', 'selected');
+            $('#edit-submit-apartments').trigger('click');
+            order = 'ASC';
+            temp_param = 0;
+          }
+        }
+        else {
+          $('#edit-sort-by option[value='+param+']').attr('selected', 'selected');
+          $('#edit-sort-order option[value=DESC]').attr('selected', 'selected');
+          $('#edit-submit-apartments').trigger('click');
+          order = 'ASC';
+          temp_param = 0;
+        }
+      })
+    })
+  }
+
   Drupal.behaviors.realtySearchTabel = {
     attach: $(function() {
       $(function() {
@@ -472,6 +551,37 @@
       $('#edit-field-home-complex-und').change(function() {
         console.log($(this).val());
       })
+    })
+  }
+
+  Drupal.behaviors.realtyCommentAJAX = {
+    attach: $(function(){
+      $('#realty-comment-submit').click(function() {
+        var comment = $('#realty-comment-form-input').val();
+        var nid = $('#realty-comment-submit').data('node-id');
+        if(comment != '') {
+          $.ajax({
+            url: '/realty_add_comment',
+            type: 'POST',
+            data: {
+              comment: comment,
+              nid: nid
+            },
+            success: function(response) {
+              $('#modal-body-comment').html('');
+              $('#modal-body-comment').html('Добавлено');
+              $('#realty-comment-submit').remove();
+            },
+            error: function(response) {
+              alert('false');
+            }
+          });
+        }
+        else {
+
+        }
+        console.log($('#realty-comment-form-input').val());
+      });
     })
   }
 
