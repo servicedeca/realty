@@ -2164,7 +2164,8 @@ padding-left: 15px;
 
 .table > tbody > tr > td,
 .table > tbody > tr > th{
-    border-bottom: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	vertical-align: middle;
 }
 
 .flat-number{
@@ -4187,7 +4188,7 @@ font-size: 16px;
 
 .container-modal-comment {
 	width: 500px;
-	min-height: 450px;
+	min-height: 400px;
     position: relative;
     margin: 0 auto;
     background: #fff;
@@ -4730,4 +4731,57 @@ margin-top: -1px;
 
 .apartment-status-booked {
 	    color:#bf4b4b;
+}
+
+.profile-flat-number {
+	margin-left: 8%;
+}
+
+.profile-info {
+	margin-top: 70px;
+}
+
+.profile-photo img{
+	width: 150px;
+}
+
+.profile-text p{
+color:#999999;
+	font-size: 16px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
+
+.profile-text h1{
+	color: #999999;
+	text-transform: uppercase;
+	font-size: 30px;
+	margin-bottom: 5px;
+	margin-top: 35px;
+}
+
+
+.profile-text h2{
+	font-size: 30px;
+	color: #333333;
+	margin: 0px;
+}
+
+
+
+.textarea-error {
+	border: 1px solid #ba3636;
+}
+
+.textarea-error-comment {
+	
+}
+
+.textarea-error-text {
+	color:#ba3636;
+	font-size: 14px;
+	margin-left: 30px;
+	position: absolute;
+	top:-30px;
+	
 }
