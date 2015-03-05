@@ -18,7 +18,6 @@
         <script src="js/fotorama.js"></script>
         <script src="js/jquery.multiple.select.js"></script>
         <script src="js/ion.rangeSlider.js"></script>
-        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
         <script src="http://api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
         
         <!-- Plugin JavaScript -->
@@ -27,20 +26,6 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="js/findom.js"></script>
-
-        <script>
-            $(document).ready(function() {
-                $('#example').dataTable( {
-                    "paging":   false,
-                    "info":     false,
-                    "columnDefs": [ {
-                    "targets": [ 0, 1, 2, 3, 4],
-                    "orderable": false,
-                } ]
-                } );
-            } );
-        </script>
-
    
         <script>
             $(document).ready(function () {
@@ -271,11 +256,11 @@
                                 <th id="bn">Квартира</th>
                                 <th>Район</th>
                                 <th>Застройщик</th>
-                                <th>ЖК</th>
+                                <th class="sorting">ЖК</th>
                                 <th>Адресс</th>
                                 <th>Срок<br>сдачи</th>
-                                <th>Комн.&nbsp&nbsp</th>
-                                <th>Этаж&nbsp&nbsp</th>
+                                <th class="sorting-up">Комн.&nbsp&nbsp</th>
+                                <th class="sorting-down ">Этаж&nbsp&nbsp</th>
                                 <th >S</th>
                                 <th>Цена&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp</th>
                                 <th>Стоимость&nbsp</th>
@@ -285,12 +270,12 @@
                             
                             <tr>
                                 <td scope="row" class="no-hover anchor" onClick="location.href='apartment-free.html' ">
-                                    <a href="#" title="Посмотреть квартиру">
+                                    <a title="Посмотреть квартиру">
                                         <div class="flat-number">
                                             103
                                         </div>
                                     </a>
-                                    <a href="#" title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
+                                    <a title="добавить квартиру в сравнение" rel="tooltip" data-placement="right">
                                         <img src="images/add.svg" class="add z-but">
                                         <img src="images/addh.svg" class="add z-but-h">
                                     </a>

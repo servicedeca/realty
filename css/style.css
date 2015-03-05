@@ -2719,6 +2719,12 @@ table.dataTable thead #bn.sorting_asc {
     right: 0px;
 }
 
+.complex-left-menu {
+    height: 70px;
+    line-height: 70px;
+    position: absolute;
+}
+
 .tab-menu {
     height: 70px;
     line-height: 70px;
@@ -3800,6 +3806,8 @@ table.dataTable thead #bn.sorting_asc {
     height: 70px;
     line-height: 70px;
     text-align: center;
+	background: transparent;
+	border: none;
 }
 
 .complex-filter-clear-button:hover {
@@ -4738,7 +4746,6 @@ margin-top: -1px;
 }
 
 .profile-info {
-	margin-top: 70px;
 }
 
 .profile-photo img{
@@ -4778,10 +4785,30 @@ color:#999999;
 }
 
 .textarea-error-text {
-	color:#ba3636;
-	font-size: 14px;
-	margin-left: 30px;
-	position: absolute;
-	top:-30px;
+
 	
+}
+
+.hint-comment-block {
+	height: 70px;
+	padding-top: 15px;
+	text-align: center;
+}
+
+.textarea-send-text {
+		color:#333;
+	font-size: 16px;
+	position: absolute;
+}
+
+thead .sorting {
+background: url("../images/icon/both.png") no-repeat center right;
+}
+
+thead .sorting-up {
+background: url("../images/icon/up.png") no-repeat center right;
+}
+
+thead .sorting-down {
+background: url("../images/icon/down.png") no-repeat center right;
 }
