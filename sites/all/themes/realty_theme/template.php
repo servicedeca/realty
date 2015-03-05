@@ -270,6 +270,7 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
           'rel' => 'tooltip',
         ),
       ));
+
       if (!empty($account->field_apartment_comparison)) {
         foreach ($account->field_apartment_comparison[LANGUAGE_NONE] as $id) {
           if($id['target_id'] == $val->nid ) {

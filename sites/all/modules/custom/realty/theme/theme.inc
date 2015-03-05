@@ -21,9 +21,8 @@ function realty_preprocess_realty_user_profile_form(&$vars) {
 function realty_preprocess_realty_views_exposed_form(&$vars) {
 
   $vars['form'] = $vars[''];
-  $vars['form']['field_apartament_home_tid']['#attributes']['class'][] = 'cf';
+
   $vars['form']['field_number_rooms_value']['#attributes']['class'][] = 'cf';
-  $vars['form']['field_section_value']['#attributes']['class'][] = 'cf';
   $vars['form']['field_apartment_floor_value']['#title'] = t('floor');
   $vars['form']['field_apartment_floor_value']['#attributes']['class'][] = 'complex-filter-square-input';
 
@@ -32,6 +31,13 @@ function realty_preprocess_realty_views_exposed_form(&$vars) {
   $vars['form']['field_gross_area_value']['max']['#title'] = t('to');
   $vars['form']['field_gross_area_value']['min']['#attributes']['class'][] = 'complex-filter-square-input';
   $vars['form']['field_gross_area_value']['max']['#attributes']['class'][] = 'complex-filter-square-input';
+
+  $vars['form_filter'] = drupal_get_form('realty_filter_complex_apartment_form');
+
+  $vars['button'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/clear.svg',
+  ));
+
 }
 
 /**

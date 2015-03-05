@@ -976,25 +976,53 @@ function realty_get_current_city() {
 }
 
 /**
- * Implement hook_form_alter.
+ * Form builder for filter form complex apartments.
  */
-function realty_form_views_exposed_form_alter(&$form, &$form_state) {
+function realty_filter_complex_apartment_form($form, $form_state) {
+
   $complex = menu_get_object('node', 1);
   $homes = views_get_view_result('term_view', 'homes_complex', $complex->nid);
   foreach ($homes as $key=>$home) {
     $options[$home->tid] = $home->field_field_address_house[0]['rendered']['#markup'];
     $sections[$home->field_field_address_house[0]['rendered']['#markup']]
-    [$home->field_field_number_section[0]['rendered']['#markup'].':'.$home->tid] = $home->field_field_number_section[0]['rendered']['#markup'];
+      [$home->field_field_number_section[0]['rendered']['#markup'].':'.$home->tid] =
+      $home->field_field_number_section[0]['rendered']['#markup'];
   }
-  $form['field_apartament_home_tid']['#options'] = $options;
-  $form['field_section_value']['#options'] = $sections;
 
-  /*$form['field_section_value'] = array(
+  $form['address'] = array(
+    '#type' => 'select',
+    '#options' => $options,
+    '#multiple' => TRUE,
+    '#size' => 5,
+    '#attributes' => array(
+      'class' => array('cf'),
+      'id' => 'filter-form-address',
+    ),
+  );
+
+  $form['sections'] = array(
     '#type' => 'select',
     '#options' => $sections,
     '#multiple' => TRUE,
     '#size' => 5,
-  );*/
+    '#attributes' => array(
+      'class' => array('cf'),
+      'id' => 'filter-form-section',
+    ),
+  );
 
+  return $form;
+
+}
+
+
+/**
+ * Implement hook_form_alter.
+ */
+function realty_form_views_exposed_form_alter(&$form, &$form_state) {
   $form['#theme'] = 'realty_views_exposed_form';
+}
+
+function realty_views_exposed_form_submit(&$form, &$form_state){
+  $a = 1;
 }

@@ -35,3 +35,18 @@
 .form-item-field-gross-area-value-max {
   display: inline;
 }
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.recall h3 {
+  width: 95%;
+  float: left;
+  padding-top: 0px;
+  margin-top: 5px;
+  color: #000;
+  font-size: 18px;
+  margin-bottom: 0px;
+}

@@ -11,8 +11,8 @@
   <?php endif; ?>
 
   <div class="container fin last-block">
-    <div class="container fin">
-      <div class="col-xs-9">
+    <div class="container fin zero-padding">
+      <div class="col-xs-9 zero-padding">
         <?php if (!empty($content['content_left'])) : ?>
           <?php print $content['content_left']; ?>
         <?php endif; ?>

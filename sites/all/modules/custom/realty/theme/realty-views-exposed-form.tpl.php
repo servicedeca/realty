@@ -1,7 +1,7 @@
 <div class="col-xs-12 complex-filters zero-padding">
 
   <div class="col-xs-2 zero-padding complex-filters-select">
-    <?php print render($form['field_apartament_home_tid']);?>
+    <?php print render($form_filter['address']);?>
   </div>
 
   <div class="col-xs-2 zero-padding complex-filters-select">
@@ -9,7 +9,7 @@
   </div>
 
   <div class="col-xs-2 zero-padding complex-filters-select">
-    <?php print render($form['field_section_value']);?>
+    <?php print render($form_filter['sections']);?>
   </div>
 
   <div class="col-xs-2 complex-filter-square zero-padding">
@@ -25,12 +25,16 @@
        Показать только свободные
    </a>
    -->
-  <a href="#" class="col-xs-1 complex-filter-clear-button zero-padding" title="Очистить все фильтры">
-    <img src="images/clear.svg">
-  </a>
-  <?php print render($form['submit']);?>
+  <button type="button" class="col-xs-1 complex-filter-clear-button zero-padding" title="Очистить все фильтры">
+    <?php print $button;?>
+  </button>
 </div>
 
 <div class="element-hidden">
-<?php drupal_render_children($form);?>
+  <?php print render($form['sort_by']);?>
+  <?php print render($form['sort_order']);?>
+  <?php print render($form['field_apartament_home_tid']);?>
+  <?php print render($form['field_section_value']);?>
+  <?php print render($form['submit']);?>
+  <?php drupal_render_children($form);?>
 </div>

@@ -22,7 +22,7 @@
         fotorama.show('<');
       });
 
-      function ArrowMeter(){
+      function ArrowMeter() {
         var height = $('.big-height').height();
         var result = height / 2.7;
         $('.fotorama__arr--prev').css('top', result);
@@ -41,6 +41,11 @@
 
  Drupal.behaviors.realtyFormSearch = {
    attach: $(function() {
+
+   $(document).on('click', '.complex-filter-clear-button',function () {
+     $('#edit-submit-apartments').trigger('click');
+   });
+
 
    var multiple_select_form = function() {
      $(function() {
@@ -87,14 +92,113 @@
      });
 
      //  adress type multiple select
+     $(function() {
+       window.all_select = $('#filter-form-section').html();
 
-       $('#edit-field-apartament-home-tid').change(function() {
-         console.log($(this).val());
-       }).multipleSelect({
-         placeholder: 'Адрес дома',
+       var change_select_list = function (homes) {
+         var group = {};
+         console.log(homes);
+         if (homes != null) {
+           for (var i in homes) {
+             group[$("#filter-form-address [value='"+homes[i]+"']").val()] = $("#filter-form-address [value='"+homes[i]+"']").text();
+           }
+         }
+         if(!$.isEmptyObject(group)) {
+           var select_html = null;
+           for(var j in group) {
+             if (select_html != null) {
+               select_html += '<optgroup label="'+group[j]+'">';
+             }
+             else {
+               select_html = '<optgroup label="'+group[j]+'">';
+             }
+
+             for(var k in window.sections) {
+               var key = k.split(':');
+               if (key[1] === j) {
+                 select_html += '<option value="'+key[0]+':'+key[1]+'">'+key[0]+'</option>';
+               }
+             }
+             select_html += '</optgroup>';
+           }
+           return select_html;
+         }
+
+         else {
+           return window.all_select;
+         }
+       }
+
+       $("#filter-form-address").val($('#edit-field-apartament-home-tid').val());
+       console.log($('#edit-field-apartament-home-tid').val());
+       $('#filter-form-section').html('')
+         .html(change_select_list($('#edit-field-apartament-home-tid').val()));
+
+
+       $('#filter-form-address').change(function() {
+         var homes;
+         homes = $(this).val();
+         $('#filter-form-section').html('')
+           .html(change_select_list(homes))
+           .multipleSelect({
+             placeholder: 'Секция',
+             selectAllText: 'Отметить все',
+             allSelected: 'Все'
+           });
+         $('#edit-field-apartament-home-tid').val($(this).val());
+       })
+       .multipleSelect({
+       placeholder: 'Адрес дома',
+       selectAllText: 'Отметить все',
+       allSelected: 'Все'
+       });
+     });
+
+     //  section type multiple select
+     $(function() {
+       window.sections = {};
+
+       $('#filter-form-section option').each(function() {
+         window.sections[$(this).val()] = $(this).text();
+       });
+
+
+       console.log( window.sections);
+         var address = $("#filter-form-address").val();
+         var sections = $('#edit-field-section-value').val();
+         if ($("#filter-form-address").val() != null) {
+           for (var e in address) {
+              for (var en in sections) {
+                var option = sections[en]+':'+address[e];
+                console.log(option);
+                $('#filter-form-section option[value="'+option+'"]').attr('selected', 'selected');
+              }
+           }
+         }
+
+
+       $('#filter-form-section').change(function() {
+         var section;
+         var sections = $(this).val();
+
+         for (var c in window.sections) {
+           section = c.split(':');
+           $('#edit-field-section-value option[value='+section[0]+']').attr('selected', false);
+           $('#edit-field-apartament-home-tid option[value='+section[1]+']').attr('selected', false);
+         }
+         for (var i in sections) {
+           section = sections[i].split(':');
+           $('#edit-field-section-value option[value='+section[0]+']').attr('selected', 'selected');
+           $('#edit-field-apartament-home-tid option[value='+section[1]+']').attr('selected', 'selected');
+         }
+       })
+
+       .multipleSelect({
+         placeholder: 'Секция',
          selectAllText: 'Отметить все',
          allSelected: 'Все'
        });
+     });
 
 
 //  room type multiple select
@@ -103,18 +207,6 @@
          console.log($(this).val());
        }).multipleSelect({
          placeholder: 'Комнаты',
-         selectAllText: 'Отметить все',
-         allSelected: 'Все'
-       });
-     });
-
-
-//  section type multiple select
-     $(function() {
-       $('#edit-field-section-value').change(function() {
-         console.log($(this).val());
-       }).multipleSelect({
-         placeholder: 'Секция',
          selectAllText: 'Отметить все',
          allSelected: 'Все'
        });
@@ -144,7 +236,7 @@
    };
 
     multiple_select_form();
-    $(document).ajaxSuccess(function(){
+    $(document).ajaxSuccess(function() {
       multiple_select_form();
     });
 
@@ -496,8 +588,31 @@
       var order = 0;
       var temp_param = 0;
       var param;
+      var this_class;
+
+      $(document).ajaxSuccess(function() {
+        console.log(this_class);
+        $(this_class).removeClass('sorting');
+        if (temp_param != param) {
+          if (order === 'ASC' || order === 0) {
+            $(this_class).removeClass('sorting');
+            $(this_class).addClass('sorting-up');
+          }
+          else if (order === 'DESC') {
+            $(this_class).removeClass('sorting');
+            $(this_class).removeClass('sorting-down');
+            $(this_class).addClass('sorting-up');
+          }
+        }
+        else {
+          $(this_class).removeClass('sorting');
+          $(this_class).removeClass('sorting-up');
+          $(this_class).addClass('sorting-down ');
+        }
+      });
 
       $(document).on('click', '.sort', function() {
+        this_class = $(this);
         param = $(this).data('sort');
         if (temp_param != param) {
           if (order === 'ASC' || order === 0) {
@@ -505,7 +620,8 @@
             $('#edit-sort-order option[value=ASC]').attr('selected', 'selected');
             $('#edit-submit-apartments').trigger('click');
             temp_param = param;
-
+            $(this).removeClass('sorting');
+            $(this).addClass('sorting-up');
           }
           else if (order === 'DESC') {
             $('#edit-sort-by option[value='+param+']').attr('selected', 'selected');
@@ -513,6 +629,9 @@
             $('#edit-submit-apartments').trigger('click');
             order = 'ASC';
             temp_param = 0;
+            $(this).removeClass('sorting');
+            $(this).removeClass('sorting-down');
+            $(this).addClass('sorting-up');
           }
         }
         else {
@@ -521,27 +640,11 @@
           $('#edit-submit-apartments').trigger('click');
           order = 'ASC';
           temp_param = 0;
+          $(this).removeClass('sorting');
+          $(this).removeClass('sorting-up');
+          $(this).addClass('sorting-down ');
         }
       })
-    })
-  }
-
-  Drupal.behaviors.realtySearchTabel = {
-    attach: $(function() {
-      $(function() {
-        $('#example').dataTable( {
-          "paging":   false,
-          "info":     false,
-          "columnDefs": [ {
-            "targets": [ 0,1,2,3,4],
-            "orderable": false
-          } ]
-      } );
-      } );
-
-      $(function () {
-        $("[rel='tooltip']").tooltip();
-      });
     })
   }
 
@@ -555,9 +658,7 @@
 
   Drupal.behaviors.realty = {
     attach: $(function(){
-      $('#edit-field-home-complex-und').change(function() {
-        console.log($(this).val());
-      })
+
     })
   }
 
