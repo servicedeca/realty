@@ -494,24 +494,27 @@
           }
         });
       });
+
       $(document).on('click', '.apartment-comparison',function () {
         var apartment = $(this);
         var nid = $(this).data('node-id');
-        $.ajax({
-          url: '/apartment_comparison',
-          type: 'POST',
-          data: {
-            nid: nid
-          },
-          success: function(response) {
-            apartment.html('');
-            apartment.html(response);
-          },
-          error: function(response) {
-            alert('false');
-          }
-        });
+        console.log(nid);
+          $.ajax({
+            url: '/apartment_comparison',
+            type: 'POST',
+            data: {
+              nid: nid
+            },
+            success: function(response) {
+              apartment.html('');
+              apartment.html(response);
+            },
+            error: function(response) {
+              alert('false');
+            }
+          });
       });
+
 
       $(document).on('click', '.apartment-signal',function () {
         var apartment = $(this);
@@ -676,9 +679,15 @@
               nid: nid
             },
             success: function(response) {
-              $('#modal-body-comment').html('');
-              $('#modal-body-comment').html('Добавлено');
-              $('#realty-comment-submit').remove();
+              if (response) {
+                $('.hint-comment-block')
+                  .html('')
+                  .html('<p class="textarea-send-text">'+Drupal.t('Your review has been sent!')+'</p>');
+                $('#realty-comment-form-input').val('');
+              }
+              else {
+                alert(Drupal.t('Error! Contact the administrator of the site.'));
+              }
             },
             error: function(response) {
               alert('false');
@@ -686,8 +695,16 @@
           });
         }
         else {
-
+          $('.hint-comment-block')
+            .html('')
+            .html('<p class="textarea-error-text">'+Drupal.t('Write a comment!!')+'</p>');
+            $('.form-control').addClass('textarea-error');
         }
+        setTimeout(function(){
+          $('.hint-comment-block').html('')
+          $('.form-control').removeClass('textarea-error');
+        },2000);
+
         console.log($('#realty-comment-form-input').val());
       });
     })

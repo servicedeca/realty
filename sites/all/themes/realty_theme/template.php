@@ -259,43 +259,46 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
         ),
       ));
 
-      $vars['apartments'][$key]['comparison'] = l($add . $add_h , '#complex', array(
-        'html' => TRUE,
-        'external' => TRUE,
-        'attributes' => array(
-          'title' => t('Add an apartment to Compare'),
-          'class' => array('apartment-comparison'),
-          'data-placement' => 'right',
-          'data-node-id' => $val->nid,
-          'rel' => 'tooltip',
-        ),
-      ));
+      $vars['apartments'][$key]['comparison'] = '<div class="apartment-comparison" data-node-id='.$val->nid.'>' .
+          l($add . $add_h , '#complex', array(
+            'html' => TRUE,
+            'external' => TRUE,
+            'attributes' => array(
+              'title' => t('Add an apartment to Compare'),
+              'data-placement' => 'right',
+              'rel' => 'tooltip',
+            ),
+          )) .
+        '</div>';
 
       if (!empty($account->field_apartment_comparison)) {
         foreach ($account->field_apartment_comparison[LANGUAGE_NONE] as $id) {
+
           if($id['target_id'] == $val->nid ) {
+
             $add_r = theme('image', array (
               'path' => REALTY_FRONT_THEME_PATH . '/images/ready.svg',
               'attributes' => array(
-                'class' => array('add',),
+                'class' => array('add'),
               ),
             ));
-            $vars['apartments'][$key]['comparison'] = l($add_r , '#complex', array(
+
+            $vars['apartments'][$key]['comparison'] = l($add_r , '#href', array(
               'html' => TRUE,
               'external' => TRUE,
               'attributes' => array(
-                'title' => t('Add an apartment to Compare'),
-                'class' => array('apartment-comparison'),
+                'title' => t('Apartment in comparison'),
                 'data-placement' => 'right',
-                'data-node-id' => $val->nid,
                 'rel' => 'tooltip',
               ),
             ));
+
           }
         }
       }
 
       if($val->field_field_status[0]['raw']['value'] == 0) {
+
         $dindon = theme('image', array(
           'path' => REALTY_FRONT_THEME_PATH . '/images/dingdong.svg',
           'attributes' => array(
@@ -310,35 +313,40 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
           ),
         ));
 
-        $vars['apartments'][$key]['dindong'] = l($dindon . $dindon_h , '#complex', array(
-          'html' => TRUE,
-          'external' => TRUE,
-          'attributes' => array(
-            'title' => t('Send a notice of withdrawal of the reservation'),
-            'class' => array('apartment-signal'),
-            'data-placement' => 'right',
-            'data-node-id' => $val->nid,
-            'rel' => 'tooltip',
-          ),
+        $vars['apartments'][$key]['dindong'] = '<div class="apartment-signal" data-node-id='.$val->nid.'>'.
+          l($dindon . $dindon_h , '#href', array(
+            'html' => TRUE,
+            'external' => TRUE,
+            'attributes' => array(
+              'title' => t('Send a notice of withdrawal of the reservation'),
+              'data-placement' => 'right',
+              'rel' => 'tooltip',
+            ),
         ));
 
         if (!empty($val->_field_data['nid']['entity']->field_user_signal)) {
           foreach ($val->_field_data['nid']['entity']->field_user_signal[LANGUAGE_NONE] as $value) {
             if ($value['target_id'] == $user->uid) {
+
               $dindon_r = theme('image', array(
                 'path' => REALTY_FRONT_THEME_PATH . '/images/dingdongr.svg',
                 'attributes' => array(
                   'class' => array('dingdong'),
                 ),
               ));
-              $vars['apartments'][$key]['dindong'] = l($dindon_r , '', array(
+
+              $vars['apartments'][$key]['dindong'] = l($dindon_r , '#href', array(
                 'html' => TRUE,
-                'rel' => 'tooltip',
-                'data-placement' => 'right',
-                'data-original-title' => 'send a notice of withdrawal of the reservation',
+                'external' => TRUE,
+                'attributes' => array(
+                  'rel' => 'tooltip',
+                  'data-placement' => 'right',
+                  'title' => 'Notification will be sent to the withdrawal of reservations',
+                ),
               ));
             }
           }
+
         }
       }
 
@@ -604,3 +612,24 @@ function realty_theme_preprocess_realty_comment_form(&$vars) {
   ));
 }
 
+/**
+ * Process variables for views-view-unformatted--comments-complex--comments-complex.tpl.php
+ */
+
+function realty_preprocess_views_view_unformatted__comments_complex__comments_complex(&$vars) {
+  $vars['image_finger'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/finger.svg',
+    'attributes' => array('class' => array('recall-img')),
+  ));
+
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $comment) {
+      $vars['comments'][] = array(
+       'comment' => $comment->field_field_body[0]['rendered']['#markup'],
+       'name' => $comment->comment_name,
+       'date' => gmdate("m-d-Y", $comment->comment_created),
+      );
+    }
+  }
+  $a = 1;
+}

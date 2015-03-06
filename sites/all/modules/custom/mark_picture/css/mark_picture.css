@@ -21,6 +21,7 @@
 
 .div-plan-complex {
   position: relative;
+  display: table;
 }
 
 .error-add-complex {
