@@ -1133,18 +1133,67 @@
                     </button>  
                 </div>
                 <div class="col-xs-12 registration-tab-block zero-padding">
-					<ul  id="menureg">
-					<a href="#reg" data-toggle="tab">
-						<li  class="reg-item reg-active">Регистрация</li>
+					<ul  id="menureg" role="tablist">
+					<a href="#reg" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+						<li  class="reg-item reg-active" role="presentation">Регистрация</li>
 					</a>
-					<a href="#enter" data-toggle="tab"  >
-						<li class="reg-item">Вход</li>
+					<a href="#enter" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">
+						<li class="reg-item" role="presentation">Вход</li>
 					</a>
 					</ul>
 				</div>
-                <div class="col-xs-12 modal-button">
-                    <a href="#" class="search-button modal-but">Войти</a> 
-                </div>
+
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade active in" id="reg" aria-labelledby="home-tab">
+						 <div class="col-xs-12 reg-line">
+							<div class="col-xs-3 text-right zero-padding margin-top-10">
+								<img src="images/c-man.svg">
+							</div>
+							<div class="col-xs-9 comment-input-item">
+								<input class="form-control reg-input" placeholder="Ф.И.О."></input>
+							</div>
+						</div>
+						 <div class="col-xs-12 reg-line">
+							<div class="col-xs-3 text-right zero-padding margin-top-10">
+								<img src="images/mail.svg">
+							</div>
+							<div class="col-xs-9 comment-input-item">
+								<input class="form-control reg-input" placeholder="E-mail"></input>
+							</div>
+						</div>
+						 <div class="col-xs-12 reg-line">
+							<div class="col-xs-3 text-right zero-padding margin-top-10">
+								<img src="images/key.svg">
+							</div>
+							<div class="col-xs-9 comment-input-item">
+								<input class="form-control reg-input" placeholder="Пароль"></input>
+							</div>
+						</div>
+						<button type="button" onClick="location.href='profile.html' " class="col-xs-4 col-xs-offset-4 registration-button" data-dismiss="modal" aria-hidden="true">Зарегистрироваться
+						</button>
+					</div>
+
+					<div role="tabpanel" class="tab-pane fade" id="enter" aria-labelledby="profile-tab">
+						 <div class="col-xs-12 reg-line">
+							<div class="col-xs-3 text-right zero-padding margin-top-10">
+								<img src="images/mail.svg">
+							</div>
+							<div class="col-xs-9 comment-input-item">
+								<input class="form-control reg-input" placeholder="E-mail"></input>
+							</div>
+						</div>
+						 <div class="col-xs-12 reg-line">
+							<div class="col-xs-3 text-right zero-padding margin-top-10">
+								<img src="images/key.svg">
+							</div>
+							<div class="col-xs-9 comment-input-item">
+								<input class="form-control reg-input" placeholder="Пароль"></input>
+							</div>
+						</div>
+						<button type="button" onClick="location.href='profile.html' " class="col-xs-4 col-xs-offset-4 registration-button" data-dismiss="modal" aria-hidden="true">Войти
+						</button>
+					</div>
+		  	</div>
         </div>
     </div>
     <!--    End Modal_reg   -->

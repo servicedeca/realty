@@ -11,6 +11,10 @@ button[type="button"]{
     outline:none;
 }
 
+input[type="input"]{
+    outline:none;
+}
+
 .row {
   margin-left: 0px;
 }
@@ -4666,6 +4670,7 @@ margin-top: -1px;
 }
 .container-modal-reg {
 	width: 600px;
+	height: 450px;
 	position: relative;
 	margin: 0 auto;
 	background: #fff;
@@ -4784,6 +4789,10 @@ margin-top: -1px;
 	text-decoration: none;
 }
 
+.profile-text a:focus{
+	text-decoration: none;
+}
+
 .a4-right-item img{
 	max-width: 300px;
 }
@@ -4896,7 +4905,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .container-modal-profile {
 	width: 500px;
-	height: 300px;
+	height: 210px;
     position: relative;
     margin: 0 auto;
     background: #fff;
@@ -4907,8 +4916,77 @@ background: url("../images/icon/down.png") no-repeat center right;
 .registration-tab-block {
 	height: 70px;
 	line-height: 70px;
+	margin-bottom: 10px;
 }
 
 #menureg {
 	padding-left: 0px;
+}
+
+.registration-button {
+	height: 50px;
+	top:10px;
+	line-height: 50px;
+	border: none;
+	line-height: 50px;
+	text-align: center;
+	background: #7fbf80;
+	color:#f2f2f2;
+	border-radius: 5px;
+	font-size: 16px;
+	text-transform: uppercase;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.registration-button:hover {
+	background: #659665;
+	text-decoration: none;
+    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+	color:#f2f2f2;
+}
+
+.reg-line {
+	height: 70px;
+}
+
+.comment-input::-webkit-input-placeholder {
+	color:#333333;
+}
+
+.comment-input::-moz-placeholder {
+	color:#333333;
+}
+
+.reg-input {
+	height: 50px;
+	margin-top:10px;
+	line-height: 50px;
+	color:#333;
+	background: #f2f2f2;
+	font-size: 20px;
+	width: 350px;
+	padding-left: 15px;
+	border-radius: 0px;
+	outline: none;
+	border: none;
+}
+
+.margin-top-10 {
+	margin-top: 10px;
+}
+
+.profile-change-item {
+	height: 70px;
+}
+
+.margin-top-35 {
+	margin-top: -40px;
 }
