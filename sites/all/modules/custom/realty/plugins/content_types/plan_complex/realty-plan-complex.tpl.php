@@ -1,20 +1,10 @@
 <div class="container fin">
 
-  <div id="Complex-plan">
+  <div id="complex-plan">
     <div class="col-xs-10 col-xs-offset-1 tab-menu zero-padding">
       <div class="col-xs-8 zero-padding">
         <div class="col-xs-4 tab-menu-active">
           <?php print t('overall plan');?>
-        </div>
-        <div class="col-xs-4 tab-menu-passive">
-          <a href="#" class="not-allowed" title="Выберите дом">
-           <?php print t('Sections');?>
-          </a>
-        </div>
-        <div class="col-xs-4 tab-menu-passive">
-          <a href="#" class="not-allowed" title="Выберите дом">
-            <?php print t('Floors');?>
-          </a>
         </div>
       </div>
     </div>
@@ -30,20 +20,45 @@
     </div>
     <div class="col-xs-4 left-part-complex zero-padding">
       <div class="vertical">
-        <p>
-          Новосибирск, Водопроводная, 1а
-        </p>
-        <p>
-          Этажность: 9 – 20 этажей
-        </p>
-        <p>
-          Первая очередь строительства: секции №1, №2, №3 II квартал 2013 г. – II квартал 2015 г
-        </p>
-        <p>
-          Вторая очередь строительства: секции №4, №5, №6, №7, №8 III квартал 2014 г. – IV квартал 2016 г.
-        </p>
+        <?php print $deadline_description;?>
       </div>
     </div>
   </div>
 
+<?php if($homes):?>
+  <?php foreach($homes as $home):?>
+  <div id="home-<?php print $home['tid']?>-plan" class="plan-home-section">
+    <div class="col-xs-10 col-xs-offset-1 tab-menu zero-padding">
+      <div class="col-xs-8 zero-padding">
+        <div class="col-xs-4 tab-menu-passive over-plan">
+          <?php print t('overall plan');?>
+        </div>
+        <div class="col-xs-4 tab-menu-active">
+          <a href="#" class="not-allowed" title="Выберите дом">
+            <?php print t('Sections');?>
+          </a>
+        </div>
+        <div class="col-xs-4 tab-menu-passive">
+          <a href="#" class="not-allowed" title="Выберите дом">
+            <?php print t('Floors');?>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-8 right-part-complex zero-padding">
+      <?php print $home['plan'];?>
+      <?php foreach($sections as $section):?>
+        <?php if($section['home_tid'] == $home['tid']):?>
+          <?php print $section['section'];?>
+        <?php endif;?>
+      <?php endforeach?>
+    </div>
+    <div class="col-xs-4 left-part-complex zero-padding">
+      <div class="vertical">
+        <?php print $home['description'];?>
+      </div>
+    </div>
+  </div>
+  <?php endforeach;?>
+<?php endif;?>
 </div>

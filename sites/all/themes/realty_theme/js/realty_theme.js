@@ -659,12 +659,6 @@
       })
     }
 
-  Drupal.behaviors.realty = {
-    attach: $(function(){
-
-    })
-  }
-
   Drupal.behaviors.realtyCommentAJAX = {
     attach: $(function(){
       $('#realty-comment-submit').click(function() {
@@ -706,6 +700,23 @@
         },2000);
 
         console.log($('#realty-comment-form-input').val());
+      });
+    })
+  }
+
+
+  Drupal.behaviors.realtyPlanComplex = {
+    attach: $(function(){
+      $('.plan-complex-home').click(function(){
+        var id_home = $(this).attr('id').split('-');
+        $('#complex-plan').hide();
+        $('#home-'+id_home[1]+'-plan').show();
+        console.log(id_home);
+      });
+
+      $('.over-plan').click(function(){
+        $('#complex-plan').show();
+        $('.plan-home-section').hide();
       });
     })
   }

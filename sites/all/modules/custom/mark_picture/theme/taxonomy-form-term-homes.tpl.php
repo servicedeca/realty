@@ -47,6 +47,6 @@
 
 <?php print render($form['actions'])?>
 
-<div class="element-hidden">
+<div class="element-hidde">
   <?php print drupal_render_children($form)?>
 </div>

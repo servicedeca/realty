@@ -50,3 +50,11 @@
   font-size: 18px;
   margin-bottom: 0px;
 }
+
+.plan-home-section {
+  display: none;
+}
+
+.over-plan {
+  cursor: pointer;
+}

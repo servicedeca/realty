@@ -17,6 +17,7 @@
 
 .div-plan-home {
   position: relative;
+  display: table;
 }
 
 .div-plan-complex {
