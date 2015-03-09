@@ -4597,7 +4597,6 @@ margin-top: -1px;
 .allstock-item p{
 	padding-left: 330px;
 	color:#999999;
-	text-transform: uppercase;
 	font-size: 18px;
 	line-height: 20px;
 	margin: 0px;
@@ -4670,7 +4669,7 @@ margin-top: -1px;
 }
 .container-modal-reg {
 	width: 600px;
-	height: 450px;
+	height: 500px;
 	position: relative;
 	margin: 0 auto;
 	background: #fff;
@@ -4832,8 +4831,8 @@ background: url("../images/icon/down.png") no-repeat center right;
 }
 
 .a4-right-item {
-	height: 610px;
-	line-height: 610px;
+	height: 400px;
+	line-height: 400px;
 }
 
 .id-complex-block img{
@@ -4849,26 +4848,15 @@ background: url("../images/icon/down.png") no-repeat center right;
 	font-size: 25px;
 }
 
-.id-info-block h1{
-	color:#2391af;
-	text-transform: uppercase;
-	font-size: 40px;
-	margin-top: 0px;
-	margin-bottom: 20px;
-		margin-top: 30px;
-}
-
-
 .id-info-block-left {
 	text-align: right;
 }
 
 .id-info-block-left p{
-	font-size: 17px;
-	color:#4d4d4d;
+	font-size: 16px;
+	color:#666666;
 	font-weight: 300;
-	margin-bottom: 9px;
-	margin-top: 7px
+	margin-bottom: 20px;
 }
 
 .id-info-block-right {
@@ -4876,11 +4864,10 @@ background: url("../images/icon/down.png") no-repeat center right;
 }
 
 .id-info-block-right p{
-	font-size: 20px;
-	color:#4d4d4d;
+	font-size: 16px;
+	color:#333333;
 	font-weight: 600;
-	margin-bottom: 2px;
-	margin-top: 2px;
+	margin-bottom: 20px;
 }
 
 .id-section-block{
@@ -4989,4 +4976,28 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .margin-top-35 {
 	margin-top: -40px;
+}
+
+.error {
+	border: 1px solid #ba3636;
+}
+
+.hint-reg-line {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	padding-left: 50px;
+	padding-right: 50px;
+	color:#666666;
+	font-size: 14px;
+}
+
+.id-header {
+	height: 140px;
+	line-height: 140px;
+	text-align: center;
+}
+
+.id-header img {
+	height: 35px;
 }
