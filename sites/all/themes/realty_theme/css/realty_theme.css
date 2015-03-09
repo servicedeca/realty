@@ -58,3 +58,7 @@
 .over-plan {
   cursor: pointer;
 }
+
+.plan-home-section-floor {
+  display: none;
+}

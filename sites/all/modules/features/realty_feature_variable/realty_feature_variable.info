@@ -1,0 +1,4 @@
+name = realty_feature_variable
+core = 7.x
+package = Features
+features[features_api][] = api:2

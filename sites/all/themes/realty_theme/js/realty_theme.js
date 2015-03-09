@@ -710,13 +710,23 @@
       $('.plan-complex-home').click(function(){
         var id_home = $(this).attr('id').split('-');
         $('#complex-plan').hide();
-        $('#home-'+id_home[1]+'-plan').show();
+        $('.plan-home-section-floor').hide();
+        $('#home-'+id_home[1]+'-plan').show(600);
         console.log(id_home);
       });
 
-      $('.over-plan').click(function(){
-        $('#complex-plan').show();
+      $('.plan-complex-home-section').click(function(){
+        var id_section = $(this).attr('id').split('-');
+        $('#complex-plan').hide();
         $('.plan-home-section').hide();
+        $('.plan-home-section-floor').hide();
+        $('#home-'+id_section[1]+'-'+id_section[2]+'-'+id_section[3]).show(500);
+      });
+
+      $('.over-plan').click(function(){
+        $('.plan-home-section').hide();
+        $('.plan-home-section-floor').hide();
+        $('#complex-plan').show(500);
       });
     })
   }
