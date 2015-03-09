@@ -2490,7 +2490,6 @@ table.dataTable thead #bn.sorting_asc {
 .left-part-complex{
     padding-left: 25px;
     height: 330px;
-    display: table;
 }
 
 @media(max-width:1200px){
