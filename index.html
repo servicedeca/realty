@@ -76,8 +76,8 @@
             </div>
             <div class="col-xs-6 fifty height zero-padding header-block">
                <div class="header-text">
-                    <h1>Единый поисковик квартир в новостройках твоего города</h1>
-                    <h2>Актуальные цены и наличие. Быстро и удобно. Новости и акции каждый день.</h2>
+                    <h1>Поиск и бронирования квартир в новостройках городов РФ</h1>
+                    <h2>Предложения напрямую от застройщиков. Актуальный текущий статус квартиры</h2>
                 </div>
             </div>
         </div>
@@ -234,14 +234,17 @@
                             <div class="col-xs-4 search-slider-item">
                                 <label class="hint margin-bottom-35">Площадь, м<sup>2</sup></label>
                                 <input type="text" id="meters" name="example_name" value="" class="ion-slider"/>
+                                <span class="grid-plus">+</span>
                             </div>
                             <div class="col-xs-4 search-slider-item">
                                 <label class="hint margin-bottom-35">Цена за м2, тыс. руб</label>
                                 <input type="text" id="meter-price" name="example_name" value="" class="ion-slider"/>
+                                <span class="grid-plus">+</span>
                             </div>
                             <div class="col-xs-4 search-slider-item">
                                 <label class="hint margin-bottom-35">Стоимость, млн. руб</label>
                                 <input type="text" id="flat-price" name="example_name" value="" class="ion-slider"/>
+                                <span class="grid-plus">+</span>
                             </div>
                        </div>
                         <div class="col-xs-4 search-slider-block zero-padding">
@@ -410,7 +413,7 @@
             </div>
             <div class="col-xs-6 fifty height zero-padding map-text">
                <div class="text-vertical padd-bot">
-                    <h3>Все предложения на карте вашего города</h3>
+                    <h3>Все предложения на карте города</h3>
                     <h4>Найдите то, что подходит именно Вам</h4>
                 </div>
             </div>
@@ -423,17 +426,20 @@
                     <option value="3">Комфорт</option>
                 </select>
             </div>
-            <div id="filters">
+            <div class="filters">
                <ul>
                     <li>
-                        <a data-toggle="modal" data-target=".modal-area">Район</a>
+                        <a data-toggle="modal" data-target=".modal-zk">ЖК</a>
                     </li>
                     <li>
                         <a data-toggle="modal" data-target=".modal-z">Застройщик</a>
                     </li>
                     <li>
-                        <a data-toggle="modal" data-target=".modal-zk">ЖК</a>
+                        <a data-toggle="modal" data-target=".modal-area">Район</a>
                     </li>
+				   <li>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				   	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				   </li>
                     <li class="store">           
                         <input type="checkbox" id="mapcheck">
                         <label class="map-hint"  for="mapcheck">Акции</label>
@@ -554,13 +560,13 @@
                     </a>
                     <div class="col-xs-6 big-stock-quarter right-place zero-padding big-stock-block">
                         <div class="col-xs-12 big-stock-title zero-padding">
-                                <h2>Горячее предложение</h2>
+                                <h2>Cпецпредложение</h2>
                         </div>
                         <div class="col-xs-12 big-stock-body zero-padding">
-                            <div class="table-item">последняя квартира в первой очереди "Европейского берега" со скидкой 150 т.р.</div>
+                            <div class="table-item">последняя квартира в первой очереди ЖК "Андреевский" 150 т.р.</div>
                         </div>
                         <div class="col-xs-12 big-stock-button zero-padding">
-                            <a href="#" class="button-info stock-button">Подробности</a>         
+                            <a href="stock.html" class="button-info stock-button">Подробности</a>         
                         </div>
                         <div class="arrow-left-bigstock"></div>
                     </div>
@@ -574,32 +580,32 @@
                     <div class="col-xs-12 second-half-item zero-padding v1stock">
                         <div class="arrow-left-stock1"></div>
                         <div class="col-xs-12 big-stock-title zero-padding cb-stock">
-                            <h2>Третья очередь на Декабристов</h2>
+                            <h2>Третья очередь в "Эталон-Сити"</h2>
                         </div>
                         <div class="col-xs-12 big-stock-body zero-padding cb-stock">
                             <div class="table-item">К новому году мы подготовили специальное предложение — 
-15 квартир в третьей очереди квартала на Декабристов
+15 квартир в третьей очереди квартала
 по специальной цене. </div>
                         </div>
                         <div class="col-xs-12 big-stock-button zero-padding">
-                            <a href="#" class="button-info stock-button cb-b-stock">Подробности</a>         
+                            <a href="stock.html" class="button-info stock-button cb-b-stock">Подробности</a>         
                         </div>
                     </div>
                 </a>      
                 </div>
 
                 <div class="col-xs-3 big-height fifty-minus zero-padding ">
-                <a href="#">  
+                <a href="">  
                     <div class="col-xs-12 half-item zero-padding v2stock">
                         <div class="arrow-left-stock2"></div>
                         <div class="col-xs-12 big-stock-title zero-padding cb-stock">
-                            <h2>ТРЁШКА В ЖК «АСТРА»</h2>
+                            <h2>Парковка в подарок</h2>
                         </div>
                         <div class="col-xs-12 big-stock-body zero-padding cb-stock">
-                            <div class="table-item"> при покупке трёшки в ЖК «Астра» действует скидка — 250 000 рублей.</div>
+                            <div class="table-item"> при покупке трёшки в ЖК «Андреевский» парковка в подарок</div>
                         </div>
                         <div class="col-xs-12 big-stock-button zero-padding">
-                            <a href="#" class="button-info stock-button cb-b-stock">Подробности</a>         
+                            <a href="stock.html" class="button-info stock-button cb-b-stock">Подробности</a>         
                         </div>
                     </div>
                 </a>
@@ -615,32 +621,32 @@
     <div class="container-fluid container-fix">      
         <div class="row">
             <div class="col-xs-9 fiftyplus height zero-padding">
-                <a href="complex.html">
+                <a href="developPAGE.html">
                     <div class="col-xs-4 z-item">
                             <img src="images/dev1.png">    
                     </div>
                 </a>
-                <a href="complex.html">
+                <a href="developPAGE.html">
                     <div class="col-xs-4 z-item">
                             <img src="images/dev2.png">    
                     </div>
                 </a>
-                <a href="complex.html">
+                <a href="developPAGE.html">
                     <div class="col-xs-4 z-item">
                             <img src="images/dev3.png">    
                     </div>
                 </a>
-                <a href="complex.html">
+                <a href="developPAGE.html">
                     <div class="col-xs-4 z-item">
                             <img src="images/dev3.png">    
                     </div>
                 </a>
-                <a href="complex.html">
+                <a href="developPAGE.html">
                     <div class="col-xs-4 z-item">
                             <img src="images/dev1.png">    
                     </div>
                 </a>
-                <a href="complex.html">
+                <a href="developPAGE.html">
                     <div class="col-xs-4 z-item">
                             <img src="images/dev2.png">    
                     </div>

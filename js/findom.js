@@ -198,6 +198,18 @@
     });
 
 
+//  room-city type multiple select
+    $(function() {
+        $('#room-city').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            placeholder: 'Комнаты',
+            selectAllText: 'Отметить все',
+            allSelected: 'Все'
+        });
+    });
+
+
 //  section type multiple select
     $(function() {
         $('#fsection').change(function() {

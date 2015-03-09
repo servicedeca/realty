@@ -982,13 +982,13 @@ li {
     top:-48px;
 }
 
-#filters {
+.filters {
     background:#2fade2;
     height: 70px;
     text-align: center;
 }
 
-#filters ul li{
+.filters ul li{
     display: inline;
     margin-right: 50px;
     font-size: 18px;
@@ -1001,17 +1001,17 @@ li {
     cursor: pointer;
 }
 
-#filters a{
+.filters a{
     color:#fff;
     text-decoration: none;
 }
 
-#filters a:hover{
+.filters a:hover{
     text-decoration: none;
     border: none;
 }
 
-#filters li:hover{
+.filters li:hover{
     transition: all 200ms linear;
     -moz-transition: all 200ms linear;
     -webkit-transition: all 200ms linear;
@@ -1176,7 +1176,7 @@ li {
     width: 200px;
     font-size: 18px;
     left: 50%;
-    margin-left: -450px;
+    margin-left: 0px;
 }
 
 .ms-choice{
@@ -2490,7 +2490,7 @@ table.dataTable thead #bn.sorting_asc {
 .left-part-complex{
     padding-left: 25px;
     height: 330px;
-    overflow: hidden;
+    display: table;
 }
 
 @media(max-width:1200px){
@@ -2504,7 +2504,7 @@ table.dataTable thead #bn.sorting_asc {
     font-size: 18px;
     padding-left: 25px;
     padding-right: 15px;
-    line-height: 18px;
+    line-height: 20px;
 }
 
 @media(max-width:1200px){
@@ -3225,8 +3225,8 @@ table.dataTable thead #bn.sorting_asc {
 
 .apartment-plan {
     text-align: center;
-    height: 430px;
-    margin-top: 15px;
+	height: 450px;
+	margin-top: 35px;
 }
 
 .apartment-image-gorizont {
@@ -3247,18 +3247,19 @@ table.dataTable thead #bn.sorting_asc {
 }
 
 .apartment-text {
-    height:430px;
+    height:500px;
 }
 
 .apartment-text h3 {
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     color:#999999;
     margin-bottom: 2px;
+	margin-top: 8px;
 }
 
 .apartment-text p {
-    font-size: 16px;
+    font-size: 14px;
     color:#666666;
     padding: 0px;
     margin: 0px;
@@ -4225,6 +4226,8 @@ font-size: 16px;
 	border-radius: 0px;
 	outline: none;
 	margin-bottom: 35px;
+	border: none;
+	margin-top: 2px;
 }
 
 .comment-input-item {
@@ -4618,7 +4621,7 @@ margin-top: -1px;
 }
 
 .develop-complex {
-	min-height: 630px;
+	min-height: 420px;
 }
 
 .allcomplex-filter {
@@ -5000,4 +5003,33 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .id-header img {
 	height: 35px;
+}
+
+.grid-plus {
+	position: absolute;
+	right: 6%;
+	bottom: 26%;
+	color: #d1d3d4;
+	font-size: 10px;
+}
+
+@media(max-width:1370px){
+.grid-plus {
+	right: 8%;
+	bottom: 10%;
+	}
+}
+
+@media(max-width:1200px){
+.grid-plus {
+	display:none;
+	}
+}
+
+.table > tbody > tr > td{
+	border-top:0px solid #333;
+}
+
+.table > tbody > tr > th{
+	border-top:0px solid #333;
 }
