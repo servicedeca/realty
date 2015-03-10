@@ -4795,7 +4795,8 @@ margin-top: -1px;
 }
 
 .a4-right-item img{
-	max-width: 300px;
+	max-width: 250px;
+	margin-top: 35px;
 }
 
 .textarea-error {
@@ -4835,6 +4836,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 .a4-right-item {
 	height: 400px;
 	line-height: 400px;
+	text-align: center;
 }
 
 .id-complex-block img{
@@ -4874,8 +4876,8 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .id-section-block{
 	text-align: center;
-	height:150px;
-	line-height: 150px;
+	height:140px;
+	line-height: 140px;
 }
 
 .id-section-block img{
@@ -5007,13 +5009,21 @@ background: url("../images/icon/down.png") no-repeat center right;
 .grid-plus {
 	position: absolute;
 	right: 6%;
+	bottom: 18%;
+	color: #d1d3d4;
+	font-size: 10px;
+}
+
+#index .grid-plus {
+	position: absolute;
+	right: 6%;
 	bottom: 26%;
 	color: #d1d3d4;
 	font-size: 10px;
 }
 
 @media(max-width:1370px){
-.grid-plus {
+#index.grid-plus {
 	right: 8%;
 	bottom: 10%;
 	}
@@ -5031,4 +5041,25 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .table > tbody > tr > th{
 	border-top:0px solid #333;
+}
+.id-header-block {
+	height: 140px;
+}
+
+.id-header-block p{
+	margin-top: 35px;
+	color:#4d4d4d;
+	text-transform: uppercase;
+}
+
+.id-header-block h1{
+	margin: 0px;
+	color:#666666;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+.id-number {
+	color:#4d4d4d;
+	font-weight: 600;
 }
