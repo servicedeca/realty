@@ -1,6 +1,7 @@
 <?php print render($form['name'])?>
 <?php print render($form['description'])?>
 <?php print render($form['field_address_house'])?>
+<?php print render($form['field_number_home']);?>
 <?php print render($form['field_home_complex'])?>
 <?php print render($form['field_masonry'])?>
 <?php print render($form['field_number_floor'])?>
@@ -20,10 +21,10 @@
 </div>
 
 <h1>
-  <?php print t('Секции')?>
+  <?php print t('Расположение Секций')?>
 </h1>
 <?php print render($form['field_home_plan']) ?>
-<?php// print render($form['field_home_section'][LANGUAGE_NONE][0]['field_number_section'])?>
+<?php print render($form['field_home_section'][LANGUAGE_NONE][0]['field_number_section'])?>
 <div id="add-section-plan">
   <?php print t('Oтметить секцию на плане дома')?>
 </div>
@@ -42,11 +43,16 @@
 </div>
 <?php print render($form['field_plan_floor'])?>
 <?php //print render($form['field_home_section'][LANGUAGE_NONE][0]['field_lage_plan_home'])?>
-<?php// print render($form['field_home_section']['und']['add_more']) ?>
-<?php// print render($form['field_home_section'])?>
+<?php //print render($form['field_home_section']['und']['add_more']) ?>
+<?php //print render($form['field_home_section'])?>
+
+
+<h1>
+  <?php print t('Расположение квартир')?>
+</h1>
 
 <?php print render($form['actions'])?>
 
-<div class="element-hidde">
+<div class="element-hidden">
   <?php print drupal_render_children($form)?>
 </div>

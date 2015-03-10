@@ -3,6 +3,14 @@
   Drupal.behaviors.realtyInit = {
     attach: $(function() {
 
+      /*$('.sq').change(function(){
+        console.log($(this).val());
+        var param = $(this).val().split(';');
+        if(param[1] == 200) {
+          $('.irs-to').html('200+');
+        }
+      });*/
+
       if(Drupal.settings.id) {
         $("body").attr("id","index");
       }
@@ -233,6 +241,7 @@
          allSelected: 'Все'
        });
      });
+
    };
 
     multiple_select_form();
@@ -711,7 +720,7 @@
         var id_home = $(this).attr('id').split('-');
         $('#complex-plan').hide();
         $('.plan-home-section-floor').hide();
-        $('#home-'+id_home[1]+'-plan').show(600);
+        $('#home-'+id_home[1]+'-plan').fadeIn(500);
         console.log(id_home);
       });
 
@@ -720,13 +729,13 @@
         $('#complex-plan').hide();
         $('.plan-home-section').hide();
         $('.plan-home-section-floor').hide();
-        $('#home-'+id_section[1]+'-'+id_section[2]+'-'+id_section[3]).show(500);
+        $('#home-'+id_section[1]+'-'+id_section[2]+'-'+id_section[3]).fadeIn(500);
       });
 
       $('.over-plan').click(function(){
         $('.plan-home-section').hide();
-        $('.plan-home-section-floor').hide();
-        $('#complex-plan').show(500);
+        $('.plan-home-section-floor').hide(500);
+        $('#complex-plan').fadeIn();
       });
     })
   }

@@ -1007,7 +1007,8 @@ function realty_get_current_city() {
  */
 function realty_filter_complex_apartment_form($form, $form_state) {
 
-  $complex = menu_get_object('node', 1);
+  $complex_id = arg('1');
+  $complex = node_load($complex_id);
   $homes = views_get_view_result('term_view', 'homes_complex', $complex->nid);
   foreach ($homes as $key=>$home) {
     $options[$home->tid] = $home->field_field_address_house[0]['rendered']['#markup'];

@@ -57,16 +57,16 @@
     <?php endforeach;?>
   <?php endif;?>
 
-  <?php foreach($sections as $section):?>
-    <?php if(isset($section['plan'])):?>
-      <div id="home-<?php print $home['tid']?>-<?php print $section['number'].'-'.$section['floor']?>" class="plan-home-section-floor">
+  <?php foreach($floors as $floor):?>
+    <?php if(isset($floor['plan_floor'])):?>
+      <div id="home-<?php print $floor['home_tid'].'-'.$floor['number_section'].'-'.$floor['number_floor']?>" class="plan-home-section-floor">
         <div class="col-xs-10 col-xs-offset-1 tab-menu zero-padding">
           <div class="col-xs-8 zero-padding">
             <div class="col-xs-4 tab-menu-passive over-plan">
               <?php print t('overall plan');?>
             </div>
             <div class="col-xs-4 tab-menu-passive">
-              <a id="back-<?php print $home['tid']?>" href="#" class="plan-complex-home" title="Выберите дом">
+              <a id="back-<?php print $floor['home_tid']?>" href="#" class="plan-complex-home" title="Выберите дом">
                 <?php print t('Sections');?>
               </a>
             </div>
@@ -78,15 +78,15 @@
           </div>
         </div>
         <div class="col-xs-8 zero-padding floor-image-block">
-          <?php print $section['plan']?>
+          <?php print $floor['plan_floor']?>
         </div>
         <div class="col-xs-4 left-part-complex zero-padding display-table">
           <div class="vertical">
               <ul id="floorTab" role="tablist">
-                <?php foreach($sections as $floor):?>
-                  <?php if($section['number'] == $floor['number']):?>
+                <?php foreach($floors as $fl):?>
+                  <?php if($fl['number_section'] == $floor['number_section'] && $fl['home_tid'] == $floor['home_tid']):?>
                     <li>
-                      <?php print $floor['floor'];?>
+                      <?php print $fl['number_floor_link'];?>
                     </li>
                   <?php endif;?>
                 <?php endforeach?>
