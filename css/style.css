@@ -1029,7 +1029,6 @@ li {
 
 .z-item img{
 	opacity: 1;
-	opacity: 1;
 	width: 80%;
 	left: 10%;
 	bottom: 10%;
@@ -2380,8 +2379,9 @@ table.dataTable thead #bn.sorting_asc {
 .footer-logo{
     position: absolute;
     left: 50%;
-    height: 50px;
-    top:125px;
+	height: 50px;
+top: 125px;
+margin-left: -120px;
 }
 
 @media(max-width:1200px){
@@ -2392,7 +2392,8 @@ table.dataTable thead #bn.sorting_asc {
 
 .list-line {
     height: 50px;
-    position: absolute;
+    position: relative;
+	text-align: center;
     top:125px;
 }
 
@@ -5063,3 +5064,126 @@ background: url("../images/icon/down.png") no-repeat center right;
 	color:#4d4d4d;
 	font-weight: 600;
 }
+
+
+.dec_checkbox span input[type="checkbox"]{
+	display: none;
+}
+
+.dec_checkbox{
+	clear: both;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+}
+
+.dec_checkbox span {
+	display: block;
+	float:left;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	background: url("../images/check-blue.svg") no-repeat 0 0;
+	margin-right:-10px;
+	margin-top: 20px;
+}
+
+.check_active span{
+	background-position: 0 -30px;
+}
+
+.dec_checkbox label{
+	color: #999999;
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.dec_checkbox label:hover{
+	color: #434343;
+	cursor: pointer;
+}
+
+
+@media(max-width:1200px){
+	.dec_checkbox label{
+		font-size: 16px;
+	}
+}
+
+.result-check-line {
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+}
+
+.grey {
+	background: #b3b3b3;
+}
+
+.partner-h2 h2{
+	color:#4d4d4d;
+}
+
+.p-item{
+	height: 50%;      
+	text-align: center;
+}
+
+.p-item img{
+	width: 80%;
+	left: 10%;
+	bottom: 10%;
+	margin-top: 5%;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray; /* IE 6-9 */
+	opacity: 0.7;
+}
+
+.p-item:hover .p-item img {
+	height: 50%;      
+	text-align: center;
+}
+
+.p-item img:hover{
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	filter: grayscale(0%);
+	filter: gray; /* IE 6-9 */
+	opacity: 1;
+}
+.beige-bg {
+	background: #f2f2f2;
+}
+
+.borderr {
+	border: 1px solid white;
+}
+
+.footer-info {
+	display: table;
+	height: 300px;
+	text-align: center;
+}
+
+@media(max-width:1200px){
+	.footer-info{
+		height:200px;
+	}
+}
+
+ .footer-info p{
+ 	color:#808285;
+	 font-size:16px;
+	 cursor: pointer;
+ }
+
+ .footer-info p:hover{
+ 	color:#f2f2f2;
+ }
+

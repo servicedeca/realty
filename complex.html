@@ -172,7 +172,10 @@
                 <div class="col-xs-5 adress-item">
                     Новосибирск, ул.Водопроводная 1
                 </div>
-                <div class="col-xs-6 complex-info-button-block">
+                <div class="col-xs-4 complex-info-button-block">
+                    <a href="#" class="complex-info-button" data-toggle="modal" data-target=".modal_excur">Записаться на обзорную экскурсию</a>
+                </div>
+                <div class="col-xs-2 complex-info-button-block">
                     <a href="#" class="complex-info-button" data-toggle="modal" data-target=".modal_info-complex">Подробнеe...</a>
                 </div>
             </div>       
@@ -246,7 +249,13 @@
                     <button type="button" class="col-xs-1 complex-filter-clear-button zero-padding" title="Очистить все фильтры">
                         <img src="images/clear.svg">
                     </button>
-                </div>   
+                </div>
+				 <div class="dec_checkbox col-xs-6 col-xs-offset-3 zero-padding">
+					<span>
+						<input type="checkbox" />		
+					</span>
+					<label>Не отображать забронированные</label>
+				</div>   
                     <table class="table issue-table display" id="complex">
                         <thead>
                             <tr>
@@ -578,7 +587,56 @@
 
         </div>
     </div>
-    <!--    End Modal_comment  -->                                                                                                                                                            
+    <!--    End Modal_comment  -->       
+                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                                                      <!--    Modal_booking   -->
+    <div class="modal fade modal_excur" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-booking zero-padding">
+               
+                <div class="col-xs-12 header-container-modal header-block margin-bottom-50">
+                    <div class="modal-text">
+                        <p>Обзорная экскурсия</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 text-modal-booking">
+					<h3>Заполните поля</h3>
+					<p>C вами свяжется гид</p>
+				</div>
+                <div class="col-xs-12 comment-modal-row">
+                	<div class="col-xs-2 text-right zero-padding">
+						<img src="images/c-man.svg">
+               		</div>
+                	<div class="col-xs-10 comment-input-item">
+                		<input  class="comment-input" placeholder="Ф.И.О.">
+					</div>
+                </div>
+                <div class="col-xs-12 comment-modal-row margin-bottom-30">
+                	<div class="col-xs-2 text-right zero-padding">
+						<img src="images/c-phone.svg">
+               		</div>
+                	<div class="col-xs-10 comment-input-item">
+             			<input  class="comment-input" placeholder="Телефон">
+					</div>
+                </div>
+                	<button type="button" class="col-xs-4 col-xs-offset-4 comment-button margin-bottom-50" data-dismiss="modal" aria-hidden="true">Отправить
+				</button >
+      
+      			<div class="col-xs-12 zero-padding success-booking">
+					<h3>
+						<span>
+							<img src="images/ready.svg" class="booking-success-icon">
+						</span>
+						Ваша заявка принята
+					</h3>
+					<p>Ожидайте звонка специалиста</p>
+				</div>
+       
+        </div>
+    </div>
+    <!--    End Modal_booking  -->                                                                                                                                                     
                                                                                                                                                                                      
                                                                                                                                                                     
                                                                                                                                                                                
