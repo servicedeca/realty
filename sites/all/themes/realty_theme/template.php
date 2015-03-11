@@ -159,9 +159,25 @@ function realty_preprocess_views_view_table(&$vars) {
  * Process variables for views-view-unformatted--complex--complexs.tpl.php.
  */
 function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
-  $a = 1;
-}
+    $city_id = arg(2);
+    $city = taxonomy_term_load($city_id);
+    $vars['city'] = l($city->name, 'taxonomy/term/'.$city->tid);
+    $vars['complexes_link'] = l(t('complexes'), 'complexes/city/'.$city->tid);
 
+    foreach($vars['view']->result as $k=>$value){
+        $vars['complexes'][$k] = array(
+            'logo' => theme('image', array(
+                'path' => $value->field_field_complex_logo[0]['raw']['uri'],
+                'width' => '100px',
+                'height' => '100px',
+            )
+            ),
+
+            'complex_link' => '/node/'.$value->nid,
+        );
+
+    }
+}
 /*
  * Process variables for views-view-unformatted--complex--complex.tpl.php.
  */
@@ -194,19 +210,31 @@ function realty_preprocess_views_view_unformatted__complex__complex(&$vars) {
 }
 
 /*
- * Process variables for views-view-unformatted--term-view--complexes.tpl.php.
+ * Process variables for views-view-unformatted--term-view--developers.tpl.php.
  */
 function realty_preprocess_views_view_unformatted__term_view__developers(&$vars) {
-  foreach($vars['view']->result as $value){
-    $logo = theme('image', array(
-        'path' => $value->field_field_developer_logo[0]['raw']['uri'],
-        'width' => '100px',
-        'height' => '100px',
-      )
+
+  $city_id = arg(2);
+  $city = taxonomy_term_load($city_id);
+  $vars['city'] = l($city->name, 'taxonomy/term/'.$city->tid);
+  $vars['developers_link'] = l(t('developers'), 'developers/city/'.$city->tid);
+
+  foreach($vars['view']->result as $k=>$value){
+    $vars['developers'][$k] = array(
+        'logo' => theme('image', array(
+            'path' => $value->field_field_developer_logo[0]['raw']['uri'],
+            'width' => '100px',
+            'height' => '100px',
+            )
+        ),
+        'name' => $value->taxonomy_term_data_name,
+        'developer_link' => 'taxonomy/term/'.$value->tid,
     );
-    $vars['developers'][] = array(
-      'logo' => l($logo, 'taxonomy/term/'.$value->tid, array('html' => TRUE,)),
-    );
+
+    $complexes = views_get_view_result('complex', 'complex_developer', $value->tid);
+    foreach ($complexes as $key => $val) {
+       $vars['developers'][$k]['complexes'][] ['complex']= $val->node_title;
+    }
   }
 }
 

@@ -1,17 +1,23 @@
-<?php
+<div class="container fin">
+    <div class="col-xs-12 breadcrumb-block  margine-top">
+        <ol class="breadcrumb zero-padding breadcrumbfix">
+            <li><?php print $city; ?></li>
+            <li class="active"><?php print $complexes_link; ?></li>
+        </ol>
+    </div>
+</div>
 
-/**
- * @file
- * Default simple view template to display a list of rows.
- *
- * @ingroup views_templates
- */
-?>
-<?php if (!empty($title)): ?>
-  <h3><?php print $title; ?></h3>
-<?php endif; ?>
-<?php foreach ($rows as $id => $row): ?>
-  <div<?php if ($classes_array[$id]) { print ' class="' . $classes_array[$id] .'"';  } ?>>
-    <?php print $row; ?>
-  </div>
-<?php endforeach; ?>
+
+
+
+<div class="container fin margin-bottom">
+    <div class="col-xs-12 allcomplex-filter">
+    </div>
+    <div class="col-xs-12 develop-complex zero-padding">
+        <?php foreach($complexes as $value):?>
+            <a href='<?php print $value['complex_link'];?>' class="col-xs-4 develop-complex-item">
+                <?php print render($value['logo']); ?>
+            </a>
+        <?php endforeach;?>
+    </div>
+</div>
