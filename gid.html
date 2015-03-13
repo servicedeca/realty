@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8" />
+        <title>Main Page</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/fotorama.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/multiple-select.css" />
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+        <link rel="stylesheet" href="css/ion.rangeSlider.skinHTML5.css" />
+        <link rel="stylesheet" href="css/jquery.dataTables.css" />
+        <link href="css/style.css" rel="stylesheet">
+        
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/fotorama.js"></script>
+        <script src="js/jquery.multiple.select.js"></script>
+        <script src="js/ion.rangeSlider.js"></script>
+        <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+        
+        <!-- Plugin JavaScript -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="js/js/cbpAnimatedHeader.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="js/findom.js"></script>
+    </head>
+
+   
+    <body>  
+       <div class="col-xs-12 menu-parent zero-padding">
+            <div id="menu">
+                <ul>
+                    <li class="main-logo">
+                       <a href="index.html">
+                            <img src="images/minilogo.svg">
+                        </a>
+                    </li>
+                   <li class="page-scroll">
+                        <a data-toggle="modal" data-target=".bs-example-modal-md">
+                            Выберите город
+                        </a>
+                    </li>                   
+                    <li>О проекте</li>
+                    <li>Регистрация/вход</li>
+                </ul>    
+           </div>
+        </div>
+        
+        <div id="wrapper">        
+            
+        <div class="container-fluid breadcrumb-line">    
+            <div class="container fin">
+               <div class="col-xs-12 breadcrumb-block  margine-top">
+                    <ol class="breadcrumb zero-padding breadcrumbfix">
+                        <li><a href="index.html">Главная</a></li>
+                        <li class="active"><a href="gid.html">Путеводитель</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>    
+
+        <div class="container fin">
+			<div class="col-xs-12 zero-padding sitemap">
+				<img src="images/gid.svg">
+					<ul class="sitemap-tabs text-center" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#reg-point" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true" class="sitemap-point reg-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#devs-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point devs-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#dev-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point dev-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#stocks-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point stocks-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#cmplxs-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point cmplxs-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#result-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point result-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#search-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point search-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#map-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point map-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#ap-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point ap-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#profile-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point profile-point-cord"></a>
+						</li>
+						<li role="presentation" class="">
+							<a href="#office-point" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false" class="sitemap-point office-point-cord"></a>
+						</li>
+					</ul>
+			</div>
+      		
+      		<div class="col-xs-12 sitemap-line">
+			</div>
+     		
+			<div class="tab-content">
+			
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade active in" role="tabpanel" aria-labelledby="home-tab" id="reg-point">
+					<h2>Вход/регистрация</h2>
+					<p>
+					Просмотр предложений от застройщиков и подбор нужного варианта доступны каждому 
+					посетителю сайта. Для получения ID квартиры, а также осуществления бронирования нужного 
+					варианта необходима регистрация на сайте.
+					</p>
+					<img src="images/reg_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="devs-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Страница всех застройщиков</h2>
+					<p>
+					На странице представлены все застройщики города, при переходе на страницу застройщика доступна полная информация о компании (контакты, история, деятельность, текущие и планируемые объекты). Чтобы перейти на страницу застройщика, нажмите на него.
+					</p>
+					<img src="images/devs_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="stocks-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Страница всех акций</h2>
+					<p>
+На странице представлены все текущие акции и предложения от застройщиков в выбранном городе.  Вы можете воспользоваться фильтром «выбрать по застройщику» для отображения акций от конкретного застройщика.
+					</p>
+					<img src="images/shares_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="cmplxs-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Страница всех жилых комплексов</h2>
+					<p>
+На странице представлены все строящиеся жилые комплексы в выбранном городе. При переходе на страницу жилого комплекса доступна полная информация о строящемся комплексе (подробнее смотри страницу жилого комплекса).
+					</p>
+					<img src="images/cmpxs_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="result-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Страница выдачи результатов</h2>
+					<p>
+В результатах выдачи отображаются все варианты квартир, соответствующие заданным параметрам поиска. Для удобства поиска нужного варианта на странице доступна сортировка результатов по возрастанию/убыванию по следующим параметрам: количество комнат, этаж, площадь, цена за м2, стоимость в млн.руб. Также имеется возможность отсортировать в алфавитном порядке предложения по названию застройщика и по названию жилого комплекса.<br><br>В результатах выдачи в соответствии с заданными параметрами отображаются все варианты квартир, независимо от текущего статуса: «забронированные варианты» обозначены (красный круг вставить) и выделены цветом « скрин строки». Вы можете установить фильтр «не отображать забронированные квартиры», тогда в результатах будут отображаться только «свободные» квартиры. Для удобства сравнения выбранных вариантов доступна страница сравнения квартир (смотри страницу сравнения квартир). Для добавления квартиры в сравнение нажмите на строке квартиры на значок (весы). Значок (галочка вместо весов) обозначает, что квартира добавлена в сравнение. Зарегистрированным пользователям сайта доступна возможность отслеживать изменения статуса забронированных квартир.  Для этого в строке выбранной квартиры нажмите «будильник», и Вам придет уведомление на e-mail (указанный при регистрации) в случае изменения статуса квартиры.<br><br> Чтобы перейти на страницу выбранной квартиры, нажмите на значок квартиры (круг). Вы можете перейти на страницу застройщика, нажав в строке квартиры на название застройщика (скрин строки, стрелка на застройщика), или на страницу жилого комплекса, нажав на название ж/к (скрин строки, стрелка на ж/к).
+					</p>
+					<img src="images/result_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="search-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Поисковик</h2>
+					<p>
+Поиск квартиры в новостройках осуществляется по множеству параметров. Заполните соответствующие поля параметров и нажмите «показать варианты». Если в поле «застройщик» Вы указали конкретного застройщика, то в поле «жилые комплексы» будут доступны к выбору только предложения от данного застройщика.
+					</p>
+					<img src="images/search_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="map-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Новостройки на карте</h2>
+					<p>
+Вы можете наблюдать за расположением строящихся жилых комплексов непосредственно на карте города. Нажмите на иконку (значок иконки-дома) и Вам откроется краткая информация о жилом комплексе. Также Вы можете увеличивать масштаб карты для просмотра и оценки инфраструктуры прилегающей территории к строящемуся жилому комплексу. При уменьшении масштаба карты до масштаба «страна» Вы можете узнать о количестве предложений по городам РФ. Для удобства поиска новостроек по карте доступны фильтры «застройщик», «жилой комплекс», «категория жилья», «район» и акции. При выборе конкретного застройщика на карте отображаются строящиеся объекты выбранного застройщика.
+					</p>
+					<img src="images/map_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="ap-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Страница квартиры</h2>
+					<p>
+На странице выбранной квартиры представлена подробная планировка квартиры, расположение квартиры на этаже и расположение в доме.<br><br>
+				В зависимости от текущего статуса квартиры имеется возможность запросить уведомление об изменении статуса (значок будильника) или самостоятельно забронировать квартиру (значок бронирования). 
+					</p>
+					<img src="images/ap_ss_1.jpg">
+					<p>
+В зависимости от текущего статуса квартиры имеется возможность запросить уведомление об изменении статуса (значок будильника) или самостоятельно забронировать квартиру (значок бронирования). <br><br>
+				В случае, если Вы не зарегистрированы, пройдите процедуру регистрации.
+Заполните обязательное поле – номер телефона. Телефон необходим для связи с Вами специалиста отдела продаж застройщика. После подачи заявки на бронирование квартира автоматически бронируется в системе до подтверждения/отмены брони специалистом отдела продаж застройщика. После подачи заявки на бронирование специалист отдела продаж свяжется с Вами в течение 2-х часов.
+					</p>
+					<img src="images/ap_ss_2.jpg">
+					<p>
+Меню «ипотека» позволяет отправить запрос  на рассмотрение условий предоставления ипотеки специалистам банков-партнеров проекта. <br><br>
+Выберите банк из предложенных и нажмите «перейти».  Заполните специальную форму и нажмите «отправить заявку». Специалист банка свяжется с Вами в течение 3-х часов.
+На странице выбранной квартиры имеется возможность добавить квартиру в сравнение (значок добавить в сравнение).
+На странице квартиры доступен подбор квартиры в выбранном жилом комплексе, а также подбор похожих вариантов в городе.
+В меню «получить документы» доступны для скачивания пакет документов, необходимый для оформления покупки квартиры, а также рекомендации по оформлению документов.
+«Получить ID» - смотри ниже описание раздела «вознаграждение». 
+					</p>
+					<img src="images/ap_ss_3.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="profile-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Личный кабинет</h2>
+					<p>
+В личном кабинете в меню «профиль» Вы можете изменить данные, нажав на строку для ввода данных.
+В меню «полученные ID» отображаются загруженные ID за весь период регистрации на сайте.
+Меню вознаграждение – смотри подробнее описание раздела «вознаграждение».
+					</p>
+					<img src="images/profile_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="office-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Страница сравнения</h2>
+					<p>
+Для перехода на страницу сравнения перейдите в личный кабинет и выберите меню «сравнение».
+В данной форме отображаются выбранные Вами варианты для сравнения по множеству параметров. Для удаления квартиры из формы сравнения нажмите (значок удаления).
+					</p>
+					<img src="images/office_ss.jpg">
+				</div>
+
+				<div class="col-xs-12 sitemap-text zero-padding tab-pane fade" id="dev-point" role="tabpanel" aria-labelledby="profile-tab">
+					<h2>Страница застройщика</h2>
+					<p>
+На странице представлена полная информация о застройщике, описание и галерея текущих объектов. На карте города обозначены текущие и архивные объекты(скрин карты).  Для перехода на страницу жилого комплекса нажмите на выбранный ж/к в меню текущие объекты, или нажмите на значок (значок) ж/к на карте.
+					</p>
+					<img src="images/dev_ss_1.jpg">
+					<p>
+На странице застройщика доступен подбор квартир с помощью специальной формы (скрин подбора). В специальных полях для ввода параметров выберите нужные Вам значения и нажмите «подбор». Также Вы можете отсортировать результаты выдачи в порядке возрастания/убывания с помощью (скрин строки с показателями, стрелка на значок сортировки). Чтобы перейти на страницу квартиры, нажмите на значок «круг» . 
+Зарегистрированный пользователь имеет возможность оставить отзыв о застройщике. Отзывы проходят обязательную проверку модератором. 
+					</p>
+					<img src="images/dev_ss_2.jpg">
+				</div>
+				
+			</div>
+       </div>
+       
+        
+     
+                                                                                                                                                              
+                                                                                                                                                                                     
+                                                                                                                                                                    
+                                                                                                                                                                               
+		</div>                                                                                                                                                                                    
+                                                                                                               
+ <div class="container-fluid container-fix" id="footer">      
+        <div class="row">
+            <div class="col-xs-4">
+                    <img src="images/black-logo.svg" class="footer-logo">
+            </div>
+            <div class="col-xs-4 zero-padding">
+            </div>
+            <div class="col-xs-4 zero-padding">
+                <ul class="list-line list-inline">
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-vk"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    </body>
+</html>
