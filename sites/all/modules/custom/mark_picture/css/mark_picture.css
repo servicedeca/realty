@@ -74,3 +74,73 @@
 .img-mark {
 
 }
+
+.floor-form-block {
+  border: 1px solid #000000;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+
+#add-apartments-plan {
+  width: 200px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  background-color:rgba(0, 0, 0, 0.20);
+  color: rgba(0, 0, 0, 0.96);
+  cursor: pointer;
+}
+
+#ok-add-apartments-plan {
+  width: 100px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.20);
+  background-color:rgba(0, 0, 0, 0.20);
+  color: rgba(0, 0, 0, 0.96);
+  cursor: pointer;
+}
+
+.floors-html-block {
+  border: 1px solid #000000;
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.title-floor-section {
+  border: 1px solid #646464;
+  background: #cecece;
+}
+
+.floor-plan-image {
+  display: table;
+  position: relative;
+}
+
+.floor-plan-image-active {
+  cursor: crosshair;
+  position: relative;
+}
+
+.floor-window-dialog {
+  width: 150px;
+  height: 200px;
+  background: #d3d3d3;
+  padding: 4px;
+}
+
+.form-block-input {
+  height: 150px;
+  overflow-y: scroll;
+  background: #d3d3d3;
+  padding: 4px;
+}
+
+.floor-window-dialog p {
+  padding: 1px;
+  display: inline;
+}
+
+
+.input-form-dialog-apartment {
+  width: 55px;
+}

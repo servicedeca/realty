@@ -170,12 +170,10 @@ function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
                 'path' => $value->field_field_complex_logo[0]['raw']['uri'],
                 'width' => '100px',
                 'height' => '100px',
-            )
-            ),
-
+                )
+              ),
             'complex_link' => '/node/'.$value->nid,
         );
-
     }
 }
 /*
@@ -233,7 +231,7 @@ function realty_preprocess_views_view_unformatted__term_view__developers(&$vars)
 
     $complexes = views_get_view_result('complex', 'complex_developer', $value->tid);
     foreach ($complexes as $key => $val) {
-       $vars['developers'][$k]['complexes'][] ['complex']= $val->node_title;
+       $vars['developers'][$k]['complexes'][]['complex']= $val->node_title;
     }
   }
 }

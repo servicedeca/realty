@@ -62,3 +62,9 @@
 .plan-home-section-floor {
   display: none;
 }
+
+.tab-menu-active {
+  color: #2391af;
+  font-size: 16px;
+  cursor: pointer;
+}

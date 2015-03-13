@@ -370,7 +370,7 @@ function realty_node_presave($node) {
     }
     if ($node->field_hiden_status[LANGUAGE_NONE][0]['value'] == 0 && $node->field_status[LANGUAGE_NONE][0]['value'] == 1) {
       $node->field_hiden_status[LANGUAGE_NONE][0]['value'] = 1;
-      if (realty_sending_messages_to_users ($node) == TRUE) {
+      if (realty_sending_messages_to_users($node) == TRUE) {
         unset($node->field_user_signal['und']);
         field_attach_update('node', $node);
       }
@@ -1008,6 +1008,7 @@ function realty_get_current_city() {
 function realty_filter_complex_apartment_form($form, $form_state) {
 
   $complex_id = arg('1');
+  $complex = node_load($complex_id);
   $complex = node_load($complex_id);
   $homes = views_get_view_result('term_view', 'homes_complex', $complex->nid);
   foreach ($homes as $key=>$home) {

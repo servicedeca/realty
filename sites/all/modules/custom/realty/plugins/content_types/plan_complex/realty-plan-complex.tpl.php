@@ -79,6 +79,11 @@
         </div>
         <div class="col-xs-8 zero-padding floor-image-block">
           <?php print $floor['plan_floor']?>
+          <?php foreach ($apartmens as $apartment) :?>
+            <?php if ($apartment['home'] == $floor['home_tid'] && $apartment['section'] == $floor['number_section'] && $apartment['floor'] == $floor['number_floor']):?>
+              <?php print $apartment['link']?>
+            <?php endif;?>
+          <?php endforeach;?>
         </div>
         <div class="col-xs-4 left-part-complex zero-padding display-table">
           <div class="vertical">

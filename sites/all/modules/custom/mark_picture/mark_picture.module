@@ -17,6 +17,7 @@ function mark_picture_form_taxonomy_form_term_alter(&$form, &$form_state,$form_i
   }
 }
 
+
 /**
  * Implement hook_form_alter.
  */

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the realty_feature_page_manager_handlers feature.
- */
-
-include_once 'realty_feature_page_manager_handlers.features.inc';

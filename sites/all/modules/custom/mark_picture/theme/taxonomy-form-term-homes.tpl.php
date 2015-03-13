@@ -24,7 +24,6 @@
   <?php print t('Расположение Секций')?>
 </h1>
 <?php print render($form['field_home_plan']) ?>
-<?php print render($form['field_home_section'][LANGUAGE_NONE][0]['field_number_section'])?>
 <div id="add-section-plan">
   <?php print t('Oтметить секцию на плане дома')?>
 </div>
@@ -41,15 +40,22 @@
         <?php endif;?>
     <?php endif;?>
 </div>
+
 <?php print render($form['field_plan_floor'])?>
 <?php //print render($form['field_home_section'][LANGUAGE_NONE][0]['field_lage_plan_home'])?>
 <?php //print render($form['field_home_section']['und']['add_more']) ?>
 <?php //print render($form['field_home_section'])?>
 
-
 <h1>
   <?php print t('Расположение квартир')?>
 </h1>
+<div id="add-apartments-plan">
+  <?php print t('Oтметить квартиры')?>
+</div>
+
+<div id="add-apartments-plan-form">
+</div>
+
 
 <?php print render($form['actions'])?>
 

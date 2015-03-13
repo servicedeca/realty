@@ -49,7 +49,7 @@ function template_preprocess_realty_plan_complex(&$vars) {
       'title' => $node->title,
     ));
   }
-
+  $apartment_complex = views_get_view_result('apartments', 'apartment_complex', $node->nid);
   $homes = views_get_view_result('term_view', 'homes_complex', $node->nid);
 
   $vars['deadline_description'] = $node->field_deadline_description[LANGUAGE_NONE][0]['value'];
@@ -89,23 +89,108 @@ function template_preprocess_realty_plan_complex(&$vars) {
           )),
         );
 
-        $vars['floors'][$key]['home_tid'] = $home->tid;
-        $vars['floors'][$key]['number_section'] = $home->field_field_plan_number_section[0]['raw']['value'];
-        $vars['floors'][$key]['number_floor'] = $home->field_field_plan_number_floor[0]['raw']['value'];
-        $vars['floors'][$key]['number_floor_link'] = l($home->field_field_plan_number_floor[0]['raw']['value'].'-'.t('floor'), '#href', array(
-          'external' => TRUE,
-          'attributes' => array(
-            'class' => array('plan-complex-home-section'),
-            'id' => 'floor-'.$home->tid.'-'.$home->field_field_number_section[0]['raw']['value'].'-'.$home->field_field_plan_number_floor[0]['raw']['value'],
-          ),
-        ));
-        $vars['floors'][$key]['plan_floor'] = theme('image_style', array(
-          'style_name' => 'realty_plan_floor',
-          'path' => $home->field_field_image_plan_floor[0]['raw']['uri'],
-          'attributes' => array(
-            'class' => array(''),
-          ),
-        ));
+        if (substr_count($home->field_field_plan_number_floor[0]['raw']['value'], ',') > 0) {
+          $floors = explode(',', $home->field_field_plan_number_floor[0]['raw']['value']);
+          foreach ($floors as $floor) {
+            $vars['floors'][] = array(
+              'home_tid' => $home->tid,
+              'number_section' => $home->field_field_plan_number_section[0]['raw']['value'],
+              'number_floor' => $floor,
+              'number_floor_link' => l($floor.'-'.t('floor'), '#href', array(
+                'external' => TRUE,
+                'attributes' => array(
+                  'class' => array('plan-complex-home-section'),
+                  'id' => 'floor-'.$home->tid.'-'.$home->field_field_number_section[0]['raw']['value'].'-'.$floor,
+                ),
+              )),
+              'plan_floor' => theme('image', array(
+                //'style_name' => 'realty_plan_floor',
+                'path' => $home->field_field_image_plan_floor[0]['raw']['uri'],
+                'attributes' => array(
+                  'class' => array(''),
+                ),
+              )),
+            );
+            $a=1;
+          }
+        }
+
+        if (substr_count($home->field_field_plan_number_floor[0]['raw']['value'], '-') > 0) {
+          $floors = explode('-', $home->field_field_plan_number_floor[0]['raw']['value']);
+          for ($i = $floors[0]; $i <= $floors[1]; $i++) {
+            $vars['floors'][] = array(
+              'home_tid' => $home->tid,
+              'number_section' => $home->field_field_plan_number_section[0]['raw']['value'],
+              'number_floor' => $i,
+              'number_floor_link' => l($i.'-'.t('floor'), '#href', array(
+                'external' => TRUE,
+                'attributes' => array(
+                  'class' => array('plan-complex-home-section'),
+                  'id' => 'floor-'.$home->tid.'-'.$home->field_field_number_section[0]['raw']['value'].'-'.$i,
+                ),
+              )),
+              'plan_floor' => theme('image', array(
+                //'style_name' => 'realty_plan_floor',
+                'path' => $home->field_field_image_plan_floor[0]['raw']['uri'],
+                'attributes' => array(
+                  'class' => array(''),
+                ),
+              )),
+            );
+          }
+        }
+
+        $a = substr_count($home->field_field_plan_number_floor[0]['raw']['value'], ',');
+
+        if(substr_count($home->field_field_plan_number_floor[0]['raw']['value'], ',') == 0) {
+          if(substr_count($home->field_field_plan_number_floor[0]['raw']['value'], '-') == 0) {
+
+            $vars['floors'][] = array(
+              'home_tid' => $home->tid,
+              'number_section' => $home->field_field_plan_number_section[0]['raw']['value'],
+              'number_floor' => $home->field_field_plan_number_floor[0]['raw']['value'],
+              'number_floor_link' => l($home->field_field_plan_number_floor[0]['raw']['value'].'-'.t('floor'), '#href', array(
+                'external' => TRUE,
+                'attributes' => array(
+                  'class' => array('plan-complex-home-section'),
+                  'id' => 'floor-'.$home->tid.'-'.$home->field_field_number_section[0]['raw']['value'].'-'.$home->field_field_plan_number_floor[0]['raw']['value'],
+                ),
+              )),
+              'plan_floor' => theme('image', array(
+                //'style_name' => 'realty_plan_floor',
+                'path' => $home->field_field_image_plan_floor[0]['raw']['uri'],
+                'attributes' => array(
+                    'class' => array(''),
+                  ),
+                )),
+            );
+
+          }
+        }
+      }
+      if(!empty($home->field_field_apartments)) {
+        $apartments =  $home->field_field_apartments[0]['raw']['value'];
+        $apartments = json_decode($apartments);
+        foreach ($apartment_complex as $apartment) {
+          foreach ($apartments as $k => $apart){
+            foreach ($apart as $ap) {
+              if ($ap->apartment == $apartment->field_field_number_apartament[0]['raw']['value']) {
+                if ($ap->floor == $apartment->field_field_apartment_floor[0]['raw']['value']) {
+                 $vars['apartmens'][$k] = array(
+                   'home' => $home->tid,
+                   'section'=> $apartment->field_field_section[0]['raw']['value'],
+                   'floor' => $ap->floor,
+                   'number' => $ap->apartment,
+                   'link' => l($ap->apartment, 'node/' . $apartment->nid, array('attributes' => array(
+                     'class' => array('a-section'),
+                     'style' => 'position: absolute; top: '.$ap->top.'%; left:'. $ap->left.'% ',
+                   ),)),
+                 );
+                }
+              }
+            }
+          }
+        }
 
       }
     }
