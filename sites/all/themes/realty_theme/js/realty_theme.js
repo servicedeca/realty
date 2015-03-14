@@ -507,12 +507,14 @@
       $(document).on('click', '.apartment-comparison',function () {
         var apartment = $(this);
         var nid = $(this).data('node-id');
+          var apart = $(this).data('apartment');
         console.log(nid);
           $.ajax({
             url: '/apartment_comparison',
             type: 'POST',
             data: {
-              nid: nid
+              nid: nid,
+              apartment: apart
             },
             success: function(response) {
               apartment.html('');
@@ -740,4 +742,34 @@
     })
   }
 
+  Drupal.behaviors.realtyPageApatment = {
+    attach: $(function() {
+      $(document).ready(function(){
+        $("#callh").hover(function(){
+          $(this).css("opacity","1");
+          $("#call").css("color","#000");
+        });
+      });
+      $(document).ready(function(){
+        $("#callh").mouseout(function(){
+          $(this).css("opacity","0");
+          $("#call").css("opacity","#999");
+        });
+      });
+
+      $(document).ready(function(){
+        $("#comparisonh").hover(function(){
+          $(this).css("opacity","1");
+          $("#comparison").css("color","#000");
+        });
+      });
+      $(document).ready(function(){
+        $("#comparisonh").mouseout(function(){
+          $(this).css("opacity","0");
+          $("#comparison").css("color","#999");
+        });
+      });
+
+    })
+  }
 }(jQuery));

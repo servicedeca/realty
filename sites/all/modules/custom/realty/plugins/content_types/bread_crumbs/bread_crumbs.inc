@@ -1,0 +1,53 @@
+<?php
+/**
+ * @file
+ * Ctools content type new_message.
+ */
+
+/**
+ * Implements hook_ctools_content_types().
+ */
+function realty_bread_crumbs_ctools_content_types() {
+  return array(
+    'single' => TRUE,
+    'title' => t('Bread crumbs'),
+    'all contexts' => TRUE,
+    'category' => t('Realty'),
+    'hook theme' => 'realty_bread_crumbs_content_type_theme',
+  );
+}
+
+/**
+ * Implements hook_content_type_render().
+ */
+function realty_bread_crumbs_content_type_render($subtype, $conf, $panel_args, $context) {
+  $block = new stdClass();
+  $block->content = theme('realty_bread_crumbs');
+
+  return $block;
+}
+
+/**
+ * Implements hook_content_type_theme().
+ */
+function realty_bread_crumbs_content_type_theme(&$theme, $plugin) {
+
+  $theme['realty_bread_crumbs'] = array(
+    'path' => $plugin['path'],
+    'template' => 'realty-bread-crumbs',
+  );
+}
+
+/**
+ * Process variables for realty-block-complexes.tpl.php.
+ */
+function template_preprocess_realty_bread_crumbs(&$vars) {
+  $node = menu_get_object('node', 1);
+  $complex = node_load($node->field_apartament_home[LANGUAGE_NONE][0]['taxonomy_term']->field_home_complex['und'][0]['target_id']);
+  $developer = taxonomy_term_load($complex->field_complex_developer[LANGUAGE_NONE][0]['tid']);
+  $city = taxonomy_term_load($developer->field_city[LANGUAGE_NONE][0]['tid']);
+
+  $vars['city'] = l($city->name, 'taxonomy/term/' . $city->tid);
+  $vars['complex'] = l($complex->title, 'node/' . $complex->nid);
+  $vars['apartment'] = l($node->title, 'node/' . $node->nid);
+}

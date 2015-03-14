@@ -657,5 +657,110 @@ function realty_preprocess_views_view_unformatted__comments_complex__comments_co
       );
     }
   }
-  $a = 1;
+}
+
+/**
+ * Preprocess variables for node--apartament-full.tpl.php
+ */
+function realty_preprocess_node__apartament_full(&$vars) {
+  global $user;
+
+  $vars['title_number'] = l(t('apartment №') . $vars['field_number_apartament'][0]['safe_value'],
+    'node/' . $vars['nid'], array('attributes'=> array('class'=> array('active-complex'))));
+
+  if ($vars['field_status'][0]['value'] == 1) {
+    $path_image = REALTY_FRONT_THEME_PATH . '/images/free.svg';
+    $vars['status_text'] = t('The apartment is available');
+
+    $lock = theme('image', array(
+      'path' => REALTY_FRONT_THEME_PATH . '/images/lock.svg',
+      'attributes' => array(
+        'class' => array('but1', 'bad-button-fix'),
+      ),
+    ));
+
+    $lockh = theme('image', array(
+      'path' => REALTY_FRONT_THEME_PATH . '/images/lockh.svg',
+      'attributes' => array(
+        'class' => array('but1h', 'bad-button-fix'),
+        'id' => 'callh'
+      ),
+    ));
+
+    $vars['link_modal_book'] = l($lock . $lockh . '<span class="new-tip-button" id="call">
+      '. t('book') .'
+      </span>', '#href', array(
+        'external' => TRUE,
+        'html' => TRUE,
+        'attributes' => array(
+          'data-toggle' => 'modal',
+          'data-target' => '.modal_free',
+        )));
+  }
+  else {
+    $path_image = REALTY_FRONT_THEME_PATH . '/images/booked.svg';
+    $vars['status_text'] = t('The apartment is booked');
+
+    $call = theme('image', array(
+      'path' => REALTY_FRONT_THEME_PATH . '/images/call.svg',
+      'attributes' => array(
+        'class' => array('but1', 'bad-button-fix'),
+      ),
+    ));
+
+    $callh = theme('image', array(
+      'path' => REALTY_FRONT_THEME_PATH . '/images/callh.svg',
+      'attributes' => array(
+        'class' => array('but1h', 'bad-button-fix'),
+        'id' => 'callh'
+      ),
+    ));
+
+    $vars['link_modal_book'] = l($call . $callh . '<span class="new-tip-button" id="call">
+      '. t('Send notification if your will act') .'
+      </span>', '#href', array(
+        'external' => TRUE,
+        'html' => TRUE,
+        'attributes' => array(
+          'data-toggle' => 'modal',
+          'data-target' => '.modal_booking',
+        )));
+  }
+
+  if (realty_checking_apartments_comparison($vars['nid']) == TRUE) {
+
+  }
+
+  else {
+    $add = theme('image', array(
+      'path' => REALTY_FRONT_THEME_PATH . '/images/but1.svg',
+      'attributes' => array(
+        'class' => array('but1'),
+      ),
+    ));
+
+    $addh = theme('image', array(
+      'path' => REALTY_FRONT_THEME_PATH . '/images/but1h.svg',
+      'attributes' => array(
+        'class' => array('but1h'),
+        'id' => 'comparisonh',
+      ),
+    ));
+
+    $vars['add_comparison'] = l($add . $addh . '<div class="tip-button" id="comparison">
+        '.t('Add to Compare').'
+      </div>', '#href', array(
+        'external' => TRUE,
+        'html' => TRUE,
+        'attributes' => array(
+          'data-node-id' => $vars['nid'],
+          'data-apartment' => 1,
+          'class' => array('apartment-comparison'),
+        )));
+    }
+
+  $vars['image_status'] = theme('image', array(
+    'path' => $path_image,
+    )
+  );
 }

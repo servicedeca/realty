@@ -395,7 +395,7 @@ function realty_form_user_profile_form_alter(&$form, &$form_id) {
 /**
  * Page callback to /get_id_apartment.
  */
-function realty_get_id_apartment(){
+function realty_get_id_apartment() {
   global $user;
 
   $account = user_load($user->uid);
@@ -450,12 +450,15 @@ function realty_apartment_comparison() {
         array_push($account->field_apartment_comparison[LANGUAGE_NONE], array('target_id' => $node->nid));
         user_save($account);
 
-        $add = theme('image', array (
-          'path' => REALTY_FRONT_THEME_PATH . '/images/ready.svg',
-          'attributes' => array(
-            'class' => array('add'),
-          ),
-        ));
+        $_POST['apartment'] == 0 ? $path = REALTY_FRONT_THEME_PATH . '/images/ready.svg' :
+          $path = REALTY_FRONT_THEME_PATH . '/images/ready_comprasion.svg';
+
+          $add = theme('image', array (
+            'path' => $path,
+            'attributes' => array(
+              'class' => array('add'),
+            ),
+          ));
 
         $add_r = l($add , '#href', array(
           'html' => TRUE,
@@ -467,7 +470,7 @@ function realty_apartment_comparison() {
           ),
         ));
 
-        print $add_r;
+        $_POST['apartment'] == 0 ? print $add_r : print $add;
       }
       drupal_exit();
     }
@@ -944,6 +947,27 @@ function realty_ctools_plugin_directory($owner, $plugin_type) {
     return "plugins/content_types";
   }
 }
+
+/**
+ * Checking apartments in comparison.
+ */
+function realty_checking_apartments_comparison($nid) {
+  global $user;
+  $account = user_load($user->uid);
+
+  $flag = FALSE;
+  if (!empty($account->field_apartment_comparison)) {
+    foreach ($account->field_apartment_comparison[LANGUAGE_NONE] as $apartment) {
+      if ($apartment['target_id'] == $nid) {
+        $flag = TRUE;
+        break;
+      }
+    }
+  }
+
+  return $flag;
+}
+
 
 /**
  * Draw user menu.
