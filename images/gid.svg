@@ -1,58 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 17.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="1162.442px" height="641.968px" viewBox="0 0 1162.442 641.968" enable-background="new 0 0 1162.442 641.968"
 	 xml:space="preserve">
-<symbol  id="New_Symbol" viewBox="-35.562 -35.405 71.125 71.125">
-	<path fill="#FFFFFF" stroke="#999999" stroke-miterlimit="10" d="M29.999,0.158C29.999-16.41,16.568-29.841,0-29.841
-		S-29.998-16.41-29.998,0.158S-16.567,30.156,0,30.156S29.999,16.725,29.999,0.158z"/>
+<symbol  id="New_Symbol" viewBox="-35.563 -35.562 71.126 71.125">
+	<path fill="#FFFFFF" stroke="#999999" stroke-miterlimit="10" d="M29.999,0.001c0-16.568-13.431-29.999-29.999-29.999
+		S-29.998-16.567-29.998,0.001S-16.567,29.999,0,29.999S29.999,16.568,29.999,0.001z"/>
 	<g>
-		<path fill="#29ABE2" d="M0,32.72c17.984,0,32.563-14.579,32.563-32.562c0-17.984-14.579-32.562-32.563-32.562
-			S-32.562-17.826-32.562,0.158C-32.562,18.141-17.983,32.72,0,32.72 M0,35.72c-19.609,0-35.563-15.953-35.563-35.562
-			S-19.609-35.405,0-35.405S35.563-19.452,35.563,0.158S19.61,35.72,0,35.72L0,35.72z"/>
+		<path fill="#29ABE2" d="M0,32.563c17.984,0,32.563-14.579,32.563-32.562c0-17.984-14.579-32.562-32.563-32.562
+			S-32.562-17.983-32.562,0.001C-32.562,17.984-17.983,32.563,0,32.563 M0,35.563c-19.609,0-35.563-15.953-35.563-35.562
+			S-19.609-35.562,0-35.562S35.563-19.609,35.563,0.001S19.61,35.563,0,35.563L0,35.563z"/>
 	</g>
 </symbol>
-<symbol  id="New_Symbol_1_2_" viewBox="-21.922 -21.923 43.845 43.845">
+<symbol  id="New_Symbol_1_2_" viewBox="-21.922 -21.922 43.845 43.845">
 	<path fill="#FFFFFF" stroke="#999999" stroke-width="0.7188" stroke-miterlimit="10" d="M21.563,0
 		c0-11.909-9.654-21.563-21.563-21.563S-21.563-11.909-21.563,0S-11.909,21.563,0,21.563S21.563,11.909,21.563,0z"/>
 </symbol>
-<symbol  id="New_Symbol_2" viewBox="-25.896 -25.896 51.793 51.793">
-	<path fill="none" stroke="#999999" stroke-width="0.7188" stroke-miterlimit="10" d="M21.563,0
-		c0-11.909-9.654-21.563-21.563-21.563S-21.563-11.909-21.563,0S-11.909,21.563,0,21.563S21.563,11.909,21.563,0z"/>
-	<path fill="none" stroke="#C1272D" stroke-width="2" stroke-miterlimit="10" d="M24.897,0C24.897-13.75,13.75-24.896,0-24.896
-		S-24.896-13.75-24.896,0S-13.75,24.897,0,24.897S24.897,13.75,24.897,0z"/>
+<symbol  id="New_Symbol_2" viewBox="-25.896 -25.897 51.793 51.793">
+	<path fill="none" stroke="#999999" stroke-width="0.7188" stroke-miterlimit="10" d="M21.563-0.001
+		c0-11.909-9.654-21.563-21.563-21.563S-21.563-11.91-21.563-0.001S-11.909,21.562,0,21.562S21.563,11.908,21.563-0.001z"/>
+	<path fill="none" stroke="#C1272D" stroke-width="2" stroke-miterlimit="10" d="M24.897-0.001c0-13.75-11.147-24.896-24.897-24.896
+		S-24.896-13.751-24.896-0.001S-13.75,24.896,0,24.896S24.897,13.749,24.897-0.001z"/>
 </symbol>
 <g id="HP">
 </g>
 <g id="base_x5F_layer">
+	<g>
+		<path fill="none" stroke="#999999" stroke-miterlimit="10" d="M988.701,179.86c12.808,14.464,22.991,31.678,29.54,51.141
+			c17.495,51.992,4.63,106.881-29.036,145.411"/>
+	</g>
+	<g>
+		<path fill="none" stroke="#999999" stroke-miterlimit="10" d="M989.993,374.854c-26.295,30.865-63.862,49.207-103.304,51.864"/>
+	</g>
 	<g id="New_Symbol_1">
 	</g>
 	<g id="New_Symbol_1_1_">
 	</g>
 	<g>
-		<path fill="#2391AF" d="M804.982,544.847h-9.642v6.708h8.861v4.993h-8.861v10.614h-6.155v-27.326h15.797V544.847z"/>
-		<path fill="#2391AF" d="M815.634,567.161h-6.155v-27.326h6.155V567.161z"/>
-		<path fill="#2391AF" d="M846.428,567.161h-6.212l-11.262-17.169c-0.661-1.003-1.118-1.759-1.372-2.268h-0.076
+		<path fill="#2391AF" d="M811.595,544.847h-9.642v6.708h8.861v4.993h-8.861v10.614h-6.155v-27.326h15.797L811.595,544.847
+			L811.595,544.847z"/>
+		<path fill="#2391AF" d="M822.247,567.161h-6.155v-27.326h6.155V567.161z"/>
+		<path fill="#2391AF" d="M853.041,567.161h-6.212l-11.262-17.169c-0.661-1.003-1.118-1.759-1.372-2.268h-0.076
 			c0.102,0.966,0.153,2.439,0.153,4.421v15.016h-5.812v-27.326h6.631l10.843,16.636c0.495,0.75,0.953,1.493,1.372,2.229h0.076
-			c-0.102-0.635-0.152-1.887-0.152-3.754v-15.111h5.812V567.161z"/>
-		<path fill="#2391AF" d="M852.679,567.161v-27.326h9.68c9.706,0,14.559,4.44,14.559,13.32c0,4.256-1.324,7.654-3.973,10.195
-			c-2.649,2.541-6.177,3.811-10.585,3.811H852.679z M858.834,544.847v17.322h3.049c2.668,0,4.761-0.8,6.279-2.401
-			c1.518-1.601,2.277-3.779,2.277-6.536c0-2.604-0.753-4.653-2.258-6.145c-1.505-1.493-3.618-2.239-6.336-2.239H858.834z"/>
-		<path fill="#29ABE2" d="M893,567.638c-3.913,0-7.102-1.274-9.566-3.821c-2.465-2.547-3.697-5.866-3.697-9.957
+			c-0.102-0.635-0.152-1.887-0.152-3.754v-15.111h5.812v27.326H853.041z"/>
+		<path fill="#2391AF" d="M859.292,567.161v-27.326h9.68c9.706,0,14.559,4.44,14.559,13.32c0,4.256-1.324,7.654-3.973,10.195
+			c-2.649,2.541-6.177,3.811-10.585,3.811H859.292z M865.447,544.847v17.322h3.049c2.668,0,4.761-0.8,6.279-2.401
+			s2.277-3.779,2.277-6.536c0-2.604-0.753-4.653-2.258-6.145c-1.505-1.493-3.618-2.239-6.336-2.239L865.447,544.847L865.447,544.847
+			z"/>
+		<path fill="#29ABE2" d="M899.613,567.638c-3.913,0-7.102-1.274-9.566-3.821c-2.465-2.547-3.697-5.866-3.697-9.957
 			c0-4.319,1.251-7.813,3.754-10.481c2.503-2.668,5.818-4.002,9.947-4.002c3.9,0,7.054,1.277,9.461,3.83
-			c2.407,2.553,3.611,5.92,3.611,10.099c0,4.294-1.248,7.756-3.744,10.385C900.27,566.323,897.015,567.638,893,567.638z
-			 M893.267,544.675c-2.16,0-3.875,0.81-5.145,2.43c-1.271,1.62-1.906,3.764-1.906,6.431c0,2.706,0.635,4.847,1.906,6.422
-			c1.27,1.575,2.935,2.363,4.993,2.363c2.121,0,3.805-0.765,5.05-2.296c1.245-1.531,1.867-3.655,1.867-6.374
-			c0-2.833-0.604-5.037-1.81-6.612C897.015,545.463,895.363,544.675,893.267,544.675z"/>
-		<path fill="#29ABE2" d="M942.183,567.161h-6.079v-16.35c0-1.766,0.076-3.716,0.229-5.85h-0.152
+			c2.407,2.553,3.611,5.92,3.611,10.099c0,4.294-1.248,7.756-3.744,10.385C906.883,566.323,903.628,567.638,899.613,567.638z
+			 M899.88,544.675c-2.16,0-3.875,0.81-5.145,2.43c-1.271,1.62-1.906,3.764-1.906,6.431c0,2.706,0.635,4.847,1.906,6.422
+			c1.27,1.575,2.935,2.363,4.993,2.363c2.121,0,3.805-0.765,5.05-2.296s1.867-3.655,1.867-6.374c0-2.833-0.604-5.037-1.81-6.612
+			C903.628,545.463,901.976,544.675,899.88,544.675z"/>
+		<path fill="#29ABE2" d="M948.796,567.161h-6.079v-16.35c0-1.766,0.076-3.716,0.229-5.85h-0.152
 			c-0.318,1.677-0.604,2.884-0.858,3.621l-6.403,18.579h-5.031l-6.517-18.389c-0.178-0.495-0.464-1.766-0.858-3.811h-0.172
 			c0.165,2.693,0.248,5.056,0.248,7.089v15.111h-5.545v-27.326h9.013l5.583,16.197c0.445,1.296,0.769,2.598,0.972,3.906h0.114
-			c0.343-1.512,0.705-2.826,1.086-3.945l5.583-16.159h8.785V567.161z"/>
-		<path fill="#29ABE2" d="M964.783,567.161h-16.388v-27.326h15.759v5.012h-9.604v6.079h8.937v4.993h-8.937v6.25h10.233V567.161z"/>
+			c0.343-1.512,0.705-2.826,1.086-3.945l5.583-16.159h8.785v27.327H948.796z"/>
+		<path fill="#29ABE2" d="M971.396,567.161h-16.388v-27.326h15.759v5.012h-9.604v6.079h8.937v4.993h-8.937v6.25h10.233
+			L971.396,567.161L971.396,567.161z"/>
 	</g>
 	
-		<use xlink:href="#New_Symbol_2"  width="51.793" height="51.793" x="-25.896" y="-25.896" transform="matrix(1.2478 0 0 -1.2478 876.9841 277.7838)" overflow="visible"/>
+		<use xlink:href="#New_Symbol_2"  width="51.793" height="51.793" x="-25.896" y="-25.897" transform="matrix(1.2478 0 0 -1.2478 876.9847 277.7838)" overflow="visible"/>
 	<circle fill="#FFFFFF" stroke="#666666" stroke-width="2.4957" stroke-miterlimit="10" cx="497.13" cy="277.783" r="26.907"/>
 	<g>
 		<g>
@@ -157,42 +167,42 @@
 	<g>
 		<g>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="902.374" y1="259.947" x2="903.2" y2="259.384"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="899.804" y1="258.551" x2="900.554" y2="257.89"/>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" stroke-dasharray="2.0121,2.0121" x1="904.863" y1="258.251" x2="1017.114" y2="181.797"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" stroke-dasharray="2.0121,2.0121" x1="902.065" y1="256.561" x2="963.298" y2="203.227"/>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="1017.946" y1="181.231" x2="1018.773" y2="180.668"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="964.053" y1="202.562" x2="964.804" y2="201.902"/>
 			<g>
-				<polygon fill="#C1272D" points="1018.228,187.214 1017.01,186.938 1018.377,180.938 1012.293,180.013 1012.482,178.778 
-					1019.892,179.907 				"/>
+				<polygon fill="#C1272D" points="965.07,208.465 963.827,208.341 964.445,202.218 958.293,202.05 958.328,200.801 
+					965.821,201.009 				"/>
 			</g>
 		</g>
 	</g>
 	<g>
 		<g>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="907.627" y1="272.69" x2="908.615" y2="272.538"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="907.027" y1="277.845" x2="908.027" y2="277.842"/>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" stroke-dasharray="2.0121,2.0121" x1="910.604" y1="272.233" x2="1044.85" y2="251.653"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" stroke-dasharray="2.0121,2.0121" x1="910.039" y1="277.836" x2="991.242" y2="277.982"/>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="1045.845" y1="251.5" x2="1046.833" y2="251.349"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="992.249" y1="277.978" x2="993.248" y2="277.976"/>
 			<g>
-				<polygon fill="#C1272D" points="1043.519,257.02 1042.539,256.246 1046.36,251.422 1041.269,247.964 1041.972,246.931 
-					1048.171,251.145 				"/>
+				<polygon fill="#C1272D" points="989.129,283.092 988.275,282.181 992.77,277.978 988.249,273.802 989.098,272.885 
+					994.602,277.973 				"/>
 			</g>
 		</g>
 	</g>
 	<g>
 		<g>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="906.872" y1="286.452" x2="907.829" y2="286.742"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="899.767" y1="297.126" x2="900.522" y2="297.782"/>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" stroke-dasharray="2.0121,2.0121" x1="909.755" y1="287.324" x2="1039.755" y2="326.64"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" stroke-dasharray="2.0121,2.0121" x1="902.041" y1="299.101" x2="963.081" y2="352.655"/>
 			
-				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="1040.717" y1="326.931" x2="1041.674" y2="327.221"/>
+				<line fill="none" stroke="#C1272D" stroke-width="1.248" stroke-miterlimit="10" x1="963.841" y1="353.315" x2="964.596" y2="353.971"/>
 			<g>
-				<polygon fill="#C1272D" points="1036.239,330.909 1035.689,329.788 1041.216,327.083 1038.114,321.768 1039.193,321.139 
-					1042.97,327.614 				"/>
+				<polygon fill="#C1272D" points="958.127,355.112 958.084,353.864 964.234,353.658 963.579,347.538 964.821,347.406 
+					965.617,354.86 				"/>
 			</g>
 		</g>
 	</g>
@@ -239,37 +249,50 @@
 	<g>
 		<text transform="matrix(1 0 0 1 20.4698 136.4198)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Вход/регистрация</text>
 	</g>
-	<text transform="matrix(1 0 0 1 187.5482 254.4451)"><tspan x="0" y="0" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Главная</tspan><tspan x="0" y="22.393" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">страница</tspan></text>
-	<text transform="matrix(1 0 0 1 647.41 333.0454)"><tspan x="0" y="0" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Выдача</tspan><tspan x="-19.021" y="22.393" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">результатов</tspan></text>
+	<text transform="matrix(1 0 0 1 185.254 259.7784)" enable-background="new    "><tspan x="0" y="0" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Страница</tspan><tspan x="0" y="22.393" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">города</tspan></text>
+	<text transform="matrix(1 0 0 1 647.41 333.0454)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Выдача</text>
+	<text transform="matrix(1 0 0 1 628.389 355.4384)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">результатов</text>
 	<text transform="matrix(1 0 0 1 470.2215 330.3418)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Поиск</text>
+	<text transform="matrix(1 0 0 1 779.5548 430.3418)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Выгода</text>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.1532 0.4766 0.4766 -1.1532 410.8309 154.0765)" overflow="visible"/>
-	<text transform="matrix(1 0 0 1 61.795 410.9567)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Застройщики</text>
-	<text transform="matrix(1 0 0 1 32.7685 559.2134)"><tspan x="0" y="0" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Страница </tspan><tspan x="-11.84" y="22.393" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">застройщика</tspan></text>
-	<text transform="matrix(1 0 0 1 451.4705 165.5697)"><tspan x="0" y="0" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Личный</tspan><tspan x="0.164" y="22.393" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">кабинет</tspan></text>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.1532 0.4766 0.4766 -1.1532 410.8312 154.0773)" overflow="visible"/>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.1532 0.4766 0.4766 -1.1532 503.6624 43.4338)" overflow="visible"/>
-	<text transform="matrix(1 0 0 1 375.686 33.1342)"><tspan x="0" y="0" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Таблица</tspan><tspan x="0" y="22.393" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">сравнения</tspan></text>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.1827 -0.398 -0.398 -1.1827 988.2706 181.7729)" overflow="visible"/>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.1532 0.4766 0.4766 -1.1532 195.3331 166.8494)" overflow="visible"/>
-	<text transform="matrix(1 0 0 1 342.6866 605.5542)"><tspan x="0" y="0" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Страница </tspan><tspan x="29.554" y="22.393" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">ЖК</tspan></text>
-	<text transform="matrix(1 0 0 1 340.4454 476.4512)"><tspan x="0" y="0" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Жилые</tspan><tspan x="0" y="22.393" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">комплексы</tspan></text>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.1827 -0.398 -0.398 -1.1827 1023.7564 277.2187)" overflow="visible"/>
+	
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.1827 -0.398 -0.398 -1.1827 988.317 374.3856)" overflow="visible"/>
+	<text transform="matrix(1 0 0 1 22.4616 415.5303)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Все застройщики</text>
+	<text transform="matrix(1 0 0 1 32.7685 559.2134)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Страница </text>
+	<text transform="matrix(1 0 0 1 20.9285 581.6064)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">застройщика</text>
+	<text transform="matrix(1 0 0 1 451.4705 165.5697)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Личный</text>
+	<text transform="matrix(1 0 0 1 451.6345 187.9627)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">кабинет</text>
+	
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.1532 0.4766 0.4766 -1.1532 503.6628 43.4346)" overflow="visible"/>
+	<text transform="matrix(1 0 0 1 375.686 33.1342)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Таблица</text>
+	<text transform="matrix(1 0 0 1 375.686 55.5272)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">сравнения</text>
+	
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.1532 0.4766 0.4766 -1.1532 195.3335 166.8502)" overflow="visible"/>
+	<text transform="matrix(1 0 0 1 342.6866 605.5542)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Страница </text>
+	<text transform="matrix(1 0 0 1 372.2406 627.9472)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">ЖК</text>
+	<text transform="matrix(1 0 0 1 338.2378 479.7845)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Все жилые</text>
+	<text transform="matrix(1 0 0 1 338.2378 502.1775)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">комплексы</text>
 	<text transform="matrix(1 0 0 1 60.7949 338.7155)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Акции</text>
 	<text transform="matrix(1 0 0 1 453.9046 405.9022)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Карта</text>
-	<text transform="matrix(1 0 0 1 841.0341 333.0459)" fill="#4D4D4D" font-family="'SegoeUI-Semilight'" font-size="18.6603">Квартира</text>
-	<text transform="matrix(1 0 0 1 1042.0341 181.4395)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">ID</text>
-	<text transform="matrix(1 0 0 1 1059.0341 257.0962)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Бронь</text>
-	<text transform="matrix(1 0 0 1 1055.0341 341.5999)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Документы</text>
+	<text transform="matrix(1 0 0 1 839.0341 337.3793)" fill="#4D4D4D" font-family="'SegoeUI-Semilight'" font-size="18.6603">Квартира</text>
+	<text transform="matrix(1 0 0 1 1061.7601 284.778)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">ID</text>
+	<text transform="matrix(1 0 0 1 1029.3845 383.6149)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Бронь</text>
+	<text transform="matrix(1 0 0 1 1031.5341 183.836)" fill="#666666" font-family="'SegoeUI-Semilight'" font-size="18.6603">Документы</text>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.2478 0 0 -1.2478 160.6409 333.0448)" overflow="visible"/>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.2478 0 0 -1.2478 160.6415 333.0454)" overflow="visible"/>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.2478 0 0 -1.2478 412.2137 400.4287)" overflow="visible"/>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.2478 0 0 -1.2478 412.2144 400.4293)" overflow="visible"/>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.2478 0 0 -1.2478 134.5689 513.3741)" overflow="visible"/>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.2478 0 0 -1.2478 134.5695 513.3747)" overflow="visible"/>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.2478 0 0 -1.2478 310.1411 567.6375)" overflow="visible"/>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.2478 0 0 -1.2478 310.1418 567.6381)" overflow="visible"/>
 	
-		<use xlink:href="#New_Symbol"  width="71.125" height="71.125" id="XMLID_9_" x="-35.562" y="-35.405" transform="matrix(0.897 0 0 -0.897 310.1406 277.9258)" overflow="visible"/>
+		<use xlink:href="#New_Symbol"  width="71.126" height="71.125" id="XMLID_9_" x="-35.563" y="-35.562" transform="matrix(0.897 0 0 -0.897 310.1411 277.7843)" overflow="visible"/>
 	<g>
 		<g>
 			<path fill="none" stroke="#4D4D4D" stroke-width="1.2478" stroke-miterlimit="10" d="M390.36,416.197
@@ -281,9 +304,9 @@
 		</g>
 	</g>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.2478 0 0 -1.2478 309.8053 437.8642)" overflow="visible"/>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.2478 0 0 -1.2478 309.8059 437.8648)" overflow="visible"/>
 	
-		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.923" transform="matrix(1.1532 0.4766 0.4766 -1.1532 214.9585 406.4489)" overflow="visible"/>
+		<use xlink:href="#New_Symbol_1_2_"  width="43.845" height="43.845" x="-21.922" y="-21.922" transform="matrix(1.1532 0.4766 0.4766 -1.1532 214.9588 406.4497)" overflow="visible"/>
 	<g>
 		<g>
 			<path fill="none" stroke="#4D4D4D" stroke-width="1.2478" stroke-miterlimit="10" d="M271.31,567.702
@@ -295,5 +318,6 @@
 		</g>
 	</g>
 	<circle fill="#FFFFFF" stroke="#666666" stroke-width="2.4957" stroke-miterlimit="10" cx="678.417" cy="277.783" r="26.907"/>
+	<circle fill="#FFFFFF" stroke="#666666" stroke-width="2.4957" stroke-miterlimit="10" cx="876.985" cy="424.795" r="26.907"/>
 </g>
 </svg>
