@@ -27,7 +27,7 @@
       <div class="form-group c-select">
         <?php print render($search_map_form['category'])?>
       </div>
-      <div id="filters">
+      <div class="filters">
         <ul>
           <li>
             <a data-toggle="modal" data-target=".modal-map-area"><?php print t('Area');?></a>
@@ -37,6 +37,9 @@
           </li>
           <li>
             <a data-toggle="modal" data-target=".modal-map-complex"><?php print t('RC');?></a>
+          </li>
+          <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				   	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </li>
           <li class="store">
             <input type="checkbox" id="mapcheck">
