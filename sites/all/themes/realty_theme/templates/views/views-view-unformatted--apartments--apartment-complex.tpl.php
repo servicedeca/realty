@@ -1,4 +1,4 @@
-<table class="table issue-table display" id="complex">
+<table class="table issue-table display coll-xs-12 zero-padding" id="complex">
   <thead>
     <tr>
       <th id="bn">
