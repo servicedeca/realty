@@ -63,7 +63,7 @@ function template_preprocess_realty_search_form(&$vars) {
       $vars['news_logo'] =  theme('image', array(
           'path' => $logo_path,
           'attributes' => array(
-            'class' => array('logo-z'),
+            'class' => array('logo-c'),
           ),
         )
       );;
