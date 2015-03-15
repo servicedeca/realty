@@ -1095,10 +1095,17 @@ function realty_get_current_city() {
  */
 function realty_filter_complex_apartment_form($form, $form_state) {
 
-  $complex_id = arg('1');
+  $node_id = arg('1');
+  $node = node_load($node_id);
+  if ($node->type == 'apartament') {
+    $home = taxonomy_term_load($node->field_apartament_home['und'][0]['tid']);
+    $complex_id = $home->field_home_complex['und'][0]['target_id'];
+  }
+  else {
+    $complex_id = $node->nid;
+  }
   $complex = node_load($complex_id);
-  $complex = node_load($complex_id);
-  $homes = views_get_view_result('term_view', 'homes_complex', $complex->nid);
+  $homes = views_get_view_result('term_view', 'homes_complex', $complex_id);
   foreach ($homes as $key=>$home) {
     $options[$home->tid] = $home->field_field_address_house[0]['rendered']['#markup'];
     $sections[$home->field_field_address_house[0]['rendered']['#markup']]

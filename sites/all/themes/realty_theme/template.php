@@ -859,8 +859,38 @@ function realty_preprocess_node__apartament_full(&$vars) {
     ));
   }
 
+  if (!empty($vars['field_location_home'])) {
+    $vars['home_plan'] = theme('image', array(
+      'path' => $vars['field_location_home'][0]['uri'],
+      'title' => 'plan apartment',
+      'attributes' => array(
+        'class' => array('apartment-image-vertical'),
+      ),
+    ));
+  }
+
+  if (!empty($vars['field_location_floor'])) {
+    $vars['floor_plan'] = theme('image', array(
+      'path' => $vars['field_location_floor']['und'][0]['uri'],
+      'title' => 'plan apartment',
+      'attributes' => array(
+        'class' => array('apartment-image-vertical'),
+      ),
+    ));
+  }
+
   $vars['image_status'] = theme('image', array(
     'path' => $path_image,
     )
   );
+  $vars['address'] = $vars['field_apartament_home'][0]['taxonomy_term']->field_address_house['und'][0]['value'];
+  $complex = node_load($vars['field_apartament_home'][0]['taxonomy_term']->field_home_complex['und'][0]['target_id']);
+  $vars['complex'] = $complex->title;
+  $deadline = field_collection_item_load($complex->field_deadline['und'][0]['revision_id']);
+  $vars['deadline'] = $deadline->field_quarter['und'][0]['value'] . 'quarter '.
+    $deadline->field_year['und'][0]['value'] . 'year';
+  $area = taxonomy_term_load($complex->field_area['und'][0]['tid']);
+  $vars['area'] = $area->name;
+  $developer = taxonomy_term_load($complex->field_complex_developer['und'][0]['tid']);
+  $vars['developer'] = $developer->name;
 }

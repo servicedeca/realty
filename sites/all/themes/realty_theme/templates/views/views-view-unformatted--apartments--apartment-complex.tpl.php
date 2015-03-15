@@ -1,4 +1,3 @@
-
 <table class="table issue-table display" id="complex">
   <thead>
     <tr>
