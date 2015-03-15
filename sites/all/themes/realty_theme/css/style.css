@@ -2789,21 +2789,22 @@ margin-left: -120px;
 }
 
 .a-dom {
-    text-align:center;
-    color:#f2f2f2;
-    font-size:22px;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    text-decoration: none;
-    border-radius: 10px;
-    background: rgba(47, 173, 226, 0.9);
+  text-align:center;
+  color:#333333;
+  font-size:22px;
+  width: 60px;
+  height: 60px;
+  line-height: 50px;
+  border-radius: 60px;
+  border: 5px solid #286e99;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 1);
 }
 
 .a-dom:hover {
-    background: rgba(47, 173, 226, 1);
-    text-decoration: none;
-    color:#f2f2f2;
+  background: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  color:#000;
 }
 
 .a-section {
