@@ -105,17 +105,17 @@
 <div class="col-xs-12 search-back-line zero-padding padding-left">
   <div class="col-xs-8 search-slider-block zero-padding">
     <div class="col-xs-4 search-slider-item">
-      <label class="hint margin-bottom"><?php print t('Площадь, м').'<sup>2<sup>'?></label>
+      <label class="hint margin-bottom-35"><?php print t('Площадь, м').'<sup>2<sup>'?></label>
       <?php print render($form['sq'])?>
     </div>
 
     <div class="col-xs-4 search-slider-item">
-      <label class="hint margin-bottom"><?php print t('Цена за м') . '<sup>2</sup>' . t('тыс. руб')?></label>
+      <label class="hint margin-bottom-35"><?php print t('Цена за м') . '<sup>2</sup>' . t('тыс. руб')?></label>
       <?php print render($form['price'])?>
     </div>
 
     <div class="col-xs-4 search-slider-item">
-      <label class="hint margin-bottom"><?php print t('Стоимость, млн. руб');?></label>
+      <label class="hint margin-bottom-35"><?php print t('Стоимость, млн. руб');?></label>
       <?php print render($form['coast'])?>
     </div>
   </div>

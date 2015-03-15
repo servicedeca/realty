@@ -74,7 +74,7 @@ background: #227d92;
     top: 22px;
     width: 30px; height: 30px;
     border-radius: 30px;
-    background: #2793b0;
+    background: transparent;
     cursor: pointer;
 }
 
