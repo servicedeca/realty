@@ -81,7 +81,7 @@ function template_preprocess_realty_block_pano(&$vars) {
             'alt' => $val->node_title,
             'title' => $val->node_title,
             'attributes' => array(
-              'class' => array('logo-z'),
+              'class' => array('logo-c'),
             ),
           )
         );

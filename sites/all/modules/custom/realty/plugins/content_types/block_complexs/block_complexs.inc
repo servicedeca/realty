@@ -63,8 +63,8 @@ function template_preprocess_realty_block_complexs(&$vars) {
       'details' => l('Details', 'node/'.$val->nid, array(
         'attributes' => array('class' => array('button-info button-info-top'),))),
     );
-    if(!empty($val->field_field_description)) {
-      $vars['complexes'][$key]['description'] = $val->field_field_description[0]['rendered']['#markup'];
+    if(!empty($val->field_field_slogan)) {
+      $vars['complexes'][$key]['description'] = $val->field_field_slogan[0]['rendered']['#markup'];
     }
 
     if (!empty($val->field_field_complex_logo)) {
@@ -73,7 +73,7 @@ function template_preprocess_realty_block_complexs(&$vars) {
           'alt' => $val->node_title,
           'title' => $val->node_title,
           'attributes' => array(
-            'class' => array('logo-z'),
+            'class' => array('logo-c'),
           ),
         )
       );

@@ -78,7 +78,7 @@ function template_preprocess_realty_front_map(&$vars) {
         'title' => $complex[0]->node_title,
         'alt' => $complex[0]->node_title,
         'attributes' => array(
-          'class' => array('logo-z', 'vertical-logo'),
+          'class' => array('logo-c', 'vertical-logo'),
         ),
       ));
     }

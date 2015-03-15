@@ -107,7 +107,7 @@ function template_preprocess_realty_plan_complex(&$vars) {
                 //'style_name' => 'realty_plan_floor',
                 'path' => $home->field_field_image_plan_floor[0]['raw']['uri'],
                 'attributes' => array(
-                  'class' => array(''),
+                  'class' => array('vertical-flat-image'),
                 ),
               )),
             );
@@ -133,7 +133,7 @@ function template_preprocess_realty_plan_complex(&$vars) {
                 //'style_name' => 'realty_plan_floor',
                 'path' => $home->field_field_image_plan_floor[0]['raw']['uri'],
                 'attributes' => array(
-                  'class' => array(''),
+                  'class' => array('vertical-flat-image'),
                 ),
               )),
             );
@@ -160,7 +160,7 @@ function template_preprocess_realty_plan_complex(&$vars) {
                 //'style_name' => 'realty_plan_floor',
                 'path' => $home->field_field_image_plan_floor[0]['raw']['uri'],
                 'attributes' => array(
-                    'class' => array(''),
+                    'class' => array('vertical-flat-image'),
                   ),
                 )),
             );
