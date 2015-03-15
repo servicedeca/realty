@@ -400,7 +400,7 @@ function realty_node_presave($node) {
         node_save($node);
       }
       else {
-        return FALSE ;
+        node_save($node);
       }
     }
   }
