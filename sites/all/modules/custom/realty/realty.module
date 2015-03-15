@@ -391,13 +391,13 @@ function realty_node_presave($node) {
   if ($node->type == 'apartament') {
     if ($node->field_status['und'][0]['value'] == 0) {
       $node->field_hiden_status[LANGUAGE_NONE][0]['value'] = 0;
-      field_attach_update('node', $node);
+      node_save($node);
     }
     if ($node->field_hiden_status[LANGUAGE_NONE][0]['value'] == 0 && $node->field_status[LANGUAGE_NONE][0]['value'] == 1) {
       $node->field_hiden_status[LANGUAGE_NONE][0]['value'] = 1;
       if (realty_sending_messages_to_users($node) == TRUE) {
         unset($node->field_user_signal['und']);
-        field_attach_update('node', $node);
+        node_save($node);
       }
       else {
         return FALSE ;
