@@ -506,9 +506,11 @@
 
       $(document).on('click', '.apartment-comparison',function () {
         var apartment = $(this);
-        var nid = $(this).data('node-id');
-          var apart = $(this).data('apartment');
-        console.log(nid);
+          var nid = $(this).data('node-id');
+          var apart = 0;
+        if ($(this).data('apartment') > 0){
+          apart = $(this).data('apartment');
+        }
           $.ajax({
             url: '/apartment_comparison',
             type: 'POST',
@@ -517,8 +519,14 @@
               apartment: apart
             },
             success: function(response) {
-              apartment.html('');
-              apartment.html(response);
+              console.log(response);
+              if (response != 1) {
+                apartment.html('');
+                apartment.html(response);
+              }
+              else {
+                return;
+              }
             },
             error: function(response) {
               alert('false');
@@ -530,19 +538,27 @@
       $(document).on('click', '.apartment-signal',function () {
         var apartment = $(this);
         var nid = $(this).data('node-id');
+        var apart = 0;
+        if ($(this).data('apartment') > 0){
+          apart = $(this).data('apartment');
+        }
         $.ajax({
           url: '/apartment_signal',
           type: 'POST',
           data: {
-            nid: nid
+            nid: nid,
+            apartment: apart
           },
           success: function(response) {
             if(response == 'user') {
               window.location.replace('user');
             }
-            else {
+            if (response != 1) {
               apartment.html('');
               apartment.html(response);
+            }
+            else {
+              return;
             }
           },
           error: function(response) {
@@ -770,6 +786,30 @@
         });
       });
 
+      $(document).ready(function(){
+        $("#bankh").hover(function(){
+          $(this).css("opacity","1");
+          $("#bank").css("color","#000");
+        });
+      });
+      $(document).ready(function(){
+        $("#bankh").mouseout(function(){
+          $(this).css("opacity","0");
+          $("#bank").css("color","#999");
+        });
+      });
+      $(document).ready(function(){
+        $("#documentsh").hover(function(){
+          $(this).css("opacity","1");
+          $("#documents").css("color","#000");
+        });
+      });
+      $(document).ready(function(){
+        $("#documentsh").mouseout(function(){
+          $(this).css("opacity","0");
+          $("#documents").css("opacity","#999");
+        });
+      });
     })
   }
 }(jQuery));

@@ -697,6 +697,7 @@ function realty_preprocess_node__apartament_full(&$vars) {
           'data-target' => '.modal_free',
         )));
   }
+
   else {
     $path_image = REALTY_FRONT_THEME_PATH . '/images/booked.svg';
     $vars['status_text'] = t('The apartment is booked');
@@ -716,19 +717,53 @@ function realty_preprocess_node__apartament_full(&$vars) {
       ),
     ));
 
-    $vars['link_modal_book'] = l($call . $callh . '<span class="new-tip-button" id="call">
-      '. t('Send notification if your will act') .'
-      </span>', '#href', array(
-        'external' => TRUE,
-        'html' => TRUE,
+    $vars['link_modal_book'] = '<div class="apartment-signal" data-apartment="1" data-node-id='.$vars['nid'].'>'.
+      l($call . $callh . '<span class="new-tip-button" id="call">
+        '. t('Send notification if your will act') .'
+        </span>', '#href', array(
+          'external' => TRUE,
+          'html' => TRUE,
+          'attributes' => array(
+            'data-toggle' => 'modal',
+            'data-target' => '.modal_booking',
+        ))).'</div>';
+
+    if (realty_check_status_apartment_user($user->uid, $vars['nid']) == TRUE) {
+      $call = theme('image', array(
+        'path' => REALTY_FRONT_THEME_PATH . '/images/dingdong_big.svg',
         'attributes' => array(
-          'data-toggle' => 'modal',
-          'data-target' => '.modal_booking',
-        )));
+          'class' => array('bad-button-fix'),
+        ),
+      ));
+
+      $vars['link_modal_book'] = l($call. '<span class="new-tip-button">
+        '. t('Send notification if your removed') .'
+        </span>', '#href', array(
+            'external' => TRUE,
+            'html' => TRUE,
+            'attributes' => array(
+            )));
+    }
+
   }
 
   if (realty_checking_apartments_comparison($vars['nid']) == TRUE) {
+    $redy = theme('image', array (
+      'path' => REALTY_FRONT_THEME_PATH . '/images/ready_comprasion.svg',
+      'attributes' => array(
+        'class' => array(''),
+      ),
+    ));
 
+    $vars['add_comparison'] = l($redy.'<div class="tip-button" id="comparison">
+        '.t('added to comparison').'
+        </div>' , '#href', array(
+        'html' => TRUE,
+        'external' => TRUE,
+        'attributes' => array(
+          'class' => array('added-comparison'),
+        ),
+      ));
   }
 
   else {
@@ -747,17 +782,82 @@ function realty_preprocess_node__apartament_full(&$vars) {
       ),
     ));
 
-    $vars['add_comparison'] = l($add . $addh . '<div class="tip-button" id="comparison">
+    $vars['add_comparison'] = '<div class="apartment-comparison" data-apartment="1" data-node-id = "'.$vars['nid'].'"'
+      .l($add . $addh . '<div class="tip-button" id="comparison">
         '.t('Add to Compare').'
-      </div>', '#href', array(
-        'external' => TRUE,
-        'html' => TRUE,
-        'attributes' => array(
-          'data-node-id' => $vars['nid'],
-          'data-apartment' => 1,
-          'class' => array('apartment-comparison'),
-        )));
+        </div>', '#href', array(
+          'external' => TRUE,
+          'html' => TRUE,
+          'attributes' => array(
+            'data-node-id' => $vars['nid'],
+            'data-apartment' => 1,
+            'class' => array('apartment-comparison'),
+        ))).'</div>';
     }
+
+  $img_id = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/but2.svg',
+    'attributes' => array(
+      'class' => array('but1'),
+    ),
+  ));
+
+  $img_id_h = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/but2h.svg',
+    'attributes' => array(
+      'class' => array('but1h'),
+      'id' => 'bankh',
+    ),
+  ));
+
+  $vars['get_id'] = l($img_id . $img_id_h . '<div class="tip-button" id="bank">'.t('Get id apartment').'</div>',
+    '#href', array(
+      'external' => TRUE,
+      'html' => TRUE,
+      'attributes' => array(
+        'data-toggle' => 'modal',
+        'data-target' => '.modal_id',
+        'class' => array('apartment-comparison'),
+      )
+    )
+  );
+
+  $img_doc = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/but3.svg',
+    'attributes' => array(
+      'class' => array('but1'),
+    ),
+  ));
+
+  $img_doc_h = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/but3h.svg',
+    'attributes' => array(
+      'class' => array('but1h'),
+      'id' => 'documentsh',
+    ),
+  ));
+
+  $vars['get_doc'] = l($img_doc . $img_doc_h . '<div class="tip-button" id="documents">'.t('Get documents').'</div>',
+    '#href', array(
+      'external' => TRUE,
+      'html' => TRUE,
+      'attributes' => array(
+        'data-toggle' => 'modal',
+        'data-target' => '.modal_docs',
+        'class' => array('apartment-comparison'),
+      )
+    )
+  );
+
+  if (!empty($vars['field_plan_apartment'])) {
+    $vars['apartment_plan'] = theme('image', array(
+      'path' => $vars['field_plan_apartment'][0]['uri'],
+      'title' => 'plan apartment',
+      'attributes' => array(
+        'class' => array('apartment-image-vertical'),
+      ),
+    ));
+  }
 
   $vars['image_status'] = theme('image', array(
     'path' => $path_image,

@@ -294,30 +294,55 @@ function realty_apartment_signal() {
 
   if($user->uid != 0) {
     if($_POST['nid']) {
-      $node = node_load($_POST['nid']);
-      $node->field_user_signal[LANGUAGE_NONE][]['target_id'] = $user->uid;
-      field_attach_update('node', $node);
-      node_save($node);
+      if (realty_check_status_apartment_user($user->uid, $_POST['nid']) == TRUE) {
+        print TRUE;
+        drupal_exit();
+      }
+      else {
+        $node = node_load($_POST['nid']);
+        $node->field_user_signal[LANGUAGE_NONE][]['target_id'] = $user->uid;
+        field_attach_update('node', $node);
+        node_save($node);
+        if ($_POST['apartment'] == 0) {
+          $dindo = theme('image', array(
+            'path' => REALTY_FRONT_THEME_PATH . '/images/dingdongr.svg',
+            'attributes' => array(
+              'class' => array('dingdong'),
+            ),
+          ));
 
-      $dindo = theme('image', array(
-        'path' => REALTY_FRONT_THEME_PATH . '/images/dingdongr.svg',
-        'attributes' => array(
-          'class' => array('dingdong'),
-        ),
-      ));
+          $dindon_r = l($dindo , '#href', array(
+            'html' => TRUE,
+            'external' => TRUE,
+            'attributes' => array(
+              'rel' => 'tooltip',
+              'data-placement' => 'right',
+              'title' => 'Notification will be sent to the withdrawal of reservations',
+            ),
+          ));
+        }
+        else {
+          $dindo = theme('image', array(
+            'path' => REALTY_FRONT_THEME_PATH . '/images/dingdong_big.svg',
+            'attributes' => array(
+              'class' => array('bad-button-fix'),
+            ),
+          ));
 
-      $dindon_r = l($dindo , '#href', array(
-        'html' => TRUE,
-        'external' => TRUE,
-        'attributes' => array(
-          'rel' => 'tooltip',
-          'data-placement' => 'right',
-          'title' => 'Notification will be sent to the withdrawal of reservations',
-        ),
-      ));
-
-      print $dindon_r;
-      drupal_exit();
+          $dindon_r = l($dindo . '<span class="new-tip-button">
+          '. t('Send notification if your removed') .'
+          </span>' , '#href', array(
+            'html' => TRUE,
+            'external' => TRUE,
+            'attributes' => array(
+              'rel' => 'tooltip',
+              'data-placement' => 'right',
+            ),
+          ));
+        }
+        print $dindon_r;
+        drupal_exit();
+      }
     }
   }
   else {
@@ -453,24 +478,49 @@ function realty_apartment_comparison() {
         $_POST['apartment'] == 0 ? $path = REALTY_FRONT_THEME_PATH . '/images/ready.svg' :
           $path = REALTY_FRONT_THEME_PATH . '/images/ready_comprasion.svg';
 
+        if ($_POST['apartment'] == 0) {
           $add = theme('image', array (
-            'path' => $path,
+            'path' => REALTY_FRONT_THEME_PATH . '/images/ready.svg',
             'attributes' => array(
               'class' => array('add'),
             ),
           ));
 
-        $add_r = l($add , '#href', array(
-          'html' => TRUE,
-          'external' => TRUE,
-          'attributes' => array(
-            'title' => t('Apartment in comparison'),
-            'data-placement' => 'right',
-            'rel' => 'tooltip',
-          ),
-        ));
+          $add_r = l($add , '#href', array(
+            'html' => TRUE,
+            'external' => TRUE,
+            'attributes' => array(
+              'title' => t('Apartment in comparison'),
+              'data-placement' => 'right',
+              'rel' => 'tooltip',
+              'class' => array('added-comparison'),
+            ),
+          ));
+        }
+        else {
+          $add = theme('image', array (
+            'path' => REALTY_FRONT_THEME_PATH . '/images/ready_comprasion.svg',
+            'attributes' => array(
+              'class' => array(''),
+            ),
+          ));
 
-        $_POST['apartment'] == 0 ? print $add_r : print $add;
+          $add_r = l($add.'<div class="tip-button" id="comparison">
+        '.t('added to comparison').'
+        </div>' , '#href', array(
+            'html' => TRUE,
+            'external' => TRUE,
+            'attributes' => array(
+              'class' => array('added-comparison'),
+            ),
+          ));
+        }
+
+         print $add_r;
+      }
+
+      else {
+        print TRUE;
       }
       drupal_exit();
     }
@@ -968,6 +1018,20 @@ function realty_checking_apartments_comparison($nid) {
   return $flag;
 }
 
+/**
+ * Check subscription status tracking
+ */
+function realty_check_status_apartment_user($uid, $nid) {
+  $node = node_load($nid);
+  $flag = FALSE;
+  foreach ($node->field_user_signal['und'] as $value) {
+    if ($value['target_id'] == $uid) {
+      $flag = TRUE;
+      break;
+    }
+  }
+  return $flag;
+}
 
 /**
  * Draw user menu.

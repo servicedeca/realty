@@ -51,35 +51,25 @@
       <?php print $add_comparison;?>
     </div>
     <div class="col-xs-12 apartment-button">
-      <a data-toggle="modal" data-target=".modal_id">
-        <img src="images/but2.svg" class="but1">
-        <img src="images/but2h.svg" class="but1h" id="bankh">
-        <div class="tip-button" id="bank">
-          Получить ID квартиры
-        </div>
-      </a>
+      <?php print $get_id;?>
     </div>
     <div class="col-xs-12 apartment-button">
-      <a href="#" data-toggle="modal" data-target=".modal_docs">
-        <img src="images/but3.svg" class="but1">
-        <img src="images/but3h.svg" class="but1h" id="documentsh">
-        <div class="tip-button" id="documents">
-          Получить документы
-        </div>
-      </a>
+      <?php print $get_doc;?>
     </div>
   </div>
 
   <div class="col-xs-11 zero-pading tab-content apartment-body">
     <div role="tabpanel" class="tab-pane fade active in" id="layout" aria-labelledby="home-tab">
       <div class="col-xs-8 zero-padding apartment-plan">
-        <img src="images/floor7.png" class="apartment-image-vertical">
+        <?php if(isset($apartment_plan)):?>
+          <?php print $apartment_plan;?>
+        <?php endif;?>
       </div>
       <div class="col-xs-4 zero-padding apartment-text">
-        <h3>Тип</h3>
-        <p>1 комнатная студия</p>
-        <h3>Цена</h3>
-        <p>2 500 000 руб.</p>
+        <h3><?php print t('type');?></h3>
+        <p><?php //print ?></p>
+        <h3><?php print t('price')?></h3>
+        <p><?php //print ?></p>
         <h3>Расположение</h3>
         <p>Номер секции: 3</p>
         <p>Этаж: 7</p>
