@@ -26,19 +26,35 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
     $pricemin = explode(";", $_GET['price']);
     $pricemax = explode(";", $_GET['price']);
     $data['priceMin'] = $pricemin[0] * 1000;
-    $data['priceMax'] = $pricemax[1] * 1000;
+    if ($pricemax[1] == 100){
+      $data['priceMax'] = $pricemax[1] * 100000;
+    }
+    else {
+      $data['priceMax'] = $pricemax[1] * 1000;
+    }
   }
   if (isset($_GET['sq'])) {
     $sqmin = explode(";", $_GET['sq']);
     $sqmax = explode(";", $_GET['sq']);
     $data['sqMin'] = $sqmin[0];
-    $data['sqMax'] = $sqmax[1];
+    if ($sqmax[1] == 200){
+      $data['sqMax'] = $sqmax[1] * 10;
+    }
+    else {
+      $data['sqMax'] = $sqmax[1];
+    }
   }
   if (isset($_GET['coast'])) {
     $coastmin = explode(";", $_GET['coast']);
     $coastmax = explode(";", $_GET['coast']);
     $data['coastMin'] = $coastmin[0] * 1000000;
     $data['coastMax'] = $coastmax[1] * 1000000;
+    if ($coastmax[1] == 5){
+      $data['coastMax'] = $coastmax[1] * 100000000;
+    }
+    else {
+      $data['coastMax'] = $coastmax[1] * 1000000;
+    }
   }
 
   $view = views_get_view('apartments');
@@ -138,7 +154,7 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
       $view->display_handler->options['filters']['field_home_complex_target_id']['value'][$value] = $value;
     }
   }
-  if(isset($_GET['year'])) {
+  if(isset($_GET['year']) && $_GET['year'] != '') {
     unset($view->display_handler->options['filters']['field_complex_developer_tid']['value']);
     $view->display_handler->options['filters']['field_complex_developer_tid']['value'] = $_GET['year'];
   }
