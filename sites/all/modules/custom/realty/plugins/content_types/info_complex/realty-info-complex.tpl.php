@@ -75,7 +75,7 @@
       <ul class="apartment-tabs text-center" role="tablist">
         <li role="presentation" class="active">
           <a href="#text1"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
-            <?php print t('Location');?>
+            <?php print t('About the Complex');?>
           </a>
         </li>
         <li role="presentation" class="">
