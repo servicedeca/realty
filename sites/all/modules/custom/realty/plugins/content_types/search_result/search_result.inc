@@ -133,7 +133,7 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
     unset($view->display_handler->options['filters']['field_full_cost_value']);
   }
   else {
-    $view->display_handler->options['filters']['field_full_cost_value']['value']['min'] = $data['coast_Min'];
+    $view->display_handler->options['filters']['field_full_cost_value']['value']['min'] = $data['coastMin'];
     $view->display_handler->options['filters']['field_full_cost_value']['value']['max'] = $data['coastMax'];
   }
   if (isset($_GET['selectAlldeveloper']) || !isset($_GET['developer'])) {
