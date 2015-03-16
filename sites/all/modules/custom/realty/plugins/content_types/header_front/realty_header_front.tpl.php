@@ -9,10 +9,10 @@
   <div class="col-xs-6 fifty height zero-padding header-block">
     <div class="header-text">
       <h1>
-        <?php print t('A single search engine apartments in new buildings in your city')?>
+        <?php print t('Search and booking of apartments in new cities in Russia')?>
       </h1>
       <h2>
-        <?php print t('Prices and availability. Quickly and conveniently. News and events every day.')?>
+        <?php print t('Offers directly from the developers. Actual current status of the apartment.')?>
       </h2>
     </div>
   </div>
