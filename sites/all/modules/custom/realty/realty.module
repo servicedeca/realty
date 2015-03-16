@@ -9,6 +9,7 @@ define('REALTY_FRONT_THEME_PATH', drupal_get_path('theme', 'realty_theme'));
  * implement hook_init.
  */
 function realty_init() {
+  $a = REALTY_FRONT_THEME_PATH;
   drupal_add_js(array('REALTY_FRONT_THEME_PATH' => REALTY_FRONT_THEME_PATH), 'setting');
   $object = menu_get_object('taxonomy_term', 2);
 

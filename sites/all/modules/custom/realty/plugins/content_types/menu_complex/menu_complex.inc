@@ -72,7 +72,7 @@ function template_preprocess_realty_menu_complex(&$vars) {
       'title' => 'gallery',
     ),
     2 => array(
-      'path' => l(t('Documents'), 'complexes/' .$node->nid. '/documents'),
+        'path' => l(t('Documents'), 'complexes/' .$node->nid. '/documents'),
       'title' => 'documents',
     ),
 
