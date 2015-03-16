@@ -5540,3 +5540,15 @@ background: url("../images/icon/down.png") no-repeat center right;
 	margin-bottom: 0px;
 	margin-top: 0px;
 }
+
+.button-item {
+  position: absolute;
+  top:80%;
+  height: 15%;
+}
+
+.left-part-complex {
+ padding-left: 25px;
+ height: 325px;
+ overflow: hidden;
+}
