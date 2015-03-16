@@ -50,7 +50,7 @@ function template_preprocess_realty_plan_complex(&$vars) {
       'title' => $node->title,
     ));
   }
-  $apartment_complex = views_get_view_result('apartments', 'apartment_complex', $node->nid);
+  $apartment_complex = views_get_view_result('apartments', 'apartments_complex_for_plan', $node->nid);
   $homes = views_get_view_result('term_view', 'homes_complex', $node->nid);
 
   $vars['deadline_description'] = $node->field_deadline_description[LANGUAGE_NONE][0]['value'];
