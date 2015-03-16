@@ -68,3 +68,7 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+#admin-menu {
+  z-index: 10000;
+}
