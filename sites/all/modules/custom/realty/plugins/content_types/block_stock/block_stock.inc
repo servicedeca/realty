@@ -58,7 +58,7 @@ function template_preprocess_realty_block_stock(&$vars) {
             ),
           )
         ),
-        'details' => l('details', 'node/' . $val->nid, array('attributes' => array('class' => array('button-info',
+        'details' => l(t('details'), 'node/' . $val->nid, array('attributes' => array('class' => array('button-info',
         'stock-button')))),
       );
     }
@@ -77,7 +77,7 @@ function template_preprocess_realty_block_stock(&$vars) {
             ),
           )
         ),
-        'details' => l('details', 'node/' . $priority_stock[0]->nid, array('attributes' => array('class' => array('button-info',
+        'details' => l(t('details'), 'node/' . $priority_stock[0]->nid, array('attributes' => array('class' => array('button-info',
           'stock-button')))),
       );
     }

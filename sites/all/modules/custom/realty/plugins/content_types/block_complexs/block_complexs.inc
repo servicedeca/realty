@@ -60,7 +60,7 @@ function template_preprocess_realty_block_complexs(&$vars) {
           ),
         )
       ),
-      'details' => l('Details', 'node/'.$val->nid, array(
+      'details' => l(t('Details'), 'node/'.$val->nid, array(
         'attributes' => array('class' => array('button-info button-info-top'),))),
     );
     if(!empty($val->field_field_slogan)) {

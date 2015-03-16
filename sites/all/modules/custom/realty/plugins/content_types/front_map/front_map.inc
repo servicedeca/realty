@@ -96,7 +96,7 @@ function template_preprocess_realty_front_map(&$vars) {
       $vars['description'] = $complex[0]->_field_data['nid']['entity']->field_slogan['und'][0]['safe_value'];
     }
 
-    $vars['details'] = l('details', 'node/' . $complex[0]->nid, array('attributes' => array('class' => array(
+    $vars['details'] = l(t('details'), 'node/' . $complex[0]->nid, array('attributes' => array('class' => array(
       'button-info','button-info-top')
     )));
   }

@@ -69,7 +69,7 @@ function template_preprocess_realty_search_form(&$vars) {
       );;
     }
     $vars['description'] = $result[0]->field_body[0]['raw']['value'];
-    $vars['details'] = l('Details', 'node/'.$result[0]->nid, array('attributes' => array('class' => 'button-info') ));
+    $vars['details'] = l(t('Details'), 'node/'.$result[0]->nid, array('attributes' => array('class' => 'button-info') ));
   }
 
   $vars['modal'] = theme('realty_modal_search_form');

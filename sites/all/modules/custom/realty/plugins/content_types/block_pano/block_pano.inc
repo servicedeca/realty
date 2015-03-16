@@ -66,7 +66,7 @@ function template_preprocess_realty_block_pano(&$vars) {
             ),
           )
         ),
-        'details' => l('Details', 'node/'.$val->nid . '/#3d-tour', array(
+        'details' => l(t('Details'), 'node/'.$val->nid . '/#3d-tour', array(
           'external' => TRUE,
           'attributes' => array('class' => array('button-info button-info-top'),))),
       );
