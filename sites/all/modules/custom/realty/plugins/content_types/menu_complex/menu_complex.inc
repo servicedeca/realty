@@ -64,20 +64,20 @@ function template_preprocess_realty_menu_complex(&$vars) {
 
   $menu_items = array(
     0 => array(
-      'path' => l('Plan RC', 'complexes/' .$node->nid. '/plan'),
+      'path' => l(t('Plan RC'), 'complexes/' .$node->nid. '/plan'),
       'title' => 'plan',
     ),
     1 => array(
-      'path' => l('Gallery', 'complexes/' .$node->nid. '/gallery'),
+      'path' => l(t('Gallery'), 'complexes/' .$node->nid. '/gallery'),
       'title' => 'gallery',
     ),
     2 => array(
-      'path' => l('Documents', 'complexes/' .$node->nid. '/documents'),
+      'path' => l(t('Documents'), 'complexes/' .$node->nid. '/documents'),
       'title' => 'documents',
     ),
 
     3 => array(
-      'path' => l('Stock', 'complexes/' .$node->nid. '/stock'),
+      'path' => l(t('Stock'), 'complexes/' .$node->nid. '/stock'),
       'title' => 'stock',
     ),
   );
