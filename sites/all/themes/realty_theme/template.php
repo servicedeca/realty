@@ -261,6 +261,7 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
             ),
             'html' => TRUE,
         )),
+        'apartment_path' => '/node/' . $val->nid,
         'address' => $val->field_field_address_house[0]['rendered']['#markup'],
         'section' => $val->field_field_section[0]['rendered']['#markup'],
         'floor' => $val->field_field_apartment_floor[0]['raw']['value'],

@@ -42,25 +42,25 @@
             <?php print $apartment['dindong'];?>
           <?php endif?>
         </td>
-        <td class="anchor" onClick="location.href='apartment.html' ">
+        <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
           <?php print $apartment['address']?>
         </td>
-        <td class="anchor" onClick="location.href='apartment.html' ">
+        <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
           <?php print $apartment['section']?>
         </td>
-        <td class="anchor" onClick="location.href='apartment.html' ">
+        <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
           <?php print $apartment['room']?>
         </td>
-        <td class="anchor" onClick="location.href='apartment.html' ">
+        <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
           <?php print $apartment['floor']?>
         </td>
-        <td class="anchor" onClick="location.href='apartment.html' ">
+        <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
           <?php print $apartment['sq'] . 'м'?><sup>2</sup>
         </td>
-        <td class="anchor" onClick="location.href='apartment.html' ">
+        <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
           <?php print $apartment['price'] . 'т.р.'?>
         </td>
-        <td class="anchor" onClick="location.href='apartment.html' ">
+        <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
           <?php print $apartment['coast'] . 'т.р.'?>
         </td>
       </tr>

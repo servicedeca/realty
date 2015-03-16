@@ -248,12 +248,12 @@
           }
 
           var clustererIcons = [{
-            href: 'sites/all/themes/realty_theme/images/cluster_img.png',
+            href: Drupal.settings.REALTY_FRONT_THEME_PATH+'/images/FIND_MAPPOINT-04-04.svg',
             size: [47, 47],
             offset: [-23, -23]
           },
             {
-              href: 'sites/all/themes/realty_theme/images/cluster_img.png',
+              href: Drupal.settings.REALTY_FRONT_THEME_PATH+'/images/FIND_MAPPOINT-04-04.svg',
               size: [47, 47],
               offset: [-23, -23]
             }
