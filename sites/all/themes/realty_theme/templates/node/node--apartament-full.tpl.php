@@ -33,10 +33,10 @@
     <div class="col-xs-1 status-icon">
       <?php print $image_status;?>
     </div>
-    <?php if($vars['field_status'][0]['value'] == 1):?>
+    <?php if($field_status[0]['value'] == 1):?>
     <div class="col-xs-6 apartment-status-body apartment-status-booked">
     <?php endif?>
-    <?php if($vars['field_status'][0]['value'] == 0):?>
+    <?php if($field_status[0]['value'] == 0):?>
     <?php endif?>
       <?php print $status_text;?>
     </div>
