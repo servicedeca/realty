@@ -259,13 +259,18 @@
             }
           ];
 
+          MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div style="color: #2fade2;  wont-weight:600;">$[properties.geoObjects.length]</div>')
+
           var clusterer = new ymaps.Clusterer({
             clusterIcons: clustererIcons,
-            gridSize: 100
+            gridSize: 100,
+            clusterIconContentLayout: MyIconContentLayout
           });
           var clustererr = new ymaps.Clusterer({
             clusterIcons: clustererIcons,
-            gridSize: 100
+            gridSize: 100,
+            clusterIconContentLayout: MyIconContentLayout
           });
 
           $('#edit-field-home-complex-und').change(function() {
