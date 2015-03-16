@@ -37,6 +37,7 @@
     <div class="col-xs-6 apartment-status-body apartment-status-free">
     <?php endif?>
     <?php if($field_status[0]['value'] == 0):?>
+      <div class="col-xs-6 apartment-status-body apartment-status-booked">
     <?php endif?>
       <?php print $status_text;?>
     </div>
