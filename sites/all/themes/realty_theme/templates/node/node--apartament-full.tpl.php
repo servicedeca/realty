@@ -75,7 +75,7 @@
         <h3><?php print t('type');?></h3>
         <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
         <h3><?php print t('price')?></h3>
-        <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
+        <p><?php print $content['field_full_cost'][0]['#markup']?></p>
         <h3><?php print t('location');?></h3>
         <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
         <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
@@ -104,7 +104,7 @@
         <h3><?php print t('type');?></h3>
         <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
         <h3><?php print t('price')?></h3>
-        <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
+        <p><?php print $content['field_full_cost'][0]['#markup']?></p>
         <h3><?php print t('location');?></h3>
         <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
         <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
@@ -133,7 +133,7 @@
         <h3><?php print t('type');?></h3>
         <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
         <h3><?php print t('price')?></h3>
-        <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
+        <p><?php print $content['field_full_cost'][0]['#markup']?></p>
         <h3><?php print t('location');?></h3>
         <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
         <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
