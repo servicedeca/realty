@@ -34,8 +34,8 @@
         <?php print t('information about the object');?>
       </span>
     </div>
-    <?php if(!empty($location_description)):?>
-      <?php print $location_description;?>
+    <?php if(!empty($mini_description)):?>
+      <?php print $mini_description;?>
     <?php endif?>
   </div>
   <div class="col-xs-12 zero-padding adress-line">
