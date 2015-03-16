@@ -168,8 +168,6 @@ function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
         $vars['complexes'][$k] = array(
             'logo' => theme('image', array(
                 'path' => $value->field_field_complex_logo[0]['raw']['uri'],
-                'width' => '100px',
-                'height' => '100px',
                 )
               ),
             'complex_link' => '/node/'.$value->nid,

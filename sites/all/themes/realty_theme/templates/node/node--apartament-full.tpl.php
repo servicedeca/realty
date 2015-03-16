@@ -33,7 +33,11 @@
     <div class="col-xs-1 status-icon">
       <?php print $image_status;?>
     </div>
-    <div class="col-xs-6 apartment-status-body apartment-status-free">
+    <?php if($vars['field_status'][0]['value'] == 1):?>
+    <div class="col-xs-6 apartment-status-body apartment-status-booked">
+    <?php endif?>
+    <?php if($vars['field_status'][0]['value'] == 0):?>
+    <?php endif?>
       <?php print $status_text;?>
     </div>
     <div class="col-xs-6 bad-button-block">

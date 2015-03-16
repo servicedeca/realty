@@ -260,7 +260,7 @@
           ];
 
           MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-            '<div style="color: #2fade2;  wont-weight:600;">$[properties.geoObjects.length]</div>')
+            '<div style="color: #434343; font-size:16px ;font-weight:300;">$[properties.geoObjects.length]</div>')
 
           var clusterer = new ymaps.Clusterer({
             clusterIcons: clustererIcons,

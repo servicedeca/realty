@@ -386,7 +386,6 @@ function realty_node_presave($node) {
       $complex = node_load($node->field_complex_stock['und'][0]['target_id']);
       $complex->field_stock['und'][0]['value'] = 1;
       field_attach_update('node', $complex);
-      node_save($complex);
     }
   }
 
