@@ -43,6 +43,7 @@ function realty_plan_complex_content_type_theme(&$theme, $plugin) {
 function template_preprocess_realty_plan_complex(&$vars) {
   $nid = arg(1);
   $node = node_load($nid);
+  $c = 0;
   if (!empty($node->field_plan_complex)) {
     $vars['complex_plan'] = theme('image', array(
       'path' => $node->field_plan_complex[LANGUAGE_NONE][0]['uri'],
@@ -172,11 +173,12 @@ function template_preprocess_realty_plan_complex(&$vars) {
         $apartments =  $home->field_field_apartments[0]['raw']['value'];
         $apartments = json_decode($apartments);
         foreach ($apartment_complex as $apartment) {
-          foreach ($apartments as $k => $apart){
+          foreach ($apartments as $apart){
             foreach ($apart as $ap) {
               if ($ap->apartment == $apartment->field_field_number_apartament[0]['raw']['value']) {
                 if ($ap->floor == $apartment->field_field_apartment_floor[0]['raw']['value']) {
-                 $vars['apartmens'][$k] = array(
+                 $c++;
+                 $vars['apartmens'][$c] = array(
                    'home' => $home->tid,
                    'section'=> $apartment->field_field_section[0]['raw']['value'],
                    'floor' => $ap->floor,
