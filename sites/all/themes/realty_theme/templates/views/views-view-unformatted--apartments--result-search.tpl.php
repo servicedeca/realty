@@ -32,7 +32,7 @@
             <?php else: ?>
               <tr>
             <?php endif?>
-            <td  scope="row" class="no-hover anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"' >
+            <td  scope="row" class="no-hover anchor">
               <?php print $apartment['number']?>
               <?php print $apartment['apartment_comparison']?>
               <?php if ($apartment['status'] == 0):?>
