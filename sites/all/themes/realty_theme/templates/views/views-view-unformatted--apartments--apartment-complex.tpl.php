@@ -11,7 +11,7 @@
         <?php print t('Section');?>
       </th>
       <th>
-        <?php print t('Room') . '&nbsp&nbsp'?>
+        <?php print t('Rooms') . '&nbsp&nbsp'?>
       </th>
       <th data-sort="field_apartment_floor_value"  data-order="ASC" class="sort sorting">
         <?php print t('floor') . '&nbsp&nbsp';?>
