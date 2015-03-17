@@ -12,7 +12,7 @@ function realty_theme_html_head_alter(&$head_elements) {
   $head_elements['device_width'] = array(
     '#type' => 'html_tag',
     '#tag' => 'meta',
-    '#attributes' => array('name' => 'viewport', 'content' => 'width=960px'),
+    '#attributes' => array('name' => 'viewport', 'content' => 'width=device-width'),
   );
 }
 
