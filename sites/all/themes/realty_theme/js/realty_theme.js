@@ -35,11 +35,11 @@
 
       $('.next').click(function() {
         fotorama.show('>');
-        resizeBigHeight();
+        //resizeBigHeight();
       });
       $('.prev').click(function() {
         fotorama.show('<');
-        resizeBigHeight();
+        //resizeBigHeight();
       });
 
       function ArrowMeter() {
