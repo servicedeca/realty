@@ -144,3 +144,8 @@
   }
 }
 
+@media(max-width:1200px){
+  .apartment-image-vertical {
+    height:80%;
+  }
+}
