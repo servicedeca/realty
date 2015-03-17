@@ -8,6 +8,14 @@ function realty_theme_css_alter(&$css) {
   unset($css['modules/system/system.theme.css']);
 }
 
+function realty_theme_html_head_alter(&$head_elements) {
+  $head_elements['device_width'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array('name' => 'viewport', 'content' => '960px'),
+  );
+}
+
 /**
 * Process variables for page.tpl.php.
 */
