@@ -84,3 +84,9 @@
     line-height: 50px;
   }
 }
+
+@media(max-width:960px){
+  .ms-choice > div {
+    background: none;
+  }
+}
