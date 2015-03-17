@@ -21,7 +21,7 @@
           <?php print t('Area')?>
         </label>
         <a data-toggle="modal" data-target=".modal-area">
-          <input  class="search-input search-input-area">
+          <input class="search-input search-input-area">
         </a>
       </div>
     </div>

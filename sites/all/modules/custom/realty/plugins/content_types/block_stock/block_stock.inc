@@ -78,7 +78,7 @@ function template_preprocess_realty_block_stock(&$vars) {
           )
         ),
         'details' => l(t('details'), 'node/' . $priority_stock[0]->nid, array('attributes' => array('class' => array('button-info',
-          'stock-button')))),
+          'stock-button','button-info', 'stock-button', 'cb-b-stock')))),
       );
     }
 
