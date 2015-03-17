@@ -90,11 +90,6 @@
     background: none;
   }
 }
-@media (max-width: 960px){
-  .title-block h2{
-    font-size: 25px;
-  }
-}
 
 .complex-menu h2{
   text-align: left;
@@ -117,3 +112,26 @@
     /* padding-right: 70px; */
   }
 }
+
+.title-block h2{
+  color:#fff;
+  font-weight: 600;
+  position: relative;
+  font-size: 30px;
+  width: 80%;
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 1200px){
+  .title-block h2{
+    font-size: 25px;
+  }
+}
+@media(max-width:1200px){
+  .complex-filter-square-lebel{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
