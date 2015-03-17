@@ -347,7 +347,7 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
               'data-placement' => 'right',
               'rel' => 'tooltip',
             ),
-        ));
+        )).'</div>';
 
         if (!empty($val->_field_data['nid']['entity']->field_user_signal)) {
           foreach ($val->_field_data['nid']['entity']->field_user_signal[LANGUAGE_NONE] as $value) {
@@ -454,18 +454,15 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
             ),
           )
         ),
-        'apartment_signal' => l($dingdong . $dingdongh, '#apartment-signal', array(
-            'external' => TRUE,
+        'apartment_signal' => '<div class="apartment-signal" data-node-id='.$val->nid.'>'.
+          l($dingdong . $dingdongh , '#href', array(
             'html' => TRUE,
-            'attributes'=> array(
-              'rel' => "tooltip",
+            'external' => TRUE,
+            'attributes' => array(
+              'title' => t('Send a notice of withdrawal of the reservation'),
               'data-placement' => 'right',
-              'title' => "отправить уведомлении о снятии брони",
-              'id' => 'apartment-signal',
-              'data-node-id' => $val->nid,
-            ),
-          )
-        ),
+              'rel' => 'tooltip',
+            ),)).'</div>'
       );
     }
   }
