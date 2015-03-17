@@ -605,26 +605,6 @@ li {
     left: 15%;
 }
 
-.title-block h2{
-    color:#fff;
-    font-weight: 600;
-    position: relative;
-    font-size: 40px;
-    width: 80%;
-}
-
-@media (max-width: 1350px){
-    .title-block h2{
-        font-size: 35px
-        }
-    }
-
-@media (max-width: 1200px){
-    .title-block h2{
-        font-size: 30px;
-    }
-}
-
 @media (max-width: 1350px){
     .title-block{
         height: 60%;
