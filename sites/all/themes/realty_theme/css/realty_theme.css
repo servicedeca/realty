@@ -149,3 +149,11 @@
     height:80%;
   }
 }
+
+@media(max-width:1200px){
+  .complex-filter-square-lebel{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+

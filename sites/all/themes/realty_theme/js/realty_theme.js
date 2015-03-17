@@ -23,11 +23,23 @@
       var $fotoramaDiv = $('#3d').fotorama();
       var fotorama = $fotoramaDiv.data('fotorama');
 
+      var resizeBigHeight = function(){
+        $('.big-height').height($('.fiftyminus').width()/0.71);
+        $('.height').height($('.fifty').width()/2.85);
+        $('.big-height').height($('.fiftyplus').width()/2.13);
+        $('.double-big-height').height($('.fiftyplus').width()/1.42);
+        $('.double-big-height').height($('.fiftyplus').width()/1.42);
+        $('.height').height($('.fiftyplus').width()/4.27);
+        $('.double-big-height').height($('.fiftyminus').width()/0.473);
+      }
+
       $('.next').click(function() {
         fotorama.show('>');
+        resizeBigHeight();
       });
       $('.prev').click(function() {
         fotorama.show('<');
+        resizeBigHeight();
       });
 
       function ArrowMeter() {
@@ -582,6 +594,7 @@
       $('.double-big-height').height($('.fiftyplus').width()/1.42);
       $('.height').height($('.fiftyplus').width()/4.27);
       $('.double-big-height').height($('.fiftyminus').width()/0.473);
+
        $(window).resize(function() {
          $('.big-height').height($('.fiftyminus').width()/0.71);
          $('.height').height($('.fifty').width()/2.85);
@@ -591,7 +604,9 @@
          $('.height').height($('.fiftyplus').width()/4.27);
          $('.double-big-height').height($('.fiftyminus').width()/0.473);
         });
-      })
+
+
+    })
  }
 
   Drupal.behaviors.realtyStickyMenuScroll = {
