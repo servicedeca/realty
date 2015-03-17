@@ -7,7 +7,7 @@
 /**
  * Implements hook_ctools_content_types().
  */
-function realty_menu_complex_ctools_content_types() {
+function realty_menu_developer_ctools_content_types() {
   return array(
     'single' => TRUE,
     'title' => t('Menu complex '),
@@ -20,7 +20,7 @@ function realty_menu_complex_ctools_content_types() {
 /**
  * Implements hook_content_type_render().
  */
-function realty_menu_complex_content_type_render($subtype, $conf, $panel_args, $context) {
+function realty_menu_developer_content_type_render($subtype, $conf, $panel_args, $context) {
   $block = new stdClass();
   $block->content = theme('realty_menu_complex');
 
@@ -30,7 +30,7 @@ function realty_menu_complex_content_type_render($subtype, $conf, $panel_args, $
 /**
  * Implements hook_content_type_theme().
  */
-function realty_menu_complex_content_type_theme(&$theme, $plugin) {
+function realty_menu_developer_content_type_theme(&$theme, $plugin) {
   $theme['realty_menu_complex'] = array(
     'path' => $plugin['path'],
     'template' => 'realty-menu-complex',
@@ -40,7 +40,7 @@ function realty_menu_complex_content_type_theme(&$theme, $plugin) {
 /**
  * Process variables for realty-menu-complex.tpl.php.
  */
-function template_preprocess_realty_menu_complex(&$vars) {
+function template_preprocess_realty_menu_developer(&$vars) {
   $nid = arg(1);
   $node = node_load($nid);
 
