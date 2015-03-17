@@ -539,6 +539,7 @@
         var apartment = $(this);
         var nid = $(this).data('node-id');
         var apart = 0;
+        console.log(nid);
         if ($(this).data('apartment') > 0){
           apart = $(this).data('apartment');
         }
