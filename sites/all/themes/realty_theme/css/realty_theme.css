@@ -72,3 +72,8 @@
 #admin-menu {
   z-index: 10000;
 }
+
+#user-login {
+  top: 100px;
+  position: absolute;
+}
