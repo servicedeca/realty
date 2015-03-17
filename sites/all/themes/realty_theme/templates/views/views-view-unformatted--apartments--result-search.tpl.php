@@ -16,7 +16,7 @@
           <th><?php print t('RC') ?></th>
           <th><?php print t('Address') ?></th>
           <th><?php print t('Deadline') ?></th>
-          <th><?php print t('Doors') ?>.&nbsp&nbsp</th>
+          <th><?php print t('Rooms') ?>.&nbsp&nbsp</th>
           <th><?php print t('floor') ?>&nbsp&nbsp</th>
           <th ><?php print t('S') ?></th>
           <th><?php print t('Price') ?>&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp</th>
