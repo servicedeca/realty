@@ -2769,29 +2769,31 @@ margin-left: -120px;
 }
 
 .a-section {
-  text-align:center;
-  color:#333333;
-  font-size:22px;
-  width: 60px;
-  height: 60px;
-  line-height: 50px;
-  border-radius: 60px;
-  border: 5px solid #286e99;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    color: #333333;
+    font-size: 22px;
+    width: 45px;
+    height: 45px;
+    line-height: 35px;
+    border-radius: 45px;
+    border: 5px solid #286e99;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
 }
 
  .a-dom {
-   text-align:center;
-   color:#333333;
-   font-size:22px;
-   width: 60px;
-   height: 60px;
-   line-height: 50px;
-   border-radius: 60px;
-   border: 5px solid #286e99;
-   text-decoration: none;
-   background: rgba(255, 255, 255, 0.9);
+     text-align: center;
+     color: #333333;
+     font-size: 22px;
+     width: 45px;
+     height: 45px;
+     line-height: 35px;
+     border-radius: 45px;
+     border: 5px solid #286e99;
+     text-decoration: none;
+     background: rgba(255, 255, 255, 0.8);
+     font-size: 18px;
 }
 
 .a-dom:hover {
