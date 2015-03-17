@@ -12,7 +12,7 @@ function realty_init() {
   $a = REALTY_FRONT_THEME_PATH;
   drupal_add_js(array('REALTY_FRONT_THEME_PATH' => REALTY_FRONT_THEME_PATH), 'setting');
   $object = menu_get_object('taxonomy_term', 2);
-    if(!empty($object) && $object->vid==3){
+    if(!empty($object) && $object->vid==3 && $_GET['destination'] != 'admin/structure/taxonomy/developers'){
         drupal_goto('http://style.findome.ru/developPAGE.html');
     }
   if (current_path() == '<front>') {
