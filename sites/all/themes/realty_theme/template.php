@@ -941,7 +941,7 @@ function realty_preprocess_node__apartament_full(&$vars) {
   $complex = node_load($vars['field_apartament_home'][0]['taxonomy_term']->field_home_complex['und'][0]['target_id']);
   $vars['complex'] = $complex->title;
   $deadline = field_collection_item_load($complex->field_deadline['und'][0]['revision_id']);
-  $vars['deadline'] = $deadline->field_quarter['und'][0]['value'] . t('quarter').
+  $vars['deadline'] = $deadline->field_quarter['und'][0]['value'] . t('quarter').' '.
     $deadline->field_year['und'][0]['value'] . t('year');
   $area = taxonomy_term_load($complex->field_area['und'][0]['tid']);
   $vars['area'] = $area->name;
