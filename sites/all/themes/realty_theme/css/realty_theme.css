@@ -126,12 +126,21 @@
 @media (max-width: 1200px){
   .title-block h2{
     font-size: 25px;
+    margin-left: -5px;
   }
 }
 @media(max-width:1200px){
   .complex-filter-square-lebel{
     margin-left: 0px;
     margin-right: 0px;
+  }
+}
+
+@media (max-width: 1200px){
+  .title-block p {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: -5px;
   }
 }
 
