@@ -5375,7 +5375,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .result-point-cord{
 	top: 196px;
-	left: 623.5px;
+	left: 561.5px;
 	height: 45px;
 	width: 45px;
 }
@@ -5385,13 +5385,13 @@ background: url("../images/icon/down.png") no-repeat center right;
 		height: 36px;
 		width: 36px;
 		top: 160px;
-		left: 508.5px;
+		left: 458.5px;
 	}
 }
 
 .docs-point-cord{
-	top: 119px;
-	left: 867.5px;
+	top: 120px;
+	left: 766.5px;
 	height: 45px;
 	width: 45px;
 }
@@ -5401,8 +5401,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 		height: 36px;
 		width: 36px;
 		top: 98px;
-		left: 707.5px;
-
+		left: 625.5px;
 	}
 }
 
@@ -5423,8 +5422,8 @@ background: url("../images/icon/down.png") no-repeat center right;
 }
 
 .book-point-cord{
-	top: 273px;
-	left: 867.5px;
+	top: 272px;
+	left: 767.5px;
 	height: 45px;
 	width: 45px;
 }
@@ -5434,7 +5433,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 		height: 36px;
 		width: 36px;
 		top: 223px;
-		left: 707.5px;
+		  left: 623.5px;
 	}
 }
 
@@ -5470,7 +5469,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .ap-point-cord{
 	  top: 192px;
-	  left: 776px;
+	 left: 675px;
 	  height: 52px;
 	  width: 52px;
 }
@@ -5480,7 +5479,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 		  height: 42px;
 		  width: 42px;
 		  top: 157px;
-		  left: 632.5px;
+		   left: 550.5px;
 	}
 }
 
