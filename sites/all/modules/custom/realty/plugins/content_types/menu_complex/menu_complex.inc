@@ -69,21 +69,22 @@ function template_preprocess_realty_menu_complex(&$vars) {
     ),
     1 => array(
       //'path' => l(t('Gallery'), 'complexes/' .$node->nid. '/gallery'),
-      'path' => 'http://style.findome.ru/gallery.html',
+      'path' => l(t('Gallery'),'http://style.findome.ru/gallery.html'),
       'title' => 'gallery',
     ),
     2 => array(
       //'path' => l(t('Documents'), 'complexes/' .$node->nid. '/documents'),
-      'path' => 'http://style.findome.ru/docs.html',
+      'path' => l(t('Documents'), 'http://style.findome.ru/docs.html'),
       'title' => 'documents',
     ),
 
     3 => array(
       //'path' => l(t('Stock'), 'complexes/' .$node->nid. '/stock'),
-      'path' => 'http://style.findome.ru/stock.html',
+      'path' => l(t('Stock'),'http://style.findome.ru/stock.html'),
       'title' => 'stock',
     ),
   );
+
   $url = arg(2);
   foreach($menu_items as $key=>$item) {
     if($url == $item['title']) {
