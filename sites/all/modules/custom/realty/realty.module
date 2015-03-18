@@ -1023,11 +1023,16 @@ function realty_check_status_apartment_user($uid, $nid) {
     if ($uid != 0) {
         $node = node_load($nid);
         $flag = FALSE;
-        foreach ($node->field_user_signal['und'] as $value) {
-            if ($value['target_id'] == $uid) {
-                $flag = TRUE;
-                break;
+        if(!empty($node->field_user_signal[LANGUAGE_NONE])) {
+            foreach ($node->field_user_signal[LANGUAGE_NONE] as $value) {
+                if ($value['target_id'] == $uid) {
+                    $flag = TRUE;
+                    break;
+                }
             }
+        }
+        else {
+            $flag = FALSE;
         }
     }
     else {
