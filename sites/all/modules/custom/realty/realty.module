@@ -1020,14 +1020,19 @@ function realty_checking_apartments_comparison($nid) {
  * Check subscription status tracking
  */
 function realty_check_status_apartment_user($uid, $nid) {
-  $node = node_load($nid);
-  $flag = FALSE;
-  foreach ($node->field_user_signal['und'] as $value) {
-    if ($value['target_id'] == $uid) {
-      $flag = TRUE;
-      break;
+    if ($uid != 0) {
+        $node = node_load($nid);
+        $flag = FALSE;
+        foreach ($node->field_user_signal['und'] as $value) {
+            if ($value['target_id'] == $uid) {
+                $flag = TRUE;
+                break;
+            }
+        }
     }
-  }
+    else {
+        $flag = FALSE;
+    }
   return $flag;
 }
 

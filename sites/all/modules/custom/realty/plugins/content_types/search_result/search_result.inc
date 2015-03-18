@@ -196,5 +196,6 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
   $block->content = $view->display_handler->preview();
   $view->post_execute();
 
+    $a =1;
   return $block;
 }
