@@ -399,8 +399,9 @@ function realty_preprocess_views_view_unformatted__apartments__apartment(&$vars)
  */
 function realty_preprocess_views_view_unformatted__apartments__result_search(&$vars) {
   global $user;
-  $account = user_save($user);
-
+    if ($user->uid != 0) {
+        $account = user_save($user);
+    }
   $dingdong = theme('image', array(
     'path' => REALTY_FRONT_THEME_PATH . '/images/dingdong.svg',
     'attributes' => array(
@@ -476,7 +477,7 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
         )) .
         '</div>';
 
-      if ($user->uid != 0 && !empty($account->field_apartment_comparison)) {
+      if ($user->uid != 0) {
         foreach ($account->field_apartment_comparison[LANGUAGE_NONE] as $id) {
 
           if($id['target_id'] == $val->nid ) {

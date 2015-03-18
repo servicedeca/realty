@@ -154,15 +154,8 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
       $view->display_handler->options['filters']['field_home_complex_target_id']['value'][$value] = $value;
     }
   }
-  if(isset($_GET['year']) && $_GET['year'] != '') {
-    unset($view->display_handler->options['filters']['field_complex_developer_tid']['value']);
-    $view->display_handler->options['filters']['field_complex_developer_tid']['value'] = $_GET['year'];
-  }
-  else {
-    $view->display_handler->options['filters']['field_complex_developer_tid'];
-  }
   if(isset($_GET['selectAllquarter']) || !isset($_GET['quarter'])) {
-    unset($view->display_handler->options['filters']['field_quarter_value']['value']);
+    unset($view->display_handler->options['filters']['field_quarter_value']);
   }
   else {
     unset($view->display_handler->options['filters']['field_quarter_value']['value']);
@@ -177,7 +170,7 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
     $view->display_handler->options['filters']['field_year_value']['value']['value'] = $_GET['year'];
   }
 
-  if($_GET['selectAllbalcony'] || !$_GET['balcony']) {
+  if(isset($_GET['selectAllbalcony']) || !isset($_GET['balcony'])) {
     unset($view->display_handler->options['filters']['field_balcony_value']);
     unset($view->display_handler->options['filters']['field_loggia_value']);
   }
