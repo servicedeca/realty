@@ -374,7 +374,7 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
                 'attributes' => array(
                   'rel' => 'tooltip',
                   'data-placement' => 'right',
-                  'title' => 'Notification will be sent to the withdrawal of reservations',
+                  'title' => t('Notification will be sent to the withdrawal of reservations'),
                 ),
               ));
             }
