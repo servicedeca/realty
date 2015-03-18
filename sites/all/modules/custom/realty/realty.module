@@ -10,19 +10,6 @@ define('REALTY_FRONT_THEME_PATH', drupal_get_path('theme', 'realty_theme'));
  */
 function realty_init() {
 
-  $query = new EntityFieldQuery();
-  $query->entityCondition('entity_type', 'node');
-  $query->propertyCondition('type', 'apartament');
-  $result = $query->execute();
-  $nodes = node_load_multiple(array_keys($result['node']));
-  foreach ($nodes as $node) {
-    if ($node->field_price['und'][0]['value'] < 1000) {
-      $node->field_price['und'][0]['value'] = $node->field_price['und'][0]['value'] * 1000;
-      field_attach_update('node', $node);
-      node_save($node);
-    }
-  }
-
   $a = REALTY_FRONT_THEME_PATH;
   drupal_add_js(array('REALTY_FRONT_THEME_PATH' => REALTY_FRONT_THEME_PATH), 'setting');
   $object = menu_get_object('taxonomy_term', 2);
