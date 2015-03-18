@@ -30,11 +30,13 @@
   </button>
 </div>
 <div class="dec_checkbox col-xs-6 col-xs-offset-3 zero-padding">
-					<span>
-						<input id="not-display-reserved" type="checkbox"  >
-					</span>
+  <span>
+    <input id="not-display-reserved" type="checkbox">
+  </span>
   <label><?php print t('Do not display reserved');?></label>
 </div>
+<div class="col-xs-3" style="height: 70px">
+  </div>
 
 <div class="element-hidden">
   <?php print render($form['sort_by']);?>
