@@ -25,7 +25,7 @@
         <span class="grey-span">
           <?php print t('deadline');?>
         </span>
-        <?php print $quarter . t('quarter');?>
+        <?php print $quarter . t(' quarter');?>
         <?php print $year;?>
       </h2>
     </div>

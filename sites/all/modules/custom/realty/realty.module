@@ -321,7 +321,7 @@ function realty_apartment_signal() {
             'attributes' => array(
               'rel' => 'tooltip',
               'data-placement' => 'right',
-              'title' => 'Notification will be sent to the withdrawal of reservations',
+              'title' => t('Notification will be sent to the withdrawal of reservations'),
             ),
           ));
         }

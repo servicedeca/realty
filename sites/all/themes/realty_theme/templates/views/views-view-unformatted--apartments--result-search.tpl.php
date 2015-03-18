@@ -18,7 +18,7 @@
           <th><?php print t('Deadline') ?></th>
           <th><?php print t('Rooms') ?>.&nbsp&nbsp</th>
           <th><?php print t('floor') ?>&nbsp&nbsp</th>
-          <th ><?php print t('S') ?></th>
+          <th ><?php print t('S') ?>&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp<</th>
           <th><?php print t('Price') ?>&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp</th>
           <th class="none-border-right"><?php print t('Coast') ?></th>
         </tr>
