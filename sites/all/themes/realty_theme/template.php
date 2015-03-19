@@ -866,7 +866,7 @@ function realty_preprocess_node__apartament_full(&$vars) {
   ));
 
   $vars['get_id'] = l($img_id . $img_id_h . '<div class="tip-button" id="bank">'.t('Get id apartment').'</div>',
-    '#href', array(
+    'http://style.findome.ru/id.html', array(
       'external' => TRUE,
       'html' => TRUE,
       'attributes' => array(
@@ -893,7 +893,7 @@ function realty_preprocess_node__apartament_full(&$vars) {
   ));
 
   $vars['get_doc'] = l($img_doc . $img_doc_h . '<div class="tip-button" id="documents">'.t('Get documents').'</div>',
-    '#href', array(
+    'http://style.findome.ru/docs.html', array(
       'external' => TRUE,
       'html' => TRUE,
       'attributes' => array(
