@@ -24,7 +24,7 @@
     </div>
 
     <div class="col-xs-12 modal-button">
-      <a href="#href" id="select-developer" class="search-button modal-but" data-dismiss="modal">
+      <a id="select-developer" class="search-button modal-but" data-dismiss="modal">
         <?php print t('Select');?>
       </a>
     </div>
