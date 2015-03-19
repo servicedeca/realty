@@ -11,7 +11,8 @@
 
 <div class="container fin margin-bottom">
   <div class="col-xs-12 allcomplex-filter">
-    <a href="#" data-toggle="modal" data-target=".modal-z">Выбрать по застройщику
+    <a href="#" data-toggle="modal" data-target=".modal-z">
+      <?php print t('Select by developer');?>
     </a>
   </div>
   <div class="col-xs-12 develop-complex zero-padding">
