@@ -870,9 +870,9 @@ function realty_preprocess_node__apartament_full(&$vars) {
       'external' => TRUE,
       'html' => TRUE,
       'attributes' => array(
-        'data-toggle' => 'modal',
-        'data-target' => '.modal_id',
-        'class' => array('apartment-comparison'),
+        //'data-toggle' => 'modal',
+        //'data-target' => '.modal_id',
+        //'class' => array('apartment-comparison'),
       )
     )
   );
@@ -897,9 +897,9 @@ function realty_preprocess_node__apartament_full(&$vars) {
       'external' => TRUE,
       'html' => TRUE,
       'attributes' => array(
-        'data-toggle' => 'modal',
-        'data-target' => '.modal_docs',
-        'class' => array('apartment-comparison'),
+        ///'data-toggle' => 'modal',
+       // 'data-target' => '.modal_docs',
+       // 'class' => array('apartment-comparison'),
       )
     )
   );
