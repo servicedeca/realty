@@ -5637,3 +5637,7 @@ background: url("../images/icon/down.png") no-repeat center right;
   	background: none;
 }
 }
+
+.height-70 {
+	height: 70px;
+}

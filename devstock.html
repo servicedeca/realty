@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="css/ion.rangeSlider.css" />
         <link rel="stylesheet" href="css/ion.rangeSlider.skinHTML5.css" />
         <link rel="stylesheet" href="css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="css/owl.theme.css">
+		<link rel="stylesheet" href="css/owl.carousel.css">
         <link href="css/style.css" rel="stylesheet">
         
         <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -20,6 +22,7 @@
         <script src="js/ion.rangeSlider.js"></script>
         <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
         <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+        <script src="js/owl.carousel.js"></script>
         
         <!-- Plugin JavaScript -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -27,29 +30,55 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="js/findom.js"></script>
+        
+        <!-- Magnific Popup core CSS file -->
+        <link rel="stylesheet" href="css/magnific-popup.css"> 
+
+        <!-- Magnific Popup core JS file -->
+        <script src="js/jquery.magnific-popup.js"></script>
     </head>
-    
+       
     <script>
-        $(document).ready(function () {
-            $("[rel='tooltip']").tooltip({
+        $(document).ready(function() {
+            $('.visual-album').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+                },
             });
         });
     </script>
-    
-    <script>
-        $(document).ready(function() {
-            $('#complex').dataTable( {
-                "paging":   false,
-                "info":     false,
-                "columnDefs": [ {
-                "targets": [ 0, 1, 2, 3],
-                "orderable": false,
-                } ]
-            } );
-        } );
-    </script>
+       
+       
+      <script>
+		  
+		  	$(document).ready(function() {
+  		$("#owl-demo").owlCarousel({
 
-    
+		  navigation : true, // Show next and prev buttons
+		  slideSpeed : 300,
+		  paginationSpeed : 400,
+		  singleItem:true,
+		  navigationText: [
+			"",
+			""
+			],
+
+		  // "singleItem:true" is a shortcut for:
+		  // items : 1, 
+		  // itemsDesktop : false,
+		  // itemsDesktopSmall : false,
+		  // itemsTablet: false,
+		  // itemsMobile : false
+ 
+  			});
+	});
+	</script>
+        
     <body>  
        <div class="col-xs-12 menu-parent zero-padding">
             <div id="menu">
@@ -71,20 +100,23 @@
         </div>
         
         <div id="wrapper">        
-            
+			<div class="container-fluid breadcrumb-line">    
         <div class="container-fluid breadcrumb-line">    
             <div class="container fin">
                <div class="col-xs-12 breadcrumb-block  margine-top">
                     <ol class="breadcrumb zero-padding breadcrumbfix">
                         <li><a href="index.html">Главная</a></li>
                         <li><a href="developers.html">Застройщики</a></li>
-                        <li class="active"><a href="#">ГК МИЦ</a></li>
+                        <li><a href="developpage.html">ГК МИЦ</a></li>
+                        <li class="active"><a href="devstock.html">Акции</a></li>
                     </ol>
                 </div>
             </div>
         </div>    
- 
-        <div class="container fin">
+			</div>
+            
+            <div class="container fin">
+
            <div class="col-xs-12 complex-menu zero-padding">
                <div class="col-xs-6">
 				   <span>
@@ -97,64 +129,106 @@
                </div>
                 <div class="col-xs-6 complex-right-menu zero-padding">
                     <ul class="padding-left-0">
-                        <li class="active-menu">
+                        <li >
                             <a href="developCOMPLEX.html" >Текущие объекты
                             </a>
                         </li>
                         <li>
-                            <a href="devarc.html">Архив
+                            <a href="devarch.html">Архив
                             </a>
                         </li>
                         <li>
-                            <a href="devgallery.html" >ГАЛЕРЕЯ
+                            <a href="devgallery.html">ГАЛЕРЕЯ
                             </a>
                         </li>
-                        <li>
+                        <li class="active-menu">
                             <a href="devstock.html">Акции
                             </a>
                         </li>
                    </ul>    
                 </div>
            </div>
-           
-           <div class="col-xs-12 develop-complex zero-padding">
-           		<a href="complex.html" class="col-xs-4 develop-complex-item">
-           			<img src="images/cl1.png">
-			   </a>
-           		<a href="complex.html" class="col-xs-4 develop-complex-item zero-padding">
-           			<img src="images/cl2.png">
-			   </a>
-           		<a href="complex.html" class="col-xs-4 develop-complex-item">
-           			<img src="images/cl3.png">
-			   </a>
-           		<a href="complex.html" class="col-xs-4 develop-complex-item">
-           			<img src="images/cl1.png">
-			   </a>
-           		<a href="complex.html" class="col-xs-4 develop-complex-item zero-padding">
-           			<img src="images/cl2.png">
-			   </a>
-           		<a href="complex.html" class="col-xs-4 develop-complex-item">
-           			<img src="images/cl3.png">
-			   </a>
-			</div>
-			<div class="col-xs-6 mini-map-title">
-				<h2>Объекты на карте</h2>
-			</div>
-			<div class="col-xs-3  mini-map-filter zero-padding">
-				<div class="form-group">
-				<select id="mini-map-filter" multiple="multiple" class="mm">
-				<option value="1">Только текущие</option>
-				<option value="2">Только архивный</option>
-				</select>
-				</div>
-			</div>
-			<div class="container fin">
-			  <div class="col-xs-12 zero-padding complex-map">
-					<div id="map" style="width:100%; height:100%;">
+             
+             
+				<div id="owl-demo" class="col-xs-12 zero-padding owl-carousel owl-theme">
+
+				<div class=" col-xs-12 item">
+					<div class=" col-xs-12 stock-title">
+						<p>ГОЛОВОКРУЖИТЕЛЬНЫЕ СКИДКИ ДО 14%</p>
 					</div>
-			  </div>
-			</div>
-          
+					<div class="col-xs-5 zero-padding">
+						<img src="images/s3.jpg" alt="Акция1">
+					</div>
+					<div class="col-xs-7 stock-text-block zero-padding">
+						<div class="vertical">
+							<p>Уважаемые господа!</p>
+							<p>В канун долгожданных февральских праздников действуют головокружительные скидки до 14% на квартиры в жилом комплексе ART.</p>
+							<p>
+								Период беспроцентной рассрочки – до 6 месяцев под 0% годовых
+							</p>
+							<p>
+								Период процентной рассрочки платежа от 12 до 24 месяцев под 17% годовых
+							</p>
+							<p>
+								Размер скидки: до 9% от стоимости квартиры + скидки от величины первого взноса 5%
+							</p>
+						</div>	
+					</div>
+				</div>
+
+				<div class=" col-xs-12 item">
+					<div class=" col-xs-12 stock-title">
+						<p>ГОЛОВОКРУЖИТЕЛЬНЫЕ СКИДКИ ДО 14%</p>
+					</div>
+					<div class="col-xs-5 zero-padding">
+						<img src="images/s2.jpg" alt="Акция1">
+					</div>
+					<div class="col-xs-7 stock-text-block zero-padding">
+						<div class="vertical">
+							<p>Уважаемые господа!</p>
+							<p>В канун долгожданных февральских праздников действуют головокружительные скидки до 14% на квартиры в жилом комплексе ART.</p>
+							<p>
+								Период беспроцентной рассрочки – до 6 месяцев под 0% годовых
+							</p>
+							<p>
+								Период процентной рассрочки платежа от 12 до 24 месяцев под 17% годовых
+							</p>
+							<p>
+								Размер скидки: до 9% от стоимости квартиры + скидки от величины первого взноса 5%
+							</p>
+						</div>	
+					</div>
+				</div>
+
+				<div class=" col-xs-12 item">
+					<div class=" col-xs-12 stock-title">
+						<p>ГОЛОВОКРУЖИТЕЛЬНЫЕ СКИДКИ ДО 14%</p>
+					</div>
+					<div class="col-xs-5 zero-padding">
+						<img src="images/s1.jpg" alt="Акция1">
+					</div>
+					<div class="col-xs-7 stock-text-block zero-padding">
+						<div class="vertical">
+							<p>Уважаемые господа!</p>
+							<p>В канун долгожданных февральских праздников действуют головокружительные скидки до 14% на квартиры в жилом комплексе ART.</p>
+							<p>
+								Период беспроцентной рассрочки – до 6 месяцев под 0% годовых
+							</p>
+							<p>
+								Период процентной рассрочки платежа от 12 до 24 месяцев под 17% годовых
+							</p>
+							<p>
+								Размер скидки: до 9% от стоимости квартиры + скидки от величины первого взноса 5%
+							</p>
+						</div>	
+					</div>
+				</div>
+
+
+				</div>
+              
+        	</div>         
+    
         <div class="container fin">
             <div class="col-xs-9 zero-padding selection-title">
                 <h2>Подбор квартир в жк</h2>
@@ -188,20 +262,16 @@
 
                     <div class="col-xs-2 zero-padding complex-filters-select">
                         <select id="fsection" class="cf " multiple="multiple">
-                            <option value="1">1</option>
-                            <option value="2">1.1</option>
-                            <option value="3">2</option>
-                            <option value="4">2.2</option>
+                            <option value="1">1 секция</option>
+                            <option value="2">2 секция</option>
+                            <option value="3">3 секция</option>
+                            <option value="4">4 секция</option>
                         </select>  
                     </div>
 
-                    <div class="col-xs-2 zero-padding complex-filters-select">
-                        <select id="ffloor" class="cf" multiple="multiple">
-                            <option value="1">1</option>
-                            <option value="2">1.1</option>
-                            <option value="3">2</option>
-                            <option value="4">2.2</option>
-                        </select>  
+                   <div class="col-xs-2 complex-filter-square zero-padding">
+                        <label class="complex-filter-square-lebel">Этаж</label>
+                        <input  class="complex-filter-square-input" maxlength="2">
                     </div>
                   
                    <div class="col-xs-3 complex-filter-square zero-padding">
@@ -218,7 +288,13 @@
                     <a href="#" class="col-xs-1 complex-filter-clear-button zero-padding" title="Очистить все фильтры">
                         <img src="images/clear.svg">
                     </a>
-                </div>   
+                </div>  
+				 <div class="dec_checkbox col-xs-6 col-xs-offset-3 zero-padding">
+					<span>
+						<input type="checkbox" />		
+					</span>
+					<label>Не отображать забронированные</label>
+				</div>   
                     <table class="table issue-table display" id="complex">
                         <thead>
                             <tr>
@@ -227,15 +303,15 @@
                                 <th>Секция</th>
                                 <th>Комн.&nbsp&nbsp</th>
                                 <th>Этаж&nbsp&nbsp</th>
-                                <th >S</th>
-                                <th>Цена&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp</th>
+                                <th >S м<sup>2</sup></th>
+                                <th>Цена&nbsp&nbsp<br>т.р./м<sup>2</sup>&nbsp&nbsp</th>
                                 <th>Стоимость</th>
                             </tr>
                         </thead>
                         <tbody>
                             
                             <tr>
-                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment.html' ">
+                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment-free.html' ">
                                     <a href="#" title="Посмотреть квартиру">
                                         <div class="flat-number">
                                             103
@@ -250,16 +326,16 @@
                                     Краузе 142
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    1.1
+                                    1
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    2
+                                    2 cт.
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    25
+                                    17/20
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    28м<sup>2</sup>
+                                    30
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
                                     53 т.р.
@@ -291,16 +367,16 @@
                                     Фрунзе 98
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    2.1
+                                    2
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    1
+                                    1 кмн.
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    100
+                                    10/14
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    30 м<sup>2</sup>
+                                    35
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
                                     35 т.р.
@@ -311,7 +387,7 @@
                             </tr>
 
                             <tr>
-                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment.html' ">
+                                <td scope="row" class="no-hover anchor" onClick="location.href='apartment-free.html' ">
                                     <a href="#" title="Посмотреть квартиру">
                                         <div class="flat-number">
                                             98
@@ -326,16 +402,16 @@
                                     Кропоткина 142
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    2.2
-                                </td>
-                                <td class="anchor" onClick="location.href='apartment.html' ">
                                     3
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    200
+                                    2 кмн.
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    20м<sup>2</sup>
+                                    4/12
+                                </td>
+                                <td class="anchor" onClick="location.href='apartment.html' ">
+                                    62
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
                                     65 т.р.
@@ -366,16 +442,16 @@
                                     Высоцкого 58
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    1.3
+                                    1
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    2
+                                    2 кмн.
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    100
+                                    8/17
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
-                                    25м<sup>2</sup>
+                                    59
                                 </td>
                                 <td class="anchor" onClick="location.href='apartment.html' ">
                                     35 т.р.
@@ -389,9 +465,9 @@
                         </tbody>
                     </table>
             </div>
-            <div class="col-xs-3 reviews"> 
-                 <a href="#" class="col-xs-8 col-xs-offset-2 add-review-button" data-toggle="modal" data-target=".modal_comment">
-                     	<span class="glyphicon glyphicon glyphicon-plus plus-icon" aria-hidden="true"></span> Добавить отзыв
+            <div class="col-xs-3 reviews">
+                 <a href class="col-xs-8 col-xs-offset-2 add-review-button">
+                     <span class="plus-review"><img src="images/plus.svg"></span> Добавить отзыв
                 </a>
                  <div class="col-xs-12 recall zero-padding">
                      <h3>viktoria-star-1</h3>
@@ -433,133 +509,8 @@
             </div>
         </div>   
     </div>
-                                                                                                                                              
-    <!--    Modal_info-complex   -->
-    <div class="modal fade modal_info-complex" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="container container-modal-info-complex zero-padding">
-                <div class="col-xs-12 header-container-modal header-block">
-                        <img src="images/findome-gray.svg" class="margin-left-15">
-                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
-                        <img src="images/close.png" class="">
-                    </button>
-                </div>
-                <div class="col-xs-12 modal-info-title">
-                    ЖК Марсель
-                </div>
-                <div class="col-xs-12 modal-button">
-                    <ul class="apartment-tabs text-center" role="tablist">
-                        <li role="presentation" class="active">
-                            <a href="#text1"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Местоположение</a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a href="#text2" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Архитектура</a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a href="#text3" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Благоустройство</a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a href="#text4" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Инфраструктура</a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a href="#text5" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Сервис</a>
-                        </li>
-                    </ul>   
-                </div>
-                
-                <div class="tab-content">
-                <div role="tabpanel" class="tab-pane fade active in modal-info-text" aria-labelledby="home-tab" id="text1">
-                   <p>
-                        Marseille – дом комфорт-класса на берегу Оби в Октябрьском районе
-                        Чистый воздух – свежий ветер с Оби, от островов и лесных массивов левобережья
-                    </p>
-                    <p>
-                        На удалении от городского шума
-                    </p>
-                    <p>
-                        Находится в 15 минут ходьбы или 5 минут езды от ст. метро «Речной вокзал»
-                    </p>
-                    <p>
-                        Без пробок в час пик: ул. Обская – дублёр ул. Большевистская
-                    </p>
-                    <p>
-                        Marseille расположен на правом берегу Оби в двух остановках, 15 минутах ходьбы 
-                        или 5 минутах езды от станции метро «Речной вокзал».
-                    </p>
-                    <p>
-                        Улица Обская полностью дублирует загруженную Большевистскую, 
-                        что позволяет избежать пробок по пути в центр города. В планах муниципалитета 
-                        в ближайшее время расширить ее, превратив в полноценную магистраль.
-                    </p>
-                    <p>
-                        При этом территория дома разумно отдалена от городской суеты и шума «Большевички», 
-                        так как заканчивается на самом берегу Оби. Практически все окна выходят на реку, 
-                        закрывая внутреннее пространство Marseille от проезжей части.
-                    </p>
-                    <p>
-                        Дом удачно расположен и с точки зрения розы ветров. Ветер здесь всегда дует с реки, 
-                        а значит – и от лесных массивов левобережья и островов, что делает воздух особенно 
-                        свежим и дарит прохладу жарким летом.
-                    </p>
-                </div>
-
-                <div class="col-xs-12 modal-info-text tab-pane fade" id="text2" role="tabpanel" aria-labelledby="profile-tab">
-                   <p>
-                        Marseille – дом комфорт-класса на берегу Оби в Октябрьском районе
-                        Чистый воздух – свежий ветер с Оби, от островов и лесных массивов левобережья
-                    </p>
-                </div>
-
-                <div class="col-xs-12 modal-info-text tab-pane fade" id="text3" role="tabpanel" aria-labelledby="profile-tab">
-                    <p>
-                        Дом удачно расположен и с точки зрения розы ветров. Ветер здесь всегда дует с реки, 
-                        а значит – и от лесных массивов левобережья и островов, что делает воздух особенно 
-                        свежим и дарит прохладу жарким летом.
-                    </p>
-                </div>
-                </div>
-                
-        </div>
-    </div>
-    <!--    End Modal_info-complex   -->                                                                                                                                            
-    
-    <!--    Modal_comment   -->
-    <div class="modal fade modal_comment" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="container container-modal-comment zero-padding">
-                <div class="col-xs-12 header-container-modal header-block margin-bottom-50">
-                    <div class="modal-text">
-                        <p>Добавить отзыв</p>
-                    </div>
-                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
-                        <img src="images/close.png" class="">
-                    </button>
-                </div>
-                <div class="col-xs-12 comment-modal-row">
-                	<div class="col-xs-2 text-right zero-padding">
-						<img src="images/c-man.svg">
-               		</div>
-                	<div class="col-xs-10 comment-input-item">
-                		<input  class="comment-input" placeholder="Логин">
-					</div>
-                </div>
-                <div class="col-xs-12">
-                	<div class="col-xs-2 text-right zero-padding">
-						<img src="images/c-pen.svg">
-               		</div>
-                	<div class="col-xs-10 comment-input-item">
-             			<textarea class="form-control comment-textarea" rows="6" placeholder="Текст"></textarea>
-					</div>
-                </div>
-                	<button type="button" class="col-xs-4 col-xs-offset-4 comment-button" data-dismiss="modal" aria-hidden="true">ГОТОВО
-				</button >
-
-        </div>
-    </div>
-    <!--    End Modal_comment  -->                                                                                                                                                            
-                                                                                                                                                                                     
-                                                                                                                                                                    
-                                                                                                                                                                               
-                                                                                                                                                                                                     
-                                                                                                               
+              
+                                                                                                                                               
  <div class="container-fluid container-fix" id="footer">      
         <div class="row">
             <div class="col-xs-4">
