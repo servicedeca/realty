@@ -868,4 +868,29 @@
       });
     })
   }
+
+
+  Drupal.behaviors.realtyComplexesFilter = {
+    attach: $(function(){
+      var developer = $('.Checkbox-developer'),
+          selectDeveloper = $('#edit-field-complex-developer-tid'),
+          select = $('#select-developer');
+
+      developer.click(function(){
+        console.log($(this).val());
+        if ($(this).prop("checked") == true ) {
+          $('#edit-field-complex-developer-tid option[value='+$(this).val()+']').attr('selected', 'selected');
+        }
+        else {
+          $('#edit-field-complex-developer-tid option[value='+$(this).val()+']').attr('selected', false);
+        }
+      });
+
+       $('#select-developer').click(function(){
+        setTimeout(function(){
+          $('#edit-submit-complex').trigger('click');
+        },100)
+      });
+    })
+  }
 }(jQuery));

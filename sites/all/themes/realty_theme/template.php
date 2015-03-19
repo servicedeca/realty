@@ -167,20 +167,21 @@ function realty_preprocess_views_view_table(&$vars) {
  * Process variables for views-view-unformatted--complex--complexs.tpl.php.
  */
 function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
-    $city_id = arg(2);
-    $city = taxonomy_term_load($city_id);
-    $vars['city'] = l($city->name, 'taxonomy/term/'.$city->tid);
-    $vars['complexes_link'] = l(t('complexes'), 'complexes/city/'.$city->tid);
+  $city_id = arg(2);
+  $city = taxonomy_term_load($city_id);
+  $vars['city'] = l($city->name, 'taxonomy/term/'.$city->tid);
+  $vars['complexes_link'] = l(t('complexes'), 'complexes/city/'.$city->tid);
 
-    foreach($vars['view']->result as $k=>$value){
-        $vars['complexes'][$k] = array(
-            'logo' => theme('image', array(
-                'path' => $value->field_field_complex_logo[0]['raw']['uri'],
-                )
-              ),
-            'complex_link' => '/node/'.$value->nid,
-        );
-    }
+  foreach($vars['view']->result as $k=>$value) {
+      $vars['complexes'][$k] = array(
+          'logo' => theme('image', array(
+              'path' => $value->field_field_complex_logo[0]['raw']['uri'],
+              'title' => $value->node_title,
+              )
+            ),
+          'complex_link' => '/node/'.$value->nid,
+      );
+  }
 }
 /*
  * Process variables for views-view-unformatted--complex--complex.tpl.php.
