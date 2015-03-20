@@ -14,9 +14,6 @@
       var $fotoramaDiv = $('#3d').fotorama();
       var fotorama = $fotoramaDiv.data('fotorama');
 
-      var $fotoramaDivComplex = $('#3d').fotorama();
-      var fotoramaComplex = $fotoramaDiv.data('fotorama');
-
       $('.next').click(function() {
         fotorama.show('>');
         //resizeBigHeight();

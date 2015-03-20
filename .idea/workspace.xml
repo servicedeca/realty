@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/realty-block-complexs.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/realty-block-complexs.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
     </list>
     <ignored path="realty.iws" />
@@ -75,7 +73,7 @@
       <file leaf-file-name="realty_theme.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="635" column="51" selection-start="19041" selection-end="19041" vertical-scroll-proportion="0.59183675" vertical-offset="9090" max-vertical-offset="13395">
+            <state line="14" column="51" selection-start="330" selection-end="330" vertical-scroll-proportion="0.2857143" vertical-offset="0" max-vertical-offset="13350">
               <folding />
             </state>
           </provider>
@@ -1335,7 +1333,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="635" column="51" selection-start="19041" selection-end="19041" vertical-scroll-proportion="0.59183675" vertical-offset="9090" max-vertical-offset="13395">
+        <state line="14" column="51" selection-start="330" selection-end="330" vertical-scroll-proportion="0.2857143" vertical-offset="0" max-vertical-offset="13350">
           <folding />
         </state>
       </provider>
