@@ -751,7 +751,7 @@ li {
 }
 
 @media(max-width:1300px){
-  #fotorama-complex .fotorama__arr--prev{
+#fotorama-complex .fotorama__arr--prev{
         left:0.5%;
     }
 }
@@ -771,22 +771,22 @@ li {
 }
 
 @media(max-width:1400px){
-  #fotorama-complex .fotorama__arr--next{
+  #fotorama-complex .fotorama__arr--next {
         left:27.5%;
     }
 }
 
 @media(max-width:1300px){
-  #fotorama-complex .fotorama__arr--next{
+  #fotorama-complex .fotorama__arr--next {
         left:27%;
     }
 }
 
-#fotorama-complex .fotorama__arr--next:hover{
+#fotorama-complex .fotorama__arr--next:hover {
     background: url(../images/ArrowRightHover.svg);
 }
 
-.prev{
+.prev {
     width:50px;
     height: 50px;
     z-index: 10000;
