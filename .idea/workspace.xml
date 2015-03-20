@@ -73,7 +73,7 @@
       <file leaf-file-name="realty_theme.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="539" selection-end="539" vertical-scroll-proportion="0.5102041" vertical-offset="0" max-vertical-offset="13185">
+            <state line="25" column="0" selection-start="539" selection-end="931" vertical-scroll-proportion="0.5102041" vertical-offset="0" max-vertical-offset="13350">
               <folding />
             </state>
           </provider>
@@ -1333,7 +1333,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="539" selection-end="539" vertical-scroll-proportion="0.5102041" vertical-offset="0" max-vertical-offset="13185">
+        <state line="25" column="0" selection-start="539" selection-end="931" vertical-scroll-proportion="0.5102041" vertical-offset="0" max-vertical-offset="13350">
           <folding />
         </state>
       </provider>
