@@ -401,7 +401,7 @@ function realty_preprocess_views_view_unformatted__apartments__apartment(&$vars)
 function realty_preprocess_views_view_unformatted__apartments__result_search(&$vars) {
   global $user;
     if ($user->uid != 0) {
-        $account = user_save($user);
+        $account = user_load($user->uid);
     }
   $dingdong = theme('image', array(
     'path' => REALTY_FRONT_THEME_PATH . '/images/dingdong.svg',
