@@ -324,8 +324,6 @@
             var Placemark = new ymaps.Placemark(Coords, Params, Icon);
             Map.options.placemarks[i].params.balloonContentHeader = Map.options.placemarks[i].params.iconContent;
             Map.options.placemarks[i].params.iconContent = '';
-             console.log(Map.options.placemarks[i].params.tid);
-            //console.log(Map.options.placemarks[i].params.iconContent);
             Placemarks.push(Placemark);
           }
           clusterer.add(Placemarks);
