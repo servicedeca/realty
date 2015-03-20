@@ -11,18 +11,6 @@
   Drupal.behaviors.realtyFotorama = {
     attach: $(function() {
 
-      var $fotoramaDiv = $('#3d').fotorama();
-      var fotorama = $fotoramaDiv.data('fotorama');
-
-      $('.next').click(function() {
-        fotorama.show('>');
-        //resizeBigHeight();
-      });
-      $('.prev').click(function() {
-        fotorama.show('<');
-        //resizeBigHeight();
-      });
-
       function ArrowMeter() {
         var height = $('.big-height').height();
         var result = height / 2.7;
@@ -31,6 +19,19 @@
         $('.prev').css('top', result);
         $('.next').css('top', result);
       };
+
+      var $fotoramaDiv = $('#3d').fotorama();
+      var fotorama = $fotoramaDiv.data('fotorama');
+
+      $(document).on('click', '.next', function() {
+        fotorama.show('>');
+        ArrowMeter();
+      });
+      $(document).on('click', '.prev', function() {
+        fotorama.show('<');
+        ArrowMeter();
+      });
+
       ArrowMeter();
       $(window).resize(function(){
       ArrowMeter();
@@ -626,11 +627,16 @@
       $(window).resize(function() {
         dynamicChange();
       });
-
       $(document).on('click', '.fotorama__arr--next', function(){
         dynamicChange();
       });
-      $(document).on('click', '.fotorama__arr--prev', function(){
+      $(document).on('click', '.fotorama__arr--next', function(){
+        dynamicChange();
+      });
+      $(document).on('click', '.next', function(){
+        dynamicChange();
+      });
+      $(document).on('click', '.prev', function(){
         dynamicChange();
       });
     })

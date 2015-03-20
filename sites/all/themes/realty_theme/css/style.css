@@ -740,7 +740,7 @@ li {
     top:15%;
 }
 
-.fotorama__arr--prev{
+#fotorama-complex .fotorama__arr--prev{
     width:50px;
     height: 50px;
     background: url(../images/ArrowLeft.svg);
@@ -751,16 +751,16 @@ li {
 }
 
 @media(max-width:1300px){
-    .fotorama__arr--prev{
+  #fotorama-complex .fotorama__arr--prev{
         left:0.5%;
     }
 }
 
-.fotorama__arr--prev:hover{
+#fotorama-complex .fotorama__arr--prev:hover{
     background: url(../images/ArrowLeftHover.svg);
 }
 
-.fotorama__arr--next{
+#fotorama-complex .fotorama__arr--next{
     width:50px;
     height: 50px;
     background: url(../images/ArrowRight.svg);
@@ -771,21 +771,20 @@ li {
 }
 
 @media(max-width:1400px){
-    .fotorama__arr--next{
+  #fotorama-complex .fotorama__arr--next{
         left:27.5%;
     }
 }
 
 @media(max-width:1300px){
-    .fotorama__arr--next{
+  #fotorama-complex .fotorama__arr--next{
         left:27%;
     }
 }
 
-.fotorama__arr--next:hover{
+#fotorama-complex .fotorama__arr--next:hover{
     background: url(../images/ArrowRightHover.svg);
 }
-
 
 .prev{
     width:50px;
