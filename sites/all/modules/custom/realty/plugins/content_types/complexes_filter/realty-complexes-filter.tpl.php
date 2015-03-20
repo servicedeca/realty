@@ -13,9 +13,9 @@
         <div class="col-xs-4">
           <ul>
             <li>
-              <label class="checkbox-inline check-style">
-                <input type="checkbox" class="Checkbox-developer" value="<?php print $developer['tid']?>">
-                <?php print $developer['name']?>
+              <input type="checkbox" id="id-developer-<?php print $developer['tid']?>" class="Checkbox-developer" value="<?php print $developer['tid']?>">
+              <label for="id-developer-<?php print $developer['tid']?>">
+              <?php print $developer['name']?>
               </label>
             </li>
           </ul>
