@@ -630,7 +630,7 @@ function realty_get_complex_current_city($developers = null, $city_tid = null) {
   }
   $view = views_get_view('complex');
   if($developers != null && $city == null) {
-    $view->set_display('complex_developer');
+    $view->set_display('complex_developers');
     unset($view->display_handler->options['filters']['field_complex_developer_tid']['value']);
     foreach($developers as $value) {
       $view->display_handler->options['filters']['field_complex_developer_tid']['value'][$value] = $value;
