@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/contrib/yamaps/misc/yamaps.placemark.js" afterPath="$PROJECT_DIR$/sites/all/modules/contrib/yamaps/misc/yamaps.placemark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,19 +92,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty_theme.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="realty_theme.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="927" column="9" selection-start="28871" selection-end="28871" vertical-scroll-proportion="-71.48148" vertical-offset="11975" max-vertical-offset="14175">
+            <state line="126" column="24" selection-start="3361" selection-end="3361" vertical-scroll-proportion="0.17687075" vertical-offset="1760" max-vertical-offset="14055">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yamaps.placemark.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="yamaps.placemark.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/contrib/yamaps/misc/yamaps.placemark.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="325" column="62" selection-start="12853" selection-end="12853" vertical-scroll-proportion="0.38718292" vertical-offset="4585" max-vertical-offset="7515">
+            <state line="325" column="62" selection-start="12853" selection-end="12853" vertical-scroll-proportion="0.0" vertical-offset="2155" max-vertical-offset="7515">
               <folding>
                 <marker date="1426838203530" expanded="false" signature="5753:5766" placeholder="..." />
                 <marker date="1426838203530" expanded="false" signature="5858:5871" placeholder="..." />
@@ -185,8 +185,8 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/front_map/realty-front-map.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css" />
-        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
         <option value="$PROJECT_DIR$/sites/all/modules/contrib/yamaps/misc/yamaps.placemark.js" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
       </list>
     </option>
   </component>
@@ -1320,21 +1320,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="927" column="9" selection-start="28871" selection-end="28871" vertical-scroll-proportion="-71.48148" vertical-offset="11975" max-vertical-offset="14175">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/contrib/yamaps/misc/yamaps.placemark.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="325" column="62" selection-start="12853" selection-end="12853" vertical-scroll-proportion="0.38718292" vertical-offset="4585" max-vertical-offset="7515">
+        <state line="325" column="62" selection-start="12853" selection-end="12853" vertical-scroll-proportion="0.0" vertical-offset="2155" max-vertical-offset="7515">
           <folding>
             <marker date="1426838203530" expanded="false" signature="5753:5766" placeholder="..." />
             <marker date="1426838203530" expanded="false" signature="5858:5871" placeholder="..." />
             <marker date="1426838203530" expanded="true" signature="10276:10324" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="24" selection-start="3361" selection-end="3361" vertical-scroll-proportion="0.17687075" vertical-offset="1760" max-vertical-offset="14055">
+          <folding />
         </state>
       </provider>
     </entry>

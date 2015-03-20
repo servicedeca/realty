@@ -125,7 +125,6 @@
 
        var change_select_list = function (homes) {
          var group = {};
-         console.log(homes);
          if (homes != null) {
            for (var i in homes) {
              group[$("#filter-form-address [value='"+homes[i]+"']").val()] = $("#filter-form-address [value='"+homes[i]+"']").text();
@@ -158,7 +157,6 @@
        }
 
        $("#filter-form-address").val($('#edit-field-apartament-home-tid').val());
-       console.log($('#edit-field-apartament-home-tid').val());
        $('#filter-form-section').html('')
          .html(change_select_list($('#edit-field-apartament-home-tid').val()));
 
@@ -190,18 +188,16 @@
          window.sections[$(this).val()] = $(this).text();
        });
 
-
-       console.log( window.sections);
-         var address = $("#filter-form-address").val();
-         var sections = $('#edit-field-section-value').val();
-         if ($("#filter-form-address").val() != null) {
-           for (var e in address) {
-              for (var en in sections) {
-                var option = sections[en]+':'+address[e];
-                console.log(option);
-                $('#filter-form-section option[value="'+option+'"]').attr('selected', 'selected');
-              }
-           }
+       var address = $("#filter-form-address").val();
+       var sections = $('#edit-field-section-value').val();
+       if ($("#filter-form-address").val() != null) {
+         for (var e in address) {
+            for (var en in sections) {
+              var option = sections[en]+':'+address[e];
+              console.log(option);
+              $('#filter-form-section option[value="'+option+'"]').attr('selected', 'selected');
+            }
+          }
          }
 
 
@@ -262,14 +258,10 @@
        });
      });
 
-     // действия после полной загрузки страницы
      $(document).ready(function(){
-       // проверяем, какие чекбоксы активны и меняем сласс для родительского дива
-       console.log($('#edit-field-status-value').val());
        if ($('#edit-field-status-value').val() === '1') {
          $('#not-display-reserved').attr("checked","checked");
        }
-
 
        $('.dec_checkbox').each(function(){
          var checkbox = $(this).find('input[type=checkbox]');
