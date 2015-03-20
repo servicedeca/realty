@@ -21,7 +21,7 @@
           <?php print t('Area')?>
         </label>
         <a data-toggle="modal" data-target=".modal-area">
-          <input class="search-input search-input-area" disabled>
+          <input class="search-input search-input-area" readonly>
         </a>
       </div>
     </div>
@@ -32,7 +32,7 @@
           <?php print t('Developers')?>
         </label>
         <a data-toggle="modal" data-target=".modal-z">
-          <input  class="search-input search-input-developer" disabled>
+          <input  class="search-input search-input-developer" readonly>
         </a>
       </div>
     </div>
@@ -43,7 +43,7 @@
           <?php print t('RC')?>
         </label>
         <a data-toggle="modal" data-target=".modal-zk">
-          <input  class="search-input search-input-complex mini-width" disabled>
+          <input  class="search-input search-input-complex mini-width" readonly>
         </a>
       </div>
     </div>
@@ -54,7 +54,7 @@
           <?php print t('Type')?>
         </label>
         <a data-toggle="modal" data-target=".modal-type">
-          <input  class="search-input search-input-room mini-width" disabled>
+          <input  class="search-input search-input-room mini-width" readonly>
         </a>
       </div>
     </div>
@@ -146,7 +146,7 @@
             <?php print t('metro')?>
           </label>
           <a data-toggle="modal" data-target=".metro">
-            <input  class="search-input search-input-metro" disabled>
+            <input  class="search-input search-input-metro" readonly>
           </a>
         </div>
       </div>
