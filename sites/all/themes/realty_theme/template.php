@@ -172,7 +172,7 @@ function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
   $vars['city'] = l($city->name, 'taxonomy/term/'.$city->tid);
   $vars['complexes_link'] = l(t('complexes'), 'complexes/city/'.$city->tid);
 
-  foreach($vars['view']->result as $k=>$value) {
+  foreach($vars['view']->result as $k => $value) {
       $vars['complexes'][$k] = array(
           'logo' => theme('image', array(
               'path' => $value->field_field_complex_logo[0]['raw']['uri'],
@@ -276,7 +276,7 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
         'sq' => $val->field_field_gross_area[0]['rendered']['#markup'],
         'price' => $val->field_field_price[0]['raw']['value'],
         'coast' => $val->field_field_full_cost[0]['raw']['value'] / 1000,
-        'status' => $val->field_field_status[0]['raw']['value'],
+        'status' => $val->field_field_status[0]['raw']['value'] / 1000,
       );
 
       $add = theme('image', array(
@@ -581,18 +581,16 @@ function realty_preprocess_realty_modal_search_form(&$vars) {
 /**
 *  implement hook_theme_registry_alter().
  */
-function realty_theme_registry_alter(&$theme_registry) {
+/*function realty_theme_registry_alter(&$theme_registry) {
   $theme_path = path_to_theme();
-
   // Checkboxes.
- /* if (isset($theme_registry['checkbox'])) {
+ if (isset($theme_registry['checkbox'])) {
     $theme_registry['checkbox']['type'] = 'theme';
     $theme_registry['checkbox']['theme path'] = $theme_path;
     $theme_registry['checkbox']['template'] = $theme_path. '/templates/field--type-checkbox';
     unset($theme_registry['checkbox']['function']);
   }
-*/
-}
+}*/
 
 /**
  * Process variables for realty-user-menu.tpl.php.

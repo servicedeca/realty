@@ -110,9 +110,8 @@
       <?php foreach($areas as $key => $area):?>
         <div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxMapArea" value="<?php print $key?>"><?php print $area; ?>
-            </label>
+            <input type="checkbox" id="id-map-area-<?php print $key?>" class="inlineCheckbox1 CheckboxMapArea" value="<?php print $key?>">
+            <label for="id-map-area-<?php print $key?>"><?php print $area;?></label>
           </li>
         </div>
       <?php endforeach ?>
@@ -136,14 +135,13 @@
         <?php print render($img_close)?>
       </button>
     </div>
-    <div class="col-xs-12 list-modal-city complex-list-map">
+    <div class="col-xs-12 list-modal-city" id="complex-list-map">
 
       <?php foreach($complexes as $key => $complex):?>
         <div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxMapComplex" value="<?php print $key?>"><?php print $complex; ?>
-            </label>
+            <input type="checkbox" id="id-map-complex-<?php print $key?>" class="inlineCheckbox1 CheckboxMapComplex" value="<?php print $key?>">
+            <label for="id-map-complex-<?php print $key?>"><?php print $complex; ?></label>
           </li>
         </div>
       <?php endforeach ?>
@@ -172,9 +170,8 @@
       <?php foreach($developers as $key => $developer):?>
         <div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxMapDeveloper" value="<?php print $key?>"><?php print $developer; ?>
-            </label>
+            <input type="checkbox" id="id-map-developer-<?php print $key?>" class="inlineCheckbox1 CheckboxMapDeveloper" value="<?php print $key?>">
+            <label for="id-map-developer-<?php print $key?>"><?php print $developer; ?></label>
           </li>
         </div>
       <?php endforeach ?>

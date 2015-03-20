@@ -110,7 +110,7 @@
     </div>
 
     <div class="col-xs-4 search-slider-item">
-      <label class="hint margin-bottom-35"><?php print t('Цена за м') . '<sup>2</sup>' . t('тыс. руб')?></label>
+      <label class="hint margin-bottom-35"><?php print t('Цена за м') . '<sup>2</sup>' . t(', тыс. руб')?></label>
       <?php print render($form['price'])?>
     </div>
 

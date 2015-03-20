@@ -99,6 +99,14 @@
        });
      });
 
+     $('.span-checkbox-area').click(function(){
+       var classCheckbox,
+           id = $(this).attr('id');
+       var idLeng = id.length;
+       var id = id.slice(6, idLeng);
+           console.log(id);
+       //$($(this).attr('id')+'  CheckboxArea').trigger('click');
+     });
 
 //  category type multiple select
      $(function() {
@@ -493,11 +501,13 @@
           },
           success: function(response) {
             var object = jQuery.parseJSON(response);
-            console.log(response);
-            $('.complexes-lis-map').html('');
+            console.log(object);
+            $('#complexes-lis-map').html(object.modal);
+           // $('#complex-list-map').html('');
             $('#edit-field-home-complex-target-id').html('');
             if (object != null) {
-              $('.complexes-lis-map').html(object.modal);
+              console.log(object.modal);
+              $('#complexes-lis-map').html(object.modal);
               $('#edit-field-home-complex-target-id').html(object.select);
             }
           },
@@ -893,4 +903,37 @@
       });
     })
   }
+
+  Drupal.behaviors.realtyCustomChecbox = {
+    attach: $(function(){
+      // чек бокс для модалки
+      $(document).ready(function(){
+        // проверяем, какие чекбоксы активны и меняем сласс для родительского дива
+
+        $('.modal_checkbox').each(function(){
+          var checkbox = $(this).find('input[type=checkbox]');
+          if(checkbox.prop("checked")) $(this).addClass("check_active");
+        });
+
+        // при клике по диву, делаем проверку
+        $('.modal_checkbox').click(function(){
+          var checkbox = $(this).find('input[type=checkbox]');
+          // если чекбокс был активен
+          if(checkbox.prop("checked")){
+            // снимаем класс с родительского дива
+            $(this).removeClass("check_active_modal");
+            // и снимаем галочку с чекбокса
+            checkbox.prop("checked", false);
+            // если чекбокс не был активен
+          }else{
+            // добавляем класс родительскому диву
+            $(this).addClass("check_active_modal");
+            // ставим галочку в чекбоксе
+            checkbox.prop("checked", true);
+          }
+        });
+      });
+    })
+  }
+
 }(jQuery));

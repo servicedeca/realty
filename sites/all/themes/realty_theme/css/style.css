@@ -889,7 +889,7 @@ li {
 }
 
 .container-modal-city {
-    width: 800px;
+    width: 900px;
     position: relative;
     margin: 0 auto;
     background: #fff;
@@ -3633,6 +3633,25 @@ margin-left: -120px;
     cursor:hand;
 }
 
+input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+  margin-top: 5px;
+}
+input[type="checkbox"] + label {
+  background: url("../images/check-dark-s.svg") 0 0px no-repeat;
+  padding-left: 20px;
+  height: 20px;
+}
+input[type="checkbox"]:checked + label {
+  background-position: 0 -20px;
+}
+
+.store input[type="checkbox"] + label {
+  background:#fffff0;
+  padding-left: 0px;
+  height: 0px;
+}
 
 .modal_checkbox span input[type="checkbox"]{
     display: none;

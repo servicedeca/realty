@@ -547,9 +547,8 @@ function realty_get_developer_complex() {
       if($_POST['map']) {
         $options['modal'] .= '<div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxMapComplex" value="'.$key.'">'.$complex.'
-            </label>
+            <input type="checkbox" id="id-map-complex-' . $key. '" class="inlineCheckbox1 CheckboxMapComplex" value="'.$key.'">
+            <label for="id-map-complex-' . $key. '">'.$complex.'</label>
         </li>
       </div>';
         $options['select'] .= '<option value='.$key.'>'.$complex.'</option>';
@@ -557,9 +556,8 @@ function realty_get_developer_complex() {
       else {
         $options['modal'] .= '<div class="col-xs-4">
             <li>
-              <label class="checkbox-inline check-style">
-                <input type="checkbox" class="inlineCheckbox1 CheckboxComplex complex-' . $key . '" value="' . $key. ';' . $complex .'"> ' . $complex . '
-              </label>
+              <input type="checkbox" id="id-complex-' . $key. '" class="inlineCheckbox1 CheckboxComplex complex-' . $key . '" value="' . $key. ';' . $complex .'">
+              <label for="id-complex-' . $key. '">' . $complex . '</label>
           </li>
         </div>';
         $options['select'] .= '<option value='.$key.'>'.$complex.'</option>';

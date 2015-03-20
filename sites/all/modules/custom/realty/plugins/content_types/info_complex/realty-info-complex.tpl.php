@@ -34,7 +34,7 @@
         <?php print t('information about the object');?>
       </span>
     </div>
-    <?php if(!empty($mini_description)):?>
+    <?php if(isset($mini_description)):?>
       <?php print $mini_description;?>
     <?php endif?>
   </div>
@@ -58,7 +58,6 @@
     <?php print $map?>
   </div>
 </div>
-<?php print render($comment_form)?>
 <!--    Modal_info-complex   -->
 <div class="modal fade modal_info-complex" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="container container-modal-info-complex zero-padding">
@@ -103,29 +102,29 @@
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade active in modal-info-text" aria-labelledby="home-tab" id="text1">
-        <?php if(!empty($location_description)):?>
+        <?php if(isset($location_description)):?>
           <?php print $location_description;?>
         <?php endif?>
       </div>
 
       <div class="col-xs-12 modal-info-text tab-pane fade" id="text2" role="tabpanel" aria-labelledby="profile-tab">
-        <?php if(!empty($architecture_description)):?>
+        <?php if(isset($architecture_description)):?>
           <?php print $architecture_description;?>
         <?php endif?>
       </div>
 
       <div class="col-xs-12 modal-info-text tab-pane fade" id="text3" role="tabpanel" aria-labelledby="profile-tab">
-        <?php if(!empty($accomplishment_description)):?>
+        <?php if(isset($accomplishment_description)):?>
           <?php print $accomplishment_description;?>
         <?php endif?>
       </div>
       <div class="col-xs-12 modal-info-text tab-pane fade" id="text4" role="tabpanel" aria-labelledby="profile-tab">
-        <?php if(!empty($infrastructure_description)):?>
+        <?php if(isset($infrastructure_description)):?>
           <?php print $infrastructure_description;?>
         <?php endif?>
       </div>
       <div class="col-xs-12 modal-info-text tab-pane fade" id="text5" role="tabpanel" aria-labelledby="profile-tab">
-        <?php if(!empty($service_description)):?>
+        <?php if(isset($service_description)):?>
           <?php print $service_description;?>
         <?php endif?>
       </div>

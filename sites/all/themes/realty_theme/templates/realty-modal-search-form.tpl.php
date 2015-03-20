@@ -13,9 +13,8 @@
       <?php foreach($areas as $key => $area):?>
         <div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxArea area-<?php print $key?>" value="<?php print $key. ';' .$area?>"><?php print $area; ?>
-            </label>
+            <input type="checkbox" id="id-area-<?php print $key?>" class="inlineCheckbox1 CheckboxArea area-<?php print $key?>" value="<?php print $key. ';' .$area?>">
+            <label for="id-area-<?php print $key?>"><?php print $area; ?></label>
           </li>
         </div>
       <?php endforeach ?>
@@ -45,9 +44,8 @@
       <?php foreach($developers as $key => $developer):?>
         <div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxDeveloper developer-<?php print $key?>" value="<?php print $key. ';' .$developer?>"><?php print $developer; ?>
-            </label>
+            <input type="checkbox" id="id-developer-<?php print $key?>" class="inlineCheckbox1 CheckboxDeveloper developer-<?php print $key?>" value="<?php print $key. ';' .$developer?>">
+            <label for="id-developer-<?php print $key?>"><?php print $developer; ?></label>
           </li>
         </div>
       <?php endforeach ?>
@@ -78,9 +76,8 @@
       <?php foreach($complexes as $key => $complex):?>
         <div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxComplex complex-<?php print $key?>" value="<?php print $key. ';' .$complex?>"><?php print $complex; ?>
-            </label>
+              <input type="checkbox" id="id-complex-<?php print $key?>" class="inlineCheckbox1 CheckboxComplex complex-<?php print $key?>" value="<?php print $key. ';' .$complex?>">
+              <label for="id-complex-<?php print $key?>"><?php print $complex; ?></label>
           </li>
         </div>
       <?php endforeach ?>
@@ -110,9 +107,8 @@
       <?php foreach($rooms as $key => $room):?>
         <div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxRoom room-<?php print $key?>" value="<?php print $key. ';' .$room?>"><?php print $room; ?>
-            </label>
+            <input type="checkbox" id="id-room-<?php print $key?>" class="inlineCheckbox1 CheckboxRoom room-<?php print $key?>" value="<?php print $key. ';' .$room?>">
+            <label for="id-room-<?php print $key?>"><?php print $room;?></label>
           </li>
         </div>
       <?php endforeach ?>
@@ -142,9 +138,8 @@
       <?php foreach($metros as $key => $metro):?>
         <div class="col-xs-4">
           <li>
-            <label class="checkbox-inline check-style">
-              <input type="checkbox" class="inlineCheckbox1 CheckboxMetro metro-<?php print $key?>" value="<?php print $key. ';' .$metro?>"><?php print $metro; ?>
-            </label>
+              <input type="checkbox" id="id-metro-<?php print $key?>" class="inlineCheckbox1 CheckboxMetro metro-<?php print $key?>" value="<?php print $key. ';' .$metro?>">
+              <label for="id-metro-<?php print $key?>"><?php print $metro;?></label>
           </li>
         </div>
       <?php endforeach ?>

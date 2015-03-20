@@ -57,16 +57,27 @@ function template_preprocess_realty_info_complex(&$vars) {
   $vars['developer'] = $developer[0]['taxonomy_term']->name;
   $deadline =  field_view_field('node', $node, 'field_deadline');
   $dead_entity = $deadline['#object']->field_deadline['und'][0]['value'];
+  $vars['complex_name'] = $node->title;
   $vars['quarter'] = $deadline[0]['entity']['field_collection_item'][$dead_entity]['field_quarter']['#items'][0]['value'];
   $vars['year'] = $deadline[0]['entity']['field_collection_item'][$dead_entity]['field_year']['#items'][0]['value'];
   $description =  field_view_field('node', $node, 'field_description');
   $desc_entity = $description['#object']->field_description['und'][0]['value'];
-  $vars['mini_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_location'][0]['#markup'];
-  $vars['location_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_location']['#items'][0]['value'];
-  $vars['architecture_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_architecture'][0]['#markup'];
-  $vars['accomplishment_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_accomplishment'][0]['#markup'];
-  $vars['infrastructure_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_infrastructure'][0]['#markup'];
-  $vars['service_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_service'][0]['#markup'];
+  if (isset($description[0]['entity']['field_collection_item'][$desc_entity]['field_location'])) {
+    $vars['mini_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_location'][0]['#markup'];
+    $vars['location_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_location']['#items'][0]['value'];
+  }
+  if (isset($description[0]['entity']['field_collection_item'][$desc_entity]['field_architecture'])) {
+    $vars['architecture_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_architecture'][0]['#markup'];
+  }
+  if (isset($description[0]['entity']['field_collection_item'][$desc_entity]['field_accomplishment'])) {
+    $vars['accomplishment_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_accomplishment'][0]['#markup'];
+  }
+  if (isset($description[0]['entity']['field_collection_item'][$desc_entity]['field_infrastructure'])) {
+    $vars['infrastructure_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_infrastructure'][0]['#markup'];
+  }
+  if (isset($description[0]['entity']['field_collection_item'][$desc_entity]['field_service'])) {
+    $vars['service_description'] = $description[0]['entity']['field_collection_item'][$desc_entity]['field_service'][0]['#markup'];
+  }
   $address =  field_get_items('node', $node, 'field_address');
   $vars['address'] = $address[0]['value'];
 
