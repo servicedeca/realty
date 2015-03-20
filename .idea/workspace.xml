@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/realty-block-complexs.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/realty-block-complexs.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
     </list>
     <ignored path="realty.iws" />
@@ -43,24 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fotorama.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/fotorama.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="313.33334" vertical-offset="8460" max-vertical-offset="55665">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="realty_theme.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="0" selection-start="2254" selection-end="2254" vertical-scroll-proportion="0.0" vertical-offset="1884" max-vertical-offset="2550">
-              <folding>
-                <marker date="1426837823150" expanded="true" signature="2282:2311" placeholder="{...}" />
-              </folding>
+            <state line="163" column="0" selection-start="2312" selection-end="2312" vertical-scroll-proportion="0.0" vertical-offset="1788" max-vertical-offset="2610">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,19 +72,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty-front-map.tpl.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/front_map/realty-front-map.tpl.php">
+      <file leaf-file-name="realty_theme.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="30" selection-start="5044" selection-end="5044" vertical-scroll-proportion="1.137255" vertical-offset="2158" max-vertical-offset="2865">
+            <state line="635" column="51" selection-start="19041" selection-end="19041" vertical-scroll-proportion="0.59183675" vertical-offset="9090" max-vertical-offset="13395">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty_theme.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
+      <file leaf-file-name="block_complexs.inc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/block_complexs.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="24" selection-start="3361" selection-end="3361" vertical-scroll-proportion="0.17687075" vertical-offset="1760" max-vertical-offset="14055">
+            <state line="47" column="56" selection-start="1100" selection-end="1100" vertical-scroll-proportion="-5.125" vertical-offset="537" max-vertical-offset="1545">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="realty_theme.info" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/realty_theme.info">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
               <folding />
             </state>
           </provider>
@@ -117,7 +115,7 @@
       <file leaf-file-name="realty-block-complexs.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/realty-block-complexs.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="41" selection-start="1522" selection-end="1522" vertical-scroll-proportion="-15.625" vertical-offset="135" max-vertical-offset="975">
+            <state line="52" column="14" selection-start="2161" selection-end="2161" vertical-scroll-proportion="-22.708334" vertical-offset="235" max-vertical-offset="1005">
               <folding />
             </state>
           </provider>
@@ -136,7 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/comment_complex/realty_comment_complex.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--comments-complex--comments-complex.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/comment_complex/realty-comment-complex.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/comment_complex/comment_complex.inc" />
@@ -184,8 +181,9 @@
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/search-form.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/front_map/realty-front-map.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
-        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css" />
         <option value="$PROJECT_DIR$/sites/all/modules/contrib/yamaps/misc/yamaps.placemark.js" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/realty-block-complexs.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
       </list>
     </option>
@@ -954,16 +952,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/news_block/realty-news-block.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="814" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_pano/block_pano.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="35" selection-start="1768" selection-end="1768" vertical-scroll-proportion="-4.0" vertical-offset="879" max-vertical-offset="1410" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_form/search_form.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="37" selection-start="1847" selection-end="1847" vertical-scroll-proportion="-5.1666665" vertical-offset="896" max-vertical-offset="1185" />
@@ -1060,13 +1048,6 @@
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="8" selection-start="1190" selection-end="1190" vertical-scroll-proportion="-20.0" vertical-offset="0" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/block_complexs.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="56" selection-start="1100" selection-end="1100" vertical-scroll-proportion="-5.125" vertical-offset="537" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>
@@ -1281,41 +1262,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/fotorama.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="313.33334" vertical-offset="8460" max-vertical-offset="55665">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/fotorama.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="213" selection-start="254" selection-end="269" vertical-scroll-proportion="-1.6666666" vertical-offset="0" max-vertical-offset="165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3649" column="7" selection-start="57798" selection-end="57798" vertical-scroll-proportion="0.0" vertical-offset="54377" max-vertical-offset="83325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="0" selection-start="2254" selection-end="2254" vertical-scroll-proportion="0.0" vertical-offset="1884" max-vertical-offset="2550">
-          <folding>
-            <marker date="1426837823150" expanded="true" signature="2282:2311" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/realty-block-complexs.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="41" selection-start="1522" selection-end="1522" vertical-scroll-proportion="-15.625" vertical-offset="135" max-vertical-offset="975">
           <folding />
         </state>
       </provider>
@@ -1331,9 +1280,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/realty_theme.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="762">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/realty_theme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="0" selection-start="2312" selection-end="2312" vertical-scroll-proportion="0.0" vertical-offset="1788" max-vertical-offset="2610">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/fotorama.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-11.717451" vertical-offset="8460" max-vertical-offset="55665">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/fotorama.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="213" selection-start="254" selection-end="269" vertical-scroll-proportion="-1.6666666" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/owl.carousel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22755">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/block_complexs.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="56" selection-start="1100" selection-end="1100" vertical-scroll-proportion="-5.125" vertical-offset="537" max-vertical-offset="1545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_complexs/realty-block-complexs.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="14" selection-start="2161" selection-end="2161" vertical-scroll-proportion="-22.708334" vertical-offset="235" max-vertical-offset="1005">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="24" selection-start="3361" selection-end="3361" vertical-scroll-proportion="0.17687075" vertical-offset="1760" max-vertical-offset="14055">
+        <state line="635" column="51" selection-start="19041" selection-end="19041" vertical-scroll-proportion="0.59183675" vertical-offset="9090" max-vertical-offset="13395">
           <folding />
         </state>
       </provider>

@@ -2,15 +2,6 @@
 
   Drupal.behaviors.realtyInit = {
     attach: $(function() {
-
-      /*$('.sq').change(function(){
-        console.log($(this).val());
-        var param = $(this).val().split(';');
-        if(param[1] == 200) {
-          $('.irs-to').html('200+');
-        }
-      });*/
-
       if(Drupal.settings.id) {
         $("body").attr("id","index");
       }
@@ -23,15 +14,8 @@
       var $fotoramaDiv = $('#3d').fotorama();
       var fotorama = $fotoramaDiv.data('fotorama');
 
-      var resizeBigHeight = function(){
-        $('.big-height').height($('.fiftyminus').width()/0.71);
-        $('.height').height($('.fifty').width()/2.85);
-        $('.big-height').height($('.fiftyplus').width()/2.13);
-        $('.double-big-height').height($('.fiftyplus').width()/1.42);
-        $('.double-big-height').height($('.fiftyplus').width()/1.42);
-        $('.height').height($('.fiftyplus').width()/4.27);
-        $('.double-big-height').height($('.fiftyminus').width()/0.473);
-      }
+      var $fotoramaDivComplex = $('#3d').fotorama();
+      var fotoramaComplex = $fotoramaDiv.data('fotorama');
 
       $('.next').click(function() {
         fotorama.show('>');
@@ -629,25 +613,29 @@
 
   Drupal.behaviors.realtyDynamicallyChange = {
     attach: $(function() {
-      $('.big-height').height($('.fiftyminus').width()/0.71);
-      $('.height').height($('.fifty').width()/2.85);
-      $('.big-height').height($('.fiftyplus').width()/2.13);
-      $('.double-big-height').height($('.fiftyplus').width()/1.42);
-      $('.double-big-height').height($('.fiftyplus').width()/1.42);
-      $('.height').height($('.fiftyplus').width()/4.27);
-      $('.double-big-height').height($('.fiftyminus').width()/0.473);
+      var dynamicChange = function(){
+        $('.big-height').height($('.fiftyminus').width()/0.71);
+        $('.height').height($('.fifty').width()/2.85);
+        $('.big-height').height($('.fiftyplus').width()/2.13);
+        $('.double-big-height').height($('.fiftyplus').width()/1.42);
+        $('.double-big-height').height($('.fiftyplus').width()/1.42);
+        $('.height').height($('.fiftyplus').width()/4.27);
+        $('.double-big-height').height($('.fiftyminus').width()/0.473);
+      }
+      $(window).ready(function(){
+        dynamicChange();
+      });
 
-       $(window).resize(function() {
-         $('.big-height').height($('.fiftyminus').width()/0.71);
-         $('.height').height($('.fifty').width()/2.85);
-         $('.big-height').height($('.fiftyplus').width()/2.13);
-         $('.double-big-height').height($('.fiftyplus').width()/1.42);
-         $('.double-big-height').height($('.fiftyplus').width()/1.42);
-         $('.height').height($('.fiftyplus').width()/4.27);
-         $('.double-big-height').height($('.fiftyminus').width()/0.473);
-        });
+      $(window).resize(function() {
+        dynamicChange();
+      });
 
-
+      $(document).on('click', '.fotorama__arr--next', function(){
+        dynamicChange();
+      });
+      $(document).on('click', '.fotorama__arr--prev', function(){
+        dynamicChange();
+      });
     })
  }
 
@@ -892,38 +880,6 @@
         setTimeout(function(){
           $('#edit-submit-complex').trigger('click');
         },100)
-      });
-    })
-  }
-
-  Drupal.behaviors.realtyCustomChecbox = {
-    attach: $(function(){
-      // чек бокс для модалки
-      $(document).ready(function(){
-        // проверяем, какие чекбоксы активны и меняем сласс для родительского дива
-
-        $('.modal_checkbox').each(function(){
-          var checkbox = $(this).find('input[type=checkbox]');
-          if(checkbox.prop("checked")) $(this).addClass("check_active");
-        });
-
-        // при клике по диву, делаем проверку
-        $('.modal_checkbox').click(function(){
-          var checkbox = $(this).find('input[type=checkbox]');
-          // если чекбокс был активен
-          if(checkbox.prop("checked")){
-            // снимаем класс с родительского дива
-            $(this).removeClass("check_active_modal");
-            // и снимаем галочку с чекбокса
-            checkbox.prop("checked", false);
-            // если чекбокс не был активен
-          }else{
-            // добавляем класс родительскому диву
-            $(this).addClass("check_active_modal");
-            // ставим галочку в чекбоксе
-            checkbox.prop("checked", true);
-          }
-        });
       });
     })
   }

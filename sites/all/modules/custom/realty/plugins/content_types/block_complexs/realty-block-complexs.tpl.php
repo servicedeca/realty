@@ -19,6 +19,7 @@
     <div id="fotorama-complex" class="col-xs-9 big-height parent fotorama" data-width="100%" data-height="100%"  data-loop="true" data-shuffle="true" data-transition="slide" data-clicktransition="crossfade" data-arrows="true" data-click="false" data-swipe="false" data-nav="false">
 
       <?php foreach($complexes as $complex):?>
+
         <div class="big-height">
           <div class="col-xs-4 beige-block zero-padding">
             <div class="col-xs-12 quarter-item zero-padding">
@@ -51,6 +52,7 @@
           </div>
         </div>
       <?php endforeach;?>
+
     </div>
     <div id="card">
     </div>
