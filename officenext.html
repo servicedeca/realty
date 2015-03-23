@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="UTF-8" />
+        <title>Main Page</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/fotorama.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/multiple-select.css" />
+        <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+        <link rel="stylesheet" href="css/ion.rangeSlider.skinHTML5.css" />
+        <link rel="stylesheet" href="css/jquery.dataTables.css" />
+        <link href="css/style.css" rel="stylesheet">
+        
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/fotorama.js"></script>
+        <script src="js/jquery.multiple.select.js"></script>
+        <script src="js/ion.rangeSlider.js"></script>
+        <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+        
+        <!-- Plugin JavaScript -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="js/js/cbpAnimatedHeader.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="js/findom.js"></script>
+    </head>
+    
+    <script>
+        $(document).ready(function () {
+            $("[rel='tooltip']").tooltip({
+            });
+        });
+    </script>
+   
+    <body>  
+       <div class="col-xs-12 menu-parent zero-padding">
+            <div id="menu">
+                <ul>
+                    <li class="main-logo">
+                       <a href="index.html">
+                            <img src="images/minilogo.svg">
+                        </a>
+                    </li>
+                   <li class="page-scroll">
+                        <a data-toggle="modal" data-target=".bs-example-modal-md">
+                            Выберите город
+                        </a>
+                    </li>                   
+                    <li>О проекте</li>
+                    <li>Регистрация/вход</li>
+                </ul>    
+           </div>
+        </div>
+        
+        <div id="wrapper">        
+            
+        <div class="container-fluid breadcrumb-line">    
+            <div class="container fin">
+               <div class="col-xs-12 breadcrumb-block  margine-top">
+                    <ol class="breadcrumb zero-padding breadcrumbfix">
+                        <li><a href="index.html">Главная</a></li>
+                        <li class="active"><a href="developers.html">Личный кабинет</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>    
+        
+        <div class="container fin profile-info">
+			<div class="col-xs-12 complex-menu zero-padding">
+							<div class="col-xs-12 complex-left-menu">
+					<ul class="padding-left-5">
+						<li>
+							<a href="profile.html" >Профиль
+							</a>
+						</li>
+						<li class="active-menu">
+							<a href="office.html">Сравнение
+							</a>
+						</li>
+						<li>
+							<a href="officenext.html">Полученные ID
+							</a>
+						</li>
+						<li>
+							<a href="#">Вознаграждения
+							</a>
+						</li>
+				   </ul>    
+				</div>
+			</div>
+		</div>
+           
+        <div class="container fin last-block">
+            <div class="col-xs-12 table-block text-center zero-padding">
+                    <br><br><br>
+                    <table class="table issue-table display" id="office">
+          				<thead>
+                            <tr>
+                            <tr>
+                                <th>
+                                    ID квартиры
+                                </th>
+                                <th>
+                                    Бронирование
+                                </th>
+                                <th class="width-200">
+                                    Подтвержденные сделки
+                                </th>
+                                <th>
+                                    Сертификат
+                                </th>
+                            </tr>
+                        </thead>
+                     
+                        <tbody>
+                      
+                             <tr>
+                                <td>10023</td>
+                                <td>
+                                    000001
+                                </td>
+                                <td>
+                                   <input class="form-control office-input" placeholder="Введите № договора">
+                                               <input class="form-control office-input" placeholder="Введите ФИО по договору">
+                                </td>
+                                <td>
+									<a href="#"> запросить<br> сертификат</a>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>10023</td>
+                                <td>
+                                    000001
+                                </td>
+                                <td>
+                                   <input class="form-control office-input" placeholder="Введите № договора">
+                                               <input class="form-control office-input" placeholder="Введите ФИО по договору">
+                                </td>
+                                <td>
+									<p class="ready">Подтверждено</p>
+                                </td>
+                            </tr>
+                            
+                                                         <tr>
+                                <td>10023</td>
+                                <td>
+                                    000001
+                                </td>
+                                <td>
+                                   <input class="form-control office-input" placeholder="Введите № договора">
+                                               <input class="form-control office-input" placeholder="Введите ФИО по договору">
+                                </td>
+                                <td>
+										<p class="wait">ожидается <br>подтверждение</p>
+                                </td>
+                            </tr>
+
+  
+                           
+                        </tbody>
+                    </table>
+            </div>
+        </div>   
+    </div>
+                                                                                                                                              
+    <!--    Modal_info-complex   -->
+    <div class="modal fade modal_info-complex" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-info-complex zero-padding">
+                <div class="col-xs-12 header-container-modal header-block">
+                        <img src="images/findome-gray.svg" class="margin-left-15">
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 modal-info-title">
+                    ЖК Марсель
+                </div>
+                <div class="col-xs-12 modal-button">
+                    <ul class="apartment-tabs text-center" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#text1"  role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Местоположение</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#text2" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Архитектура</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#text3" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Благоустройство</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#text4" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Инфраструктура</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#text5" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Сервис</a>
+                        </li>
+                    </ul>   
+                </div>
+                
+                <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade active in modal-info-text" aria-labelledby="home-tab" id="text1">
+                   <p>
+                        Marseille – дом комфорт-класса на берегу Оби в Октябрьском районе
+                        Чистый воздух – свежий ветер с Оби, от островов и лесных массивов левобережья
+                    </p>
+                    <p>
+                        На удалении от городского шума
+                    </p>
+                    <p>
+                        Находится в 15 минут ходьбы или 5 минут езды от ст. метро «Речной вокзал»
+                    </p>
+                    <p>
+                        Без пробок в час пик: ул. Обская – дублёр ул. Большевистская
+                    </p>
+                    <p>
+                        Marseille расположен на правом берегу Оби в двух остановках, 15 минутах ходьбы 
+                        или 5 минутах езды от станции метро «Речной вокзал».
+                    </p>
+                    <p>
+                        Улица Обская полностью дублирует загруженную Большевистскую, 
+                        что позволяет избежать пробок по пути в центр города. В планах муниципалитета 
+                        в ближайшее время расширить ее, превратив в полноценную магистраль.
+                    </p>
+                    <p>
+                        При этом территория дома разумно отдалена от городской суеты и шума «Большевички», 
+                        так как заканчивается на самом берегу Оби. Практически все окна выходят на реку, 
+                        закрывая внутреннее пространство Marseille от проезжей части.
+                    </p>
+                    <p>
+                        Дом удачно расположен и с точки зрения розы ветров. Ветер здесь всегда дует с реки, 
+                        а значит – и от лесных массивов левобережья и островов, что делает воздух особенно 
+                        свежим и дарит прохладу жарким летом.
+                    </p>
+                </div>
+
+                <div class="col-xs-12 modal-info-text tab-pane fade" id="text2" role="tabpanel" aria-labelledby="profile-tab">
+                   <p>
+                        Marseille – дом комфорт-класса на берегу Оби в Октябрьском районе
+                        Чистый воздух – свежий ветер с Оби, от островов и лесных массивов левобережья
+                    </p>
+                </div>
+
+                <div class="col-xs-12 modal-info-text tab-pane fade" id="text3" role="tabpanel" aria-labelledby="profile-tab">
+                    <p>
+                        Дом удачно расположен и с точки зрения розы ветров. Ветер здесь всегда дует с реки, 
+                        а значит – и от лесных массивов левобережья и островов, что делает воздух особенно 
+                        свежим и дарит прохладу жарким летом.
+                    </p>
+                </div>
+                </div>
+                
+        </div>
+    </div>
+    <!--    End Modal_info-complex   -->                                                                                                                                            
+    
+    <!--    Modal_comment   -->
+    <div class="modal fade modal_comment" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="container container-modal-comment zero-padding">
+                <div class="col-xs-12 header-container-modal header-block margin-bottom-50">
+                    <div class="modal-text">
+                        <p>Добавить отзыв</p>
+                    </div>
+                    <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+                        <img src="images/close.png" class="">
+                    </button>
+                </div>
+                <div class="col-xs-12 comment-modal-row">
+                	<div class="col-xs-2 text-right zero-padding">
+						<img src="images/c-man.svg">
+               		</div>
+                	<div class="col-xs-10 comment-input-item">
+                		<input  class="comment-input" placeholder="Логин">
+					</div>
+                </div>
+                <div class="col-xs-12">
+                	<div class="col-xs-2 text-right zero-padding">
+						<img src="images/c-pen.svg">
+               		</div>
+                	<div class="col-xs-10 comment-input-item">
+             			<textarea class="form-control comment-textarea" rows="6" placeholder="Текст"></textarea>
+					</div>
+                </div>
+                	<button type="button" class="col-xs-4 col-xs-offset-4 comment-button" data-dismiss="modal" aria-hidden="true">ГОТОВО
+				</button >
+
+        </div>
+    </div>
+    <!--    End Modal_comment  -->                                                                                                                                                            
+                                                                                                                                                                                     
+                                                                                                                                                                    
+                                                                                                                                                                               
+                                                                                                                                                                                                     
+                                                                                                               
+ <div class="container-fluid container-fix" id="footer">      
+        <div class="row">
+            <div class="col-xs-4">
+                    <img src="images/black-logo.svg" class="footer-logo">
+            </div>
+            <div class="col-xs-4 zero-padding">
+            </div>
+            <div class="col-xs-4 zero-padding">
+                <ul class="list-line list-inline">
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-vk"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    </body>
+</html>
