@@ -24,6 +24,11 @@ a{
     color:none;
 }
 
+a:hover{
+    text-decoration: none;
+
+}
+
 li {
     list-style-type: none;
 }
@@ -414,13 +419,6 @@ li {
     }
 }
 
-@media(max-width:960px){
-   #index #menu{
-        height: 50px;
-	   line-height: 50px;
-    }
-}
-
 .menu-parent {
     position: absolute;
     z-index: 1000;
@@ -612,22 +610,6 @@ li {
     left: 15%;
 }
 
-.title-block h2{
-    color:#fff;
-    font-weight: 600;
-    position: relative;
-    font-size: 30px;
-    width: 80%;
-	text-transform: uppercase;
-}
-
-
-@media (max-width: 1200px){
-    .title-block h2{
-        font-size: 25px;
-    }
-}
-
 @media (max-width: 1350px){
     .title-block{
         height: 60%;
@@ -749,7 +731,7 @@ li {
 
 .button-item {
     position: absolute;
-    top:80%;
+    bottom: 0px;
     height: 15%;
 }
 
@@ -763,7 +745,7 @@ li {
     top:15%;
 }
 
-.fotorama__arr--prev{
+#fotorama-complex .fotorama__arr--prev{
     width:50px;
     height: 50px;
     background: url(../images/ArrowLeft.svg);
@@ -774,16 +756,16 @@ li {
 }
 
 @media(max-width:1300px){
-    .fotorama__arr--prev{
+#fotorama-complex .fotorama__arr--prev{
         left:0.5%;
     }
 }
 
-.fotorama__arr--prev:hover{
+#fotorama-complex .fotorama__arr--prev:hover{
     background: url(../images/ArrowLeftHover.svg);
 }
 
-.fotorama__arr--next{
+#fotorama-complex .fotorama__arr--next{
     width:50px;
     height: 50px;
     background: url(../images/ArrowRight.svg);
@@ -794,23 +776,22 @@ li {
 }
 
 @media(max-width:1400px){
-    .fotorama__arr--next{
+  #fotorama-complex .fotorama__arr--next {
         left:27.5%;
     }
 }
 
 @media(max-width:1300px){
-    .fotorama__arr--next{
+  #fotorama-complex .fotorama__arr--next {
         left:27%;
     }
 }
 
-.fotorama__arr--next:hover{
+#fotorama-complex .fotorama__arr--next:hover {
     background: url(../images/ArrowRightHover.svg);
 }
 
-
-.prev{
+.prev {
     width:50px;
     height: 50px;
     z-index: 10000;
@@ -912,7 +893,7 @@ li {
 }
 
 .container-modal-city {
-    width: 800px;
+    width: 900px;
     position: relative;
     margin: 0 auto;
     background: #fff;
@@ -1727,7 +1708,6 @@ mm .ms-drop ul > li label {
  .search-button {
     color:#f2f2f2;
     border: 1px solid #f2f2f2;
-	border-radius: 0px;
     height: 40px;
     line-height: 37px;
     background: #227d92;
@@ -2165,6 +2145,16 @@ padding-left: 15px;
 	opacity: 1;
 }
 
+.active a:hover{
+    text-decoration: none;
+}
+
+.active a:focus{
+    text-decoration: none;
+}
+
+
+
 .table > thead > tr > th,
 .table > tbody > tr > th{
     text-align: center;
@@ -2230,6 +2220,17 @@ padding-left: 15px;
     background: #2fade2;
     color:#f2f2f2;
 }
+
+#office.table > tbody > tr:hover {
+    background: transparent;
+	color:#666;
+}
+
+#office.table > tbody > tr:hover a {
+	color:#666;
+}
+
+
 
 .table > tbody > tr:hover .booking {
     background: #2fade2;
@@ -2495,12 +2496,12 @@ margin-left: -120px;
 
 .left-part-complex{
     padding-left: 25px;
-    height: 330px;
+    height: 425px;
 }
 
 @media(max-width:1200px){
     .left-part-complex{
-        height: 310px;
+        height: 380px;
     }
 }
 
@@ -2517,10 +2518,6 @@ margin-left: -120px;
         margin-top: -3px;
         font-size: 16px;
     }
-}
-
-.left-part-complex div{
-    height: 50px;
 }
 
 .left-part-complex h2{
@@ -2673,19 +2670,11 @@ margin-left: -120px;
     margin-top: 20px;
     text-transform: uppercase;
     width: 100%;
-    padding-right: 0px;
+    padding-right: 70px;
 }
 
 @media (max-width:1200px){
-.complex-menu h2 {
-	  text-align: left;
-	  padding-left: 130px;
-	  font-size: 22px;
-	  margin-top: 25px;
-	  text-transform: uppercase;
-	  width: 100%;
-	  /* padding-right: 70px; */
-	}
+
 }
 
 .complex-menu ul li{
@@ -2800,41 +2789,45 @@ margin-left: -120px;
     right: 20%;
 }
 
-.a-dom {
-    text-align:center;
-    color:#333333;
-    font-size:22px;
-    width: 60px;
-    height: 60px;
-    line-height: 50px;
-	border-radius: 60px;
-	border: 5px solid #286e99;
+.a-section {
+    text-align: center;
+    color: #333333;
+    font-size: 22px;
+    width: 45px;
+    height: 45px;
+    line-height: 35px;
+    border-radius: 45px;
+    border: 5px solid #286e99;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+}
+
+ .a-dom {
+     text-align: center;
+     color: #333333;
+     font-size: 22px;
+     width: 45px;
+     height: 45px;
+     line-height: 35px;
+     border-radius: 45px;
+     border: 5px solid #286e99;
+     text-decoration: none;
+     background: rgba(255, 255, 255, 0.8);
+     font-size: 18px;
 }
 
 .a-dom:hover {
-    text-decoration: none;
-    color:#000;
-    background: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  color:#000;
+  background: rgba(255, 255, 255, 1);
 }
 
-.a-section {
-    text-align:center;
-    color:#f2f2f2;
-    font-size:22px;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    text-decoration: none;
-    border-radius: 10px;
-    background: rgba(47, 173, 226, 0.9);
-}
 
 .a-section:hover {
-    background: rgba(47, 173, 226, 1);
-    text-decoration: none;
-        color:#f2f2f2;
+  text-decoration: none;
+  color:#000;
+  background: rgba(255, 255, 255, 1);
 }
 
 .section1 {
@@ -2856,6 +2849,13 @@ margin-left: -120px;
 
 .vertical-flat-image {
    height: 430px;
+}
+
+@media(max-width:1200px){
+.vertical-flat-image {
+   height: 350px;
+}
+
 }
 
 .sunset {
@@ -2901,25 +2901,6 @@ margin-left: -120px;
 
 .cursor-auto {
         cursor: auto;
-}
-
-#floorTab li a{
-    color:#4d4d4d;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-#floorTab li a:hover{
-    color:#2391af;
-}
-
-#floorTab li a:focus{
-    color:#2391af;
-}
-
-#floorTab li a:focus:before{
-     content: "<"; /* Добавляем желаемый символ перед элементом списка */ 
-    margin-left: -13px;
 }
 
 .gallery-body {
@@ -3249,12 +3230,6 @@ margin-left: -120px;
 
 .apartment-image-vertical {
     height:90%;
-}
-
-@media(max-width:1200px){
-.apartment-image-vertical {
-	height:80%;
-	}
 }
 
 .apartment-tabs li.active>a{
@@ -3667,6 +3642,25 @@ margin-left: -120px;
     cursor:hand;
 }
 
+input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+  margin-top: 5px;
+}
+input[type="checkbox"] + label {
+  background: url("../images/check-dark-s.svg") 0 0px no-repeat;
+  padding-left: 20px;
+  height: 20px;
+}
+input[type="checkbox"]:checked + label {
+  background-position: 0 -20px;
+}
+
+.store input[type="checkbox"] + label {
+  background:#fffff0;
+  padding-left: 0px;
+  height: 0px;
+}
 
 .modal_checkbox span input[type="checkbox"]{
     display: none;
@@ -3862,13 +3856,6 @@ font-size: 16px;
 	margin-right: 5px;
 	font-weight: 300;
 	font-size:16px;
-}
-
-@media(max-width:1200px){
-.complex-filter-square-lebel{
-    margin-left: 0px;
-	margin-right: 0px;
-	}
 }
 
 #adds {
@@ -5557,6 +5544,10 @@ background: url("../images/icon/down.png") no-repeat center right;
 	margin-top: 70px;
 }
 
+.margin-top-71 {
+	margin-top: 70px;
+}
+
 .sitemap-span img{
 	height: 50px;
 	margin-bottom: 0px;
@@ -5640,4 +5631,306 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .height-70 {
 	height: 70px;
+}
+
+.sitemap-span img{
+	height: 50px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.button-item {
+  position: absolute;
+  bottom: 0px;
+  height: 15%;
+}
+
+.shadow {
+	position: absolute;
+	bottom: 0px;
+	left: 70px;
+	width: 100px;
+}
+
+.flo{
+	left: 70px;
+	position: absolute;
+}
+
+.flo:focus:after{
+    margin-left: 10px;
+	font-size: 15px;
+}
+
+.flo:hover:after{
+    margin-left: 10px;
+	font-size: 15px;
+}
+
+.flo:hover img{
+    opacity: 0;
+}
+
+.flo:focus img{
+    opacity: 0;
+}
+
+.floor_1{
+	bottom: 0px;
+}
+
+.floor_1:focus:after{
+     content: "1 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_1:hover:after{
+	content: "1 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_2{
+	bottom: 16px;
+}
+
+.floor_2:focus:after{
+     content: "2 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_2:hover:after{
+	content: "2 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_3{
+	bottom: 32px;
+}
+
+.floor_3:focus:after{
+     content: "3 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_3:hover:after{
+	content: "3 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_4{
+	bottom: 48px;
+}
+
+.floor_4:focus:after{
+     content: "4 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_4:hover:after{
+	content: "4 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_5{
+	bottom: 64px;
+}
+
+.floor_5:focus:after{
+     content: "5 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_5:hover:after{
+	content: "5 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_6{
+	bottom: 80px;
+}
+
+.floor_6:focus:after{
+     content: "6 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_6:hover:after{
+	content: "6 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_7{
+	bottom: 96px;
+}
+
+.floor_7:focus:after{
+     content: "7 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_7:hover:after{
+	content: "7 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_8{
+	bottom: 112px;
+}
+
+.floor_8:focus:after{
+     content: "8 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_8:hover:after{
+	content: "8 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_9{
+	bottom: 128px;
+}
+
+.floor_9:focus:after{
+     content: "9 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_9:hover:after{
+	content: "9 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_10{
+	bottom: 144px;
+}
+
+.floor_10:focus:after{
+     content: "10 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_10:hover:after{
+	content: "10 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_11{
+	bottom: 160px;
+}
+
+.floor_11:focus:after{
+     content: "11 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_11:hover:after{
+	content: "11 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_12{
+	bottom: 176px;
+}
+
+.floor_12:focus:after{
+     content: "12 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_12:hover:after{
+	content: "12 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_13{
+	bottom: 192px;
+}
+
+.floor_13:focus:after{
+     content: "13 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_13:hover:after{
+	content: "13 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_14{
+	bottom: 208px;
+}
+
+.floor_14:focus:after{
+     content: "14 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_14:hover:after{
+	content: "14 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.sh-line {
+	border-top:1px solid #161616;
+	bottom: -1px;
+	left: 0px;
+	width: 170px;
+	position: absolute;
+	height: 1px;
+	left: 35px;
+}
+
+.ppage-left img{
+	width: 100%;
+}
+
+.ppage-left a{
+	height: 70px;
+	line-height: 70px;
+	margin-top: 70px;
+	text-align: center;
+	background: #679956;
+	color:#ffffff;
+	font-size: 20px;
+}
+
+.ppage-left a:hover{
+	opacity: 0.8;
+	    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.ppage-right h1{
+	text-transform: uppercase;
+	font-size: 30px;
+	color:#333333;
+	margin: 0px;
+	margin-bottom: 35px;
+}
+
+.ppage-right p{
+	color:#828282;
+	margin: 0px;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+.office-input {
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	margin-bottom: 5px;
+	width: 250px;
+	color:#434343;
+	background: #f2f2f2;
+	padding-left: 15px;
+	border-radius: 0px;
+	outline: none;
+	border: none;
+
+}
+
+.office-input::-webkit-input-placeholder {
+	color:#333333;
+}
+
+.office-input::-moz-placeholder {
+	color:#333333;
+}
+
+.width-200 {
+	width: 250px;
+}
+
+.ready {
+	color:#7fbf80;
+	text-transform: uppercase;
+	font-size: 22px;
+}
+
+.wait {
+	color:9b9b9b;
+	font-size: 16px;
 }
