@@ -1,11 +1,6 @@
 <div class="container fin">
-  <div class="col-xs-12 breadcrumb-block">
-    <ol class="breadcrumb zero-padding breadcrumbfix">
-      <li><a href="#">Главная</a></li>
-      <li class="active"><a href="#">Результаты поиска</a></li>
-    </ol>
-  </div>
   <div class="col-xs-12 table-block text-center zero-padding">
+
     <table class="table issue-table display" id="example">
 
       <thead>
@@ -17,10 +12,18 @@
           <th><?php print t('Address') ?></th>
           <th><?php print t('Deadline') ?></th>
           <th><?php print t('Rooms') ?>.&nbsp&nbsp</th>
-          <th><?php print t('floor') ?>&nbsp&nbsp</th>
-          <th ><?php print t('S') ?>&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp<</th>
-          <th><?php print t('Price') ?>&nbsp&nbsp<br>м<sup>2</sup>&nbsp&nbsp</th>
-          <th class="none-border-right"><?php print t('Coast') ?></th>
+          <th data-sort="field_apartment_floor_value"  data-order="ASC" class="sort sorting">
+            <?php print t('floor') . '&nbsp&nbsp';?>
+          </th>
+          <th data-sort="field_gross_area_value" data-order="ASC" class="sort sorting">
+            <?php print t('SQ');?>
+          </th>
+          <th data-sort="field_price_value" data-order="ASC" class="sort sorting">
+            <?php print t('Price')?><br>м<sup>2</sup>&nbsp&nbsp
+          </th>
+          <th data-sort="field_full_cost_value" data-order="ASC" class="sort sorting">
+            <?php print t('Coast');?>
+          </th>
         </tr>
       </thead>
 

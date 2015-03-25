@@ -22,7 +22,7 @@ function realty_search_result_ctools_content_types() {
 function realty_search_result_content_type_render($subtype, $conf, $panel_args, $context) {
   $block = new stdClass();
 
-  if (isset($_GET['price'])) {
+ /* if (isset($_GET['price'])) {
     $pricemin = explode(";", $_GET['price']);
     $pricemax = explode(";", $_GET['price']);
     $data['priceMin'] = $pricemin[0] * 1000;
@@ -187,8 +187,8 @@ function realty_search_result_content_type_render($subtype, $conf, $panel_args, 
 
   $view->pre_execute(array());
   $block->content = $view->display_handler->preview();
-  $view->post_execute();
-
-    $a =1;
+  $view->post_execute();*/
+  $block->content = views_embed_view('apartments', 'result_search');
+  $a =1;
   return $block;
 }

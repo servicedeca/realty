@@ -29,11 +29,13 @@
     <?php print $button;?>
   </button>
 </div>
-<div class="dec_checkbox col-xs-6 col-xs-offset-3 zero-padding">
-  <span>
-    <input id="not-display-reserved" type="checkbox">
-  </span>
-  <label><?php print t('Do not display reserved');?></label>
+<div class="complex-apartment-filter">
+  <div class="dec_checkbox col-xs-6 col-xs-offset-3 zero-padding">
+    <span>
+      <input id="not-display-reserved" type="checkbox">
+    </span>
+    <label><?php print t('Do not display reserved');?></label>
+  </div>
 </div>
 <div class="col-xs-3" style="height: 70px">
   </div>

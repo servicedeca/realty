@@ -161,6 +161,10 @@ function realty_theme() {
     'template' => 'realty-views-exposed-form',
   );
 
+  $items['realty_main_search_form'] = $base + array(
+      'render_element' => 'form',
+      'template' => 'realty-main-search-form'
+  );
 
   return $items;
 
@@ -575,7 +579,11 @@ function realty_get_developer_complex() {
 function realty_get_options_current_city($option) {
 
   $city = menu_get_object('taxonomy_term', 2);
-  $city != null ? $city_tid = $city->tid : $city_tid = $_GET['city'];
+  if ($city == null) {
+    $tid = arg(1);
+    $city = taxonomy_term_load($tid);
+  }
+  $city != null ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
   $view = views_get_view('search');
   if ($option == 'area') {
     $view->set_display('search_area');
@@ -604,7 +612,11 @@ function realty_get_options_current_city($option) {
  */
 function realty_get_developer_current_city() {
   $city = menu_get_object('taxonomy_term', 2);
-  $city != null ? $city_tid = $city->tid : $city_tid = $_GET['city'];
+  if ($city == null) {
+    $tid = arg(1);
+    $city = taxonomy_term_load($tid);
+  }
+  $city != null ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
   $view = views_get_view('term_view');
   $view->set_display('developers_search');
   $view->display_handler->options['arguments']['tid']['default_argument_options']['argument'] = $city_tid;
@@ -625,8 +637,13 @@ function realty_get_developer_current_city() {
  */
 function realty_get_complex_current_city($developers = null, $city_tid = null) {
   $city = menu_get_object("taxonomy_term", 2);
-  if(isset($_GET['city']) || $city) {
-    $city != null ? $city_tid = $city->tid : $city_tid = $_GET['city'];
+
+  if ($city == null) {
+    $tid = arg(1);
+    $city = taxonomy_term_load($tid);
+  }
+  if(isset($_GET['field_city_tid']) || $city) {
+    $city != null ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
   }
   $view = views_get_view('complex');
   if($developers != null && $city == null) {
@@ -793,7 +810,7 @@ function realty_search_form($form, $form_state) {
   $form['city'] = array(
     '#type' => 'hidden',
     '#title' => 'city',
-    '#value' => isset($_GET['city']) ? $_GET['city'] : $city->tid,
+    '#value' => isset($_GET['field_city_tid']) ? $_GET['field_city_tid'] : $city->tid,
   );
 
   $form['area'] = array(
@@ -969,16 +986,7 @@ function realty_search_form($form, $form_state) {
       'maxlength' => '4',
     ),
   );
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Choose option'),
-    '#attributes' => array(
-      'class' => array('search-button'),
-    ),
-  );
 
-  $form['#method'][] = 'GET';
-  $form['#action'] = '/search';
   $form['#theme'][] = 'search_form';
 
   return $form;
@@ -1094,7 +1102,7 @@ function realty_get_current_city() {
     }
   }
   if ($entity[0] == 'search') {
-    $city = taxonomy_term_load($_GET['city']);
+    $city = taxonomy_term_load($entity[1]);
     return $city->name;
   }
 }
@@ -1153,7 +1161,21 @@ function realty_filter_complex_apartment_form($form, $form_state) {
  * Implement hook_form_alter.
  */
 function realty_form_views_exposed_form_alter(&$form, &$form_state) {
+  $city = menu_get_object('taxonomy_term', 2);
+  if ($city == null) {
+    $city = taxonomy_term_load(arg(1));
+  }
   if ($form['#id'] == 'views-exposed-form-apartments-apartment-complex') {
     $form['#theme'] = 'realty_views_exposed_form';
+  }
+
+  if (arg(0) != 'search') {
+    if ($form['#id'] == 'views-exposed-form-apartments-result-search') {
+      $form['#action'] = '/search/' . $city->tid;
+      $form['#theme'] = 'realty_main_search_form';
+    }
+  }
+  else if (arg(0) == 'search') {
+    $form['field_city_tid']['#value'] = $city->tid;
   }
 }

@@ -1,6 +1,6 @@
 <div class="row relative">
   <div class="col-xs-9 fiftyplus height search-block zero-padding">
-    <?php print render($search_form);?>
+    <?php print $search_form;?>
   </div>
   <div class="col-xs-9 fiftyplus big-height poster-photo parent">
     <?php print render($image);?>

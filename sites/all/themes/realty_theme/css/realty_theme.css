@@ -167,3 +167,10 @@
   background: none;
 }
 
+#views-exposed-form-apartments-result-search {
+  display: none;
+}
+#index #views-exposed-form-apartments-result-search {
+  display: inline;
+}
+

@@ -155,7 +155,9 @@
       <div class="col-xs-5">
       </div>
       <div class="col-xs-7 search-button-block">
-        <?php print render($form['submit'])?>
+        <a id="edit-submit" href="#href" class="search-button form-submit">
+          <?php print t('Choose option');?>
+        </a>
       </div>
     </div>
 

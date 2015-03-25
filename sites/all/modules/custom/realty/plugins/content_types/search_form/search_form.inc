@@ -42,8 +42,13 @@ function realty_search_form_content_type_theme(&$theme, $plugin) {
  */
 function template_preprocess_realty_search_form(&$vars) {
 
-  $vars['search_form'] = drupal_get_form('realty_search_form');
+  $vars['search_form'] = drupal_get_form('views-exposed-form-apartments-result-search');
 
+  $view = views_get_view('apartments');
+  $view->set_display('result_search');
+  $view->init_handlers();
+  $exposed_form = $view->display_handler->get_plugin('exposed_form');
+  $vars['search_form'] = $exposed_form->render_exposed_form(TRUE);
   $result = views_get_view_result('news', 'information_form_search');
 
   if ($result[0]) {
