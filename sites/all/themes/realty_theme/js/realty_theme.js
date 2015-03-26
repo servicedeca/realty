@@ -658,4 +658,55 @@
 
   }
 
+  Drupal.behaviors.realtyGallery = {
+    attach: $(function(){
+
+      $('.april-album').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        }
+      });
+
+      $('.visual-album').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        }
+      });
+    })
+  }
+
+  Drupal.behaviors.realtyComplexStock = {
+    attach: $(function(){
+      $(document).ready(function(){
+        $("#owl-demo").owlCarousel({
+          navigation : true, // Show next and prev buttons
+          slideSpeed : 300,
+          paginationSpeed : 400,
+          singleItem:true,
+          navigationText: [
+            "",
+            ""
+          ]
+
+          // "singleItem:true" is a shortcut for:
+          // items : 1,
+          // itemsDesktop : false,
+          // itemsDesktopSmall : false,
+          // itemsTablet: false,
+          // itemsMobile : false
+
+        });
+      })
+    })
+  }
 }(jQuery));

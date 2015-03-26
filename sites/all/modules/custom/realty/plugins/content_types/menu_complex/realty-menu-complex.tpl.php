@@ -38,6 +38,7 @@
         <?php foreach($menu as $item):?>
           <?php print $item?>
         <?php endforeach?>
+      </ul>
     </div>
   </div>
 </div>

@@ -68,19 +68,16 @@ function template_preprocess_realty_menu_complex(&$vars) {
       'title' => 'plan',
     ),
     1 => array(
-      //'path' => l(t('Gallery'), 'complexes/' .$node->nid. '/gallery'),
-      'path' => l(t('Gallery'),'http://style.findome.ru/gallery.html'),
+      'path' => l(t('Gallery'), 'complexes/' .$node->nid. '/gallery/photo'),
       'title' => 'gallery',
     ),
     2 => array(
-      //'path' => l(t('Documents'), 'complexes/' .$node->nid. '/documents'),
-      'path' => l(t('Documents'), 'http://style.findome.ru/docs.html'),
+      'path' => l(t('Documents'), 'complexes/' .$node->nid. '/documents'),
       'title' => 'documents',
     ),
 
     3 => array(
-      //'path' => l(t('Stock'), 'complexes/' .$node->nid. '/stock'),
-      'path' => l(t('Stock'),'http://style.findome.ru/stock.html'),
+      'path' => l(t('Stock'), 'complexes/' .$node->nid. '/stock'),
       'title' => 'stock',
     ),
   );

@@ -948,3 +948,114 @@ function realty_preprocess_node__apartament_full(&$vars) {
   $developer = taxonomy_term_load($complex->field_complex_developer['und'][0]['tid']);
   $vars['developer'] = $developer->name;
 }
+
+/**
+ * Preprocess variables for views-view-unformatted--complex--gallery-photo.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__complex__gallery_photo(&$vars) {
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $key => $album) {
+      if (isset($album->field_field_image_gallery[0])) {
+        $vars['albums'][$key]['title'] = l($album->field_field_name_gallery[0]['rendered']['#markup'],
+          file_create_url($album->field_field_image_gallery[0]['raw']['uri']), array('attributes' => array(
+            'class' => array('date-album'),
+          )));
+        $image_album = theme('image', array(
+          'path' => $album->field_field_image_gallery[0]['raw']['uri'],
+          'width' => '100%',
+          'height' => '100%',
+        ));
+
+        $vars['albums'][$key]['image_album'] = l($image_album,
+          file_create_url($album->field_field_image_gallery[0]['raw']['uri']), array(
+            'html' => TRUE,
+            'title' => $album->field_field_image_gallery[0]['raw']['title'],
+            'attributes' => array(
+            )
+          )
+        );
+        foreach ($album->field_field_image_gallery as $photo) {
+          $vars['albums'][$key]['photos'][] = l('',file_create_url($photo['raw']['uri']), array(
+            'title' => $photo['raw']['title'],
+          ));
+        }
+      }
+    }
+  }
+}
+
+/*
+ * Preprocess variables views-view-unformatted--complex--gallery-visualization.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__complex__gallery_visualization(&$vars) {
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result[0]->field_field_visualization as $val) {
+      $photo = theme('image', array(
+        'path' => $val['raw']['uri'],
+        'width' => '100%',
+        'height' => '100%',
+        )
+      );
+      $vars['photos'][] = l($photo, file_create_url($val['raw']['uri']), array(
+        'html' => TRUE,
+        'attributes' => array(
+        ),
+      ));
+    }
+  }
+}
+
+/**
+ * Preprocess variables views-view-unformatted--complex--gallery-tours.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__complex__gallery_tours(&$vars) {
+  if (!empty($vars['view']->result)) {
+    $vars['image_pano'] = theme('image', array(
+      'path' => $vars['view']->result[0]->field_field_image_pano[0]['raw']['uri'],
+    ));
+    $vars['pano'] = $vars['view']->result[0]->field_field_pano_complex[0]['raw']['value'];
+  }
+  $vars['img_close'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
+    'title' => t('Close'),
+  ));
+}
+
+/**
+ * Preprocess variables views-view-unformatted--complex--complex-documents.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__complex__complex_documents(&$vars) {
+  if (!empty($vars['view']->result[0]->field_field_title)) {
+    foreach ($vars['view']->result as $document) {
+      $vars['documents'][] = array(
+        'title' => $document->field_field_title[0]['rendered']['#markup'],
+        'link_download' => l(t('download'), file_create_url($document->field_field_document[0]['raw']['uri'])),
+        'link_view' => l(t('View sample'), file_create_url($document->field_field_document[0]['raw']['uri'])),
+      );
+    }
+  }
+
+  $vars['image'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/doc.svg'
+  ));
+}
+
+/**
+ * Preprocess variables views-view-unformatted--stock--stock-complex.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__stock__stock_complex(&$vars) {
+  $a=1;
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $key => $stock) {
+      $vars['stocks'][$key] = array(
+        'title' => $stock->node_title,
+        'description' => $stock->field_body[0]['rendered']['#markup'],
+      );
+      if (!empty($stock->field_field_image)) {
+        $vars['stocks'][$key]['image'] = theme('image', array(
+          'path' => $stock->field_field_image[0]['raw']['uri'],
+        ));
+      }
+    }
+  }
+}
