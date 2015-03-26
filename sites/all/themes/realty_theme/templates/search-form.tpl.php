@@ -129,7 +129,7 @@
               <?php print t('Parking');?>
             </label>
             <span>
-              <?php print render($form['parking'])?>
+              <input type="checkbox" id="parking">
             </span>
           </div>
         </div>

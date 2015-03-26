@@ -54,7 +54,7 @@
           $(this).addClass("check_active");
           checkbox.prop("checked", true);
           checkbox.val(1);
-          $('#edit-field-parking-value option[value=1]').attr('selected', 'selected')
+          $('#edit-field-parking-value option[value=1]').attr('selected', 'selected');
         }
       });
 
@@ -157,22 +157,6 @@
         wall[1] == 5 ? coastMax = wall[1] * 100000000 :  coastMax = wall[1] * 1000000;
         $('#edit-field-full-cost-value-min').val(coastMin);
         $('#edit-field-full-cost-value-max').val(coastMax);
-      });
-
-      $('.decor_checkbox').click(function() {
-        var checkbox = $('#parking');
-
-        if(checkbox.prop("checked")){
-          $(this).removeClass("check_active");
-          checkbox.prop("checked", false);
-          checkbox.val(0);
-          $('#edit-field-parking-value option[value=1]').attr('selected', false)
-        }else {
-          $(this).addClass("check_active");
-          checkbox.prop("checked", true);
-          checkbox.val(1);
-          $('#edit-field-parking-value option[value=1]').attr('selected', 'selected')
-        }
       });
 
       $('#edit-submit').click(function(){

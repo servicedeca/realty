@@ -924,7 +924,6 @@ function realty_search_form($form, $form_state) {
   $form['parking'] = array(
     '#type'=>'checkbox',
     '#title'=>'Parking',
-    '#default_value' => isset($_GET['parking']) && $_GET['parking'] == 1  ? 1 : 0,
     '#attributes'=>array(
       'id ' => 'parking',
     ),
