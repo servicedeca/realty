@@ -13,10 +13,10 @@ stylesheets[all][] = css/bootstrap-theme.css.map
 stylesheets[all][] = css/bootstrap-theme.min.css
 stylesheets[all][] = css/multiple-select.css
 stylesheets[all][] = css/jquery.dataTables.css
-stylesheets[all][] = css/magnific-popups.css
 stylesheets[all][] = css/owl.carousel.css
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/realty_theme.css
+stylesheets[all][] = css/magnific-popup.css
 
 scripts[] = js/bootstrap.min.js
 scripts[] = js/jquery.multiple.select.js

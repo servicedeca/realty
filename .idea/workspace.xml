@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/images/doc.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/jquery.magnific-popup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/magnific-popup.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/realty-menu-complex-gallery.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--complex--complex-documents.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--complex--gallery-photo.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--complex--gallery-tours.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--complex--gallery-visualization.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--stock--stock-complex.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/realty-menu-complex.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/realty-menu-complex.tpl.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/realty25.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/realty26.sql" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/realty_theme.info" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/realty_theme.info" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="realty.iws" />
@@ -80,7 +67,7 @@
       <file leaf-file-name="realty_theme.info" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/realty_theme.info">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="27" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.6111111" vertical-offset="255" max-vertical-offset="540">
+            <state line="18" column="43" selection-start="708" selection-end="708" vertical-scroll-proportion="0.47368422" vertical-offset="0" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
@@ -98,7 +85,7 @@
       <file leaf-file-name="realty_theme.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="707" column="11" selection-start="22358" selection-end="22358" vertical-scroll-proportion="0.0" vertical-offset="10030" max-vertical-offset="10770">
+            <state line="667" column="18" selection-start="21270" selection-end="21270" vertical-scroll-proportion="-10.592592" vertical-offset="9719" max-vertical-offset="10770">
               <folding />
             </state>
           </provider>
@@ -471,36 +458,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="realty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="realty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sites" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="themes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="realty_theme" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -905,7 +862,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36421725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.63800424" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3195329" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4968153" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1073,60 +1030,60 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="153" column="0" selection-start="6086" selection-end="6086" vertical-scroll-proportion="-17.958334" vertical-offset="1864" max-vertical-offset="2385">
           <folding>
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427193777057" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787638" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1212,7 +1169,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="2" selection-start="237" selection-end="237" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="210">
           <folding>
-            <marker date="1427349461997" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1427372787394" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1315,13 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="707" column="11" selection-start="22358" selection-end="22358" vertical-scroll-proportion="0.0" vertical-offset="10030" max-vertical-offset="10770">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1060" column="0" selection-start="34540" selection-end="34540" vertical-scroll-proportion="-22.333334" vertical-offset="15364" max-vertical-offset="15990">
@@ -1343,9 +1293,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="667" column="18" selection-start="21270" selection-end="21270" vertical-scroll-proportion="-10.592592" vertical-offset="9719" max-vertical-offset="10770">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/realty_theme.info">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="27" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.6111111" vertical-offset="255" max-vertical-offset="540">
+        <state line="18" column="43" selection-start="708" selection-end="708" vertical-scroll-proportion="0.47368422" vertical-offset="0" max-vertical-offset="570">
           <folding />
         </state>
       </provider>
