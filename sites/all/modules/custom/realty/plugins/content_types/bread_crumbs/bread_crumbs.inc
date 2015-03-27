@@ -42,13 +42,30 @@ function realty_bread_crumbs_content_type_theme(&$theme, $plugin) {
  * Process variables for realty-block-complexes.tpl.php.
  */
 function template_preprocess_realty_bread_crumbs(&$vars) {
-  $node = menu_get_object('node', 1);
-  $complex = node_load($node->field_apartament_home[LANGUAGE_NONE][0]['taxonomy_term']->field_home_complex['und'][0]['target_id']);
-  $developer = taxonomy_term_load($complex->field_complex_developer[LANGUAGE_NONE][0]['tid']);
-  $city = taxonomy_term_load($developer->field_city[LANGUAGE_NONE][0]['tid']);
 
-  $vars['city'] = l($city->name, 'taxonomy/term/' . $city->tid);
-  $vars['complex'] = l($complex->title, 'node/' . $complex->nid);
-  $vars['apartment'] = l(t('apartment').' №'.$node->field_number_apartament[LANGUAGE_NONE][0]['value'] ,
-    'node/' . $node->nid);
+  $entity = arg(0);
+  if ($entity == 'node') {
+    $node =  menu_get_object('node', 1);
+    $complex = node_load($node->field_apartament_home[LANGUAGE_NONE][0]['taxonomy_term']->field_home_complex['und'][0]['target_id']);
+    $developer = taxonomy_term_load($complex->field_complex_developer[LANGUAGE_NONE][0]['tid']);
+    $city = taxonomy_term_load($developer->field_city[LANGUAGE_NONE][0]['tid']);
+    $vars['bread_crumbs'] = array(
+      'city' => l($city->name, 'taxonomy/term/' . $city->tid),
+      'complex' => l($complex->title, 'node/' . $complex->nid),
+      'apartment' => l(t('apartment').' №'.$node->field_number_apartament[LANGUAGE_NONE][0]['value'] ,
+        'node/' . $node->nid)
+    );
+  }
+  elseif ($entity == 'taxonomy') {
+    $term = menu_get_object('taxonomy_term', 2);
+    if ($term->vid == 3) {
+      $city = $term->field_city[LANGUAGE_NONE][0]['taxonomy_term'];
+      $vars['city'] = l($city->name, 'taxonomy/term/' . $city->tid);
+      $vars['bread_crumbs'] = array(
+        'city' => l($city->name, 'taxonomy/term/' . $city->tid),
+        'developers' => l(t('developers'), 'developers/city/' . $city->tid),
+        'developer' => l($term->name, 'taxonomy/term/' . $term->tid),
+      );
+    }
+  }
 }

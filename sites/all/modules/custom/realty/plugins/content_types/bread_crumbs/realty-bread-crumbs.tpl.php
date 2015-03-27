@@ -2,15 +2,11 @@
   <div class="container fin">
     <div class="col-xs-12 breadcrumb-block  margine-top">
       <ol class="breadcrumb zero-padding breadcrumbfix">
-        <li>
-          <?php print $city;?>
-        </li>
-        <li>
-          <?php print $complex;?>
-        </li>
-        <li>
-          <?php print $apartment  ;?>
-        </li>
+        <?php foreach ($bread_crumbs as $crumbs):?>
+          <li>
+            <?php print $crumbs;?>
+          </li>
+        <?php endforeach;?>
       </ol>
     </div>
   </div>

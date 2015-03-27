@@ -13,11 +13,6 @@ function realty_init() {
   drupal_add_js(array('REALTY_FRONT_THEME_PATH' => REALTY_FRONT_THEME_PATH), 'setting');
   $object = menu_get_object('taxonomy_term', 2);
 
-  if(!empty($object) && $object->vid==3 && $_GET['destination'] != 'admin/structure/taxonomy/developers'){
-      drupal_goto('http://style.findome.ru/developPAGE.html');
-  }
-
-
   if (current_path() == '<front>') {
     if (!drupal_is_cli()) {
       drupal_goto('taxonomy/term/1');
@@ -1110,25 +1105,30 @@ function realty_get_current_city() {
  * Form builder for filter form complex apartments.
  */
 function realty_filter_complex_apartment_form($form, $form_state) {
-
-  $node_id = arg('1');
-  $node = node_load($node_id);
-  if ($node->type == 'apartament') {
-    $home = taxonomy_term_load($node->field_apartament_home['und'][0]['tid']);
-    $complex_id = $home->field_home_complex['und'][0]['target_id'];
+  $arg_0 = arg('0');
+  $arg_1 = arg('1');
+  if ($arg_1 == 'term' || $arg_0 == 'developer') {
+    $arg_1 == 'term' ? $tid = arg('2') :  $tid = $arg_1;
+    $homes = views_get_view_result('term_view', 'homes_developer', $tid);
   }
   else {
-    $complex_id = $node->nid;
+    $node_id = arg('1');
+    $node = node_load($node_id);
+    if ($node->type == 'apartament') {
+      $home = taxonomy_term_load($node->field_apartament_home['und'][0]['tid']);
+      $nid = $home->field_home_complex['und'][0]['target_id'];
+    }
+    else {
+      $nid = $node->nid;
+    }
+    $homes = views_get_view_result('term_view', 'homes_complex', $nid);
   }
-  $complex = node_load($complex_id);
-  $homes = views_get_view_result('term_view', 'homes_complex', $complex_id);
   foreach ($homes as $key=>$home) {
     $options[$home->tid] = $home->field_field_address_house[0]['rendered']['#markup'];
     $sections[$home->field_field_address_house[0]['rendered']['#markup']]
-      [$home->field_field_number_section[0]['rendered']['#markup'].':'.$home->tid] =
+    [$home->field_field_number_section[0]['rendered']['#markup'].':'.$home->tid] =
       $home->field_field_number_section[0]['rendered']['#markup'];
   }
-
   $form['address'] = array(
     '#type' => 'select',
     '#options' => $options,
@@ -1164,8 +1164,9 @@ function realty_form_views_exposed_form_alter(&$form, &$form_state) {
   if ($city == null) {
     $city = taxonomy_term_load(arg(1));
   }
-  if ($form['#id'] == 'views-exposed-form-apartments-apartment-complex') {
-    $form['#theme'] = 'realty_views_exposed_form';
+  if ($form['#id'] == 'views-exposed-form-apartments-apartment-complex' ||
+    $form['#id'] == 'views-exposed-form-apartments-apartment-developer' ) {
+      $form['#theme'] = 'realty_views_exposed_form';
   }
 
   if (arg(0) != 'search') {
