@@ -1,3 +1,4 @@
+
 <div class="container fin">
   <div id="owl-demo" class="col-xs-12 zero-padding owl-carousel owl-theme">
     <?php if(isset($stocks)):?>
@@ -8,11 +9,11 @@
               <?php print $stock['title']?>
             </p>
           </div>
-          <div class="col-xs-5 zero-padding">
-            <?php if(isset($stock['image'])):?>
+          <?php if(isset($stock['image'])):?>
+            <div class="col-xs-5 zero-padding">
               <?php print $stock['image']?>
-            <?php endif;?>
-          </div>
+            </div>
+          <?php endif;?>
           <div class="col-xs-7 stock-text-block zero-padding">
             <div class="vertical">
               <?php print $stock['description'];?>

@@ -41,13 +41,13 @@ function realty_apartment_developer_content_type_theme(&$theme, $plugin) {
  * Process variables for realty-info-complex.tpl.php.
  */
 function template_preprocess_realty_apartment_developer(&$vars) {
-  $entity = arg(2);
+  $entity = arg(1);
   if ($entity == 'term') {
-    $term = menu_get_object('taxonomy_term', 2);
+    $term_tid = arg(2);
   }
   else {
-    $term = taxonomy_term_load($entity);
+    $term_tid = $entity;
   }
 
-  $vars['view'] = views_embed_view('apartments', 'apartment_developer', $term->tid);
+  $vars['view'] = views_embed_view('apartments', 'apartment_developer', $term_tid);
 }

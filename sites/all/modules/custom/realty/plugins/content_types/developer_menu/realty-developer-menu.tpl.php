@@ -6,9 +6,7 @@
 				   	<?php print $logo;?>
 				   </span>
       <h2 class="active-complex">
-        <a class="active-complex">
-          <?php print $name;?>
-        </a>
+        <?php print $name;?>
       </h2>
     </div>
     <div class="col-xs-6 complex-right-menu zero-padding">

@@ -52,7 +52,7 @@ function template_preprocess_realty_developer_menu(&$vars) {
   $menu_items = array(
     0 => array(
       'path' => l(t('current objects'), 'developer/' . $term->tid .'/complexes'),
-      'title' => 'current',
+      'title' => 'complexes',
     ),
     1 => array(
       'path' => l(t('archive'), 'developer/' . $term->tid . '/archive'),
@@ -79,7 +79,11 @@ function template_preprocess_realty_developer_menu(&$vars) {
     }
   }
 
-  $vars['name'] = $term->name;
+  $vars['name'] = l($term->name, 'taxonomy/term/' . $term->tid, array(
+    'attributes' => array(
+      'class' => array('active-complex'),
+    ),
+  ));
   if (!empty($term->field_developer_mini_logo)) {
     $path = $term->field_developer_mini_logo[LANGUAGE_NONE][0]['uri'];
   }

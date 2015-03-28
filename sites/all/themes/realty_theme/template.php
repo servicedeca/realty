@@ -294,7 +294,7 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
       ));
 
       $vars['apartments'][$key]['comparison'] = '<div class="apartment-comparison" data-node-id='.$val->nid.'>' .
-          l($add . $add_h , '#complex', array(
+          l($add . $add_h , '#href', array(
             'html' => TRUE,
             'external' => TRUE,
             'attributes' => array(
@@ -467,7 +467,7 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
       ));
 
       $vars['apartments'][$key]['apartment_comparison'] = '<div class="apartment-comparison" data-node-id='.$val->nid.'>' .
-        l($add . $add_h , '#complex', array(
+        l($add . $add_h , '#href', array(
           'html' => TRUE,
           'external' => TRUE,
           'attributes' => array(
@@ -1110,7 +1110,7 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_develop
       ));
 
       $vars['apartments'][$key]['comparison'] = '<div class="apartment-comparison" data-node-id='.$val->nid.'>' .
-        l($add . $add_h , '#complex', array(
+        l($add . $add_h , '#href', array(
           'html' => TRUE,
           'external' => TRUE,
           'attributes' => array(
@@ -1200,6 +1200,105 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_develop
         }
       }
 
+    }
+  }
+}
+
+/**
+ * Process variables for views-view-unformatted--complex--complex-developer.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__complex__complex_developer(&$vars) {
+  $a = 1;
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $key => $val) {
+      $logo = theme('image', array(
+        'path' => $val->field_field_complex_logo[0]['raw']['uri'],
+        'title' => $val->node_title,
+        'alt' => $val->node_title,
+      ));
+      $vars['complexes'][] = l($logo, '/node/' . $val->nid, array(
+        'html' => TRUE,
+        'attributes' => array(
+          'class' => array('col-xs-4', 'develop-complex-item'),
+        ),
+      ));
+    }
+  }
+}
+
+/**
+ * Process variables for views-view-unformatted--complexes-archiv--archiv-complexes-developer.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__complexes_archiv__archiv_complexes_developer(&$vars) {
+  $a = 1;
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $key => $val) {
+      $logo = theme('image', array(
+        'path' => $val->field_field_archiv_complex_logo[0]['raw']['uri'],
+        'title' => $val->node_title,
+        'alt' => $val->node_title,
+      ));
+      $vars['complexes'][] = l($logo, '/node/' . $val->nid, array(
+        'html' => TRUE,
+        'attributes' => array(
+          'class' => array('col-xs-4', 'develop-complex-item'),
+        ),
+      ));
+    }
+  }
+}
+
+/**
+ * Process variables for views-view-unformatted--term-view--developer-gallery.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__term_view__developer_gallery(&$vars) {
+  $a = 1;
+    if (!empty($vars['view']->result)) {
+      foreach ($vars['view']->result as $key => $album) {
+        if (isset($album->field_field_developer_gallery_image[0])) {
+          $vars['albums'][$key]['title'] = l($album->field_field_developer_gallery_title[0]['rendered']['#markup'],
+            file_create_url($album->field_field_developer_gallery_image[0]['raw']['uri']), array('attributes' => array(
+              'class' => array('date-album'),
+            )));
+          $image_album = theme('image', array(
+            'path' => $album->field_field_developer_gallery_image[0]['raw']['uri'],
+            'width' => '100%',
+            'height' => '100%',
+          ));
+
+          $vars['albums'][$key]['image_album'] = l($image_album,
+            file_create_url($album->field_field_developer_gallery_image[0]['raw']['uri']), array(
+              'html' => TRUE,
+              'title' => $album->field_field_developer_gallery_image[0]['raw']['title'],
+              'attributes' => array(
+              )
+            )
+          );
+          foreach ($album->field_field_image_gallery as $photo) {
+            $vars['albums'][$key]['photos'][] = l('',file_create_url($photo['raw']['uri']), array(
+              'title' => $photo['raw']['title'],
+            ));
+          }
+        }
+      }
+    }
+}
+
+/**
+ * Process variables views-view-unformatted--stock--stock-developer.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__stock__stock_developer(&$vars) {
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $key => $stock) {
+      $vars['stocks'][$key] = array(
+        'title' => $stock->node_title,
+        'description' => $stock->field_body[0]['rendered']['#markup'],
+      );
+      if (!empty($stock->field_field_image)) {
+        $vars['stocks'][$key]['image'] = theme('image', array(
+          'path' => $stock->field_field_image[0]['raw']['uri'],
+        ));
+      }
     }
   }
 }

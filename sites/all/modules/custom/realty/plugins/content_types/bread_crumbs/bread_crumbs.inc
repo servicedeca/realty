@@ -44,6 +44,7 @@ function realty_bread_crumbs_content_type_theme(&$theme, $plugin) {
 function template_preprocess_realty_bread_crumbs(&$vars) {
 
   $entity = arg(0);
+  $tit = drupal_get_title();
   if ($entity == 'node') {
     $node =  menu_get_object('node', 1);
     $complex = node_load($node->field_apartament_home[LANGUAGE_NONE][0]['taxonomy_term']->field_home_complex['und'][0]['target_id']);
@@ -56,16 +57,20 @@ function template_preprocess_realty_bread_crumbs(&$vars) {
         'node/' . $node->nid)
     );
   }
-  elseif ($entity == 'taxonomy') {
-    $term = menu_get_object('taxonomy_term', 2);
+  elseif ($entity == 'taxonomy' || $entity == 'developer') {
+    $tid = arg(1);
+    $entity == 'taxonomy' ? $term = menu_get_object('taxonomy_term', 2) : $term = taxonomy_term_load(arg(1));
     if ($term->vid == 3) {
-      $city = $term->field_city[LANGUAGE_NONE][0]['taxonomy_term'];
+      $city = taxonomy_term_load($term->field_city[LANGUAGE_NONE][0]['tid']);
       $vars['city'] = l($city->name, 'taxonomy/term/' . $city->tid);
       $vars['bread_crumbs'] = array(
         'city' => l($city->name, 'taxonomy/term/' . $city->tid),
         'developers' => l(t('developers'), 'developers/city/' . $city->tid),
         'developer' => l($term->name, 'taxonomy/term/' . $term->tid),
       );
+      if ($entity == 'developer') {
+
+      }
     }
   }
 }
