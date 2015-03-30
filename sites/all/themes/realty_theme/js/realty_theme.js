@@ -660,18 +660,25 @@
 
   Drupal.behaviors.realtyGallery = {
     attach: $(function(){
-
-      $('.april-album').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        mainClass: 'mfp-img-mobile',
-        gallery: {
-          enabled: true,
-          navigateByImgClick: true,
-          preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+      var i = 0;
+      while (1) {
+        if ($('.album-'+i).length > 0) {
+          $('.album-'+i).magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            mainClass: 'mfp-img-mobile',
+            gallery: {
+              enabled: true,
+              navigateByImgClick: true,
+              preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+            }
+          });
+          i++;
+          continue;
+        } else {
+          break;
         }
-      });
-
+      }
       $('.visual-album').magnificPopup({
         delegate: 'a',
         type: 'image',
@@ -704,7 +711,8 @@
           // itemsMobile : false
 
         });
-
+        $('.owl-next').html('');
+        $('.owl-prev').html('');
       });
     })
   }

@@ -1,4 +1,3 @@
-
 <div class="container fin">
   <div id="owl-demo" class="col-xs-12 zero-padding owl-carousel owl-theme">
     <?php if(isset($stocks)):?>

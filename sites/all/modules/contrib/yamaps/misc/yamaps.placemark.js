@@ -321,7 +321,18 @@
             var Coords = Map.options.placemarks[i].coords;
             var Params = Map.options.placemarks[i].params;
             var Icon = Map.options.placemarks[i].icon;
-            var Placemark = new ymaps.Placemark(Coords, Params, Icon);
+            var Placemark = new ymaps.Placemark(Coords, Params, {
+              // Опции.
+              // Необходимо указать данный тип макета.
+              iconLayout: 'default#image',
+              // Своё изображение иконки метки.
+              iconImageHref: '/'+Drupal.settings.REALTY_FRONT_THEME_PATH+'/images/tag.png',
+              // Размеры метки.
+              iconImageSize: [30, 47],
+              // Смещение левого верхнего угла иконки относительно
+              // её "ножки" (точки привязки).
+              iconImageOffset: [-3, -42]
+            });
             Map.options.placemarks[i].params.balloonContentHeader = Map.options.placemarks[i].params.iconContent;
             Map.options.placemarks[i].params.iconContent = '';
             Placemarks.push(Placemark);
@@ -353,7 +364,18 @@
                 var Coords = Map.options.placemarks[i].coords;
                 var Params = Map.options.placemarks[i].params;
                 var Icon = Map.options.placemarks[i].icon;
-                var Placemark = new ymaps.Placemark(Coords, Params, Icon);
+                var Placemark = new ymaps.Placemark(Coords, Params,{
+                  // Опции.
+                  // Необходимо указать данный тип макета.
+                  iconLayout: 'default#image',
+                  // Своё изображение иконки метки.
+                  iconImageHref: '/'+Drupal.settings.REALTY_FRONT_THEME_PATH+'/images/tag.png',
+                  // Размеры метки.
+                  iconImageSize: [30, 47],
+                  // Смещение левого верхнего угла иконки относительно
+                  // её "ножки" (точки привязки).
+                  iconImageOffset: [-3, -42]
+                });
                 $.each(obj, function(key, value) {
                   if (Map.options.placemarks[i].params.tid == value.tid ) {
                     Map.options.placemarks[i].params.balloonContentHeader = value.address;
