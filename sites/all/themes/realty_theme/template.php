@@ -534,7 +534,12 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
  */
 function realty_theme_preprocess_search_form(&$vars) {
 
-  $vars['micro_logo'] = realty_get_image_micro_logo();
+  $vars['micro_logo'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
+    'attributes' => array(
+      'class' => array('search-head-logo'),
+    ),
+  ));
 
   foreach(realty_get_list_city() as $city) {
     $vars['cities'][] = l($city->name, 'taxonomy/term/'.$city->tid);
