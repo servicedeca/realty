@@ -69,8 +69,24 @@ function template_preprocess_realty_bread_crumbs(&$vars) {
         'developer' => l($term->name, 'taxonomy/term/' . $term->tid),
       );
       if ($entity == 'developer') {
-
       }
     }
+    if ($term->vid == 10) {
+      $vars['bread_crumbs']['partners'] = l($term->name, '#href', array('external' => TRUE));
+    }
+  }
+  elseif ($entity == 'city') {
+    $city = taxonomy_term_load(arg(1));
+    $vars['bread_crumbs']['city'] = l($city->name, 'taxonomy/term/' . $city->tid);
+    if (arg(2) == 'stock') {
+      $vars['bread_crumbs']['stock'] = l(t('Акции'), '#href', array('external' => TRUE));
+    }
+    elseif (arg(2) == 'news') {
+      $vars['bread_crumbs']['news'] = l(t('Новости'), '#href', array('external' => TRUE));
+    }
+    elseif (arg(2) == 'partners') {
+      $vars['bread_crumbs']['partners'] = l(t('partners'), '#href', array('external' => TRUE));
+    }
+
   }
 }

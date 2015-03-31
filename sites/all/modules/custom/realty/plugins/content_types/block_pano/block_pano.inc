@@ -47,12 +47,7 @@ function template_preprocess_realty_block_pano(&$vars) {
 
   $result = views_get_view_result('complex', 'complexs');
 
-  $vars['micro_logo'] = theme('image', array(
-    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
-    'attributes' => array(
-      'class' => array('micrologo'),
-    ),
-  ));
+  $vars['micro_logo'] = realty_get_image_micro_logo();
   if (!empty($result)) {
     foreach ($result as $key => $val) {
       $vars['complexes'][$key] = array (

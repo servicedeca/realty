@@ -1179,3 +1179,15 @@ function realty_form_views_exposed_form_alter(&$form, &$form_state) {
     $form['field_city_tid']['#value'] = $city->tid;
   }
 }
+
+/**
+ *
+ */
+function realty_get_image_micro_logo() {
+  return theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
+    'attributes' => array(
+      'class' => array('micrologo'),
+    ),
+  ));
+}

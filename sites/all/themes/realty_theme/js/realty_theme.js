@@ -512,6 +512,31 @@
     })
   }
 
+
+  Drupal.behaviors.realtyStockFilter = {
+    attach: $(function(){
+      var developer = $('.Checkbox-developer-stock'),
+        selectDeveloper = $('#edit-field-developer-tid'),
+        select = $('#select-developer');
+
+      developer.click(function(){
+        console.log($(this).val());
+        if ($(this).prop("checked") == true ) {
+          $('#edit-field-developer-tid option[value='+$(this).val()+']').attr('selected', 'selected');
+        }
+        else {
+          $('#edit-field-developer-tid option[value='+$(this).val()+']').attr('selected', false);
+        }
+      });
+
+      $('#select-developer-stock').click(function(){
+        setTimeout(function(){
+          $('#edit-submit-stock').trigger('click');
+        },100)
+      });
+    })
+  }
+
   Drupal.behaviors.realtyApartmentFilter = {
     attach: $(function(){
       var apartmentFilter = function () {

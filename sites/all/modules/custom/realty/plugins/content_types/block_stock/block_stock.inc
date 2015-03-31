@@ -82,12 +82,7 @@ function template_preprocess_realty_block_stock(&$vars) {
       );
     }
 
-  $vars['micro_logo'] = theme('image', array(
-    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
-    'attributes' => array(
-      'class' => array('micrologo'),
-    ),
-  ));
+  $vars['micro_logo'] = realty_get_image_micro_logo();
 
-  $vars['all_stock'] = 'stock/city/'.$city->tid;
+  $vars['all_stock'] = '/city/'.$city->tid .'/stock';
 }

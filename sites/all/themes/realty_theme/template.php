@@ -534,12 +534,7 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
  */
 function realty_theme_preprocess_search_form(&$vars) {
 
-  $vars['micro_logo'] = theme('image', array(
-    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
-    'attributes' => array(
-      'class' => array('search-head-logo'),
-    ),
-  ));
+  $vars['micro_logo'] = realty_get_image_micro_logo();
 
   foreach(realty_get_list_city() as $city) {
     $vars['cities'][] = l($city->name, 'taxonomy/term/'.$city->tid);
@@ -646,7 +641,7 @@ function realty_preprocess_views_view_unformatted__news__news_city(&$vars) {
     $vars['news'][$key] = array(
       'title' => l($value->node_title, 'node/' .$value->nid),
       'description' => $value->field_field_news_description[0]['raw']['value'],
-      'details' => l('details', 'node/' .$value->nid),
+      'details' => l(t('details'), 'node/' .$value->nid),
       'date' => format_date($value->node_created, 'm/d/Y'),
     );
   }
@@ -1302,4 +1297,98 @@ function realty_preprocess_views_view_unformatted__stock__stock_developer(&$vars
       }
     }
   }
+}
+
+/**
+ * Process variables views-view-unformatted--stock--all-stock-city.tpl.php
+ */
+function realty_preprocess_views_view_unformatted__stock__all_stock_city(&$vars) {
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $stock) {
+      $vars['stocks'][] = array(
+        'link' => '/node/'. $stock->nid,
+        'title' => $stock->node_title,
+        'body' =>  $stock->field_body[0]['rendered']['#markup'],
+        'image' => theme('image_style', array(
+          'style_name' => 'realty_stock',
+          'path' => $stock->field_field_image[0]['raw']['uri'],
+          'title' => $stock->node_title,
+          'alt' => $stock->node_title,
+        ))
+      );
+    }
+  }
+}
+
+/**
+ * Process variables views-view-unformatted--news--all-new-city.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__news__all_new_city(&$vars) {
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $new) {
+      $vars['news'][] = array(
+        'link' => '/node/'. $new->nid,
+        'title' => $new->node_title,
+        'body' => $new->field_field_news_description[0]['rendered']['#markup'],
+      );
+
+      if (!empty($new->field_field_news_image)) {
+        $vars['news'][]['image'] = theme('image_style', array(
+          'style_name' => 'realty_stock',
+        ));
+      }
+    }
+  }
+}
+
+/**
+ * Process variables views-view-unformatted--term-view--partners.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__term_view__partners(&$vars) {
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $partner) {
+      $logo = theme('image', array(
+        'path' => $partner->field_field_partners_logo[0]['raw']['uri'],
+        'title' => $partner->taxonomy_term_data_name,
+        'alt' => $partner->taxonomy_term_data_name,
+      ));
+
+      $vars['partners'][] = l('<div class="col-xs-4 p-item">'. $logo .'</div>', '/taxonomy/term/' . $partner->tid,
+        array('html' => TRUE));
+    }
+  }
+}
+
+/**
+ * Process variables views-view-unformatted--term-view--all-partners.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__term_view__all_partners(&$vars) {
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $partner) {
+      $logo = theme('image', array(
+        'path' => $partner->field_field_partners_logo[0]['raw']['uri'],
+        'title' => $partner->taxonomy_term_data_name,
+        'alt' => $partner->taxonomy_term_data_name,
+      ));
+
+      $vars['partners'][] = l($logo, '/taxonomy/term/' . $partner->tid,
+        array('html' => TRUE,
+          'attributes' => array('class' => array('col-xs-4','develop-complex-item'))
+        ));
+    }
+  }
+}
+
+/**
+ * Process variables views-view-unformatted--term-view--partner.tpl.php.
+ */
+function realty_preprocess_views_view_unformatted__term_view__partner(&$vars) {
+  $a = 1;
+  $vars['name'] = $vars['view']->result[0]->taxonomy_term_data_name;
+  $vars['body'] = $vars['view']->result[0]->taxonomy_term_data_description;
+  $vars['logo'] = theme('image', array(
+    'path' => $vars['view']->result[0]->field_field_partners_logo[0]['raw']['uri'],
+    'title' => $vars['view']->result[0]->taxonomy_term_data_name,
+    'alt' => $vars['view']->result[0]->taxonomy_term_data_name,
+  ));
 }

@@ -43,14 +43,9 @@ function realty_news_block_content_type_theme(&$theme, $plugin) {
 function template_preprocess_realty_news_block(&$vars) {
   $city = menu_get_object('taxonomy_term', 2);
 
-  $vars['micro_logo'] = theme('image', array(
-    'path' => REALTY_FRONT_THEME_PATH . '/images/micrologo.png',
-    'attributes' => array(
-      'class' => array('micrologo'),
-    ),
-  ));
+  $vars['micro_logo'] = realty_get_image_micro_logo();
 
-  $vars['all_news'] = 'news/city/' . $city->tid;
+  $vars['all_news'] = '/city/' . $city->tid . '/news';
 
   $vars['view'] = views_embed_view('news', 'news_city');
 

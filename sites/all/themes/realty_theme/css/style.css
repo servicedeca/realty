@@ -24,6 +24,11 @@ a{
     color:none;
 }
 
+a:hover{
+    text-decoration: none;
+
+}
+
 li {
     list-style-type: none;
 }
@@ -2140,6 +2145,16 @@ padding-left: 15px;
 	opacity: 1;
 }
 
+.active a:hover{
+    text-decoration: none;
+}
+
+.active a:focus{
+    text-decoration: none;
+}
+
+
+
 .table > thead > tr > th,
 .table > tbody > tr > th{
     text-align: center;
@@ -2205,6 +2220,17 @@ padding-left: 15px;
     background: #2fade2;
     color:#f2f2f2;
 }
+
+#office.table > tbody > tr:hover {
+    background: transparent;
+	color:#666;
+}
+
+#office.table > tbody > tr:hover a {
+	color:#666;
+}
+
+
 
 .table > tbody > tr:hover .booking {
     background: #2fade2;
@@ -2470,12 +2496,12 @@ margin-left: -120px;
 
 .left-part-complex{
     padding-left: 25px;
-    height: 330px;
+    height: 425px;
 }
 
 @media(max-width:1200px){
     .left-part-complex{
-        height: 310px;
+        height: 380px;
     }
 }
 
@@ -2492,10 +2518,6 @@ margin-left: -120px;
         margin-top: -3px;
         font-size: 16px;
     }
-}
-
-.left-part-complex div{
-    height: 50px;
 }
 
 .left-part-complex h2{
@@ -2829,6 +2851,13 @@ margin-left: -120px;
    height: 430px;
 }
 
+@media(max-width:1200px){
+.vertical-flat-image {
+   height: 350px;
+}
+
+}
+
 .sunset {
     position: absolute;
     right: 5%;
@@ -2874,26 +2903,8 @@ margin-left: -120px;
         cursor: auto;
 }
 
-#floorTab li a{
-    color:#4d4d4d;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-#floorTab li a:hover{
-    color:#2391af;
-}
-
-#floorTab li a:focus{
-    color:#2391af;
-}
-
-#floorTab li a:focus:before{
-     content: "<"; /* Добавляем желаемый символ перед элементом списка */ 
-    margin-left: -13px;
-}
-
 .gallery-body {
+    height: 404px;
 	margin-bottom: 70px;
 }
 
@@ -5351,7 +5362,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .result-point-cord{
 	top: 196px;
-	left: 623.5px;
+	left: 561.5px;
 	height: 45px;
 	width: 45px;
 }
@@ -5361,13 +5372,13 @@ background: url("../images/icon/down.png") no-repeat center right;
 		height: 36px;
 		width: 36px;
 		top: 160px;
-		left: 508.5px;
+		left: 458.5px;
 	}
 }
 
 .docs-point-cord{
-	top: 119px;
-	left: 867.5px;
+	top: 120px;
+	left: 766.5px;
 	height: 45px;
 	width: 45px;
 }
@@ -5377,8 +5388,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 		height: 36px;
 		width: 36px;
 		top: 98px;
-		left: 707.5px;
-
+		left: 625.5px;
 	}
 }
 
@@ -5399,8 +5409,8 @@ background: url("../images/icon/down.png") no-repeat center right;
 }
 
 .book-point-cord{
-	top: 273px;
-	left: 867.5px;
+	top: 272px;
+	left: 767.5px;
 	height: 45px;
 	width: 45px;
 }
@@ -5410,13 +5420,13 @@ background: url("../images/icon/down.png") no-repeat center right;
 		height: 36px;
 		width: 36px;
 		top: 223px;
-		left: 707.5px;
+		  left: 623.5px;
 	}
 }
 
 .search-point-cord{
 	top: 196px;
-	 left: 482px;
+	left: 449.5px;
 	height: 45px;
 	width: 45px;
 }
@@ -5446,7 +5456,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 
 .ap-point-cord{
 	  top: 192px;
-	  left: 776px;
+	 left: 675px;
 	  height: 52px;
 	  width: 52px;
 }
@@ -5456,7 +5466,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 		  height: 42px;
 		  width: 42px;
 		  top: 157px;
-		  left: 632.5px;
+		   left: 550.5px;
 	}
 }
 
@@ -5472,7 +5482,7 @@ background: url("../images/icon/down.png") no-repeat center right;
 		  height: 42px;
 		  width: 42px;
 		  top: 157px;
-		  left: 532.5px;
+		    left: 269.5px;
 	}
 }
 
@@ -5534,6 +5544,95 @@ background: url("../images/icon/down.png") no-repeat center right;
 	margin-top: 70px;
 }
 
+.margin-top-71 {
+	margin-top: 70px;
+}
+
+.sitemap-span img{
+	height: 50px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.header {
+	text-align: center;
+	color: #fff;
+	background-attachment: scroll;
+	background-image: url(../images/about.jpg);
+	background-position: center bottom;
+	background-repeat: none;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	height: 400px;
+}
+
+.header img{
+	margin-top: 40px;
+	width: 300px;
+}
+
+.header h1{
+	font-size: 16px;
+	margin-top: 50px;
+	color:#f2f2f2;
+}
+
+.about-text {
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+.about-text h2{
+	font-size: 30px;
+	width: 700px;
+	margin-bottom: 25px;
+	color:#333333;
+}
+
+.about-text p{
+	font-size: 18px;
+	color:#333333;
+	padding-left: 70px;
+	padding-right: 70px;
+}
+
+.about-text h3{
+	text-transform: uppercase;
+	font-size: 50px;
+	color:#2391af;
+	font-weight: 900;
+	margin-bottom: 25px;
+}
+
+.about-line {
+	border-top: 1px solid #b3b3b3;
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.color-blue {
+	color:#3fa9f5;
+}
+
+.font-size-30 {
+	font-size: 25px;
+}
+
+
+@media(max-width:960px){
+.ms-choice > div {
+  	background: none;
+}
+}
+
+.height-70 {
+	height: 70px;
+}
+
 .sitemap-span img{
 	height: 50px;
 	margin-bottom: 0px;
@@ -5544,4 +5643,294 @@ background: url("../images/icon/down.png") no-repeat center right;
   position: absolute;
   bottom: 0px;
   height: 15%;
+}
+
+.shadow {
+	position: absolute;
+	bottom: 0px;
+	left: 70px;
+	width: 100px;
+}
+
+.flo{
+	left: 70px;
+	position: absolute;
+}
+
+.flo:focus:after{
+    margin-left: 10px;
+	font-size: 15px;
+}
+
+.flo:hover:after{
+    margin-left: 10px;
+	font-size: 15px;
+}
+
+.flo:hover img{
+    opacity: 0;
+}
+
+.flo:focus img{
+    opacity: 0;
+}
+
+.floor_1{
+	bottom: 0px;
+}
+
+.floor_1:focus:after{
+     content: "1 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_1:hover:after{
+	content: "1 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_2{
+	bottom: 16px;
+}
+
+.floor_2:focus:after{
+     content: "2 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_2:hover:after{
+	content: "2 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_3{
+	bottom: 32px;
+}
+
+.floor_3:focus:after{
+     content: "3 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_3:hover:after{
+	content: "3 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_4{
+	bottom: 48px;
+}
+
+.floor_4:focus:after{
+     content: "4 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_4:hover:after{
+	content: "4 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_5{
+	bottom: 64px;
+}
+
+.floor_5:focus:after{
+     content: "5 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_5:hover:after{
+	content: "5 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_6{
+	bottom: 80px;
+}
+
+.floor_6:focus:after{
+     content: "6 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_6:hover:after{
+	content: "6 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_7{
+	bottom: 96px;
+}
+
+.floor_7:focus:after{
+     content: "7 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_7:hover:after{
+	content: "7 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_8{
+	bottom: 112px;
+}
+
+.floor_8:focus:after{
+     content: "8 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_8:hover:after{
+	content: "8 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_9{
+	bottom: 128px;
+}
+
+.floor_9:focus:after{
+     content: "9 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_9:hover:after{
+	content: "9 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_10{
+	bottom: 144px;
+}
+
+.floor_10:focus:after{
+     content: "10 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_10:hover:after{
+	content: "10 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_11{
+	bottom: 160px;
+}
+
+.floor_11:focus:after{
+     content: "11 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_11:hover:after{
+	content: "11 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_12{
+	bottom: 176px;
+}
+
+.floor_12:focus:after{
+     content: "12 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_12:hover:after{
+	content: "12 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_13{
+	bottom: 192px;
+}
+
+.floor_13:focus:after{
+     content: "13 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_13:hover:after{
+	content: "13 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+
+.floor_14{
+	bottom: 208px;
+}
+
+.floor_14:focus:after{
+     content: "14 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.floor_14:hover:after{
+	content: "14 этаж"; /* Добавляем желаемый символ перед элементом списка */ 
+}
+
+.sh-line {
+	border-top:1px solid #161616;
+	bottom: -1px;
+	left: 0px;
+	width: 170px;
+	position: absolute;
+	height: 1px;
+	left: 35px;
+}
+
+.ppage-left img{
+	width: 100%;
+}
+
+.ppage-left a{
+	height: 70px;
+	line-height: 70px;
+	margin-top: 70px;
+	text-align: center;
+	background: #679956;
+	color:#ffffff;
+	font-size: 20px;
+}
+
+.ppage-left a:hover{
+	opacity: 0.8;
+	    transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+}
+
+.ppage-right h1{
+	text-transform: uppercase;
+	font-size: 30px;
+	color:#333333;
+	margin: 0px;
+	margin-bottom: 35px;
+}
+
+.ppage-right p{
+	color:#828282;
+	margin: 0px;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+.office-input {
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	margin-bottom: 5px;
+	width: 250px;
+	color:#434343;
+	background: #f2f2f2;
+	padding-left: 15px;
+	border-radius: 0px;
+	outline: none;
+	border: none;
+
+}
+
+.office-input::-webkit-input-placeholder {
+	color:#333333;
+}
+
+.office-input::-moz-placeholder {
+	color:#333333;
+}
+
+.width-200 {
+	width: 250px;
+}
+
+.ready {
+	color:#7fbf80;
+	text-transform: uppercase;
+	font-size: 22px;
+}
+
+.wait {
+	color:9b9b9b;
+	font-size: 16px;
 }
