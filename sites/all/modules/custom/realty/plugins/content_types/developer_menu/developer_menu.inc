@@ -51,7 +51,7 @@ function template_preprocess_realty_developer_menu(&$vars) {
   }
   $menu_items = array(
     0 => array(
-      'path' => l(t('current objects'), 'developer/' . $term->tid .'/complexes'),
+      'path' => l(t('current objects'), 'developer/' . $term->tid . '/complexes'),
       'title' => 'complexes',
     ),
     1 => array(
@@ -69,13 +69,13 @@ function template_preprocess_realty_developer_menu(&$vars) {
     ),
   );
 
-  foreach($menu_items as $key => $item) {
-    if($url == $item['title']) {
-      $vars['menu'][$key] = '<li class="active-menu">'.$item['path'].'</li>';
+  foreach ($menu_items as $key => $item) {
+    if ($url == $item['title']) {
+      $vars['menu'][$key] = '<li class="active-menu">' . $item['path'] . '</li>';
       $vars['page'] = $item['path'];
     }
     else {
-      $vars['menu'][$key] = '<li>'.$item['path'].'</li>';
+      $vars['menu'][$key] = '<li>' . $item['path'] . '</li>';
     }
   }
 

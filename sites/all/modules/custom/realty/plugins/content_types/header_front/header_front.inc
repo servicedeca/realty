@@ -10,7 +10,7 @@
 function realty_header_front_ctools_content_types() {
   return array(
     'single' => TRUE,
-    'title' => t('Header front '),
+    'title' => t('Header front'),
     'all contexts' => TRUE,
     'category' => t('Realty'),
     'hook theme' => 'realty_header_front_content_type_theme',

@@ -10,7 +10,7 @@
 function realty_menu_complex_ctools_content_types() {
   return array(
     'single' => TRUE,
-    'title' => t('Menu complex '),
+    'title' => t('Menu complex'),
     'all contexts' => TRUE,
     'category' => t('Realty'),
     'hook theme' => 'realty_menu_complex_content_type_theme',
@@ -64,32 +64,32 @@ function template_preprocess_realty_menu_complex(&$vars) {
 
   $menu_items = array(
     0 => array(
-      'path' => l(t('Plan RC'), 'complexes/' .$node->nid. '/plan'),
+      'path' => l(t('Plan RC'), 'complexes/' . $node->nid . '/plan'),
       'title' => 'plan',
     ),
     1 => array(
-      'path' => l(t('Gallery'), 'complexes/' .$node->nid. '/gallery/photo'),
+      'path' => l(t('Gallery'), 'complexes/' . $node->nid . '/gallery/photo'),
       'title' => 'gallery',
     ),
     2 => array(
-      'path' => l(t('Documents'), 'complexes/' .$node->nid. '/documents'),
+      'path' => l(t('Documents'), 'complexes/' . $node->nid . '/documents'),
       'title' => 'documents',
     ),
 
     3 => array(
-      'path' => l(t('Stock'), 'complexes/' .$node->nid. '/stock'),
+      'path' => l(t('Stock'), 'complexes/' . $node->nid . '/stock'),
       'title' => 'stock',
     ),
   );
 
   $url = arg(2);
-  foreach($menu_items as $key=>$item) {
-    if($url == $item['title']) {
-      $vars['menu'][$key] = '<li class="active-menu">'.$item['path'].'</li>';
+  foreach ($menu_items as $key => $item) {
+    if ($url == $item['title']) {
+      $vars['menu'][$key] = '<li class="active-menu">' . $item['path'] . '</li>';
       $vars['page'] = $item['path'];
     }
     else {
-      $vars['menu'][$key] = '<li>'.$item['path'].'</li>';
+      $vars['menu'][$key] = '<li>' . $item['path'] . '</li>';
     }
   }
 }

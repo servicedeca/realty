@@ -46,8 +46,16 @@ function realty_theme_preprocess_page(&$vars) {
     $vars['logout_register'] = l(t('Logout'), 'user/logout');
   }
   else {
-    $vars['login_profile'] =  l(t('Login'), 'user/login');
-    $vars['logout_register'] = l(t('Register'), 'user/register');
+    $vars['login_profile'] =  l(t('Login/Register'), '#href', array('external' => TRUE,
+      'attributes' => array(
+        'class' => array(
+          'btn', 'head-reg'
+          ),
+        'data-toggle' => 'modal',
+        'data-target' => '.registration',
+        ),
+      )
+    );
   }
 
   $city = realty_get_current_city();
@@ -68,6 +76,7 @@ function realty_theme_preprocess_page(&$vars) {
       'class' => array('footer-logo'),
     ),
   ));
+  $vars['modal_login_form'] = theme('realty_modal_user_login', array());
 }
 
 /**
@@ -599,11 +608,36 @@ function realty_theme_preprocess_realty_user_menu(&$vars) {
   global $user;
   $uid = $user->uid;
 
-  $vars['menu'] = array(
-    'profile' => l(t('Profile'), "user/$uid"),
-    'comparison' => l(t('Comparison'), "comparison"),
-    'apartment' => l(t('Apartment'), "apartment_id"),
+  $menu_items = array(
+    0 => array(
+      'path' => l(t('Profile'), "user/$uid"),
+      'title' => 'user',
+    ),
+    1 => array(
+      'path' => l(t('Comparison'), "/comparison"),
+      'title' => 'comparison',
+    ),
+    2 => array(
+      'path' => l(t('Get id'), "/apartment_id"),
+      'title' => 'apartment_id',
+    ),
+
+    3 => array(
+      'path' => l(t('Reward'), "/reward"),
+      'title' => 'reward',
+    ),
   );
+
+  $url = arg(0);
+  foreach($menu_items as $key => $item) {
+    if($url == $item['title']) {
+      $vars['menu'][$key] = '<li class="active-menu">'.$item['path'].'</li>';
+      $vars['page'] = $item['path'];
+    }
+    else {
+      $vars['menu'][$key] = '<li>'.$item['path'].'</li>';
+    }
+  }
 }
 
 /**
@@ -718,6 +752,14 @@ function realty_preprocess_views_view_unformatted__comments_complex(&$vars) {
  */
 function realty_preprocess_node__apartament_full(&$vars) {
   global $user;
+
+  if ($user->uid != 0) {
+    $account = user_load($user->uid);
+    $vars['name'] = $account->field_user_name[LANGUAGE_NONE][0]['safe_value'];
+    if (!empty($account->field_phone_number)) {
+      $vars['number'] = $account->field_phone_number[LANGUAGE_NONE][0]['safe_value'];
+    }
+  }
 
   $vars['title_number'] = l(t('apartment №') . $vars['field_number_apartament'][0]['safe_value'],
     'node/' . $vars['nid'], array('attributes'=> array('class'=> array('active-complex'))));
@@ -865,13 +907,13 @@ function realty_preprocess_node__apartament_full(&$vars) {
   ));
 
   $vars['get_id'] = l($img_id . $img_id_h . '<div class="tip-button" id="bank">'.t('Get id apartment').'</div>',
-    'http://style.findome.ru/id.html', array(
+    '#href', array(
       'external' => TRUE,
       'html' => TRUE,
       'attributes' => array(
-        //'data-toggle' => 'modal',
-        //'data-target' => '.modal_id',
-        //'class' => array('apartment-comparison'),
+        'data-toggle' => 'modal',
+        'data-target' => '.modal_id',
+        'class' => array(),
       )
     )
   );
@@ -900,6 +942,15 @@ function realty_preprocess_node__apartament_full(&$vars) {
        // 'data-target' => '.modal_docs',
        // 'class' => array('apartment-comparison'),
       )
+    )
+  );
+
+  $vars['download_id'] = l(t('download'), '#href', array(
+      'external' => TRUE,
+      'attributes' => array(
+        'id' => 'download-id-apartment',
+        'data-nid-apartment' => $vars['nid'],
+      ),
     )
   );
 
@@ -937,6 +988,12 @@ function realty_preprocess_node__apartament_full(&$vars) {
     'path' => $path_image,
     )
   );
+  $vars['image_close'] = realty_get_image_close();
+
+  $vars['image_doc'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/doc.svg'
+  ));
+
   $vars['address'] = $vars['field_apartament_home'][0]['taxonomy_term']->field_address_house['und'][0]['value'];
   $complex = node_load($vars['field_apartament_home'][0]['taxonomy_term']->field_home_complex['und'][0]['target_id']);
   $vars['complex'] = $complex->title;
@@ -947,6 +1004,17 @@ function realty_preprocess_node__apartament_full(&$vars) {
   $vars['area'] = $area->name;
   $developer = taxonomy_term_load($complex->field_complex_developer['und'][0]['tid']);
   $vars['developer'] = $developer->name;
+
+  $vars['image_man'] = theme('image', array(
+      'path' => '/' . REALTY_FRONT_THEME_PATH . '/images/c-man.svg'
+    )
+  );
+
+  $vars['image_phone'] = theme('image', array(
+      'path' => '/' . REALTY_FRONT_THEME_PATH . '/images/c-phone.svg'
+    )
+  );
+
 }
 
 /**
@@ -1209,7 +1277,6 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_develop
  * Process variables for views-view-unformatted--complex--complex-developer.tpl.php.
  */
 function realty_preprocess_views_view_unformatted__complex__complex_developer(&$vars) {
-  $a = 1;
   if (!empty($vars['view']->result)) {
     foreach ($vars['view']->result as $key => $val) {
       $logo = theme('image', array(
@@ -1231,7 +1298,6 @@ function realty_preprocess_views_view_unformatted__complex__complex_developer(&$
  * Process variables for views-view-unformatted--complexes-archiv--archiv-complexes-developer.tpl.php.
  */
 function realty_preprocess_views_view_unformatted__complexes_archiv__archiv_complexes_developer(&$vars) {
-  $a = 1;
   if (!empty($vars['view']->result)) {
     foreach ($vars['view']->result as $key => $val) {
       $logo = theme('image', array(
@@ -1253,7 +1319,6 @@ function realty_preprocess_views_view_unformatted__complexes_archiv__archiv_comp
  * Process variables for views-view-unformatted--term-view--developer-gallery.tpl.php.
  */
 function realty_preprocess_views_view_unformatted__term_view__developer_gallery(&$vars) {
-  $a = 1;
     if (!empty($vars['view']->result)) {
       foreach ($vars['view']->result as $key => $album) {
         if (isset($album->field_field_developer_gallery_image[0])) {
@@ -1388,7 +1453,6 @@ function realty_preprocess_views_view_unformatted__term_view__all_partners(&$var
  * Process variables views-view-unformatted--term-view--partner.tpl.php.
  */
 function realty_preprocess_views_view_unformatted__term_view__partner(&$vars) {
-  $a = 1;
   $vars['name'] = $vars['view']->result[0]->taxonomy_term_data_name;
   $vars['body'] = $vars['view']->result[0]->taxonomy_term_data_description;
   $vars['logo'] = theme('image', array(
@@ -1396,4 +1460,46 @@ function realty_preprocess_views_view_unformatted__term_view__partner(&$vars) {
     'title' => $vars['view']->result[0]->taxonomy_term_data_name,
     'alt' => $vars['view']->result[0]->taxonomy_term_data_name,
   ));
+}
+
+/**
+ * Process variables for realty-modal-user-login.tpl.php
+ */
+function realty_preprocess_realty_modal_user_login(&$vars) {
+  global $user;
+
+  if ($user->uid == 0) {
+    $vars['register_form'] = drupal_get_form('user_register_form');
+    $vars['login_form'] = drupal_get_form('user_login');
+  }
+
+  $vars['image_close'] = realty_get_image_close();
+  $vars['logo'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/findome-gray.svg',
+    'attributes' => array(
+      'class' => array('margin-left-15'),
+      ),
+    )
+  );
+}
+
+/**
+ * Process variables for views-view-unformatted--apartments--comprassion.tpl.php
+ */
+function realty_preprocess_views_view_unformatted__apartments__comprassion(&$vars) {
+  if (!empty($vars['view']->result)) {
+    foreach ($vars['view']->result as $key => $val) {
+      $vars['number_apartment'][] = $val->field_field_number_apartament[0]['rendered']['#markup'];
+      $vars['address'][] = $val->field_field_address_house[0]['rendered']['#markup'];
+      $vars['sections'][] = $val->field_field_section[0]['rendered']['#markup'];
+      $vars['rooms'][] = $val->field_field_number_rooms[0]['rendered']['#markup'];
+      $vars['floor'][] = $val->field_field_apartment_floor[0]['raw']['value']  . '/' .
+        $val->field_field_number_floor[0]['rendered']['#markup'];
+      $vars['sq'][] = $val->field_field_gross_area[0]['raw']['value'];
+      $vars['price'][] = $val->field_field_price[0]['raw']['value'] / 1000;
+      $vars['coast'][] = $val->field_field_full_cost[0]['raw']['value'] / 1000000;
+      $vars['balcony'][] = $val->field_field_balcony[0]['rendered']['#markup'];
+      $vars['parking'][] = $val->field_field_parking[0]['rendered']['#markup'];
+    }
+  }
 }

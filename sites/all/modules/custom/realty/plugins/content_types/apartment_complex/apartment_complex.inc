@@ -10,7 +10,7 @@
 function realty_apartment_complex_ctools_content_types() {
   return array(
     'single' => TRUE,
-    'title' => t('Apartment complex '),
+    'title' => t('Apartment complex'),
     'all contexts' => TRUE,
     'category' => t('Realty'),
     'hook theme' => 'realty_apartment_complex_content_type_theme',
@@ -44,8 +44,8 @@ function template_preprocess_realty_apartment_complex(&$vars) {
   $node = menu_get_object('node', 1);
   if ($node->type == 'apartament') {
     $complex_id = $node->field_apartament_home['und'][0]['taxonomy_term']->field_home_complex['und'][0]['target_id'];
-    $vars['view'] = '<div class="container fin zero-padding"><div class="col-xs-12 zero-padding">'.
-      views_embed_view('apartments', 'apartment_complex', $complex_id).
+    $vars['view'] = '<div class="container fin zero-padding"><div class="col-xs-12 zero-padding">' .
+      views_embed_view('apartments', 'apartment_complex', $complex_id) .
       '</div></div>';
   }
   else {

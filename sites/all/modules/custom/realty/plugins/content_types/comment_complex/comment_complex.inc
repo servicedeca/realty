@@ -10,7 +10,7 @@
 function realty_comment_complex_ctools_content_types() {
   return array(
     'single' => TRUE,
-    'title' => t('Comment complex '),
+    'title' => t('Comment complex'),
     'all contexts' => TRUE,
     'category' => t('Realty'),
     'hook theme' => 'realty_comment_complex_content_type_theme',

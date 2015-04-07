@@ -174,3 +174,66 @@
     </div>
   </div>
 </div>
+
+  <div class="modal fade modal_id" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="container container-modal-booking zero-padding">
+
+      <div class="col-xs-12 header-container-modal header-block">
+        <div class="modal-text">
+          <p>ID квартиры</p>
+        </div>
+        <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+          <?php print $image_close; ?>
+        </button>
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 zero-padding doc-item">
+        <div class="col-xs-2 doc-icon zero-padding">
+          <a href="#">
+            <?php print $image_doc; ?>
+          </a>
+        </div>
+        <div class="col-xs-110 doc-title">
+          <p>ID квартиры</p>
+        </div>
+        <div class="col-xs-10 col-xs-ofset-1 doc-download zero-padding">
+          <?php print $download_id; ?> /
+          <a href="#href" target="_blank"> Посмотреть образец</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade modal_free" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="container container-modal-booking zero-padding">
+      <div class="col-xs-12 header-container-modal header-block margin-bottom-50">
+        <div class="modal-text">
+          <p>Бронирование квартиры</p>
+        </div>
+        <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
+          <?php print $image_close; ?>
+        </button>
+      </div>
+      <div class="col-xs-12 text-modal-booking">
+        <h3>Чтобы бесплатно забронировать квартиру<br>необходимо заполнить поля</h3>
+      </div>
+      <div class="col-xs-12 comment-modal-row">
+        <div class="col-xs-2 text-right zero-padding">
+          <?php print $image_man; ?>
+        </div>
+        <div class="col-xs-10 comment-input-item">
+          <input  class="comment-input" placeholder="Ф.И.О." value="<?php ?>">
+        </div>
+      </div>
+      <div class="col-xs-12 comment-modal-row margin-bottom-30">
+        <div class="col-xs-2 text-right zero-padding">
+          <?php print $image_phone; ?>
+        </div>
+        <div class="col-xs-10 comment-input-item">
+          <input  class="comment-input" placeholder="Телефон" value="">
+        </div>
+      </div>
+      <button type="button" id="apartment-booking" class="col-xs-4 col-xs-offset-4 comment-button margin-bottom-50" data-apartment-nid="<?php print $nid; ?>" aria-hidden="true">Отправить
+      </button >
+    </div>
+  </div>

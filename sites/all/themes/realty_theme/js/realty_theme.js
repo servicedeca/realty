@@ -147,24 +147,74 @@
 
   Drupal.behaviors.realtyGetIdApartment = {
     attach: $(function () {
-      $("#get-id-apartment").click(function () {
-
-        var nid = $(this).data('node-id');
+      $("#download-id-apartment").click(function () {
+        var nid = $(this).data('nid-apartment');
+        console.log(nid);
         $.ajax({
           url: '/get_id_apartment',
-          type: 'POST',
+          type: 'GET',
+
           data: {
             nid: nid
           },
           success: function(response) {
 
+            console.log(response);
+            if (response === 'user') {
+              $('.close-modal').trigger('click');
+              $('.head-reg').trigger('click');
+            }
+            else {
+                var link = document.createElement('a');
+                link.href = response;
+                if (link.download !== undefined){
+                  var fileName = response.substring(response.lastIndexOf('/') + 1, response.length);
+                  var fileName = response.substring(response.lastIndexOf('/') + 1, response.length);
+                  link.download = fileName;
+                }
+                if (document.createEvent) {
+                  var e = document.createEvent('MouseEvents');
+                  e.initEvent('click' ,true ,true);
+                  link.dispatchEvent(e);
+                  return true;
+                }
+              var query = '?download';
+              window.open(response + query, '_self');
+            }
           },
           error: function(response) {
             alert('false');
           }
         });
       });
+    })
+  }
 
+  Drupal.behaviors.realtyBookingApartment = {
+    attach: $(function () {
+      $("#apartment-booking").click(function () {
+        var nid = $(this).data('apartment-nid');
+        console.log(nid);
+        $.ajax({
+          url: '/apartment/booking',
+          type: 'GET',
+
+          data: {
+            nid: nid
+          },
+          success: function(response) {
+            console.log(response);
+          },
+          error: function(response) {
+            alert('false');
+          }
+        });
+      });
+    })
+  }
+
+  Drupal.behaviors.realtyApartmentSignal = {
+    attach: $(function () {
       $(document).on('click', '.apartment-comparison',function () {
         var apartment = $(this);
           var nid = $(this).data('node-id');

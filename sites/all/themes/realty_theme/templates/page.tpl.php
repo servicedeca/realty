@@ -18,8 +18,12 @@
           <li><?php print $item?></li>
         <?php endforeach ?>
       <?php endif;?>
-      <li><?php print render($logout_register) . '/'; ?>
-      <?php print render($login_profile); ?></li>
+      <li>
+        <?php if(isset($logout_register)):?>
+          <?php print $logout_register . '/'; ?>
+        <?php endif;?>
+        <?php print $login_profile; ?>
+      </li>
     </ul>
   </div>
 </div>
@@ -87,3 +91,5 @@
     </div>
   </div>
 </div>
+
+<?php print $modal_login_form;?>

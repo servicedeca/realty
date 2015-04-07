@@ -53,7 +53,7 @@ function template_preprocess_realty_bread_crumbs(&$vars) {
     $vars['bread_crumbs'] = array(
       'city' => l($city->name, 'taxonomy/term/' . $city->tid),
       'complex' => l($complex->title, 'node/' . $complex->nid),
-      'apartment' => l(t('apartment').' №'.$node->field_number_apartament[LANGUAGE_NONE][0]['value'] ,
+      'apartment' => l(t('apartment') . ' №' . $node->field_number_apartament[LANGUAGE_NONE][0]['value'] ,
         'node/' . $node->nid)
     );
   }

@@ -10,7 +10,7 @@
 function realty_plan_complex_ctools_content_types() {
   return array(
     'single' => TRUE,
-    'title' => t('Plan complex '),
+    'title' => t('Plan complex'),
     'all contexts' => TRUE,
     'category' => t('Realty'),
     'hook theme' => 'realty_plan_complex_content_type_theme',
@@ -56,7 +56,7 @@ function template_preprocess_realty_plan_complex(&$vars) {
   $vars['deadline_description'] = $node->field_deadline_description[LANGUAGE_NONE][0]['value'];
   foreach ($homes as $key => $home) {
 
-    if(!empty($home->field_field_lage_plan_complex) && !empty($home->field_field_home_plan)) {
+    if (!empty($home->field_field_lage_plan_complex) && !empty($home->field_field_home_plan)) {
       $position = json_decode($home->field_field_lage_plan_complex[0]['raw']['value']);
       $vars['homes'][$home->tid] = array(
         'tid' => $home->tid,
@@ -64,8 +64,8 @@ function template_preprocess_realty_plan_complex(&$vars) {
           'external' => TRUE,
           'attributes' => array(
             'class' => array('a-dom', 'plan-complex-home'),
-            'id' => 'home-'.$home->tid,
-            'style' => 'position: absolute; top: '.$position->top.'%; left:'. $position->left.'% ',
+            'id' => 'home-' . $home->tid,
+            'style' => 'position: absolute; top: ' . $position->top . '%; left:' . $position->left . '% ',
           ),
         )),
         'description' => $home->taxonomy_term_data_description,
@@ -75,17 +75,17 @@ function template_preprocess_realty_plan_complex(&$vars) {
         )),
       );
 
-      if($home->field_field_number_section[0]['raw']['value'] == $home->field_field_plan_number_section[0]['raw']['value']) {
+      if ($home->field_field_number_section[0]['raw']['value'] == $home->field_field_plan_number_section[0]['raw']['value']) {
         $position_section = json_decode($home->field_field_lage_plan_home[0]['raw']['value']);
-        $vars['sections'][$home->field_field_number_section[0]['raw']['value'].'-'.$home->tid] = array(
+        $vars['sections'][$home->field_field_number_section[0]['raw']['value'] . '-' . $home->tid] = array(
           'home_tid' => $home->tid,
           'number' => $home->field_field_number_section[0]['raw']['value'],
           'section' => l($home->field_field_number_section[0]['raw']['value'], '#href', array(
             'external' => TRUE,
             'attributes' => array(
               'class' => array('a-section', 'plan-complex-home-section'),
-              'id' => 'section-'.$home->tid.'-'.$home->field_field_number_section[0]['raw']['value'].'-1',
-              'style' => 'position: absolute; top: '.$position_section->top.'%; left:'. $position_section->left.'% ',
+              'id' => 'section-' . $home->tid . '-' . $home->field_field_number_section[0]['raw']['value'] . '-1',
+              'style' => 'position: absolute; top: ' . $position_section->top . '%; left:' . $position_section->left . '% ',
             ),
           )),
         );
@@ -97,11 +97,11 @@ function template_preprocess_realty_plan_complex(&$vars) {
               'home_tid' => $home->tid,
               'number_section' => $home->field_field_plan_number_section[0]['raw']['value'],
               'number_floor' => $floor,
-              'number_floor_link' => l($floor.'-'.t('floor'), '#href', array(
+              'number_floor_link' => l($floor . '-' . t('floor'), '#href', array(
                 'external' => TRUE,
                 'attributes' => array(
                   'class' => array('plan-complex-home-section'),
-                  'id' => 'floor-'.$home->tid.'-'.$home->field_field_number_section[0]['raw']['value'].'-'.$floor,
+                  'id' => 'floor-' . $home->tid . '-' . $home->field_field_number_section[0]['raw']['value'] . '-' . $floor,
                 ),
               )),
               'plan_floor' => theme('image', array(
@@ -123,11 +123,11 @@ function template_preprocess_realty_plan_complex(&$vars) {
               'home_tid' => $home->tid,
               'number_section' => $home->field_field_plan_number_section[0]['raw']['value'],
               'number_floor' => $i,
-              'number_floor_link' => l($i.'-'.t('floor'), '#href', array(
+              'number_floor_link' => l($i . '-' . t('floor'), '#href', array(
                 'external' => TRUE,
                 'attributes' => array(
                   'class' => array('plan-complex-home-section'),
-                  'id' => 'floor-'.$home->tid.'-'.$home->field_field_number_section[0]['raw']['value'].'-'.$i,
+                  'id' => 'floor-' . $home->tid . '-' . $home->field_field_number_section[0]['raw']['value'] . '-' . $i,
                 ),
               )),
               'plan_floor' => theme('image', array(
@@ -141,20 +141,18 @@ function template_preprocess_realty_plan_complex(&$vars) {
           }
         }
 
-        $a = substr_count($home->field_field_plan_number_floor[0]['raw']['value'], ',');
-
-        if(substr_count($home->field_field_plan_number_floor[0]['raw']['value'], ',') == 0) {
-          if(substr_count($home->field_field_plan_number_floor[0]['raw']['value'], '-') == 0) {
+        if (substr_count($home->field_field_plan_number_floor[0]['raw']['value'], ',') == 0) {
+          if (substr_count($home->field_field_plan_number_floor[0]['raw']['value'], '-') == 0) {
 
             $vars['floors'][] = array(
               'home_tid' => $home->tid,
               'number_section' => $home->field_field_plan_number_section[0]['raw']['value'],
               'number_floor' => $home->field_field_plan_number_floor[0]['raw']['value'],
-              'number_floor_link' => l($home->field_field_plan_number_floor[0]['raw']['value'].'-'.t('floor'), '#href', array(
+              'number_floor_link' => l($home->field_field_plan_number_floor[0]['raw']['value'] . '-' . t('floor'), '#href', array(
                 'external' => TRUE,
                 'attributes' => array(
                   'class' => array('plan-complex-home-section'),
-                  'id' => 'floor-'.$home->tid.'-'.$home->field_field_number_section[0]['raw']['value'].'-'.$home->field_field_plan_number_floor[0]['raw']['value'],
+                  'id' => 'floor-' . $home->tid . '-' . $home->field_field_number_section[0]['raw']['value'] . '-' . $home->field_field_plan_number_floor[0]['raw']['value'],
                 ),
               )),
               'plan_floor' => theme('image', array(
@@ -169,24 +167,24 @@ function template_preprocess_realty_plan_complex(&$vars) {
           }
         }
       }
-      if(!empty($home->field_field_apartments)) {
+      if (!empty($home->field_field_apartments)) {
         $apartments =  $home->field_field_apartments[0]['raw']['value'];
         $apartments = json_decode($apartments);
         foreach ($apartment_complex as $apartment) {
-          foreach ($apartments as $apart){
+          foreach ($apartments as $apart) {
             foreach ($apart as $ap) {
               if ($ap->apartment == $apartment->field_field_number_apartament[0]['raw']['value']) {
                 if ($ap->floor == $apartment->field_field_apartment_floor[0]['raw']['value']) {
                  $c++;
                  $vars['apartmens'][$c] = array(
                    'home' => $home->tid,
-                   'section'=> $apartment->field_field_section[0]['raw']['value'],
+                   'section' => $apartment->field_field_section[0]['raw']['value'],
                    'floor' => $ap->floor,
                    'number' => $ap->apartment,
                    'link' => l($ap->apartment, 'node/' . $apartment->nid, array('attributes' => array(
                      'class' => array('a-section'),
-                     'style' => 'position: absolute; top: '.$ap->top.'%; left:'. $ap->left.'% ',
-                   ),)),
+                     'style' => 'position: absolute; top: ' . $ap->top . '%; left:' . $ap->left . '% ',
+                   ))),
                  );
                 }
               }
@@ -197,5 +195,4 @@ function template_preprocess_realty_plan_complex(&$vars) {
       }
     }
   }
-  $a = 1;
 }

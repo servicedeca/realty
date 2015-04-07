@@ -84,5 +84,5 @@ function template_preprocess_realty_block_stock(&$vars) {
 
   $vars['micro_logo'] = realty_get_image_micro_logo();
 
-  $vars['all_stock'] = '/city/'.$city->tid .'/stock';
+  $vars['all_stock'] = '/city/' . $city->tid . '/stock';
 }

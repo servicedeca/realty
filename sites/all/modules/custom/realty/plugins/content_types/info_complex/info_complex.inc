@@ -10,7 +10,7 @@
 function realty_info_complex_ctools_content_types() {
   return array(
     'single' => TRUE,
-    'title' => t('Info complex '),
+    'title' => t('Info complex'),
     'all contexts' => TRUE,
     'category' => t('Realty'),
     'hook theme' => 'realty_info_complex_content_type_theme',
@@ -81,11 +81,11 @@ function template_preprocess_realty_info_complex(&$vars) {
   $address =  field_get_items('node', $node, 'field_address');
   $vars['address'] = $address[0]['value'];
 
-  $vars['findome_logo'] = theme('image',array(
+  $vars['findome_logo'] = theme('image', array(
     'path' => REALTY_FRONT_THEME_PATH . '/images/findome-gray.svg',
     'attributes' => array(
       'class' => array('margin-left-15')
-    ),));
+    )));
 
   $vars['img_close'] = theme('image', array(
     'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',

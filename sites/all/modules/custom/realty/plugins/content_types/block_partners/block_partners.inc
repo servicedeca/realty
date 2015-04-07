@@ -44,5 +44,5 @@ function template_preprocess_realty_block_partners(&$vars) {
   $city = menu_get_object('taxonomy_term', 2);
   $vars['view'] = views_embed_view('term_view', 'partners');
   $vars['micro_logo'] = realty_get_image_micro_logo();
-  $vars['all_partners'] = 'city/'. $city->tid .'/partners';
+  $vars['all_partners'] = 'city/' . $city->tid . '/partners';
 }

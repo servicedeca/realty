@@ -92,12 +92,12 @@ function template_preprocess_realty_front_map(&$vars) {
     unset($vars['search_map_form']['category']['#title']);
 
 
-    if(!empty($complex[0]->_field_data['nid']['entity']->field_slogan)) {
+    if (!empty($complex[0]->_field_data['nid']['entity']->field_slogan)) {
       $vars['description'] = $complex[0]->_field_data['nid']['entity']->field_slogan['und'][0]['safe_value'];
     }
 
     $vars['details'] = l(t('details'), 'node/' . $complex[0]->nid, array('attributes' => array('class' => array(
-      'button-info','button-info-top')
+      'button-info', 'button-info-top')
     )));
   }
 

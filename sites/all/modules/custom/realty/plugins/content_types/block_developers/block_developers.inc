@@ -46,7 +46,7 @@ function template_preprocess_realty_block_developers(&$vars) {
 
   $result = views_get_view_result('term_view', 'developers');
 
-  foreach($result as $key => $val) {
+  foreach ($result as $key => $val) {
     $vars['developers'][$key] = array(
       'logo' => theme('image', array(
         'path' => $val->field_field_developer_logo[0]['raw']['uri'],

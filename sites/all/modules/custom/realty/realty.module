@@ -22,8 +22,9 @@ function realty_init() {
   if (!empty($object) && $object->vid == 1) {
     drupal_add_js(array(
       'id' => 'index',
-      'city' => $object->tid,), 'setting');
+      'city' => $object->tid, ), 'setting');
   }
+
 }
 
 /*
@@ -54,7 +55,7 @@ function realty_taxonomy_term_presave($term) {
  */
 
 function realty_file_directory_path() {
-  return variable_get('file_directory_path', conf_path() .'/files');
+  return variable_get('file_directory_path', conf_path() . '/files');
 }
 
 /*
@@ -98,6 +99,16 @@ function realty_menu() {
     'access callback' => TRUE,
   );
 
+  $item['edit_user_profile'] = array(
+    'page callback' => 'realty_edit_user_profile',
+    'access callback' => TRUE,
+  );
+
+  $item['apartment/booking'] = array(
+    'page callback' => 'realty_apartment_booking',
+    'access callback' => TRUE,
+  );
+
   return $item;
 }
 
@@ -133,12 +144,12 @@ function realty_theme() {
     'template' => 'realty-modal-search-form',
   );
 
-  $items['id_apartment_pdf'] = array(
-    'file' => 'theme.inc',
-    'path' => drupal_get_path('module', 'realty') . '/theme',
-    'variables' => array(
-    ),
+  $items['id_apartment_pdf'] = $base + array(
     'template' => 'realty-id-apartment-pdf',
+    'preprocess functions' => array('realty_preprocess_realty_id_apartment_pdf'),
+    'variables' => array(
+      'node' => NULL,
+    ),
   );
 
   $items['sending_messages'] = $base + array(
@@ -157,12 +168,82 @@ function realty_theme() {
   );
 
   $items['realty_main_search_form'] = $base + array(
-      'render_element' => 'form',
-      'template' => 'realty-main-search-form'
+    'render_element' => 'form',
+    'template' => 'realty-main-search-form'
   );
+
+  $items['realty_modal_user_login'] = array(
+    'template' => 'realty-modal-user-login',
+  );
+
+  $items['realty_user_login_form'] = $base + array(
+    'render_element' => 'form',
+    'template' => 'realty-user-login-form',
+  );
+
+  $items['realty_user_register_form'] = $base + array(
+      'file' => 'theme.inc',
+      'render_element' => 'form',
+      'template' => 'realty-user-register-form'
+    );
 
   return $items;
 
+}
+
+/**
+ * the creation of a node type booking.
+ */
+function realty_creation_node_booking() {
+  global $user;
+
+  $count_booking = count(views_get_view_result('booking', 'all_booking'));
+  $node = new stdClass();
+  $node->type = 'booking';
+  node_object_prepare($node);
+  $node->title = 'Бронирование №' . $count_booking;
+  $node->language = LANGUAGE_NONE;
+  $node->body[LANGUAGE_NONE][0]['value'] = '';
+  $node->field_booking_apartment[LANGUAGE_NONE][0]['target_id'] = $_GET['nid'];
+  $node->field_booking_user[LANGUAGE_NONE][0]['target_id'] = $user->uid;
+  $node->field_booking_numbers[LANGUAGE_NONE][0]['value'] =  $count_booking;
+  $node->uid = $user->uid;
+  $node->status = 1;
+  $node->promote = 1;
+  node_save($node);
+}
+
+/**
+ * Change of status from apartment.
+ */
+function realty_change_status_apartment($nid) {
+  $node = node_load($nid);
+  if ($node->field_status[LANGUAGE_NONE][0]['value'] == 1) {
+    $node->field_status[LANGUAGE_NONE][0]['value'] = 0;
+    node_save($node);
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+
+}
+
+/**
+ * Page callback to /apartment/booking.
+ */
+function realty_apartment_booking() {
+  global $user;
+
+  if ($user->uid != 0 && isset($_GET['nid'])) {
+    if (realty_change_status_apartment($_GET['nid']) == TRUE) {
+      realty_creation_node_booking();
+    }
+  }
+  else {
+    print 'user';
+  }
+  drupal_exit();
 }
 
 /**
@@ -178,7 +259,7 @@ function realty_add_comment() {
     $comment->name = $user->name;
     $comment->subject = 'Subject';
     $comment->field_body[LANGUAGE_NONE][0]['value'] = $_POST['comment'];
-    $comment->field_body[LANGUAGE_NONE][0]['format'] = null;
+    $comment->field_body[LANGUAGE_NONE][0]['format'] = NULL;
     $comment->field_body[LANGUAGE_NONE][0]['safe_value'] = $_POST['comment'];
     $comment->hostname = $_SERVER['REMOTE_HOST'] ? $_SERVER['REMOTE_HOST'] : '127.0.0.1';
     $comment->thread = '01/';
@@ -192,6 +273,36 @@ function realty_add_comment() {
     drupal_exit();
   }
 }
+
+/**
+ * Page callback to /edit_user_profile.
+ */
+function realty_edit_user_profile() {
+  global $user;
+
+  $account = user_load($user->uid);
+  if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['mail'])) {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $mail = $_POST['mail'];
+
+    $account->mail = $mail;
+    $account->field_user_name['und'][0]['value'] = $name;
+    if ($phone != '00000000') {
+
+    }
+    $answer = user_save($account);
+
+    if ($answer->mail == $mail && $answer->field_user_name['und'][0]['value'] == $name) {
+      print TRUE;
+      drupal_exit();
+    }
+    else {
+      print FALSE;
+      drupal_exit();
+    }
+  }
+ }
 
 /**
  * Page callback to /get_data_complex.
@@ -219,13 +330,14 @@ function realty_get_data_complex() {
       ));
     }
 
-    if(!empty($node->field_description)) {
+    if (!empty($node->field_description)) {
       $answer['description'] = $node->field_description['und'][0]['value'];
     }
 
-    $answer['details'] = l('details', 'node/' . $node->nid, array('attributes' => array('class' => array(
-      'button-info','button-info-top')
-    )));
+    $answer['details'] = l(t('details'), 'node/' . $node->nid, array('attributes' => array('class' => array(
+      'button-info', 'button-info-top')
+      ))
+    );
 
     print json_encode($answer);
   }
@@ -236,7 +348,7 @@ function realty_get_data_complex() {
 /**
  * List all cities.
  */
-function realty_get_list_city(){
+function realty_get_list_city() {
   $vid = taxonomy_vocabulary_machine_name_load('cities');
   return $terms = taxonomy_get_tree($vid->vid, 0, NULL, TRUE);
 }
@@ -281,7 +393,7 @@ function realty_search_map() {
   $view->display_handler->preview();
   $view->post_execute();
   if (!empty($view->result)) {
-    foreach($view->result as $key => $tid) {
+    foreach ($view->result as $key => $tid) {
       $homes[$key]['tid'] = $tid->tid;
       $homes[$key]['address'] = $tid->_field_data['tid']['entity']->field_address_house['und'][0]['value'];
     }
@@ -297,8 +409,8 @@ function realty_search_map() {
 function realty_apartment_signal() {
   global $user;
 
-  if($user->uid != 0) {
-    if($_POST['nid']) {
+  if ($user->uid != 0) {
+    if ($_POST['nid']) {
       if (realty_check_status_apartment_user($user->uid, $_POST['nid']) == TRUE) {
         print TRUE;
         drupal_exit();
@@ -335,7 +447,7 @@ function realty_apartment_signal() {
           ));
 
           $dindon_r = l($dindo . '<span class="new-tip-button">
-          '. t('Send notification if your removed') .'
+          ' . t('Send notification if your removed') . '
           </span>' , '#href', array(
             'html' => TRUE,
             'external' => TRUE,
@@ -359,7 +471,7 @@ function realty_apartment_signal() {
 /**
  * Sending messages to users about the withdrawal of the reservation.
  */
-function realty_sending_messages_to_users ($node) {
+function realty_sending_messages_to_users($node) {
   $module = 'realty';
   $key = 'key';
   $language = 'ru';
@@ -412,7 +524,7 @@ function realty_node_presave($node) {
 function realty_form_user_profile_form_alter(&$form, &$form_id) {
   global $user;
 
-  if($user->uid != 1) {
+  if ($user->uid != 1) {
     $form['#theme'][0] = 'realty_user_profile_form';
   }
 }
@@ -423,29 +535,34 @@ function realty_form_user_profile_form_alter(&$form, &$form_id) {
 function realty_get_id_apartment() {
   global $user;
 
-  $account = user_load($user->uid);
-  $node = node_load($_POST['nid']);
-  $flag = FALSE;
-  if (isset($account->field_received_id)) {
-    if (!isset($account->field_received_id[LANGUAGE_NONE])) {
-      $account->field_received_id = array(
-        LANGUAGE_NONE => array(),
-      );
-    }
-    foreach ($account->field_received_id[LANGUAGE_NONE] as $val) {
-      if ($val['target_id'] == $node->nid) {
-        $flag = TRUE;
-        break;
+  if ($user->uid !=0 ) {
+    $account = user_load($user->uid);
+    $node = node_load($_GET['nid']);
+    $flag = FALSE;
+    if (isset($account->field_received_id)) {
+      if (!isset($account->field_received_id[LANGUAGE_NONE])) {
+        $account->field_received_id = array(
+          LANGUAGE_NONE => array(),
+        );
       }
-    }
+      foreach ($account->field_received_id[LANGUAGE_NONE] as $val) {
+        if ($val['target_id'] == $node->nid) {
+          $flag = TRUE;
+          break;
+        }
+      }
 
-    if ($flag == FALSE) {
-      array_push($account->field_received_id[LANGUAGE_NONE], array('target_id' => $node->nid));
-      user_save($account);
+      if ($flag == FALSE) {
+        array_push($account->field_received_id[LANGUAGE_NONE], array('target_id' => $node->nid));
+        user_save($account);
+      }
+      realty_generation_pdf_apartment($node);
     }
-    realty_generation_pdf_apartment($node);
-    drupal_exit();
   }
+  else {
+    print 'user';
+  }
+  drupal_exit();
 }
 
 /**
@@ -479,7 +596,7 @@ function realty_apartment_comparison() {
           $path = REALTY_FRONT_THEME_PATH . '/images/ready_comprasion.svg';
 
         if ($_POST['apartment'] == 0) {
-          $add = theme('image', array (
+          $add = theme('image', array(
             'path' => REALTY_FRONT_THEME_PATH . '/images/ready.svg',
             'attributes' => array(
               'class' => array('add'),
@@ -498,15 +615,15 @@ function realty_apartment_comparison() {
           ));
         }
         else {
-          $add = theme('image', array (
+          $add = theme('image', array(
             'path' => REALTY_FRONT_THEME_PATH . '/images/ready_comprasion.svg',
             'attributes' => array(
               'class' => array(''),
             ),
           ));
 
-          $add_r = l($add.'<div class="tip-button" id="comparison">
-        '.t('added to comparison').'
+          $add_r = l($add . '<div class="tip-button" id="comparison">
+        ' . t('added to comparison') . '
         </div>' , '#href', array(
             'html' => TRUE,
             'external' => TRUE,
@@ -532,7 +649,7 @@ function realty_apartment_comparison() {
  */
 function realty_get_developer_complex() {
   if (isset($_POST['developer'])) {
-    foreach($_POST['developer'] as $value) {
+    foreach ($_POST['developer'] as $value) {
       $developer_id[] = $value;
     }
     $complexes = realty_get_complex_current_city($developer_id, $_POST['city']);
@@ -542,24 +659,24 @@ function realty_get_developer_complex() {
   }
   $options = '';
   if (!empty($complexes)) {
-    foreach($complexes as $key => $complex) {
-      if($_POST['map']) {
+    foreach ($complexes as $key => $complex) {
+      if ($_POST['map']) {
         $options['modal'] .= '<div class="col-xs-4">
           <li>
-            <input type="checkbox" id="id-map-complex-' . $key. '" class="inlineCheckbox1 CheckboxMapComplex" value="'.$key.'">
-            <label for="id-map-complex-' . $key. '">'.$complex.'</label>
+            <input type="checkbox" id="id-map-complex-' . $key . '" class="inlineCheckbox1 CheckboxMapComplex" value="' . $key . '">
+            <label for="id-map-complex-' . $key . '">' . $complex . '</label>
         </li>
       </div>';
-        $options['select'] .= '<option value='.$key.'>'.$complex.'</option>';
+        $options['select'] .= '<option value=' . $key . '>' . $complex . '</option>';
       }
       else {
         $options['modal'] .= '<div class="col-xs-4">
             <li>
-              <input type="checkbox" id="id-complex-' . $key. '" class="inlineCheckbox1 CheckboxComplex complex-' . $key . '" value="' . $key. ';' . $complex .'">
-              <label for="id-complex-' . $key. '">' . $complex . '</label>
+              <input type="checkbox" id="id-complex-' . $key . '" class="inlineCheckbox1 CheckboxComplex complex-' . $key . '" value="' . $key . ';' . $complex . '">
+              <label for="id-complex-' . $key . '">' . $complex . '</label>
           </li>
         </div>';
-        $options['select'] .= '<option value='.$key.'>'.$complex.'</option>';
+        $options['select'] .= '<option value=' . $key . '>' . $complex . '</option>';
       }
     }
   }
@@ -574,11 +691,11 @@ function realty_get_developer_complex() {
 function realty_get_options_current_city($option) {
 
   $city = menu_get_object('taxonomy_term', 2);
-  if ($city == null) {
+  if ($city == NULL) {
     $tid = arg(1);
     $city = taxonomy_term_load($tid);
   }
-  $city != null ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
+  $city != NULL ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
   $view = views_get_view('search');
   if ($option == 'area') {
     $view->set_display('search_area');
@@ -592,11 +709,11 @@ function realty_get_options_current_city($option) {
   $view->display_handler->preview();
   $view->post_execute();
 
-  foreach($view->result as $value) {
+  foreach ($view->result as $value) {
     $options[$value->tid] = $value->taxonomy_term_data_name;
   }
 
-  isset($options) ?  : $options = null;
+  isset($options) ?  : $options = NULL;
 
   return $options;
 }
@@ -607,22 +724,22 @@ function realty_get_options_current_city($option) {
  */
 function realty_get_developer_current_city() {
   $city = menu_get_object('taxonomy_term', 2);
-  if ($city == null) {
+  if ($city == NULL) {
     $tid = arg(1);
     $city = taxonomy_term_load($tid);
   }
-  $city != null ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
+  $city != NULL ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
   $view = views_get_view('term_view');
   $view->set_display('developers_search');
   $view->display_handler->options['arguments']['tid']['default_argument_options']['argument'] = $city_tid;
   $view->pre_execute(array());
   $view->display_handler->preview();
   $view->post_execute();
-  foreach($view->result as $value) {
+  foreach ($view->result as $value) {
     $developer_option[$value->tid] = $value->_field_data['tid']['entity']->name;
   }
 
-  isset($developer_option) ?  : $developer_option = null;
+  isset($developer_option) ?  : $developer_option = NULL;
 
   return $developer_option;
 }
@@ -630,21 +747,21 @@ function realty_get_developer_current_city() {
 /**
  * Get complex the current city
  */
-function realty_get_complex_current_city($developers = null, $city_tid = null) {
+function realty_get_complex_current_city($developers = NULL, $city_tid = NULL) {
   $city = menu_get_object("taxonomy_term", 2);
 
-  if ($city == null) {
+  if ($city == NULL) {
     $tid = arg(1);
     $city = taxonomy_term_load($tid);
   }
-  if(isset($_GET['field_city_tid']) || $city) {
-    $city != null ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
+  if (isset($_GET['field_city_tid']) || $city) {
+    $city != NULL ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
   }
   $view = views_get_view('complex');
-  if($developers != null && $city == null) {
+  if ($developers != NULL && $city == NULL) {
     $view->set_display('complex_developers');
     unset($view->display_handler->options['filters']['field_complex_developer_tid']['value']);
-    foreach($developers as $value) {
+    foreach ($developers as $value) {
       $view->display_handler->options['filters']['field_complex_developer_tid']['value'][$value] = $value;
     }
   }
@@ -656,11 +773,11 @@ function realty_get_complex_current_city($developers = null, $city_tid = null) {
   $view->display_handler->preview();
   $view->post_execute();
   $complex_option = array();
-  foreach($view->result as $value) {
+  foreach ($view->result as $value) {
     $complex_option[$value->nid] = $value->node_title;
   }
 
-  isset($complex_option) ?  : $complex_option = null;
+  isset($complex_option) ?  : $complex_option = NULL;
 
   return $complex_option;
 }
@@ -669,12 +786,12 @@ function realty_get_complex_current_city($developers = null, $city_tid = null) {
  * Generate pdf file id apartments.
  */
 function realty_generation_pdf_apartment($node) {
-  $html = theme('id_apartment_pdf', array());
+  $html = theme('id_apartment_pdf', array('node' => $node));
   $error = FALSE;
 
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $pdf = new WkHtmlToPdf;
-    $file_path = file_directory_temp() . '/' . time() . '.html';
+    $file_path = '/var/www/realty/sites/default/files/tmp/' . time() . '.html';
     if (file_put_contents($file_path, $html)) {
       $pdf->addPage($file_path);
       $pdf_path = "/var/www/realty/sites/default/files/pdf/id_apartment-$node->nid.pdf";
@@ -707,7 +824,7 @@ function realty_generation_pdf_apartment($node) {
 function realty_realty_comment_form($form, $form_state) {
 
   $form['body'] = array(
-    '#title'=>'body',
+    '#title' => 'body',
     '#type' => 'textfield',
     '#rows' => 6,
     'attributes' => array(
@@ -729,11 +846,11 @@ function realty_search_map_form($form, $form_state) {
   $category_option = realty_options_search('category');
 
   $form['category'] = array(
-    '#type'=>'select',
-    '#title'=>'Category',
-    '#name'=>'category[]',
-    '#options'=> $category_option,
-    '#attributes' => array(
+    '#type' => 'select',
+    '#title' => 'Category',
+    '#name' => 'category[]',
+    '#options' =>  $category_option,
+    '#attributes'  => array(
       'id' => 'map-filter',
       'multiple' => 'multiple',
       'class' => array('maps'),
@@ -752,18 +869,18 @@ function realty_options_search($option) {
   switch ($option) {
     case 'room' :
       return array(
-      '1'=>'1 комната',
-      '2'=>'2 комнаты',
-      '3'=>'3 комнаты',
-      '4'=>'4 комнаты',
+      '1' => '1 комната',
+      '2' => '2 комнаты',
+      '3' => '3 комнаты',
+      '4' => '4 комнаты',
       );
 
     case 'quarter' :
       return array(
       '1' => '1 квартал',
       '2' => '2 квартал',
-      '3' =>'3 квартал',
-      '4' =>'4 квартал',
+      '3' => '3 квартал',
+      '4' => '4 квартал',
       );
 
     case 'masonry' :
@@ -809,10 +926,10 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['area'] = array(
-    '#type'=>'select',
-    '#title'=>'Area',
-    '#name'=>'area[]',
-    '#options'=> $area_option,
+    '#type' => 'select',
+    '#title' => 'Area',
+    '#name' => 'area[]',
+    '#options' => $area_option,
     '#default_value' => isset($_GET['area']) ? $_GET['area'] : 0,
     '#attributes' => array(
       'id' => 'area',
@@ -821,10 +938,10 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['metro'] = array(
-    '#type'=>'select',
-    '#title'=>'metro',
-    '#name'=>'metro[]',
-    '#options'=> $metro_option,
+    '#type' => 'select',
+    '#title' => 'metro',
+    '#name' => 'metro[]',
+    '#options' => $metro_option,
     '#default_value' => isset($_GET['metro']) ? $_GET['metro'] : 0,
     '#attributes' => array(
       'id' => 'metro',
@@ -833,10 +950,10 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['masonry'] = array(
-    '#type'=>'select',
-    '#title'=>'Masonry',
-    '#name'=>'masonry[]',
-    '#options'=> $masonry_option,
+    '#type' => 'select',
+    '#title' => 'Masonry',
+    '#name' => 'masonry[]',
+    '#options' => $masonry_option,
     '#default_value' => isset($_GET['masonry']) ? $_GET['masonry'] : 0,
     '#attributes' => array(
       'id' => 'wall_type',
@@ -847,11 +964,10 @@ function realty_search_form($form, $form_state) {
 
 
   $form['balcony'] = array(
-    '#type'=>'select',
-    '#title'=>'balcony',
-    '#name'=>'balcony[]',
-    '#options'=> $balcony_option,
-    '#default_value' => isset($_GET['balcony']) ? $_GET['balcony'] : false,
+    '#type' => 'select',
+    '#title' => 'balcony',
+    '#name' => 'balcony[]',
+    '#options' => $balcony_option,
     '#attributes' => array(
       'id' => 'balkon',
       'multiple' => 'multiple',
@@ -860,10 +976,10 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['category'] = array(
-    '#type'=>'select',
-    '#title'=>'Category',
-    '#name'=>'category[]',
-    '#options'=> $category_option,
+    '#type' => 'select',
+    '#title' => 'Category',
+    '#name' => 'category[]',
+    '#options' => $category_option,
     '#default_value' => isset($_GET['category']) ? $_GET['category'] : 0,
     '#attributes' => array(
       'id' => 'cat',
@@ -873,10 +989,9 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['floor'] = array(
-    '#type'=>'textfield',
-    '#title'=>'floor',
-    '#default_value' => isset($_GET['floor']) ? $_GET['floor'] : false,
-    '#attributes'=>array(
+    '#type' => 'textfield',
+    '#title' => 'floor',
+    '#attributes' => array(
       'id' => 'floor',
       'maxlength' => 2,
       'class' => array('search-input',
@@ -887,58 +1002,53 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['room'] = array(
-    '#type'=>'select',
-    '#title'=>'Number of room',
-    '#name'=>'room[]',
-    '#options'=> $room_option,
-    '#default_value' => isset($_GET['room']) ? $_GET['room'] : 0,
-    '#attributes'=>array(
+    '#type' => 'select',
+    '#title' => 'Number of room',
+    '#name' => 'room[]',
+    '#options' => $room_option,
+    '#attributes' => array(
       'id' => 'room',
       'multiple' => 'multiple',
     ),
   );
 
   $form['sq'] = array(
-    '#type'=>'hidden',
-    '#title'=>'Sq from',
-    '#default_value' => isset($_GET['sq']) ? $_GET['sq'] : '30;150',
-    '#attributes'=>array(
+    '#type' => 'hidden',
+    '#title' => 'Sq from',
+    '#attributes' => array(
       'class' => array('ion-slider', 'sq'),
     ),
   );
 
   $form['price'] = array(
-    '#type'=>'hidden',
-    '#title'=>'Price from',
-    '#default_value' => isset($_GET['price']) ? $_GET['price'] : '55;85',
-    '#attributes'=>array(
+    '#type' => 'hidden',
+    '#title' => 'Price from',
+    '#attributes' => array(
       'class' => array('ion-slider', 'price'),
     ),
   );
 
   $form['parking'] = array(
-    '#type'=>'checkbox',
-    '#title'=>'Parking',
-    '#attributes'=>array(
+    '#type' => 'checkbox',
+    '#title' => 'Parking',
+    '#attributes' => array(
       'id ' => 'parking',
     ),
   );
 
   $form['coast'] = array(
-    '#type'=>'hidden',
-    '#title'=>'Coast',
-    '#default_value' => isset($_GET['coast']) ? $_GET['coast'] : '1.6;4',
-    '#attributes'=>array(
+    '#type' => 'hidden',
+    '#title' => 'Coast',
+    '#attributes' => array(
       'class' => array('ion-slider', 'coast'),
     ),
   );
 
   $form['developer'] = array(
-    '#type'=>'select',
-    '#title'=>'Developer',
-    '#name'=>'developer[]',
-    '#options'=> $developer_option,
-    '#default_value' =>isset($_GET['developer']) ? $_GET['developer'] : 0,
+    '#type' => 'select',
+    '#title' => 'Developer',
+    '#name' => 'developer[]',
+    '#options' => $developer_option,
     '#attributes' => array(
       'id' => 'developer',
       'multiple' => 'multiple',
@@ -946,11 +1056,10 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['complex'] = array(
-    '#type'=>'select',
-    '#title'=>'Complex',
-    '#name'=>'complex[]',
-    '#options'=> $complex_option,
-    '#default_value' =>isset($_GET['complex']) ? $_GET['complex'] : 0,
+    '#type' => 'select',
+    '#title' => 'Complex',
+    '#name' => 'complex[]',
+    '#options' => $complex_option,
     '#attributes' => array(
       'id' => 'complex',
       'multiple' => 'multiple',
@@ -958,11 +1067,10 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['quarter'] = array(
-    '#type'=>'select',
-    '#title'=>'Quarter',
-    '#name'=>'quarter[]',
-    '#options'=> $quarter_option,
-    '#default_value' =>isset($_GET['quarter']) ? $_GET['quarter'] : 0,
+    '#type' => 'select',
+    '#title' => 'Quarter',
+    '#name' => 'quarter[]',
+    '#options' => $quarter_option,
     '#attributes' => array(
       'id' => 'date',
       'multiple' => 'multiple',
@@ -971,10 +1079,9 @@ function realty_search_form($form, $form_state) {
   );
 
   $form['year'] = array(
-    '#type'=>'textfield',
-    '#title'=>'Year',
-    '#default_value' =>isset($_GET['year']) ? $_GET['year'] : null,
-    '#attributes'=>array(
+    '#type' => 'textfield',
+    '#title' => 'Year',
+    '#attributes' => array(
       'class' => array('search-input ear'),
       'placeholder' => t('Year'),
       'maxlength' => '4',
@@ -1026,7 +1133,7 @@ function realty_check_status_apartment_user($uid, $nid) {
     if ($uid != 0) {
         $node = node_load($nid);
         $flag = FALSE;
-        if(!empty($node->field_user_signal[LANGUAGE_NONE])) {
+        if (!empty($node->field_user_signal[LANGUAGE_NONE])) {
             foreach ($node->field_user_signal[LANGUAGE_NONE] as $value) {
                 if ($value['target_id'] == $uid) {
                     $flag = TRUE;
@@ -1058,10 +1165,10 @@ function realty_user_menu($account) {
 function realty_get_current_city() {
 
   if (!isset($_GET['q'])) {
-    return null;
+    return NULL;
   }
 
-  $entity = explode('/' ,$_GET['q']);
+  $entity = explode('/', $_GET['q']);
 
   if ($entity[0] == 'taxonomy') {
     $term = taxonomy_term_load($entity[2]);
@@ -1123,10 +1230,10 @@ function realty_filter_complex_apartment_form($form, $form_state) {
     }
     $homes = views_get_view_result('term_view', 'homes_complex', $nid);
   }
-  foreach ($homes as $key=>$home) {
+  foreach ($homes as $key => $home) {
     $options[$home->tid] = $home->field_field_address_house[0]['rendered']['#markup'];
     $sections[$home->field_field_address_house[0]['rendered']['#markup']]
-    [$home->field_field_number_section[0]['rendered']['#markup'].':'.$home->tid] =
+    [$home->field_field_number_section[0]['rendered']['#markup'] . ':' . $home->tid] =
       $home->field_field_number_section[0]['rendered']['#markup'];
   }
   $form['address'] = array(
@@ -1161,7 +1268,7 @@ function realty_filter_complex_apartment_form($form, $form_state) {
  */
 function realty_form_views_exposed_form_alter(&$form, &$form_state) {
   $city = menu_get_object('taxonomy_term', 2);
-  if ($city == null) {
+  if ($city == NULL) {
     $city = taxonomy_term_load(arg(1));
   }
   if ($form['#id'] == 'views-exposed-form-apartments-apartment-complex' ||
@@ -1175,13 +1282,13 @@ function realty_form_views_exposed_form_alter(&$form, &$form_state) {
       $form['#theme'] = 'realty_main_search_form';
     }
   }
-  else if (arg(0) == 'search') {
+  elseif (arg(0) == 'search') {
     $form['field_city_tid']['#value'] = $city->tid;
   }
 }
 
 /**
- *
+ * Get a picture of a small logo
  */
 function realty_get_image_micro_logo() {
   return theme('image', array(
@@ -1190,4 +1297,24 @@ function realty_get_image_micro_logo() {
       'class' => array('micrologo'),
     ),
   ));
+}
+
+function realty_get_image_close() {
+  return theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
+    'title' => t('Close'),
+  ));
+}
+
+/**
+ * Implement hook_form_alter.
+ */
+function realty_form_alter(&$form, &$form_state, $form_id) {
+  $a = 1;
+  if ($form_id == 'user_login') {
+    $form['#theme'][] = 'realty_user_login_form';
+  }
+  if ($form_id == 'user_register_form') {
+    $form['#theme'][] = 'realty_user_register_form';
+  }
 }

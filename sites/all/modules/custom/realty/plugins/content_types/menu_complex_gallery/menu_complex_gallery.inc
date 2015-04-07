@@ -10,7 +10,7 @@
 function realty_menu_complex_gallery_ctools_content_types() {
   return array(
     'single' => TRUE,
-    'title' => t('Menu complex gallery '),
+    'title' => t('Menu complex gallery'),
     'all contexts' => TRUE,
     'category' => t('Realty'),
     'hook theme' => 'realty_menu_complex_gallery_content_type_theme',
@@ -46,27 +46,27 @@ function template_preprocess_realty_menu_complex_gallery(&$vars) {
 
   $menu_items = array(
     0 => array(
-      'path' => l(t('diaries construction'), 'complexes/' .$node->nid. '/gallery/photo'),
+      'path' => l(t('diaries construction'), 'complexes/' . $node->nid . '/gallery/photo'),
       'title' => 'photo',
     ),
     1 => array(
-      'path' => l(t('visualization'), 'complexes/' .$node->nid. '/gallery/visualization'),
+      'path' => l(t('visualization'), 'complexes/' . $node->nid . '/gallery/visualization'),
       'title' => 'visualization',
     ),
     2 => array(
-      'path' => l(t('3D tour'), 'complexes/' .$node->nid. '/gallery/tour'),
+      'path' => l(t('3D tour'), 'complexes/' . $node->nid . '/gallery/tour'),
       'title' => 'tour',
     ),
   );
 
   $url = arg(3);
-  foreach($menu_items as $key=>$item) {
-    if($url == $item['title']) {
-      $vars['menu'][$key] = '<div class="col-xs-4 tab-menu-active">'.$item['path'].'</div>';
+  foreach ($menu_items as $key => $item) {
+    if ($url == $item['title']) {
+      $vars['menu'][$key] = '<div class="col-xs-4 tab-menu-active">' . $item['path'] . '</div>';
       $vars['page'] = $item['path'];
     }
     else {
-      $vars['menu'][$key] = '<div class="col-xs-4 tab-menu-passive">'.$item['path'].'</div>';
+      $vars['menu'][$key] = '<div class="col-xs-4 tab-menu-passive">' . $item['path'] . '</div>';
     }
   }
 }

@@ -49,8 +49,8 @@ function template_preprocess_realty_block_complexs(&$vars) {
 
   foreach ($result as $key => $val) {
 
-    $vars['complexes'][$key] = array (
-      'title' => l($val->node_title, 'node/'.$val->nid),
+    $vars['complexes'][$key] = array(
+      'title' => l($val->node_title, 'node/' . $val->nid),
       'image' => theme('image', array(
           'path' => $val->field_field_main_photo[0]['rendered']['#item']['uri'],
           'alt' => $val->node_title,
@@ -60,10 +60,10 @@ function template_preprocess_realty_block_complexs(&$vars) {
           ),
         )
       ),
-      'details' => l(t('Details'), 'node/'.$val->nid, array(
-        'attributes' => array('class' => array('button-info button-info-top'),))),
+      'details' => l(t('Details'), 'node/' . $val->nid, array(
+        'attributes' => array('class' => array('button-info button-info-top')))),
     );
-    if(!empty($val->field_field_slogan)) {
+    if (!empty($val->field_field_slogan)) {
       $vars['complexes'][$key]['description'] = $val->field_field_slogan[0]['rendered']['#markup'];
     }
 
