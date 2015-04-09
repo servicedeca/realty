@@ -429,16 +429,16 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
 
     foreach ($vars['view']->result as $key => $val) {
       $vars['apartments'][$key] = array(
-        'apartment_path' => 'node/' . $val->nid,
+        'apartment_path' => '/node/' . $val->nid,
         'number' => l('<div class="flat-number flat-number-booked">' . $val->field_field_number_apartament[0]['raw']['value'] . '</div>',
           'node/' . $val->nid, array('html'=> TRUE)),
 
         'area' => $val->field_field_area[0]['raw']['taxonomy_term']->name,
-        'developer_path' => 'taxonomy/term/'.$val->field_field_complex_developer[0]['raw']['tid'],
+        'developer_path' => '/taxonomy/term/'.$val->field_field_complex_developer[0]['raw']['tid'],
         'developer' => $val->field_field_complex_developer[0]['raw']['taxonomy_term']->name,
 
         'complex' => $val->field_field_home_complex[0]['raw']['entity']->title,
-        'complex_path' => 'node/' . $val->field_field_home_complex[0]['raw']['target_id'],
+        'complex_path' => '/node/' . $val->field_field_home_complex[0]['raw']['target_id'],
 
         'address' => $val->field_field_address_house[0]['raw']['value'],
         'quarter' => $val->field_field_quarter[0]['raw']['value'],

@@ -198,6 +198,7 @@ function realty_creation_node_booking() {
   global $user;
 
   $count_booking = count(views_get_view_result('booking', 'all_booking'));
+  $count_booking++;
   $node = new stdClass();
   $node->type = 'booking';
   node_object_prepare($node);
@@ -1318,3 +1319,53 @@ function realty_form_alter(&$form, &$form_state, $form_id) {
     $form['#theme'][] = 'realty_user_register_form';
   }
 }
+
+/**
+ * Form builder for filter form booking apartment.
+ */
+function realty_booking_apartment_form($form, $form_state) {
+
+  $form['name'] = array(
+    '#type' => 'textfield',
+    '#options' => '',
+    '#multiple' => TRUE,
+    '#attributes' => array(
+      'class' => array('comment-input'),
+      'id' => 'name',
+    ),
+  );
+
+  $form['number_phone'] = array(
+    '#type' => 'textfield',
+    '#options' => '',
+    '#multiple' => TRUE,
+    '#attributes' => array(
+      'class' => array('comment-input'),
+      'id' => 'number_phone',
+    ),
+  );
+
+  $form['email'] = array(
+    '#type' => 'textfield',
+    '#options' => '',
+    '#multiple' => TRUE,
+    '#attributes' => array(
+      'class' => array('comment-input'),
+      'id' => 'email',
+    ),
+  );
+
+  $form['file'] = array(
+    '#type' => 'file',
+    '#options' => '',
+    '#multiple' => TRUE,
+    '#attributes' => array(
+      'class' => array('comment-input'),
+      'id' => 'email',
+    ),
+  );
+
+  return $form;
+
+}
+
