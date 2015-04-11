@@ -22,7 +22,7 @@
         </li>
         <li role="presentation" class="">
           <a href="#credit" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">
-            <?php print t('mortgage');?>
+            <?php print t('visualization');?>
           </a>
         </li>
       </ul>
@@ -153,87 +153,36 @@
     </div>
 
     <div  role="tabpanel" id="credit" aria-labelledby="profile-tab" class="col-xs-11 develop-complex zero-padding tab-pane fade margin-top-70">
-      <a href="" class="col-xs-4 develop-complex-item zero-padding banks-img">
-        <img src="images/sberbank.png">
-      </a>
-      <a href="" class="col-xs-4 develop-complex-item zero-padding banks-img">
-        <img src="images/mdmbank.png">
-      </a>
-      <a href="" class="col-xs-4 develop-complex-item zero-padding banks-img">
-        <img src="images/vtbbank.png">
-      </a>
-      <a href="" class="col-xs-4 develop-complex-item zero-padding banks-img">
-        <img src="images/sberbank.png">
-      </a>
-      <a href="" class="col-xs-4 develop-complex-item zero-padding banks-img">
-        <img src="images/mdmbank.png">
-      </a>
-      <a href="" class="col-xs-4 develop-complex-item zero-padding banks-img">
-        <img src="images/vtbbank.png">
-      </a>
+      <div class="col-xs-8 zero-padding apartment-plan">
+        <?php if(isset($vizual)):?>
+          <?php print $vizual;?>
+        <?php endif;?>
+      </div>
+      <div class="col-xs-4 zero-padding apartment-text">
+        <h3><?php print t('Developer')?></h3>
+        <p><?php print $developer?></p>
+        <h3><?php print t('The residential complex');?></h3>
+        <p><?php print $complex;?></p>
+        <h3><?php print t('deadline')?></h3>
+        <p><?php print $deadline?></p>
+        <h3><?php print t('type');?></h3>
+        <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
+        <h3><?php print t('price')?></h3>
+        <p><?php print $content['field_full_cost'][0]['#markup']?></p>
+        <h3><?php print t('location');?></h3>
+        <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
+        <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
+        <p><?php print t('apartment number').': ' .$field_number_apartament[0]['value']?></p>
+        <h3><?php print t('square')?></h3>
+        <p><?php print t('gross area').': ' .$content['field_gross_area'][0]['#markup']?></p>
+        <p><?php print t('living space').': ' .$content['field_living_space'][0]['#markup']?></p>
+        <h3><?php print t('Address');?></h3>
+        <p><?php print $area . ' area';?></p>
+        <p><?php print $address;?></p>
+      </div>
     </div>
   </div>
 </div>
 
-  <div class="modal fade modal_id" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="container container-modal-booking zero-padding">
+<?php print render($booking_form); ?>
 
-      <div class="col-xs-12 header-container-modal header-block">
-        <div class="modal-text">
-          <p>ID квартиры</p>
-        </div>
-        <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
-          <?php print $image_close; ?>
-        </button>
-      </div>
-      <div class="col-xs-10 col-xs-offset-1 zero-padding doc-item">
-        <div class="col-xs-2 doc-icon zero-padding">
-          <a href="#">
-            <?php print $image_doc; ?>
-          </a>
-        </div>
-        <div class="col-xs-110 doc-title">
-          <p>ID квартиры</p>
-        </div>
-        <div class="col-xs-10 col-xs-ofset-1 doc-download zero-padding">
-          <?php print $download_id; ?> /
-          <a href="#href" target="_blank"> Посмотреть образец</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="modal fade modal_free" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="container container-modal-booking zero-padding">
-      <div class="col-xs-12 header-container-modal header-block margin-bottom-50">
-        <div class="modal-text">
-          <p>Бронирование квартиры</p>
-        </div>
-        <button type="button" class="close close-modal" data-dismiss="modal" aria-hidden="true">
-          <?php print $image_close; ?>
-        </button>
-      </div>
-      <div class="col-xs-12 text-modal-booking">
-        <h3>Чтобы бесплатно забронировать квартиру<br>необходимо заполнить поля</h3>
-      </div>
-      <div class="col-xs-12 comment-modal-row">
-        <div class="col-xs-2 text-right zero-padding">
-          <?php print $image_man; ?>
-        </div>
-        <div class="col-xs-10 comment-input-item">
-          <input  class="comment-input" placeholder="Ф.И.О." value="<?php ?>">
-        </div>
-      </div>
-      <div class="col-xs-12 comment-modal-row margin-bottom-30">
-        <div class="col-xs-2 text-right zero-padding">
-          <?php print $image_phone; ?>
-        </div>
-        <div class="col-xs-10 comment-input-item">
-          <input  class="comment-input" placeholder="Телефон" value="">
-        </div>
-      </div>
-      <button type="button" id="apartment-booking" class="col-xs-4 col-xs-offset-4 comment-button margin-bottom-50" data-apartment-nid="<?php print $nid; ?>" aria-hidden="true">Отправить
-      </button >
-    </div>
-  </div>

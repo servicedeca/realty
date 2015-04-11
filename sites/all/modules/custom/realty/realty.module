@@ -187,6 +187,13 @@ function realty_theme() {
       'template' => 'realty-user-register-form'
     );
 
+  $items['realty_booking_apartment_form'] = array(
+    'render element' => 'form',
+    'arguments' => array('form' => NULL),
+    'preprocess functions' => array('realty_theme_preprocess_realty_booking_apartment_form'),
+    'template' => 'realty-booking-apartment-form'
+  );
+
   return $items;
 
 }
@@ -194,24 +201,64 @@ function realty_theme() {
 /**
  * the creation of a node type booking.
  */
-function realty_creation_node_booking() {
+function realty_creation_node_booking($array_options) {
   global $user;
 
+  $apartment = menu_get_object('node', 1);
+  $nod = node_load(186);
+  $arg = arg(1);
   $count_booking = count(views_get_view_result('booking', 'all_booking'));
   $count_booking++;
+  $manager = field_collection_item_load($array_options['manager']);
+
   $node = new stdClass();
   $node->type = 'booking';
   node_object_prepare($node);
   $node->title = 'Бронирование №' . $count_booking;
   $node->language = LANGUAGE_NONE;
   $node->body[LANGUAGE_NONE][0]['value'] = '';
-  $node->field_booking_apartment[LANGUAGE_NONE][0]['target_id'] = $_GET['nid'];
+  $node->field_booking_apartment[LANGUAGE_NONE][0]['target_id'] = $array_options['apartment'];
   $node->field_booking_user[LANGUAGE_NONE][0]['target_id'] = $user->uid;
   $node->field_booking_numbers[LANGUAGE_NONE][0]['value'] =  $count_booking;
+  $node->field_booking_name[LANGUAGE_NONE][0]['value'] = $array_options['name'];
+  $node->field_booking_number_phone[LANGUAGE_NONE][0]['value'] = $array_options['number_phone'];
+  $node->field_booking_email[LANGUAGE_NONE][0]['value'] = $array_options['email'];
+  $node->field_booking_manager = $manager->field_manager_name;
+  $node->field_email_manager[LANGUAGE_NONE][0]['value'] = $manager->field_manager_e_mail[LANGUAGE_NONE][0]['value'];
   $node->uid = $user->uid;
+
+  // Prepare the file to upload
+  $filepath = 'public://booking_documents';
+  file_prepare_directory($filepath, FILE_CREATE_DIRECTORY); // Create the folder if it doesn't exist
+
+  $files_count = count($array_options['documents']);
+  for ($i = 0; $i < $files_count; $i++) { // For all your files to upload (i use 'pud' from your code above)
+    $path = $array_options['documents'][$i]['tmppath']; // eg: temporary://p17es0eqti1sud9jk1k4aj41ja74.tmp
+    $name = $array_options['documents'][$i]['name']; // eg: dummy123.pdf
+    // Set the $file as an object to pass it in the file_copy() function
+    $file = (object)array(
+      'uid' => $user->uid,
+      'uri' => $path,
+      'filemime' => file_get_mimetype($path),
+      'display' => 1,
+      'status' => 1
+    );
+    // Copy the file using the name attribute, eg: public://path/to/your/folder/dummy123.pdf
+    if ($file = file_copy($file, $filepath . '/' . $name)) {
+      drupal_set_message('Success');
+    }
+    else {
+      drupal_set_message('Error', 'error');
+    }
+    // Attach the file as an array to the new node
+    $node->field_booking_document[LANGUAGE_NONE][$i] = (array)$file;
+  }
+
   $node->status = 1;
   $node->promote = 1;
   node_save($node);
+
+  return $node;
 }
 
 /**
@@ -238,7 +285,7 @@ function realty_apartment_booking() {
 
   if ($user->uid != 0 && isset($_GET['nid'])) {
     if (realty_change_status_apartment($_GET['nid']) == TRUE) {
-      realty_creation_node_booking();
+     // realty_creation_node_booking();
     }
   }
   else {
@@ -1320,15 +1367,34 @@ function realty_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
+function realty_get_manager_developer() {
+  $apartment = menu_get_object('node', 1);
+  $complex = node_load($apartment->field_apartament_home['und'][0]['taxonomy_term']->field_home_complex['und'][0]['target_id']);
+  $managers = views_get_view_result('term_view', 'managers_developer', $complex->field_complex_developer['und'][0]['tid']);
+  foreach ($managers as $manager) {
+    $options_manager[$manager->field_collection_item_field_data_field_manager_item_id] = $manager->field_field_manager_name[0]['raw']['safe_value'];
+  }
+  return $options_manager;
+}
+
 /**
  * Form builder for filter form booking apartment.
  */
 function realty_booking_apartment_form($form, $form_state) {
+  global $user;
+  $node = menu_get_object('node', 1);
+  $account = user_load($user->uid);
+  $managers = realty_get_manager_developer();
+
+  $form['apartment'] = array(
+    '#type' => 'hidden',
+    '#default_value' => $node->nid,
+  );
 
   $form['name'] = array(
     '#type' => 'textfield',
-    '#options' => '',
-    '#multiple' => TRUE,
+    '#default_value' => !empty($account->field_user_name) ? $account->field_user_name[LANGUAGE_NONE][0]['safe_value'] :
+        t('name'),
     '#attributes' => array(
       'class' => array('comment-input'),
       'id' => 'name',
@@ -1337,9 +1403,10 @@ function realty_booking_apartment_form($form, $form_state) {
 
   $form['number_phone'] = array(
     '#type' => 'textfield',
-    '#options' => '',
-    '#multiple' => TRUE,
+    '#default_value' => !empty($account->field_phone_number) ? $account->field_phone_number[LANGUAGE_NONE][0]['safe_value'] :
+       NULL,
     '#attributes' => array(
+      'placeholder' => t('number phone'),
       'class' => array('comment-input'),
       'id' => 'number_phone',
     ),
@@ -1347,25 +1414,159 @@ function realty_booking_apartment_form($form, $form_state) {
 
   $form['email'] = array(
     '#type' => 'textfield',
-    '#options' => '',
-    '#multiple' => TRUE,
-    '#attributes' => array(
+    '#default_value' => $account->mail,
+      '#attributes' => array(
       'class' => array('comment-input'),
       'id' => 'email',
     ),
   );
 
-  $form['file'] = array(
-    '#type' => 'file',
-    '#options' => '',
-    '#multiple' => TRUE,
-    '#attributes' => array(
-      'class' => array('comment-input'),
-      'id' => 'email',
+  $form['documents'] = array(
+    '#type' => 'plupload',
+    '#title' => t('Upload files'),
+    '#plupload_settings' => array(
+      'runtimes' => 'html5',
+      'chunk_size' => '1mb',
     ),
+  );;
+
+    $form['managers'] = array(
+    '#type' => 'radios',
+    '#title' => t('Select manager'),
+    '#options' => $managers,
   );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#attributes' => array(
+      'class' => array('col-xs-4', 'col-xs-offset-4', 'comment-button', 'margin-bottom-50', 'use-ajax-submit'),
+    ),
+    '#ajax' => array(
+      'callback' => 'realty_booking_apartment_form_submit',
+    ),
+    '#value' => t('Booking'),
+  );
+
+  $form['#validate'][] = 'realty_booking_apartment_form_validate';
+  $form['#theme'] = 'realty_booking_apartment_form';
 
   return $form;
-
 }
 
+
+/**
+ * Form validate callback.
+ */
+function realty_booking_apartment_form_validate($form, &$form_state) {
+  $commands = array();
+  $errors = '';
+
+  if (empty($form_state['values']['number_phone'])) {
+    $errors = t('Fill in all the fields');
+      $commands[] = ajax_command_replace(
+        '#div-info-box',
+        '<div class="messages error booking-modal">' . $errors . '</div>'
+      );
+      $commands[] = ajax_command_invoke('input[name="number_phone"]', 'addClass', array('error'));
+  }
+  if (empty($form_state['values']['name'])) {
+    $errors = t('Fill in all the fields');
+      $commands[] = ajax_command_replace(
+        '#div-info-box',
+        '<div class="messages error booking-modal">' . $errors . '</div>'
+      );
+      $commands[] = ajax_command_invoke('input[name="name"]', 'addClass', array('error'));
+  }
+  if (empty($form_state['values']['email'])) {
+    $errors = t('Fill in all the fields');
+      $commands[] = ajax_command_replace(
+        '#div-info-box',
+        '<div class="messages error booking-modal">' . $errors . '</div>'
+      );
+      $commands[] = ajax_command_invoke('input[name="email"]', 'addClass', array('error'));
+  }
+  if (empty($form_state['values']['documents'])) {
+    $errors = t('Fill in all the fields');
+    $commands[] = ajax_command_replace(
+      '#div-info-box',
+      '<div class="messages error booking-modal">' . $errors . '</div>'
+    );
+  }
+  if (!empty($errors)) {
+    ajax_deliver(array('#type' => 'ajax', '#commands' => $commands));
+  }
+
+}
+/**
+ *  Form submit callback
+ */
+function realty_booking_apartment_form_submit($form, &$form_state) {
+  $a = 1;
+  $options = array(
+    'name' => $form_state['values']['name'],
+    'number_phone' => $form_state['values']['number_phone'],
+    'email' => $form_state['values']['email'],
+    'documents' => $form_state['values']['documents'],
+    'manager' => $form_state['values']['managers'],
+    'apartment' => $form_state['values']['apartment'],
+  );
+
+  $node = realty_creation_node_booking($options);
+  realty_messages_booking_manager($node);
+
+  return drupal_exit();
+}
+
+/**
+ * Sending messages booking manager builder.
+ */
+function realty_messages_booking_manager($node) {
+  $module = 'realty';
+  $key = 'key';
+  $language = 'ru';
+  $params = array('attachments' => array($node->field_booking_document['und'][0]['uri']));
+  $from = variable_get('site_mail');
+  $send = FALSE;
+  $manager_email = "kisarinnikita@yandex.ru";//$node->field_email_manager[LANGUAGE_NONE][0]['value'];
+  $file = file_load($node->field_booking_document['und'][0]['fid']);
+  $to = $manager_email;
+  $subject = 'Invoice ' . $file->filename;
+  $token = time();
+
+  $message = array(
+    'id' => $module . '_' . $token,
+    'to' => $to,
+    'subject' => 'Заявка на бронирование!',
+    'body' => $node->title,
+    'headers' => array(
+      'From' => $from,
+      'Sender' => $from,
+      'Return-Path' => $from,
+      'MIME-Version' => '1.0',
+      'Content-Type' => 'text/html; charset=UTF-8',
+    ),
+
+    'params' => array(
+      'attachments' => array(
+        0 => array(
+          'path' => file_stream_wrapper_get_instance_by_uri($file->uri)->realpath(),
+          'filecontent' => file_get_contents($file->uri),
+          'filename' => $file->filename,
+          'mime' => $file->filemime,
+          'encoding' => 'base64',
+          'disposition' => 'attachment',
+          'list' => TRUE,
+        )
+      ),
+    ),
+  );
+  $system = drupal_mail_system($module, $token);
+  $message = $system->format($message);
+
+  if ($system->mail($message)) {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}

@@ -955,7 +955,8 @@ function realty_preprocess_node__apartament_full(&$vars) {
   );
 
   if (!empty($vars['field_plan_apartment'])) {
-    $vars['apartment_plan'] = theme('image', array(
+    $vars['apartment_plan'] = theme('image_style', array(
+      'style_name' => '667x450',
       'path' => $vars['field_plan_apartment'][0]['uri'],
       'title' => 'plan apartment',
       'attributes' => array(
@@ -965,7 +966,8 @@ function realty_preprocess_node__apartament_full(&$vars) {
   }
 
   if (!empty($vars['field_location_home'])) {
-    $vars['home_plan'] = theme('image', array(
+    $vars['home_plan'] = theme('image_style', array(
+      'style_name' => '667x450',
       'path' => $vars['field_location_home'][0]['uri'],
       'title' => 'plan apartment',
       'attributes' => array(
@@ -975,8 +977,20 @@ function realty_preprocess_node__apartament_full(&$vars) {
   }
 
   if (!empty($vars['field_location_floor'])) {
-    $vars['floor_plan'] = theme('image', array(
+    $vars['floor_plan'] = theme('image_style', array(
+      'style_name' => '667x450',
       'path' => $vars['field_location_floor']['und'][0]['uri'],
+      'title' => 'plan apartment',
+      'attributes' => array(
+        'class' => array('apartment-image-vertical'),
+      ),
+    ));
+  }
+
+  if (!empty($vars['field_apartment_vizual'])) {
+    $vars['vizual'] = theme('image_style', array(
+      'style_name' => '667x450',
+      'path' => $vars['field_apartment_vizual']['und'][0]['uri'],
       'title' => 'plan apartment',
       'attributes' => array(
         'class' => array('apartment-image-vertical'),
@@ -1014,6 +1028,8 @@ function realty_preprocess_node__apartament_full(&$vars) {
       'path' => '/' . REALTY_FRONT_THEME_PATH . '/images/c-phone.svg'
     )
   );
+
+  $vars['booking_form'] = drupal_get_form('realty_booking_apartment_form');
 
 }
 
@@ -1502,4 +1518,26 @@ function realty_preprocess_views_view_unformatted__apartments__comprassion(&$var
       $vars['parking'][] = $val->field_field_parking[0]['rendered']['#markup'];
     }
   }
+}
+
+/**
+ * Process variables for realty-booking-apartment-form.tpl.php
+ */
+function realty_theme_preprocess_realty_booking_apartment_form(&$vars) {
+  $vars['image_man'] = theme('image', array(
+      'path' => '/' . REALTY_FRONT_THEME_PATH . '/images/c-man.svg'
+    )
+  );
+
+  $vars['image_phone'] = theme('image', array(
+      'path' => '/' . REALTY_FRONT_THEME_PATH . '/images/c-phone.svg'
+    )
+  );
+
+  $vars['image_mail'] = theme('image', array(
+      'path' => '/' . REALTY_FRONT_THEME_PATH . '/images/mail.svg',
+    )
+  );
+
+  $vars['img_close'] = realty_get_image_close();
 }

@@ -3242,7 +3242,8 @@ margin-left: -120px;
 }
 
 .apartment-text {
-    height:500px;
+  height:500px;
+  padding-left: 15px;
 }
 
 .apartment-text h3 {

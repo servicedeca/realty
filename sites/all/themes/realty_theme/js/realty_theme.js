@@ -2,6 +2,7 @@
 
   Drupal.behaviors.realtyInit = {
     attach: $(function() {
+      window.alert = function(arg) { if (window.console && console.log) { console.log(arg);}};
       if(Drupal.settings.id) {
         $("body").attr("id","index");
       }
