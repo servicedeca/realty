@@ -157,6 +157,12 @@ function realty_theme() {
     'variables' => array('node' => NULL),
   );
 
+  $items['booking_request'] = $base + array(
+    'template' => 'realty-booking-request',
+    'preprocess functions' => array('realty_preprocess_realty_booking_request'),
+    'variables' => array('node' => NULL),
+  )
+  ;
   $items['realty_comment_form'] = array(
     'render element' => 'form',
     'template' => 'realty-comment-form',
@@ -204,9 +210,6 @@ function realty_theme() {
 function realty_creation_node_booking($array_options) {
   global $user;
 
-  $apartment = menu_get_object('node', 1);
-  $nod = node_load(186);
-  $arg = arg(1);
   $count_booking = count(views_get_view_result('booking', 'all_booking'));
   $count_booking++;
   $manager = field_collection_item_load($array_options['manager']);
@@ -225,17 +228,21 @@ function realty_creation_node_booking($array_options) {
   $node->field_booking_email[LANGUAGE_NONE][0]['value'] = $array_options['email'];
   $node->field_booking_manager = $manager->field_manager_name;
   $node->field_email_manager[LANGUAGE_NONE][0]['value'] = $manager->field_manager_e_mail[LANGUAGE_NONE][0]['value'];
-  $node->uid = $user->uid;
+  $node->field_method_purchase[LANGUAGE_NONE][0]['value'] = $array_options['payment'];
+  if ($array_options['payment'] == 2) {
+    $node->field_number_contract[LANGUAGE_NONE][0]['value'] = $array_options['number_contract'];
+    $node->field_sum[LANGUAGE_NONE][0]['value'] = $array_options['sum'];
+    $node->field_bank_name[LANGUAGE_NONE][0]['value'] = $array_options['bank_name'];
+  }
+  $node->uid = 1;
 
-  // Prepare the file to upload
   $filepath = 'public://booking_documents';
-  file_prepare_directory($filepath, FILE_CREATE_DIRECTORY); // Create the folder if it doesn't exist
+  file_prepare_directory($filepath, FILE_CREATE_DIRECTORY);
 
   $files_count = count($array_options['documents']);
-  for ($i = 0; $i < $files_count; $i++) { // For all your files to upload (i use 'pud' from your code above)
-    $path = $array_options['documents'][$i]['tmppath']; // eg: temporary://p17es0eqti1sud9jk1k4aj41ja74.tmp
-    $name = $array_options['documents'][$i]['name']; // eg: dummy123.pdf
-    // Set the $file as an object to pass it in the file_copy() function
+  for ($i = 0; $i < $files_count; $i++) {
+    $path = $array_options['documents'][$i]['tmppath'];
+    $name = $array_options['documents'][$i]['name'];
     $file = (object)array(
       'uid' => $user->uid,
       'uri' => $path,
@@ -243,17 +250,14 @@ function realty_creation_node_booking($array_options) {
       'display' => 1,
       'status' => 1
     );
-    // Copy the file using the name attribute, eg: public://path/to/your/folder/dummy123.pdf
     if ($file = file_copy($file, $filepath . '/' . $name)) {
       drupal_set_message('Success');
     }
     else {
       drupal_set_message('Error', 'error');
     }
-    // Attach the file as an array to the new node
     $node->field_booking_document[LANGUAGE_NONE][$i] = (array)$file;
   }
-
   $node->status = 1;
   $node->promote = 1;
   node_save($node);
@@ -1385,6 +1389,11 @@ function realty_booking_apartment_form($form, $form_state) {
   $node = menu_get_object('node', 1);
   $account = user_load($user->uid);
   $managers = realty_get_manager_developer();
+  $options_payment = array(
+    0 => t('in cash'),
+    1 => t('payment by installments'),
+    2 => t('mortgage')
+  );
 
   $form['apartment'] = array(
     '#type' => 'hidden',
@@ -1430,11 +1439,45 @@ function realty_booking_apartment_form($form, $form_state) {
     ),
   );;
 
-    $form['managers'] = array(
+  $form['managers'] = array(
     '#type' => 'radios',
     '#title' => t('Select manager'),
     '#options' => $managers,
   );
+
+  $form['payment'] = array(
+    '#type' => 'radios',
+    '#title' => t('method of purchase'),
+    '#options' => $options_payment,
+  );
+
+  $form['number_contract'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Номер договора'),
+    '#attributes' => array(
+      'class' => array('comment-input'),
+      'id' => 'number_contract',
+    ),
+  );
+
+  $form['bank_name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Наименование банка'),
+    '#attributes' => array(
+      'class' => array('comment-input'),
+      'id' => 'bank_name',
+    ),
+  );
+
+  $form['sum'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Сумма'),
+    '#attributes' => array(
+      'class' => array('comment-input'),
+      'id' => 'sum',
+    ),
+  );
+
 
   $form['submit'] = array(
     '#type' => 'submit',
@@ -1509,6 +1552,10 @@ function realty_booking_apartment_form_submit($form, &$form_state) {
     'documents' => $form_state['values']['documents'],
     'manager' => $form_state['values']['managers'],
     'apartment' => $form_state['values']['apartment'],
+    'payment' => $form_state['values']['payment'],
+    'number_contract' => $form_state['values']['number_contract'],
+    'bank_name' => $form_state['values']['bank_name'],
+    'sum' => $form_state['values']['sum'],
   );
 
   $node = realty_creation_node_booking($options);
@@ -1522,22 +1569,19 @@ function realty_booking_apartment_form_submit($form, &$form_state) {
  */
 function realty_messages_booking_manager($node) {
   $module = 'realty';
-  $key = 'key';
-  $language = 'ru';
-  $params = array('attachments' => array($node->field_booking_document['und'][0]['uri']));
   $from = variable_get('site_mail');
-  $send = FALSE;
-  $manager_email = "kisarinnikita@yandex.ru";//$node->field_email_manager[LANGUAGE_NONE][0]['value'];
-  $file = file_load($node->field_booking_document['und'][0]['fid']);
+  $manager_email = 'usolceww@yandex.ru';//$node->field_email_manager[LANGUAGE_NONE][0]['value'];
+  foreach ($node->field_booking_document[LANGUAGE_NONE]  as $val) {
+    $files[] = file_load($val['fid']);
+  }
   $to = $manager_email;
-  $subject = 'Invoice ' . $file->filename;
   $token = time();
 
   $message = array(
     'id' => $module . '_' . $token,
     'to' => $to,
     'subject' => 'Заявка на бронирование!',
-    'body' => $node->title,
+    'body' => theme('booking_request', array('node' => $node)),
     'headers' => array(
       'From' => $from,
       'Sender' => $from,
@@ -1545,21 +1589,18 @@ function realty_messages_booking_manager($node) {
       'MIME-Version' => '1.0',
       'Content-Type' => 'text/html; charset=UTF-8',
     ),
-
-    'params' => array(
-      'attachments' => array(
-        0 => array(
-          'path' => file_stream_wrapper_get_instance_by_uri($file->uri)->realpath(),
-          'filecontent' => file_get_contents($file->uri),
-          'filename' => $file->filename,
-          'mime' => $file->filemime,
-          'encoding' => 'base64',
-          'disposition' => 'attachment',
-          'list' => TRUE,
-        )
-      ),
-    ),
   );
+  foreach ($files as $file) {
+    $message['params']['attachments'][] = array(
+      'path' => file_stream_wrapper_get_instance_by_uri($file->uri)->realpath(),
+      'filecontent' => file_get_contents($file->uri),
+      'filename' => $file->filename,
+      'mime' => $file->filemime,
+      'encoding' => 'base64',
+      'disposition' => 'attachment',
+      'list' => TRUE,
+    );
+  }
   $system = drupal_mail_system($module, $token);
   $message = $system->format($message);
 

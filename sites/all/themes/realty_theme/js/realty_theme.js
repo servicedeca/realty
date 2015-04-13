@@ -169,7 +169,7 @@
                 var link = document.createElement('a');
                 link.href = response;
                 if (link.download !== undefined){
-                  var fileName = response.substring(response.lastIndexOf('/') + 1, response.length);
+                  console.log(fileName);
                   var fileName = response.substring(response.lastIndexOf('/') + 1, response.length);
                   link.download = fileName;
                 }
@@ -193,23 +193,10 @@
 
   Drupal.behaviors.realtyBookingApartment = {
     attach: $(function () {
-      $("#apartment-booking").click(function () {
-        var nid = $(this).data('apartment-nid');
-        console.log(nid);
-        $.ajax({
-          url: '/apartment/booking',
-          type: 'GET',
-
-          data: {
-            nid: nid
-          },
-          success: function(response) {
-            console.log(response);
-          },
-          error: function(response) {
-            alert('false');
-          }
-        });
+      $("#modal-free-booking-apartment").click(function () {
+        if ($('.modal_free').length == 0) {
+          $('li .head-reg').trigger('click');
+        }
       });
     })
   }
@@ -792,4 +779,21 @@
       });
     })
   }
+
+  Drupal.behaviors.realtyAdditionalFieldsPayment = {
+    attach: $(function(){
+      $('#edit-payment-2').click(function(){
+        if ($(this).prop('checked')) {
+          $('.payment-additional-fields').show();
+        }
+      });
+      $('#edit-payment-0').click(function(){
+        $('.payment-additional-fields').hide();
+      });
+      $('#edit-payment-1').click(function(){
+        $('.payment-additional-fields').hide();
+      });
+    })
+  }
+
 }(jQuery));

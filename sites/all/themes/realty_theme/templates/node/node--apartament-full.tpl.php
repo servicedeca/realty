@@ -184,5 +184,7 @@
   </div>
 </div>
 
-<?php print render($booking_form); ?>
+<?php if(isset($booking_form)): ?>
+  <?php print render($booking_form); ?>
+<?php endif;?>
 

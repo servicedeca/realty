@@ -37,11 +37,17 @@
 </div>
 
    <?php print render($form['documents'])?>
-    <?php print render($form['managers'])?>
+   <?php print render($form['managers'])?>
+   <?php print render($form['payment'])?>
+   <div class="payment-additional-fields">
+    <?php print render($form['number_contract'])?>
+    <?php print render($form['bank_name'])?>
+    <?php print render($form['sum'])?>
+   </div>
 
     <?php print render($form['submit'])?>
   </div>
-  <div class="element-hidde">
+  <div class="element-hidden">
     <?php print drupal_render_children($form);?>
   </div>
 </div>

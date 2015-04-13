@@ -189,3 +189,11 @@ input.password-confirm, input.password-field {
 div.messages {
 
 }
+
+.payment-additional-fields {
+  display: none;
+}
+
+.comparison {
+  cursor: pointer;
+}

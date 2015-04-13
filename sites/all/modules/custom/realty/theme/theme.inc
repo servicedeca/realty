@@ -182,3 +182,13 @@ function realty_preprocess_realty_user_register_form(&$vars) {
   );
 
 }
+
+/**
+ * Process variables for realty-booking-request.tpl.php
+ */
+function realty_preprocess_realty_booking_request(&$vars) {
+  $a = 1;
+  $vars['name'] = $vars['node']->field_booking_name['und'][0]['value'];
+  $vars['link_apartment'] = 'http://findome.ru/node/' . $vars['node']->field_booking_apartment['und'][0]['target_id'];
+
+}
