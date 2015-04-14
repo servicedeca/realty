@@ -51,24 +51,28 @@ function template_preprocess_realty_developer_menu(&$vars) {
   }
   $menu_items = array(
     0 => array(
+      'path' => l($term->name, 'taxonomy/term/' . $term->tid),
+      'title' => 'developer',
+    ),
+    1 => array(
       'path' => l(t('current objects'), 'developer/' . $term->tid . '/complexes'),
       'title' => 'complexes',
     ),
-    1 => array(
+    2 => array(
       'path' => l(t('archive'), 'developer/' . $term->tid . '/archive'),
       'title' => 'archive',
     ),
-    2 => array(
+    3 => array(
       'path' => l(t('Gallery'), 'developer/' . $term->tid . '/gallery'),
       'title' => 'gallery',
     ),
 
-    3 => array(
+    4 => array(
       'path' => l(t('Stock'), 'developer/' . $term->tid . '/stock'),
       'title' => 'stock',
     ),
   );
-
+  $tid = arg(2);
   foreach ($menu_items as $key => $item) {
     if ($url == $item['title']) {
       $vars['menu'][$key] = '<li class="active-menu">' . $item['path'] . '</li>';
@@ -84,17 +88,11 @@ function template_preprocess_realty_developer_menu(&$vars) {
       'class' => array('active-complex'),
     ),
   ));
-  if (!empty($term->field_developer_mini_logo)) {
-    $path = $term->field_developer_mini_logo[LANGUAGE_NONE][0]['uri'];
-  }
-  else {
-      $path = $term->field_developer_logo[LANGUAGE_NONE][0]['uri'];
-  }
 
   $vars['logo'] = theme('image', array(
-    'path' => $path,
+    'path' => $term->field_developer_logo[LANGUAGE_NONE][0]['uri'],
     'attributes' => array(
-      'class' => array('complex-logo'),
+      'class' => array('complex-logo', 'developer-logo'),
     ),
   ));
 

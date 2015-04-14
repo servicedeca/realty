@@ -1228,6 +1228,12 @@ function realty_preprocess_views_view_unformatted__stock__stock_complex(&$vars) 
  */
 function realty_preprocess_views_view_unformatted__term_view__developer(&$vars) {
   $a = 1;
+  $vars['img_close'] = realty_get_image_close();
+  $vars['findome_logo'] = theme('image', array(
+    'path' => REALTY_FRONT_THEME_PATH . '/images/findome-gray.svg',
+    'attributes' => array(
+      'class' => array('margin-left-15')
+    )));
 }
 
 /**

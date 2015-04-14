@@ -87,10 +87,7 @@ function template_preprocess_realty_info_complex(&$vars) {
       'class' => array('margin-left-15')
     )));
 
-  $vars['img_close'] = theme('image', array(
-    'path' => REALTY_FRONT_THEME_PATH . '/images/close.png',
-    'title' => t('Close'),
-  ));
+  $vars['img_close'] = realty_get_image_close();
 
   $vars['map'] = views_embed_view('map', 'map_complex');
 

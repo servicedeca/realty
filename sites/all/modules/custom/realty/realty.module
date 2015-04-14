@@ -1544,7 +1544,6 @@ function realty_booking_apartment_form_validate($form, &$form_state) {
  *  Form submit callback
  */
 function realty_booking_apartment_form_submit($form, &$form_state) {
-  $a = 1;
   $options = array(
     'name' => $form_state['values']['name'],
     'number_phone' => $form_state['values']['number_phone'],
@@ -1560,8 +1559,16 @@ function realty_booking_apartment_form_submit($form, &$form_state) {
 
   $node = realty_creation_node_booking($options);
   realty_messages_booking_manager($node);
+  realty_change_status_apartment($form_state['values']['apartment']);
 
-  return drupal_exit();
+  return array(
+    '#type' => 'ajax',
+    '#commands' => array(
+      ajax_command_html('#ajax-div-modal-booking-form', 'Квартира успешно забронирована'),
+    ),
+  );
+
+  drupal_exit();
 }
 
 /**

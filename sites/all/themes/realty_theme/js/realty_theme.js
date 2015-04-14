@@ -796,4 +796,12 @@
     })
   }
 
+  Drupal.behaviors.events = {
+    attach: function(context, settings) {
+      $('body').bind('ajaxSuccess', function(data, status, xhr) {
+        alert('ok');
+      });
+    }
+  };
+
 }(jQuery));

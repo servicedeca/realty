@@ -4472,14 +4472,16 @@ font-size: 16px;
 }
 
 .develop-text {
-	padding-top: 70px;
-	padding-bottom: 70px;
-	padding-left: 70px;
-	padding-right: 70px;
-	margin-left: 15px;
-	colror:#666666;
-	font-size:18px;
-	line-height: 22px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  padding-left: 70px;
+  padding-right: 70px;
+  margin-left: 15px;
+  colror: #666666;
+  font-size: 18px;
+  line-height: 22px;
+  max-height: 260px;
+  overflow: hidden;
 }
 
 .mini-map-title {
@@ -5922,6 +5924,33 @@ background: url("../images/icon/down.png") no-repeat center right;
 }
 
 .wait {
-	color:9b9b9b;
+	color:#9b9b9b;
 	font-size: 16px;
+}
+
+.developer-modal-info-title {
+  margin-bottom: 30px;
+}
+
+.developer-info-button-block {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.developer-logo {
+  height: 60px;
+  width: 218px;
+  margin-top: 10px;
+  position: absolute;
+}
+
+.complex-menu h3 {
+  text-align: left;
+  padding-left: 230px;
+  font-size: 25px;
+  margin-top: 25px;
+  text-transform: uppercase;
+  width: 100%;
+  padding-right: 70px;
 }
