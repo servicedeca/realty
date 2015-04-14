@@ -1417,7 +1417,7 @@ function realty_preprocess_views_view_unformatted__term_view__developer_gallery(
     if (!empty($vars['view']->result)) {
       foreach ($vars['view']->result as $key => $album) {
         if (isset($album->field_field_developer_gallery_image[0])) {
-          $vars['albums'][$key]['title'] = l($album->field_field_developer_gallery_title[0]['rendered']['#markup'],
+          $vars['albums'][$key]['title'] = l($album->field_field_developer_gallery_title[0]['raw']['value'],
             file_create_url($album->field_field_developer_gallery_image[0]['raw']['uri']), array('attributes' => array(
               'class' => array('date-album'),
             )));
