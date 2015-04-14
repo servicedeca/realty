@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_developers/block_developers.inc" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_developers/block_developers.inc" />
-    </list>
+    <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="" />
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
