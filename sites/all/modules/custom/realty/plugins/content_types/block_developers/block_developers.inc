@@ -55,6 +55,9 @@ function template_preprocess_realty_block_developers(&$vars) {
       )),
       'path' => 'taxonomy/term/' . $val->tid,
     );
+    if ($key == 5) {
+     break;
+    }
   }
 
   $vars['all_developers'] = 'developers/city/' . $city->tid;
