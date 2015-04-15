@@ -7,6 +7,23 @@
       <?php print t('details');?>
     </a>
   </div>
+  <div class="col-xs-12 developer-contacts">
+    <h1>
+     <?php print t('contacts'); ?>
+    </h1>
+    <ul>
+      <li>
+        <b><?php print t('Address') . ':</b> ' . $view->result[0]->field_field_address_developer[0]['raw']['value']; ?>
+      </li>
+      <li>
+        <b><?php print t('Web-site') . ':</b> ' . $view->result[0]->field_field_web_site[0]['raw']['value']; ?>
+      </li>
+        <b><?php print t('Number phone') . ':</b> ' . $view->result[0]->field_field_number_phone[0]['raw']['value']; ?>
+      <li>
+        <b><?php print t('E-mail') . ':</b> ' . $view->result[0]->field_field_email[0]['raw']['value']; ?>
+      </li>
+    </ul>
+  </div>
 </div>
 <!--    Modal_info-complex   -->
 <div class="modal fade modal_info-complex" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
