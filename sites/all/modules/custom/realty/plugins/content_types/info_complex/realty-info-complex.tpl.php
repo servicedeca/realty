@@ -20,15 +20,6 @@
         <?php print $developer;?>
       </h2>
     </div>
-    <div class="border-bottom-complex">
-      <h2>
-        <span class="grey-span">
-          <?php print t('deadline');?>
-        </span>
-        <?php print $quarter . t(' quarter');?>
-        <?php print $year;?>
-      </h2>
-    </div>
     <div class="fix-complex-div">
       <span class="grey-span">
         <?php print t('information about the object');?>
@@ -42,10 +33,10 @@
     <div class="col-xs-1 adress-title">
       <?php print t('Address');?>
     </div>
-    <div class="col-xs-5 adress-item">
+    <div class="col-xs-6 adress-item">
       <?php print $address;?>
     </div>
-    <div class="col-xs-6 complex-info-button-block">
+    <div class="col-xs-5 complex-info-button-block">
       <a href="#" class="complex-info-button" data-toggle="modal" data-target=".modal_info-complex">
         <?php print t('details');?>
       </a>
@@ -53,11 +44,6 @@
   </div>
 </div>
 
-<div class="container fin">
-  <div class="col-xs-12 zero-padding complex-map">
-    <?php print $map?>
-  </div>
-</div>
 <!--    Modal_info-complex   -->
 <div class="modal fade modal_info-complex" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="container container-modal-info-complex zero-padding">

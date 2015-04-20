@@ -92,10 +92,10 @@
         <?php print t('Deadline')?>
       </label>
       <div class="col-xs-7 zero-padding">
-        <?php print render($form['field_quarter_value'])?>
+        <?php print render($form['field_home_deadline_quarter_value'])?>
       </div>
       <div class="col-xs-5 zero-padding padding-right">
-        <?php print render($form['field_year_value'])?>
+        <?php print render($form['field_home_deadline_year_value'])?>
       </div>
     </div>
   </div>

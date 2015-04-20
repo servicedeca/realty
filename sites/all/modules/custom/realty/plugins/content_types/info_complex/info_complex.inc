@@ -58,8 +58,6 @@ function template_preprocess_realty_info_complex(&$vars) {
   $deadline =  field_view_field('node', $node, 'field_deadline');
   $dead_entity = $deadline['#object']->field_deadline['und'][0]['value'];
   $vars['complex_name'] = $node->title;
-  $vars['quarter'] = $deadline[0]['entity']['field_collection_item'][$dead_entity]['field_quarter']['#items'][0]['value'];
-  $vars['year'] = $deadline[0]['entity']['field_collection_item'][$dead_entity]['field_year']['#items'][0]['value'];
   $description =  field_view_field('node', $node, 'field_description');
   $desc_entity = $description['#object']->field_description['und'][0]['value'];
   if (isset($description[0]['entity']['field_collection_item'][$desc_entity]['field_location'])) {
@@ -88,7 +86,4 @@ function template_preprocess_realty_info_complex(&$vars) {
     )));
 
   $vars['img_close'] = realty_get_image_close();
-
-  $vars['map'] = views_embed_view('map', 'map_complex');
-
 }

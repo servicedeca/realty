@@ -31,7 +31,6 @@ function realty_complexes_filter_content_type_render($subtype, $conf, $panel_arg
  * Implements hook_content_type_theme().
  */
 function realty_complexes_filter_content_type_theme(&$theme, $plugin) {
-  $a = 1;
   $theme['realty_complexes_filter'] = array(
     'path' => $plugin['path'],
     'template' => 'realty-complexes-filter',

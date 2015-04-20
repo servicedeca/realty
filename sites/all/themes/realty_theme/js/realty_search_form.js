@@ -93,11 +93,11 @@
       $('#date')
         .change(function(){
           wall = $(this).val();
-          $('#edit-field-quarter-value option:selected').each(function(){
-            this.selected=false;
+          $('#edit-field-home-deadline-quarter-value option:selected').each(function(){
+            this.selected = false;
           });
           for (i in wall) {
-            $('#edit-field-quarter-value option[value="'+wall[i]+'"]').attr('selected', 'selected');
+            $('#edit-field-home-deadline-quarter-value option[value="'+wall[i]+'"]').attr('selected', 'selected');
           }
         })
         .multipleSelect({
@@ -127,7 +127,7 @@
       });
 
       $('#edit-year').change(function(){
-        $('#edit-field-year-value').val($(this).val());
+        $('#edit-field-home-deadline-year-value').val($(this).val());
       });
 
       $('#floor').change(function(){
@@ -176,10 +176,10 @@
           floor = $('#edit-field-apartment-floor-value').val(),
           masonry = $('#edit-field-masonry-value').val(),
           category = $('#edit-field-category-value').val(),
-          quarter = $('#edit-field-quarter-value').val(),
+          quarter = $('#edit-field-home-deadline-quarter-value').val(),
           loggia = $('#edit-field-loggia-value').val(),
           balcony = $('#edit-field-balcony-value').val(),
-          year = $('#edit-field-year-value').val(),
+          year = $('#edit-field-home-deadline-year-value').val(),
           sqMin = $('#edit-field-gross-area-value-min').val(),
           sqMax = $('#edit-field-gross-area-value-max').val(),
           priceMin = $('#edit-field-price-value-min').val() / 1000,
@@ -266,6 +266,32 @@
       }
     }
 
+    var complex_select = function(devid) {
+      var city = $('input[name="city"]').val();
+      console.log(city);
+      $.ajax({
+        url: '/get_developer_complex',
+        type: 'POST',
+        data: {
+          developer: devid,
+          city: 1
+        },
+        success: function(response) {
+          var object = jQuery.parseJSON(response);
+          console.log(response);
+          $('.complexes-lis').html('');
+          $('#complex').html('');
+          if (object != null) {
+            $('.complexes-lis').html(object.modal);
+            $('#edit-field-home-complex-target-id').html(object.select);
+          }
+        },
+        error: function(response) {
+          alert('false');
+        }
+      });
+    }
+
     devid={};
     var multiselect_modal = function(class_check_box, id_select, class_input) {
       var array_input = {};
@@ -279,7 +305,8 @@
           if (class_check_box == 'CheckboxDeveloper') {
             devid[param[0]] = param[0];
             $('.search-input-complex').val('');
-            //complex_select(devid);
+            console.log(devid);
+            complex_select(devid);
           }
 
           string_input = '';

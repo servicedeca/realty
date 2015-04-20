@@ -7,7 +7,7 @@ Drupal.behaviors.realtyFormSearch = {
 
 //  date multiple select
       $(function() {
-        $('#edit-field-quarter-value').change(function() {
+        $('#edit-field-home-deadline-quarter-value').change(function() {
         }).multipleSelect({
           placeholder: '',
           selectAllText: 'Отметить все',
@@ -212,13 +212,13 @@ Drupal.behaviors.realtyFormSearch = {
     multiselect_modal('CheckboxComplex', 'edit-field-home-complex-target-id', 'search-input-complex');
 
     function complex_select(devid) {
-      var city = $('input[name="city"]');
+      var city = Drupal.settings.city;
       $.ajax({
         url: '/get_developer_complex',
         type: 'POST',
         data: {
           developer: devid,
-          city: city.val()
+          city: city
         },
         success: function(response) {
           var object = jQuery.parseJSON(response);

@@ -180,7 +180,6 @@ function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
   $city = taxonomy_term_load($city_id);
   $vars['city'] = l($city->name, 'taxonomy/term/'.$city->tid);
   $vars['complexes_link'] = l(t('complexes'), 'complexes/city/'.$city->tid);
-
   foreach($vars['view']->result as $k => $value) {
       $vars['complexes'][$k] = array(
           'logo' => theme('image', array(
@@ -191,7 +190,9 @@ function realty_preprocess_views_view_unformatted__complex__complexs(&$vars) {
           'complex_link' => '/node/'.$value->nid,
       );
   }
+$a= 1;
 }
+
 /*
  * Process variables for views-view-unformatted--complex--complex.tpl.php.
  */
@@ -462,8 +463,8 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
         'complex' => $val->field_field_home_complex[0]['raw']['entity']->title,
         'complex_path' => '/node/' . $val->field_field_home_complex[0]['raw']['target_id'],
         'address' => $val->field_field_address_house[0]['raw']['value'],
-        'quarter' => $val->field_field_quarter[0]['raw']['value'],
-        'year' => $val->field_field_year[0]['raw']['value'],
+        'quarter' => $val->field_field_home_deadline_quarter[0]['raw']['value'],
+        'year' => $val->field_field_home_deadline_year[0]['raw']['value'],
         'rooms' => $val->field_field_number_rooms[0]['raw']['value'],
         'floor' => $val->field_field_apartment_floor[0]['raw']['value'],
         'home_floor' =>  $val->field_field_number_floor[0]['raw']['value'],
@@ -974,17 +975,34 @@ function realty_preprocess_node__apartament_full(&$vars) {
         'id' => 'callh'
       ),
     ));
-
-    $vars['link_modal_book'] = '<div class="apartment-signal" data-apartment="1" data-node-id='.$vars['nid'].'>'.
-      l($call . $callh . '<span class="new-tip-button" id="call">
+    if ($user->uid == 0) {
+      $vars['link_modal_book'] = '<div class=""АF>'.
+        l($call . $callh . '<span class="new-tip-button" id="call">
         '. t('Send notification if your will act') .'
         </span>', '#href', array(
-          'external' => TRUE,
-          'html' => TRUE,
-          'attributes' => array(
-            'data-toggle' => 'modal',
-            'data-target' => '.modal_booking',
-        ))).'</div>';
+            'external' => TRUE,
+            'html' => TRUE,
+            'attributes' => array(
+              'data-toggle' => 'modal',
+              'data-target' => '.registration',
+            )
+          )
+        ).'</div>';
+    }
+    else {
+      $vars['link_modal_book'] = '<div class="apartment-signal" data-apartment="1" data-node-id='.$vars['nid'].'>'.
+        l($call . $callh . '<span class="new-tip-button" id="call">
+        '. t('Send notification if your will act') .'
+        </span>', '#href', array(
+            'external' => TRUE,
+            'html' => TRUE,
+            'attributes' => array(
+              'data-toggle' => 'modal',
+              'data-target' => '.modal_booking',
+            )
+          )
+        ).'</div>';
+    }
 
     if (realty_check_status_apartment_user($user->uid, $vars['nid']) == TRUE) {
       $call = theme('image', array(
@@ -1000,7 +1018,9 @@ function realty_preprocess_node__apartament_full(&$vars) {
             'external' => TRUE,
             'html' => TRUE,
             'attributes' => array(
-            )));
+            )
+        )
+      );
     }
 
   }
@@ -1426,12 +1446,16 @@ function realty_preprocess_views_view_unformatted__term_view__developer_gallery(
           $vars['albums'][$key]['title'] = l($album->field_field_developer_gallery_title[0]['raw']['value'],
             file_create_url($album->field_field_developer_gallery_image[0]['raw']['uri']), array('attributes' => array(
               'class' => array('date-album'),
-            )));
+              )
+            )
+          );
+
           $image_album = theme('image', array(
             'path' => $album->field_field_developer_gallery_image[0]['raw']['uri'],
             'width' => '100%',
             'height' => '100%',
-          ));
+            )
+          );
 
           $vars['albums'][$key]['image_album'] = l($image_album,
             file_create_url($album->field_field_developer_gallery_image[0]['raw']['uri']), array(
@@ -1441,10 +1465,12 @@ function realty_preprocess_views_view_unformatted__term_view__developer_gallery(
               )
             )
           );
-          foreach ($album->field_field_image_gallery as $photo) {
+
+          foreach ($album->field_field_developer_gallery_image as $photo) {
             $vars['albums'][$key]['photos'][] = l('',file_create_url($photo['raw']['uri']), array(
               'title' => $photo['raw']['title'],
-            ));
+              )
+            );
           }
         }
       }

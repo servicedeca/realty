@@ -91,9 +91,9 @@ function realty_preprocess_realty_main_search_form(&$vars) {
   );
   $vars['form']['field_masonry_value']['#attributes']['class'] = array('ss');
   $vars['form']['field_category_value']['#attributes']['class'] = array('ss', 'mini-ss');
-  $vars['form']['field_quarter_value']['#attributes']['class'] = array('ss', 'mini-ss');
-  $vars['form']['field_year_value']['#attributes'] = array(
-    'class' => array('search-input ear'),
+  $vars['form']['field_home_deadline_quarter_value']['#attributes']['class'] = array('ss', 'mini-ss');
+  $vars['form']['field_home_deadline_year_value']['#attributes'] = array(
+    'class' => array('search-input', 'ear', 'ss', 'mini-ss'),
     'placeholder' => t('Year'),
     'maxlength' => '4',
   );

@@ -2,7 +2,8 @@
 
   Drupal.behaviors.realtyInit = {
     attach: $(function() {
-      window.alert = function(arg) { if (window.console && console.log) { console.log(arg);}};
+     // jQuery.extend(Drupal.settings, {"devel":{"request_id":149027}});
+      //window.alert = function(arg) { if (window.console && console.log) { console.log(arg);}};
       if(Drupal.settings.id) {
         $("body").attr("id","index");
       }
@@ -102,12 +103,12 @@
           success: function(response) {
             var object = jQuery.parseJSON(response);
             console.log(object);
-            $('#complexes-lis-map').html(object.modal);
-           // $('#complex-list-map').html('');
+            $('.modal-map-complex .list-modal-city').html('');
+            $('.modal-map-complex .list-modal-city').html(object.modal);
             $('#edit-field-home-complex-target-id').html('');
             if (object != null) {
               console.log(object.modal);
-              $('#complexes-lis-map').html(object.modal);
+              $('.modal-map-complex .list-modal-city').html(object.modal);
               $('#edit-field-home-complex-target-id').html(object.select);
             }
           },
@@ -804,4 +805,16 @@
     }
   };
 
+  Drupal.behaviors.realtyRegModal = {
+    attach: $(function(){
+      $(document).ready(function(){
+        $(".reg-item").click(function(){
+          if($(this).attr('class')  ==  'reg-item' ) {
+            $('.reg-item').removeClass('reg-active');
+            $(this).addClass('reg-active');
+          }
+        })
+      });
+    })
+  }
 }(jQuery));

@@ -41,7 +41,8 @@ function realty_apartment_complex_content_type_theme(&$theme, $plugin) {
  * Process variables for realty-info-complex.tpl.php.
  */
 function template_preprocess_realty_apartment_complex(&$vars) {
-  $node = menu_get_object('node', 1);
+  $nid = arg(1);
+  $node = node_load($nid);
   if ($node->type == 'apartament') {
     $complex_id = $node->field_apartament_home['und'][0]['taxonomy_term']->field_home_complex['und'][0]['target_id'];
     $vars['view'] = '<div class="container fin zero-padding"><div class="col-xs-12 zero-padding">' .

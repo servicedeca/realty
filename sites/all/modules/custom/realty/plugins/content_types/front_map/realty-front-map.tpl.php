@@ -135,7 +135,7 @@
         <?php print render($img_close)?>
       </button>
     </div>
-    <div class="col-xs-12 list-modal-city" id="complex-list-map">
+    <div class="col-xs-12 list-modal-city complex-list-map">
 
       <?php foreach($complexes as $key => $complex):?>
         <div class="col-xs-4">

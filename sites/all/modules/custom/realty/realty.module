@@ -806,9 +806,11 @@ function realty_get_complex_current_city($developers = NULL, $city_tid = NULL) {
     $tid = arg(1);
     $city = taxonomy_term_load($tid);
   }
+
   if (isset($_GET['field_city_tid']) || $city) {
     $city != NULL ? $city_tid = $city->tid : $city_tid = $_GET['field_city_tid'];
   }
+
   $view = views_get_view('complex');
   if ($developers != NULL && $city == NULL) {
     $view->set_display('complex_developers');
@@ -817,10 +819,12 @@ function realty_get_complex_current_city($developers = NULL, $city_tid = NULL) {
       $view->display_handler->options['filters']['field_complex_developer_tid']['value'][$value] = $value;
     }
   }
+
   else {
     $view->set_display('complexs_search');
     $view->display_handler->options['arguments']['tid']['default_argument_options']['argument'] = $city_tid;
   }
+
   $view->pre_execute(array());
   $view->display_handler->preview();
   $view->post_execute();
@@ -1616,5 +1620,37 @@ function realty_messages_booking_manager($node) {
   }
   else {
     return FALSE;
+  }
+}
+
+/**
+ *  Found this trick on theoleschool.com.
+ *
+ *  Description: Allows the view developer to specify the query
+ *  group by action in the query comments. Great way to force the
+ *  removal of duplicates.
+ *
+ *  Just go into your query comments and type in "groupby:" with
+ *  that colon followed by the field you want to group by.
+ *
+ *  Examples...
+ *  groupby:node.nid
+ *  groupby:file_managed_file_usage.fid
+ *
+ *  Ref-Comment: http://theoleschool.com/comment/496#comment-496
+ *  Ref-Article: http://theoleschool.com/blog/using-hookviewsalter-add-group-statement
+ */
+function realty_query_alter(QueryAlterableInterface $query) {
+  if ($query->hasTag('views')) {
+    static $count;
+    $view =& $query->getMetaData('view');
+
+    if (strstr($groupby = $view->query->options['query_comment'], 'groupby')) {
+      list($action, $field) = explode(':', $groupby);
+
+      if (strlen($field) > 0) {
+        $query->groupBy($field);
+      }
+    }
   }
 }
