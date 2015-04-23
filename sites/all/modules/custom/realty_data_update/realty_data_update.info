@@ -1,0 +1,5 @@
+name = Realty data update
+description = Update Entity Data.
+package = Realty
+core = 7.x
+version = «1.x-1.0»

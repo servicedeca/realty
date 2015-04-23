@@ -3,15 +3,10 @@
  * @file
  */
 
-function mark_picture_init() {
-
-}
-
 /**
  * Implement hook_form_alter.
  */
 function mark_picture_form_taxonomy_form_term_alter(&$form, &$form_state,$form_id) {
-  $a = 1;
   if ($form['vocabulary_machine_name']['#value'] == 'homes') {
     $form['#theme'] = 'taxonomy_form_term_homes';
   }
@@ -108,6 +103,5 @@ function mark_picture_add_plan_complex() {
  * Page callback to /mark_picture_add_section.
  */
 function mark_picture_add_section() {
-
   $section = $_POST['sections'];
 }

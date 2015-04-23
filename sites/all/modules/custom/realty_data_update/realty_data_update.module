@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_cron().
+ */
+function realty_data_update_cron() {
+  $a = 1;
+}
