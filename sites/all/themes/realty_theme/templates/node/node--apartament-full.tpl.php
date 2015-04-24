@@ -20,11 +20,13 @@
             <?php print t('Location of the house');?>
           </a>
         </li>
-        <li role="presentation" class="">
-          <a href="#credit" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">
-            <?php print t('visualization');?>
-          </a>
-        </li>
+        <?php if(isset($vizual)):?>
+          <li role="presentation" class="">
+            <a href="#credit" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">
+              <?php print t('visualization');?>
+            </a>
+          </li>
+        <?php endif;?>
       </ul>
     </div>
   </div>
@@ -152,11 +154,10 @@
       </div>
     </div>
 
+    <?php if(isset($vizual)):?>
     <div  role="tabpanel" id="credit" aria-labelledby="profile-tab" class="col-xs-11 develop-complex zero-padding tab-pane fade margin-top-70">
       <div class="col-xs-8 zero-padding apartment-plan">
-        <?php if(isset($vizual)):?>
-          <?php print $vizual;?>
-        <?php endif;?>
+        <?php print $vizual;?>
       </div>
       <div class="col-xs-4 zero-padding apartment-text">
         <h3><?php print t('Developer')?></h3>
@@ -181,6 +182,8 @@
         <p><?php print $address;?></p>
       </div>
     </div>
+    <?php endif;?>
+
   </div>
 </div>
 

@@ -195,4 +195,5 @@ function template_preprocess_realty_plan_complex(&$vars) {
       }
     }
   }
+  $a = 1;
 }
