@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/plan_complex/plan_complex.inc" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/plan_complex/plan_complex.inc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
     </list>
     <ignored path="realty.iws" />
@@ -55,19 +52,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="template.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1090" column="15" selection-start="34602" selection-end="34602" vertical-scroll-proportion="-7.54902" vertical-offset="15965" max-vertical-offset="24915">
+            <state line="1055" column="110" selection-start="33559" selection-end="33559" vertical-scroll-proportion="0.18439716" vertical-offset="15695" max-vertical-offset="24915">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="node--apartament-full.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="node--apartament-full.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="15" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.5744681" vertical-offset="0" max-vertical-offset="2985">
+            <state line="27" column="15" selection-start="1222" selection-end="1222" vertical-scroll-proportion="-7.9411764" vertical-offset="0" max-vertical-offset="2985">
               <folding />
             </state>
           </provider>
@@ -193,8 +190,8 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/mark_picture/theme/taxonomy-form-term-homes.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/plan_complex/plan_complex.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
-        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
       </list>
     </option>
   </component>
@@ -1109,16 +1106,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1090" column="15" selection-start="34602" selection-end="34602" vertical-scroll-proportion="-7.54902" vertical-offset="15965" max-vertical-offset="24915">
+        <state line="27" column="15" selection-start="1222" selection-end="1222" vertical-scroll-proportion="-7.9411764" vertical-offset="0" max-vertical-offset="2985">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php">
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="15" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.5744681" vertical-offset="0" max-vertical-offset="2985">
+        <state line="1055" column="110" selection-start="33559" selection-end="33559" vertical-scroll-proportion="0.18439716" vertical-offset="15695" max-vertical-offset="24915">
           <folding />
         </state>
       </provider>
