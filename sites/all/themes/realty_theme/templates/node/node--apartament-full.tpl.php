@@ -96,12 +96,12 @@
       </div>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="layout-area" aria-labelledby="profile-tab">
-      <div class="col-xs-8 zero-padding apartment-plan">
+      <div class="col-xs-9 zero-padding apartment-plan">
         <?php if(isset($floor_plan)):?>
           <?php print $floor_plan;?>
         <?php endif;?>
       </div>
-      <div class="col-xs-4 zero-padding apartment-text">
+      <div class="col-xs-3 zero-padding apartment-text">
         <h3><?php print t('Developer')?></h3>
         <p><?php print $developer?></p>
         <h3><?php print t('The residential complex');?></h3>
@@ -125,12 +125,12 @@
       </div>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="layout-home" aria-labelledby="profile-tab">
-      <div class="col-xs-8 zero-padding apartment-plan">
+      <div class="col-xs-9 zero-padding apartment-plan">
         <?php if(isset($home_plan)):?>
           <?php print $home_plan;?>
         <?php endif;?>
       </div>
-      <div class="col-xs-4 zero-padding apartment-text">
+      <div class="col-xs-3 zero-padding apartment-text">
         <h3><?php print t('Developer')?></h3>
         <p><?php print $developer?></p>
         <h3><?php print t('The residential complex');?></h3>
@@ -156,10 +156,10 @@
 
     <?php if(isset($vizual)):?>
     <div  role="tabpanel" id="credit" aria-labelledby="profile-tab" class="col-xs-11 develop-complex zero-padding tab-pane fade margin-top-70">
-      <div class="col-xs-8 zero-padding apartment-plan">
+      <div class="col-xs-9 zero-padding apartment-plan">
         <?php print $vizual;?>
       </div>
-      <div class="col-xs-4 zero-padding apartment-text">
+      <div class="col-xs-3 zero-padding apartment-text">
         <h3><?php print t('Developer')?></h3>
         <p><?php print $developer?></p>
         <h3><?php print t('The residential complex');?></h3>
