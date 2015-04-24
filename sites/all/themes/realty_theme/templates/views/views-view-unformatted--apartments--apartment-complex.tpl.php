@@ -52,7 +52,7 @@
           <?php print $apartment['room']?>
         </td>
         <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
-          <?php print $apartment['floor']?>
+          <?php print $apartment['floor']?> / <?php print $apartment['home_floor']?>
         </td>
         <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
           <?php print $apartment['sq'] . 'м'?><sup>2</sup>
