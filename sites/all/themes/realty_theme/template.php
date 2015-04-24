@@ -1054,7 +1054,7 @@ function realty_preprocess_node__apartament_full(&$vars) {
   );
 
 
-  empty($vars['field_plan_apartment']) ? $path_apartment_plan = $vars['field_location_floor']['und'][0]['uri'] :
+  empty($vars['field_plan_apartment']) ? $path_apartment_plan = $vars['field_location_floor'][0]['uri'] :
     $path_apartment_plan = $vars['field_plan_apartment'][0]['uri'];
 
   $vars['apartment_plan'] = theme('image_style', array(
