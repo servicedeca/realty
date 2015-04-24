@@ -1054,12 +1054,12 @@ function realty_preprocess_node__apartament_full(&$vars) {
   );
 
 
-  empty($vars['field_plan_apartment']) ? $path_apartment_plan = $vars['field_location_floor']['und'][0]['uri'] :
+ /* empty($vars['field_plan_apartment']) ? $path_apartment_plan = $vars['field_location_floor']['und'][0]['uri'] :
     $path_apartment_plan = $vars['field_plan_apartment'][0]['uri'];
-
+*/
   $vars['apartment_plan'] = theme('image_style', array(
     'style_name' => '667x450',
-    'path' => $path_apartment_plan,
+    'path' => $vars['field_location_floor']['und'][0]['uri'],
     'title' => 'plan apartment',
     'attributes' => array(
       'class' => array('apartment-image-vertical'),
@@ -1067,8 +1067,8 @@ function realty_preprocess_node__apartament_full(&$vars) {
   ));
 
   if (!empty($vars['field_location_home'])) {
-    $vars['home_plan'] = theme('image', array(
-      //'style_name' => '667x450',
+    $vars['home_plan'] = theme('image_style', array(
+      'style_name' => '667x450',
       'path' => $vars['field_location_home'][0]['uri'],
       'title' => 'plan apartment',
       'attributes' => array(
