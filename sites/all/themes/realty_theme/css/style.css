@@ -3005,6 +3005,12 @@ margin-left: -120px;
     text-transform: uppercase;
 }
 
+@media (max-width:1200px){
+  .apartment-title{
+    font-size: 28px;
+  }
+}
+
 .apartment-title a{
     color:#4d4d4d;
 }

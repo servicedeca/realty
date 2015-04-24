@@ -67,12 +67,12 @@
 
   <div class="col-xs-11 zero-pading tab-content apartment-body">
     <div role="tabpanel" class="tab-pane fade active in" id="layout" aria-labelledby="home-tab">
-      <div class="col-xs-8 zero-padding apartment-plan">
+      <div class="col-xs-9 zero-padding apartment-plan">
         <?php if(isset($apartment_plan)):?>
           <?php print $apartment_plan;?>
         <?php endif;?>
       </div>
-      <div class="col-xs-4 zero-padding apartment-text">
+      <div class="col-xs-3 zero-padding apartment-text">
         <h3><?php print t('Developer')?></h3>
         <p><?php print $developer?></p>
         <h3><?php print t('The residential complex');?></h3>
