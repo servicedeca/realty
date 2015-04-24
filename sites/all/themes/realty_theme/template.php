@@ -1067,8 +1067,8 @@ function realty_preprocess_node__apartament_full(&$vars) {
   ));
 
   if (!empty($vars['field_location_home'])) {
-    $vars['home_plan'] = theme('image_style', array(
-      'style_name' => '667x450',
+    $vars['home_plan'] = theme('image', array(
+      //'style_name' => '667x450',
       'path' => $vars['field_location_home'][0]['uri'],
       'title' => 'plan apartment',
       'attributes' => array(

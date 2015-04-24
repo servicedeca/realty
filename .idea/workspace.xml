@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="template.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="301" column="75" selection-start="9449" selection-end="9449" vertical-scroll-proportion="-8.45098" vertical-offset="4084" max-vertical-offset="24930">
+            <state line="1070" column="8" selection-start="34057" selection-end="34057" vertical-scroll-proportion="0.358396" vertical-offset="15764" max-vertical-offset="24930">
               <folding />
             </state>
           </provider>
@@ -70,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views-view-unformatted--apartments--apartment-complex.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views-view-unformatted--apartments--apartment-complex.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="43" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.6181818" vertical-offset="300" max-vertical-offset="1125">
+            <state line="54" column="43" selection-start="2083" selection-end="2083" vertical-scroll-proportion="-21.25" vertical-offset="300" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
@@ -190,8 +190,8 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/plan_complex/plan_complex.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" />
-        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
       </list>
     </option>
   </component>
@@ -816,7 +816,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1886" />
+      <option name="time" value="1888" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1110,16 +1110,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="301" column="75" selection-start="9449" selection-end="9449" vertical-scroll-proportion="-8.45098" vertical-offset="4084" max-vertical-offset="24930">
+        <state line="54" column="43" selection-start="2083" selection-end="2083" vertical-scroll-proportion="-21.25" vertical-offset="300" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php">
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="43" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.6181818" vertical-offset="300" max-vertical-offset="1125">
+        <state line="1070" column="8" selection-start="34057" selection-end="34057" vertical-scroll-proportion="0.358396" vertical-offset="15764" max-vertical-offset="24930">
           <folding />
         </state>
       </provider>
