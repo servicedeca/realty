@@ -72,56 +72,12 @@
           <?php print $apartment_plan;?>
         <?php endif;?>
       </div>
-      <div class="col-xs-3 zero-padding apartment-text">
-        <h3><?php print t('Developer')?></h3>
-        <p><?php print $developer?></p>
-        <h3><?php print t('The residential complex');?></h3>
-        <p><?php print $complex;?></p>
-        <h3><?php print t('deadline')?></h3>
-        <p><?php print $deadline?></p>
-        <h3><?php print t('type');?></h3>
-        <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
-        <h3><?php print t('price')?></h3>
-        <p><?php print $content['field_full_cost'][0]['#markup']?></p>
-        <h3><?php print t('location');?></h3>
-        <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
-        <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
-        <p><?php print t('apartment number').': ' .$field_number_apartament[0]['value']?></p>
-        <h3><?php print t('square')?></h3>
-        <p><?php print t('gross area').': ' .$content['field_gross_area'][0]['#markup']?></p>
-        <p><?php print t('living space').': ' .$content['field_living_space'][0]['#markup']?></p>
-        <h3><?php print t('Address');?></h3>
-        <p><?php print $area . ' area';?></p>
-        <p><?php print $address;?></p>
-      </div>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="layout-area" aria-labelledby="profile-tab">
       <div class="col-xs-9 zero-padding apartment-plan">
         <?php if(isset($floor_plan)):?>
           <?php print $floor_plan;?>
         <?php endif;?>
-      </div>
-      <div class="col-xs-3 zero-padding apartment-text">
-        <h3><?php print t('Developer')?></h3>
-        <p><?php print $developer?></p>
-        <h3><?php print t('The residential complex');?></h3>
-        <p><?php print $complex;?></p>
-        <h3><?php print t('deadline')?></h3>
-        <p><?php print $deadline?></p>
-        <h3><?php print t('type');?></h3>
-        <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
-        <h3><?php print t('price')?></h3>
-        <p><?php print $content['field_full_cost'][0]['#markup']?></p>
-        <h3><?php print t('location');?></h3>
-        <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
-        <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
-        <p><?php print t('apartment number').': ' .$field_number_apartament[0]['value']?></p>
-        <h3><?php print t('square')?></h3>
-        <p><?php print t('gross area').': ' .$content['field_gross_area'][0]['#markup']?></p>
-        <p><?php print t('living space').': ' .$content['field_living_space'][0]['#markup']?></p>
-        <h3><?php print t('Address');?></h3>
-        <p><?php print $area . ' area';?></p>
-        <p><?php print $address;?></p>
       </div>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="layout-home" aria-labelledby="profile-tab">
@@ -130,28 +86,6 @@
           <?php print $home_plan;?>
         <?php endif;?>
       </div>
-      <div class="col-xs-3 zero-padding apartment-text">
-        <h3><?php print t('Developer')?></h3>
-        <p><?php print $developer?></p>
-        <h3><?php print t('The residential complex');?></h3>
-        <p><?php print $complex;?></p>
-        <h3><?php print t('deadline')?></h3>
-        <p><?php print $deadline?></p>
-        <h3><?php print t('type');?></h3>
-        <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
-        <h3><?php print t('price')?></h3>
-        <p><?php print $content['field_full_cost'][0]['#markup']?></p>
-        <h3><?php print t('location');?></h3>
-        <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
-        <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
-        <p><?php print t('apartment number').': ' .$field_number_apartament[0]['value']?></p>
-        <h3><?php print t('square')?></h3>
-        <p><?php print t('gross area').': ' .$content['field_gross_area'][0]['#markup']?></p>
-        <p><?php print t('living space').': ' .$content['field_living_space'][0]['#markup']?></p>
-        <h3><?php print t('Address');?></h3>
-        <p><?php print $area . ' area';?></p>
-        <p><?php print $address;?></p>
-      </div>
     </div>
 
     <?php if(isset($vizual)):?>
@@ -159,31 +93,30 @@
       <div class="col-xs-9 zero-padding apartment-plan">
         <?php print $vizual;?>
       </div>
-      <div class="col-xs-3 zero-padding apartment-text">
-        <h3><?php print t('Developer')?></h3>
-        <p><?php print $developer?></p>
-        <h3><?php print t('The residential complex');?></h3>
-        <p><?php print $complex;?></p>
-        <h3><?php print t('deadline')?></h3>
-        <p><?php print $deadline?></p>
-        <h3><?php print t('type');?></h3>
-        <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
-        <h3><?php print t('price')?></h3>
-        <p><?php print $content['field_full_cost'][0]['#markup']?></p>
-        <h3><?php print t('location');?></h3>
-        <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
-        <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
-        <p><?php print t('apartment number').': ' .$field_number_apartament[0]['value']?></p>
-        <h3><?php print t('square')?></h3>
-        <p><?php print t('gross area').': ' .$content['field_gross_area'][0]['#markup']?></p>
-        <p><?php print t('living space').': ' .$content['field_living_space'][0]['#markup']?></p>
-        <h3><?php print t('Address');?></h3>
-        <p><?php print $area . ' area';?></p>
-        <p><?php print $address;?></p>
-      </div>
     </div>
     <?php endif;?>
-
+    <div class="col-xs-3 zero-padding apartment-text">
+      <h3><?php print t('Developer')?></h3>
+      <p><?php print $developer?></p>
+      <h3><?php print t('The residential complex');?></h3>
+      <p><?php print $complex;?></p>
+      <h3><?php print t('deadline')?></h3>
+      <p><?php print $deadline?></p>
+      <h3><?php print t('type');?></h3>
+      <p><?php print $content['field_number_rooms'][0]['#markup']?></p>
+      <h3><?php print t('price')?></h3>
+      <p><?php print $content['field_full_cost'][0]['#markup']?></p>
+      <h3><?php print t('location');?></h3>
+      <p><?php print t('section number').': ' .$field_section[0]['value']?></p>
+      <p><?php print t('floor').': ' .$field_apartment_floor[0]['value']?></p>
+      <p><?php print t('apartment number').': ' .$field_number_apartament[0]['value']?></p>
+      <h3><?php print t('square')?></h3>
+      <p><?php print t('gross area').': ' .$content['field_gross_area'][0]['#markup']?></p>
+      <p><?php print t('living space').': ' .$content['field_living_space'][0]['#markup']?></p>
+      <h3><?php print t('Address');?></h3>
+      <p><?php print $area . ' area';?></p>
+      <p><?php print $address;?></p>
+    </div>
   </div>
 </div>
 
