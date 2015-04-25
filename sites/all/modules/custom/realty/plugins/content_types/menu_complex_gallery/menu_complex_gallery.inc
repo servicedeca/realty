@@ -46,12 +46,12 @@ function template_preprocess_realty_menu_complex_gallery(&$vars) {
 
   $menu_items = array(
     0 => array(
-      'path' => l(t('diaries construction'), 'complexes/' . $node->nid . '/gallery/photo'),
-      'title' => 'photo',
-    ),
-    1 => array(
       'path' => l(t('visualization'), 'complexes/' . $node->nid . '/gallery/visualization'),
       'title' => 'visualization',
+    ),
+    1 => array(
+      'path' => l(t('diaries construction'), 'complexes/' . $node->nid . '/gallery/photo'),
+      'title' => 'photo',
     ),
     2 => array(
       'path' => l(t('3D tour'), 'complexes/' . $node->nid . '/gallery/tour'),

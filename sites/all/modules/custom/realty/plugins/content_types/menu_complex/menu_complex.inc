@@ -68,7 +68,7 @@ function template_preprocess_realty_menu_complex(&$vars) {
       'title' => 'plan',
     ),
     1 => array(
-      'path' => l(t('Gallery'), 'complexes/' . $node->nid . '/gallery/photo'),
+      'path' => l(t('Gallery'), 'complexes/' . $node->nid . '/gallery/visualization'),
       'title' => 'gallery',
     ),
     2 => array(

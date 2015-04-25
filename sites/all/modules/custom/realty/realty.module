@@ -370,25 +370,28 @@ function realty_get_data_complex() {
       'path' => $node->field_main_photo['und'][0]['uri'],
       'attributes' => array(
         'class' => array('title-image'),
-      ),
-    ));
+        ),
+      )
+    );
 
     if (!empty($node->field_complex_logo)) {
       $answer['logo'] = theme('image', array(
         'path' => $node->field_complex_logo['und'][0]['uri'],
         'attributes' => array(
           'class' => array('logo-z', 'vertical-logo'),
-        ),
-      ));
+          ),
+        )
+      );
     }
 
     if (!empty($node->field_description)) {
       $answer['description'] = $node->field_description['und'][0]['value'];
     }
 
-    $answer['details'] = l(t('details'), 'node/' . $node->nid, array('attributes' => array('class' => array(
-      'button-info', 'button-info-top')
-      ))
+    $answer['details'] = l(t('details'), 'node/' . $node->nid, array(
+        'attributes' => array('class' => array('button-info', 'button-info-top'),
+      )
+     )
     );
 
     print json_encode($answer);

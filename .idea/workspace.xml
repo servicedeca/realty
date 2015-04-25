@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="realty.iws" />
@@ -26,19 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="realty_data_update.module" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty_data_update/realty_data_update.module">
+      <file leaf-file-name="realty.module" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="195">
+            <state line="374" column="5" selection-start="9808" selection-end="9808" vertical-scroll-proportion="-5.647059" vertical-offset="5292" max-vertical-offset="25020">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty.module" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
+      <file leaf-file-name="menu_complex.inc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="930" column="29" selection-start="25242" selection-end="25242" vertical-scroll-proportion="0.0" vertical-offset="13950" max-vertical-offset="25005">
+            <state line="70" column="83" selection-start="2046" selection-end="2046" vertical-scroll-proportion="-16.916666" vertical-offset="599" max-vertical-offset="1470">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu_complex_gallery.inc" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="9" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.55726093" vertical-offset="218" max-vertical-offset="1125">
               <folding />
             </state>
           </provider>
@@ -47,7 +58,16 @@
       <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1056" column="59" selection-start="33584" selection-end="33584" vertical-scroll-proportion="0.0" vertical-offset="15753" max-vertical-offset="24930">
+            <state line="842" column="6" selection-start="26942" selection-end="26942" vertical-scroll-proportion="-2.4117646" vertical-offset="12507" max-vertical-offset="24930">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="realty-map-complex.tpl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/realty-map-complex.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="525">
               <folding />
             </state>
           </provider>
@@ -62,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="node--apartament-full.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="node--apartament-full.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="10" selection-start="4641" selection-end="4641" vertical-scroll-proportion="0.9645809" vertical-offset="953" max-vertical-offset="1980">
+            <state line="118" column="10" selection-start="4641" selection-end="4641" vertical-scroll-proportion="-26.541666" vertical-offset="1133" max-vertical-offset="1980">
               <folding />
             </state>
           </provider>
@@ -98,37 +118,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty-plan-complex.tpl.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/plan_complex/realty-plan-complex.tpl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="115" selection-start="3116" selection-end="3116" vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="1665">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="taxonomy-form-term-homes.tpl.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/mark_picture/theme/taxonomy-form-term-homes.tpl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="0" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="1020">
-              <folding>
-                <marker date="1429860430870" expanded="true" signature="415:465" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="490:543" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="565:606" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="637:645" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="651:698" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="774:832" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="854:895" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="923:1251" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="1524:1572" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="1603:1649" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="1686:1693" placeholder="..." />
-                <marker date="1429860430870" expanded="true" signature="1724:1777" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -149,8 +138,6 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/comment_complex/comment_complex.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/front_map/front_map.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/header_front/header_front.inc" />
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc" />
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/user_profile/user_profile.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_form/search_form.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_search_form/search_search_form.inc" />
@@ -188,11 +175,13 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty_data_update/realty_data_update.module" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/mark_picture/theme/taxonomy-form-term-homes.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/plan_complex/plan_complex.inc" />
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" />
-        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc" />
       </list>
     </option>
   </component>
@@ -693,6 +682,90 @@
               <option name="myItemId" value="custom" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content_types" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu_complex_gallery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content_types" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu_complex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="custom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -881,20 +954,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1889" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/realty-map-complex.tpl.php</url>
+          <line>11</line>
+          <option name="timeStamp" value="1892" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1893" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--term-view--developer-gallery.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/realty-booking-apartment-form.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="514" selection-end="541" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="915" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--complex--complex.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576" />
@@ -922,12 +992,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/bootstrap.inc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2329" column="0" selection-start="79657" selection-end="79657" vertical-scroll-proportion="-7.5" vertical-offset="34710" max-vertical-offset="52920" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="5" selection-start="2324" selection-end="2324" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1515" />
+        <state line="2329" column="0" selection-start="79657" selection-end="79657" vertical-scroll-proportion="-7.5" vertical-offset="34710" max-vertical-offset="52920">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/realty-modal-search-form.tpl.php">
@@ -1094,18 +1161,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="0" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="1020">
           <folding>
-            <marker date="1429860430870" expanded="true" signature="415:465" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="490:543" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="565:606" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="637:645" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="651:698" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="774:832" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="854:895" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="923:1251" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="1524:1572" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="1603:1649" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="1686:1693" placeholder="..." />
-            <marker date="1429860430870" expanded="true" signature="1724:1777" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1429860430870" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1131,13 +1198,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="930" column="29" selection-start="25242" selection-end="25242" vertical-scroll-proportion="0.0" vertical-offset="13950" max-vertical-offset="25005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--result-search.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="471" max-vertical-offset="1320">
@@ -1152,13 +1212,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1056" column="59" selection-start="33584" selection-end="33584" vertical-scroll-proportion="0.0" vertical-offset="15753" max-vertical-offset="24930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3010" column="3" selection-start="46960" selection-end="46960" vertical-scroll-proportion="0.0" vertical-offset="44745" max-vertical-offset="89670">
@@ -1168,7 +1221,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="10" selection-start="4641" selection-end="4641" vertical-scroll-proportion="0.9645809" vertical-offset="953" max-vertical-offset="1980">
+        <state line="118" column="10" selection-start="4641" selection-end="4641" vertical-scroll-proportion="-26.541666" vertical-offset="1133" max-vertical-offset="1980">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="842" column="6" selection-start="26942" selection-end="26942" vertical-scroll-proportion="-2.4117646" vertical-offset="12507" max-vertical-offset="24930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/realty-map-complex.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="871">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="374" column="5" selection-start="9808" selection-end="9808" vertical-scroll-proportion="-5.647059" vertical-offset="5292" max-vertical-offset="25020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="83" selection-start="2046" selection-end="2046" vertical-scroll-proportion="-16.916666" vertical-offset="599" max-vertical-offset="1470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="9" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.55726093" vertical-offset="218" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
