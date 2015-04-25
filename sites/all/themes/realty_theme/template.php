@@ -1161,7 +1161,6 @@ function realty_preprocess_views_view_unformatted__complex__gallery_photo(&$vars
           )
         );
         foreach ($album->field_field_image_gallery as $photo) {
-          continue;
           $vars['albums'][$key]['photos'][] = l('',file_create_url($photo['raw']['uri']), array(
             'title' => $photo['raw']['title'],
           ));
