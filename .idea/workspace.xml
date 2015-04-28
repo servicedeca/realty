@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,19 +97,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty_theme.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="realty_theme.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="472" column="11" selection-start="15153" selection-end="15153" vertical-scroll-proportion="0.6629986" vertical-offset="6598" max-vertical-offset="12570">
+            <state line="472" column="11" selection-start="15153" selection-end="15153" vertical-scroll-proportion="-17.851852" vertical-offset="6598" max-vertical-offset="12570">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty-views-exposed-form.tpl.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="realty-views-exposed-form.tpl.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="53" selection-start="1663" selection-end="1663" vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="840">
+            <state line="43" column="41" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.7328767" vertical-offset="110" max-vertical-offset="840">
               <folding />
             </state>
           </provider>
@@ -176,9 +176,9 @@
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty_data_update/realty_data_updata.drush.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty_data_update/realty_data_update.drush.inc" />
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" />
       </list>
     </option>
   </component>
@@ -1100,13 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="53" selection-start="1663" selection-end="1663" vertical-scroll-proportion="-28.75" vertical-offset="0" max-vertical-offset="840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/theme/theme.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="62" selection-start="391" selection-end="391" vertical-scroll-proportion="-6.9583335" vertical-offset="103" max-vertical-offset="2955">
@@ -1137,7 +1130,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="472" column="11" selection-start="15153" selection-end="15153" vertical-scroll-proportion="0.6629986" vertical-offset="6598" max-vertical-offset="12570">
+        <state line="472" column="11" selection-start="15153" selection-end="15153" vertical-scroll-proportion="-17.851852" vertical-offset="6598" max-vertical-offset="12570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="41" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.7328767" vertical-offset="110" max-vertical-offset="840">
           <folding />
         </state>
       </provider>

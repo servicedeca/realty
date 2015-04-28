@@ -40,7 +40,7 @@
 <div class="col-xs-3" style="height: 70px">
   </div>
 
-<div class="element-hidde">
+<div class="element-hidden">
   <?php print render($form['sort_by']);?>
   <?php print render($form['sort_order']);?>
   <?php print render($form['field_apartament_home_tid']);?>
