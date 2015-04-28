@@ -1298,8 +1298,8 @@ function realty_filter_complex_apartment_form($form, $form_state) {
   foreach ($homes as $key => $home) {
     $options[$home->tid] = $home->field_field_address_house[0]['rendered']['#markup'];
     $sections[$home->field_field_address_house[0]['rendered']['#markup']]
-    [$home->field_field_number_section[0]['rendered']['#markup'] . ':' . $home->tid] =
-      $home->field_field_number_section[0]['rendered']['#markup'];
+    [$home->field_field_number_section[0]['raw']['value'] . ':' . $home->tid] =
+      $home->field_field_number_section[0]['raw']['value'];
   }
   $form['address'] = array(
     '#type' => 'select',
@@ -1336,9 +1336,12 @@ function realty_form_views_exposed_form_alter(&$form, &$form_state) {
   if ($city == NULL) {
     $city = taxonomy_term_load(arg(1));
   }
+  $a = arg(0);
   if ($form['#id'] == 'views-exposed-form-apartments-apartment-complex' ||
-    $form['#id'] == 'views-exposed-form-apartments-apartment-developer' ) {
+    $form['#id'] == 'views-exposed-form-apartments-apartment-developer') {
+    if (arg(0) != 'admin') {
       $form['#theme'] = 'realty_views_exposed_form';
+    }
   }
 
   if (arg(0) != 'search') {

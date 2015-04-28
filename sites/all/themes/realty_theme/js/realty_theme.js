@@ -460,7 +460,13 @@
         $('#complex-plan').hide();
         $('.plan-home-section').hide();
         $('.plan-home-section-floor').hide();
-        $('#home-'+id_section[1]+'-'+id_section[2]+'-'+id_section[3]).fadeIn(500);
+        for (var c = 1; c < 100; c++) {
+          console.log($('#home-'+id_section[1]+'-'+id_section[2]+'-' + c).length);
+          if ($('#home-'+id_section[1]+'-'+id_section[2]+'-' + c).length > 0) {
+            $('#home-'+id_section[1]+'-'+id_section[2]+'-'+c).fadeIn(500);
+            break;
+          }
+        }
       });
 
       $('.over-plan').click(function(){
@@ -580,6 +586,7 @@
     attach: $(function(){
       var apartmentFilter = function () {
         window.all_select = $('#filter-form-section').html();
+
         var change_select_list = function (homes) {
           var group = {};
           if (homes != null) {
