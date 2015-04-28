@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,15 +38,6 @@
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/theme/theme.inc">
           <provider selected="true" editor-type-id="text-editor">
             <state line="20" column="62" selection-start="391" selection-end="391" vertical-scroll-proportion="-6.9583335" vertical-offset="103" max-vertical-offset="2955">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="findome-03.svg" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/images/findome-03.svg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="88" selection-start="5167" selection-end="5167" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="3480">
               <folding />
             </state>
           </provider>
@@ -106,10 +97,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty-views-exposed-form.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="realty-views-exposed-form.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="41" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.7328767" vertical-offset="110" max-vertical-offset="840">
+            <state line="25" column="7" selection-start="951" selection-end="951" vertical-scroll-proportion="-11.041667" vertical-offset="110" max-vertical-offset="840">
+              <folding>
+                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5976" column="1" selection-start="93487" selection-end="93487" vertical-scroll-proportion="0.96021223" vertical-offset="88916" max-vertical-offset="89730">
               <folding />
             </state>
           </provider>
@@ -166,7 +168,6 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/mark_picture/theme/taxonomy-form-term-homes.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/plan_complex/plan_complex.inc" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" />
-        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc" />
@@ -179,6 +180,7 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" />
       </list>
     </option>
   </component>
@@ -369,6 +371,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="realty_theme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realty_theme" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1007,11 +1039,6 @@
         <state line="54" column="43" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1125" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3010" column="3" selection-start="46960" selection-end="46960" vertical-scroll-proportion="0.0" vertical-offset="44745" max-vertical-offset="89670" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="118" column="10" selection-start="4641" selection-end="4641" vertical-scroll-proportion="0.0" vertical-offset="1133" max-vertical-offset="1980">
@@ -1137,7 +1164,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="41" selection-start="1505" selection-end="1505" vertical-scroll-proportion="0.7328767" vertical-offset="110" max-vertical-offset="840">
+        <state line="25" column="7" selection-start="951" selection-end="951" vertical-scroll-proportion="-11.041667" vertical-offset="110" max-vertical-offset="840">
+          <folding>
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5976" column="1" selection-start="93487" selection-end="93487" vertical-scroll-proportion="0.96021223" vertical-offset="88916" max-vertical-offset="89730">
           <folding />
         </state>
       </provider>

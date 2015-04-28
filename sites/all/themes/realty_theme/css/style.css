@@ -5971,3 +5971,7 @@ background: url("../images/icon/down.png") no-repeat center right;
   max-height: 260px;
   overflow: hidden;
 }
+
+.right-part-complex{
+  margin-bottom:70px;
+}
