@@ -460,11 +460,16 @@
         $('#complex-plan').hide();
         $('.plan-home-section').hide();
         $('.plan-home-section-floor').hide();
-        for (var c = 1; c < 100; c++) {
-          console.log($('#home-'+id_section[1]+'-'+id_section[2]+'-' + c).length);
-          if ($('#home-'+id_section[1]+'-'+id_section[2]+'-' + c).length > 0) {
-            $('#home-'+id_section[1]+'-'+id_section[2]+'-'+c).fadeIn(500);
-            break;
+        if ($('#home-'+id_section[1]+'-'+id_section[2]+'-' + id_section[3]).length > 0) {
+          $('#home-'+id_section[1]+'-'+id_section[2]+'-'+id_section[3]).fadeIn(500);
+        }
+        else {
+          for (var c = 1; c < 100; c++) {
+            console.log($('#home-'+id_section[1]+'-'+id_section[2]+'-' + c).length);
+            if ($('#home-'+id_section[1]+'-'+id_section[2]+'-' + c).length > 0) {
+              $('#home-'+id_section[1]+'-'+id_section[2]+'-'+c).fadeIn(500);
+              break;
+            }
           }
         }
       });
