@@ -664,31 +664,32 @@
         });
 
         var address = $("#filter-form-address").val(),
-          sections = $('#edit-field-section-value').val();
+            sections = $('#edit-field-section-value').val();
 
-        if ($("#filter-form-address").val() != null) {
-          for (var e in address) {
-            for (var en in sections) {
-              var option = sections[en]+':'+address[e];
-              console.log(option);
-              $('#filter-form-section option[value="'+option+'"]').attr('selected', 'selected');
-            }
-          }
+
+        for (var en in window.selectedOP) {
+          $('#filter-form-section option[value="'+window.selectedOP[en]+'"]').attr('selected', 'selected');
         }
+
         $('#filter-form-section').change(function() {
           var section,
             sections = $(this).val();
-
           for (var c in window.sections) {
             section = c.split(':');
-            $('#edit-field-section-value option[value='+section[0]+']').attr('selected', false);
             $('#edit-field-apartament-home-tid option[value='+section[1]+']').attr('selected', false);
           }
+          var regExp = '(';
           for (var i in sections) {
             section = sections[i].split(':');
-            $('#edit-field-section-value option[value='+section[0]+']').attr('selected', 'selected');
+            regExp += section[0] + '$|';
             $('#edit-field-apartament-home-tid option[value='+section[1]+']').attr('selected', 'selected');
           }
+          regExp = regExp.substr(0, regExp.length-2);
+          regExp.length > 0 ?  regExp += '$)': regExp = null;
+          if (regExp != 'null') {
+            $('#edit-field-section-value').val(regExp);
+          }
+
         })
           .multipleSelect({
             placeholder: 'Секция',
@@ -721,6 +722,7 @@
         });
 
         $(document).on('click', '.complex-filter-clear-button',function () {
+          window.selectedOP = $('#filter-form-section').val();
           $('#edit-submit-apartments').trigger('click');
         });
       }
