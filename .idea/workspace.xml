@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/image/image.field.inc" afterPath="$PROJECT_DIR$/modules/image/image.field.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,7 +79,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1133" column="1" selection-start="17477" selection-end="17477" vertical-scroll-proportion="0.9524564" vertical-offset="16394" max-vertical-offset="89775">
+            <state line="1149" column="1" selection-start="17656" selection-end="17656" vertical-scroll-proportion="0.8860182" vertical-offset="16652" max-vertical-offset="90015">
               <folding />
             </state>
           </provider>
@@ -1212,7 +1212,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1133" column="1" selection-start="17477" selection-end="17477" vertical-scroll-proportion="0.9524564" vertical-offset="16394" max-vertical-offset="89775">
+        <state line="1149" column="1" selection-start="17656" selection-end="17656" vertical-scroll-proportion="0.8860182" vertical-offset="16652" max-vertical-offset="90015">
           <folding />
         </state>
       </provider>
