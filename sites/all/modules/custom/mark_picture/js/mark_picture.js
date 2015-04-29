@@ -320,6 +320,7 @@
 
 
       addApartmentsPlan.click(function() {
+        alert('ok');
         $('#add-apartments-plan-form').html('')
           .html(scanFloors());
       });
