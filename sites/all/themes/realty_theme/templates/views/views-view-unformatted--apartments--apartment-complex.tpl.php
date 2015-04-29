@@ -58,10 +58,10 @@
           <?php print $apartment['sq'] . 'м'?><sup>2</sup>
         </td>
         <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
-          <?php print $apartment['price'] . 'т.р.'?>
+          <?php print $apartment['price'];?>
         </td>
         <td class="anchor" onClick='location.href="<?php print $apartment['apartment_path']?>"'>
-          <?php print $apartment['coast'] . 'т.р.'?>
+          <?php print $apartment['coast']; ?>
         </td>
       </tr>
         <?php endforeach;?>

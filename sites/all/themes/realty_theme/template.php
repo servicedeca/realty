@@ -298,9 +298,9 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_complex
         'floor' => $val->field_field_apartment_floor[0]['raw']['value'],
         'room' => $val->field_field_number_rooms[0]['raw']['value'],
         'sq' => $val->field_field_gross_area[0]['rendered']['#markup'],
-        'price' => $val->field_field_price[0]['raw']['value'],
         'home_floor' =>  $val->field_field_number_floor[0]['raw']['value'],
-        'coast' => $val->field_field_full_cost[0]['raw']['value'] / 1000,
+        'price' => $val->field_field_price[0]['rendered']['#markup'],
+        'coast' => $val->field_field_full_cost[0]['rendered']['#markup'],
         'status' => $val->field_field_status[0]['raw']['value'] / 1000,
       );
 
@@ -470,8 +470,8 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
         'floor' => $val->field_field_apartment_floor[0]['raw']['value'],
         'home_floor' =>  $val->field_field_number_floor[0]['raw']['value'],
         'sq' => $val->field_field_gross_area[0]['raw']['value'],
-        'price' => $val->field_field_price[0]['raw']['value'],
-        'coast' => $val->field_field_full_cost[0]['raw']['value'],
+        'price' => $val->field_field_price[0]['rendered']['#markup'],
+        'coast' => $val->field_field_full_cost[0]['rendered']['#markup'],
         'status' => $val->field_field_status[0]['raw']['value'],
       );
 
@@ -1282,8 +1282,8 @@ function realty_preprocess_views_view_unformatted__apartments__apartment_develop
         'floor' => $val->field_field_apartment_floor[0]['raw']['value'],
         'room' => $val->field_field_number_rooms[0]['raw']['value'],
         'sq' => $val->field_field_gross_area[0]['rendered']['#markup'],
-        'price' => $val->field_field_price[0]['raw']['value'],
-        'coast' => $val->field_field_full_cost[0]['raw']['value'] / 1000,
+        'price' => $val->field_field_price[0]['rendered']['#markup'],
+        'coast' => $val->field_field_full_cost[0]['rendered']['#markup'],
         'status' => $val->field_field_status[0]['raw']['value'] / 1000,
       );
 

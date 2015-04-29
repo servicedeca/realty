@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/go-pear.phar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/mark_picture/js/mark_picture.js" afterPath="$PROJECT_DIR$/sites/all/modules/custom/mark_picture/js/mark_picture.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/realty.iml" afterPath="$PROJECT_DIR$/.idea/realty.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--result-search.tpl.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--result-search.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-developer.tpl.php" afterPath="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-developer.tpl.php" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,37 +60,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realty_search_form.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_search_form.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="175" column="54" selection-start="5805" selection-end="5805" vertical-scroll-proportion="-10.444445" vertical-offset="2343" max-vertical-offset="5295">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="realty_main_search_form.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_main_search_form.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="37" selection-start="856" selection-end="873" vertical-scroll-proportion="-7.740741" vertical-offset="286" max-vertical-offset="4020">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="template.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="473" column="65" selection-start="16008" selection-end="16008" vertical-scroll-proportion="-6.647059" vertical-offset="6756" max-vertical-offset="24915">
+            <state line="473" column="46" selection-start="15982" selection-end="16003" vertical-scroll-proportion="0.33278418" vertical-offset="6893" max-vertical-offset="24915">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views-view-unformatted--apartments--result-search.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views-view-unformatted--apartments--apartment-complex.tpl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="43" selection-start="2603" selection-end="2603" vertical-scroll-proportion="-21.25" vertical-offset="435" max-vertical-offset="1125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views-view-unformatted--apartments--apartment-developer.tpl.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-developer.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="39" selection-start="2441" selection-end="2441" vertical-scroll-proportion="-18.916666" vertical-offset="491" max-vertical-offset="1125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views-view-unformatted--apartments--result-search.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--result-search.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="45" selection-start="3426" selection-end="3426" vertical-scroll-proportion="0.5728643" vertical-offset="723" max-vertical-offset="1320">
+            <state line="71" column="45" selection-start="3426" selection-end="3426" vertical-scroll-proportion="-15.791667" vertical-offset="686" max-vertical-offset="1320">
               <folding />
             </state>
           </provider>
@@ -141,7 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_form/search_form.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/search_search_form/search_search_form.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_partners/block_partners.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/block_stock/block_stock.inc" />
@@ -176,7 +172,6 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty_data_update/realty_data_update.module" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/mark_picture/theme/taxonomy-form-term-homes.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/plan_complex/plan_complex.inc" />
-        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex/menu_complex.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/menu_complex_gallery/menu_complex_gallery.inc" />
@@ -190,8 +185,10 @@
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/mark_picture/js/mark_picture.js" />
-        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--result-search.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-developer.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/template.php" />
       </list>
     </option>
   </component>
@@ -824,11 +821,11 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28874734" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28874734" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24653888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25159237" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27902022" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22611465" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4968153" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -882,16 +879,16 @@
           <line>11</line>
           <option name="timeStamp" value="1892" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php</url>
+          <line>285</line>
+          <option name="timeStamp" value="1956" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1955" />
+      <option name="time" value="1957" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/fubik/templates/page.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1490" selection-end="1565" vertical-scroll-proportion="0.0" vertical-offset="121" max-vertical-offset="990" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/plugins/content_types/apartment_complex/realty-apartment-complex.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="893" />
@@ -1015,11 +1012,6 @@
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/mark_picture/theme/taxonomy-form-term-homes.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="0" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="1020" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="43" selection-start="2083" selection-end="2083" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1125" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/node/node--apartament-full.tpl.php">
@@ -1195,16 +1187,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-complex.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="473" column="65" selection-start="16008" selection-end="16008" vertical-scroll-proportion="-6.647059" vertical-offset="6756" max-vertical-offset="24915">
+        <state line="63" column="43" selection-start="2603" selection-end="2603" vertical-scroll-proportion="-21.25" vertical-offset="435" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--apartment-developer.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="39" selection-start="2441" selection-end="2441" vertical-scroll-proportion="-18.916666" vertical-offset="491" max-vertical-offset="1125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--result-search.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="45" selection-start="3426" selection-end="3426" vertical-scroll-proportion="0.5728643" vertical-offset="723" max-vertical-offset="1320">
+        <state line="71" column="45" selection-start="3426" selection-end="3426" vertical-scroll-proportion="-15.791667" vertical-offset="686" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/realty_theme/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="473" column="46" selection-start="15982" selection-end="16003" vertical-scroll-proportion="0.33278418" vertical-offset="6893" max-vertical-offset="24915">
           <folding />
         </state>
       </provider>
