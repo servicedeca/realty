@@ -1103,20 +1103,6 @@ li {
 }
 
 
-@media (max-width: 1350px){
-    .big-stock-title h2{
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 1200px){
-  .big-stock-title h2{
-    font-size: 18px;
-  }
-}
-
-
-
 .big-stock-body div{
   text-align: center;
   font-size: 14px;
@@ -1133,13 +1119,6 @@ li {
     font-size: 12px;
     line-height: 13px;
   }
-}
-
-
-@media (max-width: 1350px){
-    .big-stock-body div{
-        font-size: 15px;
-    }
 }
 
 @media (max-width: 1200px){
