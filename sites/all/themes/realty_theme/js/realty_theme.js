@@ -3,7 +3,7 @@
   Drupal.behaviors.realtyInit = {
     attach: $(function() {
      // jQuery.extend(Drupal.settings, {"devel":{"request_id":149027}});
-      //window.alert = function(arg) { if (window.console && console.log) { console.log(arg);}};
+      window.alert = function(arg) { if (window.console && console.log) { console.log(arg);}};
       if(Drupal.settings.id) {
         $("body").attr("id","index");
       }

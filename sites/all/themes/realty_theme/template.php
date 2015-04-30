@@ -479,6 +479,7 @@ function realty_preprocess_views_view_unformatted__apartments__result_search(&$v
         'path' => REALTY_FRONT_THEME_PATH . '/images/add.svg',
         'attributes' => array(
           'class' => array('add','z-but'),
+          'class' => array('add','z-but'),
         ),
       ));
 
