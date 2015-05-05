@@ -1,8 +1,8 @@
 <?php
 
 define('FTP_HOST', '62.109.22.209');
-define('FTP_USER', 'user003');
-define('FTP_PASSWORD', 'f2i3n1d5');
+define('FTP_USER', 'ftpadmin');
+define('FTP_PASSWORD', 'password1');
 
 /**
  * Implements hook_drush_command().
@@ -40,14 +40,18 @@ function realty_data_update_connect_ftp() {
   }
 
   $result = ftp_login($connect, FTP_USER, FTP_PASSWORD);
-  $files = ftp_nlist($connect, "files");
-  foreach ($files as $file) {
-    $name_file = explode('/', $file);
-    $fp = fopen (realty_file_directory_path(). '/ftpfiles/' . $name_file[1], "w");
-    fclose($fp);
-    ftp_get($connect, realty_file_directory_path(). '/ftpfiles/' . $name_file[1] , $file, FTP_BINARY);
+  $directory = ftp_nlist($connect, "/");
+  foreach ($directory as $dir) {
+    $files = ftp_nlist($connect, $dir . "/files");
+    foreach ($files as $file) {
+      $name_file = explode('/', $file);
+      $fp = fopen(realty_file_directory_path(). '/ftpfiles/' . $name_file[3], "w");
+      fclose($fp);
+      ftp_get($connect, realty_file_directory_path(). '/ftpfiles/' . $name_file[3], $file, FTP_BINARY);
+      $local_files[] =  $name_file[3];
+    }
   }
-  return $files;
+  return $local_files;
 }
 
 /**
@@ -57,8 +61,8 @@ function realty_data_update_drush_apartment_update() {
   $complexes = realty_data_update_complex_name_list();
   $files = realty_data_update_connect_ftp();
   foreach ($files as $file) {
-    $name_file = explode('/', $file);
-    $xmlNode = simplexml_load_file(realty_file_directory_path(). '/ftpfiles/' . $name_file[1]);
+    //$name_file = explode('/', $file);
+    $xmlNode = simplexml_load_file(realty_file_directory_path(). '/ftpfiles/' . $file);
     $object = realty_data_update_xmlToArray($xmlNode);
     $complex_name = $object['LISTINGS']['PARTNER']['COMPLEX_NAME'];
     foreach ($complexes as $complex) {
