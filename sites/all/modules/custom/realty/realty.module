@@ -570,7 +570,7 @@ function realty_node_presave($node) {
         unset($node->field_user_signal['und']);
       }
     }
-    if (!isset($node->field_price[LANGUAGE_NONE][0]['value'])) {
+    if (!isset($node->field_price[LANGUAGE_NONE][0]['value'])) {  
         $node->field_price[LANGUAGE_NONE][0]['value'] = intval($node->field_full_cost['und'][0]['value'] /
             $node->field_gross_area['und'][0]['value']);
     }

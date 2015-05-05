@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8337179a-9ce2-432a-8092-fdcc05fbdf78" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findome/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findome/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findome/.idea/findome.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findome/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findome/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findome/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/findome/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/channel.xml" afterPath="$PROJECT_DIR$/channel.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/patches/drupal-allow_unsupported_image_extensions-1014816-11.patch" afterPath="$PROJECT_DIR$/patches/drupal-allow_unsupported_image_extensions-1014816-11.patch" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" afterPath="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="realty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +28,7 @@
       <file leaf-file-name="realty.module" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="572" column="64" selection-start="15641" selection-end="15641" vertical-scroll-proportion="0.5507246" vertical-offset="8284" max-vertical-offset="25140">
+            <state line="572" column="66" selection-start="15643" selection-end="15643" vertical-scroll-proportion="0.5507246" vertical-offset="8284" max-vertical-offset="25140">
               <folding />
             </state>
           </provider>
@@ -181,7 +170,6 @@
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/images/add.svg" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/images/findome-03.svg" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty_data_update/realty_data_updata.drush.inc" />
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/theme/realty-views-exposed-form.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/mark_picture/js/mark_picture.js" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/templates/views/views-view-unformatted--apartments--result-search.tpl.php" />
@@ -192,6 +180,7 @@
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/js/realty_theme.js" />
         <option value="$PROJECT_DIR$/sites/all/themes/realty_theme/css/style.css" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/realty_data_update/realty_data_update.drush.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module" />
       </list>
     </option>
   </component>
@@ -869,7 +858,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/realty/realty.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="572" column="64" selection-start="15641" selection-end="15641" vertical-scroll-proportion="0.5507246" vertical-offset="8284" max-vertical-offset="25140">
+        <state line="572" column="66" selection-start="15643" selection-end="15643" vertical-scroll-proportion="0.5507246" vertical-offset="8284" max-vertical-offset="25140">
           <folding />
         </state>
       </provider>
